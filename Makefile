@@ -4,7 +4,13 @@ conf:
 	cp .env.example .env
 	php artisan key:generate
 	sudo apt-get install mysql-server-5.7
-	$(MAKE) bd-conf
+	# $(MAKE) bd-conf
+
+composer:
+	apt-get install composer
+	cp .env.example .env
+	php artisan key:generate
+	# $(MAKE) bd-conf
 
 conf-git-erickson:
 	git config user.email "erickson.rinho@hotmail.com"
