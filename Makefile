@@ -33,6 +33,6 @@ conf-git-cleyton:
 	git config user.name "seuusuario"
 
 conf-git-ricardo:
-	git config user.email "seuemail@gmail.com"
-	git config user.name "seuusuario"
+	git config user.email "cranioscaner@gmail.com"
+	git config user.name "ricardomlp"
 
