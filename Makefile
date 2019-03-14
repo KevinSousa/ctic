@@ -24,8 +24,8 @@ conf-git-luigi:
 	git config user.name "Luigimartins"
 
 conf-git-jhonny:
-	git config user.email "seuemail@gmail.com"
-	git config user.name "seuusuario"
+	git config user.email "jhonnyfarias87@gmail.com"
+	git config user.name "jhonnyfreitas1"
 
 conf-git-cleyton:
 	git config user.email "seuemail@gmail.com"
