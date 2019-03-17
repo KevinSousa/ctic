@@ -1,5 +1,5 @@
 DROP DATABASE IF EXISTS ctic;
-DROP USER IF EXISTS adminctic; 
+DROP USER IF EXISTS 'adminctic'@'localhost'; 
 
 CREATE DATABASE ctic;
 
@@ -15,13 +15,13 @@ USE ctic;
 );*/
 
 CREATE TABLE funcoes( /* FUNCOES DOS FUNCIONARIOS */
-	funcao_id INT NOT NULL,
+	funcao_id INT AUTO_INCREMENT NOT NULL,
     funcao_nome VARCHAR (255) NOT NULL,
 		CONSTRAINT pkfuncao PRIMARY KEY (funcao_id)
 );
 
 CREATE TABLE funcionario( /* TABELA DOS FUNCIONARIOS */
-	func_id INT NOT NULL,
+	func_id INT AUTO_INCREMENT NOT NULL,
 	func_nome VARCHAR(255) NOT NULL,
     func_cpf VARCHAR(255) NOT NULL,
     func_numero_siap VARCHAR(9) NOT NULL,
@@ -32,20 +32,20 @@ CREATE TABLE funcionario( /* TABELA DOS FUNCIONARIOS */
 );
 
 CREATE TABLE salas( /* TABELA DAS SALAS */
-	sala_id INT NOT NULL,
+	sala_id INT AUTO_INCREMENT NOT NULL,
     sala_identificacao VARCHAR (20) NOT NULL,
     sala_andar SET('TÉRREO', 'PRIMEIRO', 'SEGUNDO', 'TERCEIRO'),
 		CONSTRAINT pksalas PRIMARY KEY (sala_id)
 );
 
 CREATE TABLE tipo_equipamento( /* TIPOS DOS EQUIPAMENTOS. EX: REDE, HARDWARE, PROJEÇÃO, ENERGIA E ETC.*/
-	tipo_id INT NOT NULL,
+	tipo_id INT AUTO_INCREMENT NOT NULL,
     tipo_nome VARCHAR(200) NOT NULL,
 		CONSTRAINT pktipo PRIMARY KEY (tipo_id)
 );
 
 CREATE TABLE equipamentos( /* TABELA DOS EQUIPAMENTOS */
-	equip_id INT NOT NULL,
+	equip_id INT AUTO_INCREMENT NOT NULL,
     equip_marca VARCHAR(200),
     equip_tombamento VARCHAR(200),
     equip_tipo INT NOT NULL,
@@ -55,13 +55,13 @@ CREATE TABLE equipamentos( /* TABELA DOS EQUIPAMENTOS */
 );
 
 CREATE TABLE tipo_problema( /* ESSA TABELA É PRA ESPECIFICAR O TIPO DO PROBLEMA. EX: HARDWARE, SOFTWARE, REDE E ETC.*/
-	probl_id INT NOT NULL,
+	probl_id INT AUTO_INCREMENT NOT NULL,
     probl_tipo VARCHAR(200) NOT NULL,
 		CONSTRAINT pkprobl PRIMARY KEY (probl_id)
 );
 
 CREATE TABLE chamados( /* TABELA DOS CHAMADOS */
-	cham_id INT NOT NULL,
+	cham_id INT AUTO_INCREMENT NOT NULL,
     cham_data_chamado TIMESTAMP NOT NULL, /*AQUI É A DATA DO CHAMADO EFETUADO*/
     cham_grau_urgencia SET ('BAIXO', 'MÉDIO', 'ALTO'),
     cham_funcionario INT NOT NULL, /* FUNCIONARIO */
