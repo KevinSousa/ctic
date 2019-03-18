@@ -14,10 +14,14 @@ class CreateEquipamentosTable extends Migration
     public function up()
     {
         Schema::create('equipamentos', function (Blueprint $table) {
-            $table->increments(' equip_id');
-            $table->string(' equip_marca');
-            $table->string(' equip_tombamento');
-            $table->Integer(' equip_tipo');
+            $table->increments('equip_id');
+            $table->string('equip_marca');
+            $table->string('equip_tombamento');
+            $table->Integer('equip_tipo');
+
+            /** Chave Estrangeira do banco eventos*/          
+            $table->Integer('equip_tipo')->unsigned();
+            $table->foreign('equip_tipo')->references('tipo_equipamentos')->on('tipo_id')->onDelete('cascade');
         });
     }
 
