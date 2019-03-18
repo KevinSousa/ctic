@@ -14,8 +14,11 @@ class CreateFuncionariosTable extends Migration
     public function up()
     {
         Schema::create('funcionarios', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('func_id');
+            $table->string('func_name');
+            $table->string('func_cpf');
+            $table->Integer('func_numero_siap');
+            $table->string('func_funcao');
         });
     }
 

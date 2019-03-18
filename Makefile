@@ -7,6 +7,7 @@ conf:
 	# $(MAKE) bd-conf
 
 composer:
+	composer install --no-scripts
 	cp .env.example .env
 	php artisan key:generate
 	# $(MAKE) bd-conf
