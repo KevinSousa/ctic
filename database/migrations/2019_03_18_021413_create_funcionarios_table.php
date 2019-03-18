@@ -17,8 +17,8 @@ class CreateFuncionariosTable extends Migration
             $table->increments('func_id');
             $table->string('func_name');
             $table->string('func_cpf');
-            $table->Integer('func_numero_siap');
-            $table->string('func_funcao');
+            $table->string('func_numero_siap');
+            $table->int('func_funcao');
         });
     }
 
