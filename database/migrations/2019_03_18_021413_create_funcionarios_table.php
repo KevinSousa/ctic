@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,7 +18,10 @@ class CreateFuncionariosTable extends Migration
             $table->string('func_name');
             $table->string('func_cpf');
             $table->string('func_numero_siap');
-            $table->int('func_funcao');
+
+            /** Chave Estrangeira do banco eventos*/          
+            $table->Integer('func_funcao')->unsigned();
+            $table->foreign('func_funcao')->references('funcao_id')->on('funcaos')->onDelete('cascade');
         });
     }
 
