@@ -14,8 +14,8 @@ class CreateTipoProblemasTable extends Migration
     public function up()
     {
         Schema::create('tipo_problemas', function (Blueprint $table) {
-            $table->inccrements(' probl_id');
-            $table->string(' probl_tipo');
+            $table->increments('probl_id');
+            $table->string('probl_tipo');
 
         });
     }
