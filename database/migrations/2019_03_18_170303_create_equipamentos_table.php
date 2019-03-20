@@ -17,11 +17,10 @@ class CreateEquipamentosTable extends Migration
             $table->increments('equip_id');
             $table->string('equip_marca');
             $table->string('equip_tombamento');
-            $table->Integer('equip_tipo');
 
             /** Chave Estrangeira do banco eventos*/          
             $table->Integer('equip_tipo')->unsigned();
-            $table->foreign('equip_tipo')->references('tipo_equipamentos')->on('tipo_id')->onDelete('cascade');
+            $table->foreign('equip_tipo')->references('tipo_id')->on('tipo_equipamentos')->onDelete('cascade');
         });
     }
 
