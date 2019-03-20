@@ -18,6 +18,6 @@ class Tipo_problema extends Model
 
 	/*Função que representa o relacionamento de muitos para um*/
 	  public function cham_tipo_probl(){
-         return $this->belongsTo(Chamado::class);
+         return $this->hasMany(Chamado::class);
      }	
 }
