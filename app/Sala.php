@@ -21,6 +21,6 @@ class Sala extends Model
 		
 	/*Função que representa o relacionamento de muitos para um*/
 	 public function cham_sala(){
-         return $this->belongsTo(Chamado::class);
+         return $this->hasMany(Chamado::class);
      } 
 }
