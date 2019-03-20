@@ -25,6 +25,6 @@ class Equipamento extends Model
 
  	/*Função que representa o relacionamento de muitos para um*/
 	  public function cham_equip(){
-         return $this->belongsTo(Chamado::class);
+         return $this->hasMany(Chamado::class);
      }  
 }
