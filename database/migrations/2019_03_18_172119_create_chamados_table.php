@@ -15,7 +15,7 @@ class CreateChamadosTable extends Migration
     {
         Schema::create('chamados', function (Blueprint $table) {
             $table->increments(' cham_id');
-            $table->timestamps(' cham_data_chamado');
+            $table->timestamp(' cham_data_chamado');
             $table->enum('cham_grau_urgencia', ['BAIXO', 'MÉDIO', 'ALTA']);
             $table->datetime('cham_data_prevista');
             $table->string('cham_descricao');
