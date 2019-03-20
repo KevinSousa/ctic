@@ -7,7 +7,7 @@ use App\Sala;
 use App\Equipamento;
 use App\Tipo_problema;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\hasMany;
+use Illuminate\Database\Eloquent\Relations\belongsTo;
 
 class Chamado extends Model
 {
@@ -25,22 +25,22 @@ class Chamado extends Model
     
     /*Função que representa o relacionamento de muitos para um*/
 	  public function cham_func(){
-         return $this->hasMany(Funcionario::class);
+         return $this->belongsTo(Funcionario::class);
      }      
 
      /*Função que representa o relacionamento de um para muitos*/
 	  public function cham_sala(){
-         return $this->hasMany(Sala::class);
+         return $this->belongsTo(Sala::class);
      } 
 
      /*Função que representa o relacionamento de um para muitos*/
 	  public function cham_equip(){
-         return $this->hasMany(Equipamento::class);
+         return $this->belongsTo(Equipamento::class);
      }
 
      /*Função que representa o relacionamento de um para muitos*/
 	  public function cham_tipo_probl(){
-         return $this->hasMany(Tipo_problema::class);
+         return $this->belongsTo(Tipo_problema::class);
      }    
      
 }
