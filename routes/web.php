@@ -15,15 +15,16 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/', ['as' => 'home' , 'uses' => 'UsersController@index']);
+// ROTAS DOS FUNCIONÁRIOS
 
-Route::get('/remover/{id}', ['as' => 'remover', 'uses' => 'Controller@remover']);
+Route::get('/functionario/', ['as' => 'home', 'uses' => 'FuncionariosController@index'])
 
-Route::post('/salvar', ['as' => 'salvar', 'uses' => 'Controller@salvar']);
+Route::get('/funcionario/remove/{id}', ['as' => 'funcionario.remover', 'uses' => 'FuncionariosController@remove']);
 
-Route::get('/editar/{id}', ['as' => 'editar', 'uses' => 'Controller@editar']);
+Route::post('/funcionario/salvar', ['as' => 'funcionario.salvar', 'uses' => 'FuncionariosController@save']);
 
-Route::put('/atualizar/{id}',['as'=>'atualizar','uses'=>'Controller@atualizar']);
+Route::get('/funcionario/editar/{id}', ['as' => 'funcionario.editar', 'uses' => 'FuncionariosController@edit']);
 
+Route::put('/funcionario/atualizar/{id}',['as'=>'funcionario.atualizar','uses'=>'FuncionariosController@update']);
 
 
