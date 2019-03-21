@@ -15,17 +15,17 @@
 			<th> FUNÇÃO </th>
 		</tr>
 
-	</table>
 
-@foreach ($funcs as $func)
-	<tr>
-		<td> {{$func -> func_id}} </td>
-		<td> {{$func -> func_name}} </td>
-		<td> {{$func -> func_cpf}} </td>
-		<td> {{$func -> func_numero_siap}} </td>
-		<td> {{$func -> func_funcao }} </td>
-	</tr>
-@endforeach
+		@foreach ($funcs as $func)
+			<tr>
+				<td> {{$func -> func_id}} </td>
+				<td> {{$func -> func_name}} </td>
+				<td> {{$func -> func_cpf}} </td>
+				<td> {{$func -> func_numero_siap}} </td>
+				<td> {{$func -> funcao_name}}</td>
+			</tr>
+		@endforeach
+	</table>
 
 </body>
 </html>

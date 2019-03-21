@@ -11,23 +11,22 @@ class FuncionariosController extends Controller
     
     public function index(){
 
-    	// $funcs = Funcionario::all();
-    	// return view('index', compact('funcs'));
+        $funcs = DB::table('funcionarios')
+                    ->join('funcaos', 'func_funcao', '=' , 'funcaos.funcao_id')
+                    ->select('funcionarios.*', 'funcaos.funcao_name')
+                    ->get();
 
-    	// return DB::table('funcionarios')->get();
-
-    	$funcs = DB::table('funcionarios')->get();
-    	return view('index', compact([$funcs]));
+        return view ('index', compact('funcs'));
     	
     }	
 
-	// public function save(Request $req){}
+	public function save(Request $req){}
 
-	// public function remove($id){}
+	public function remove($id){}
 
-	// public function edit($id){}
+	public function edit($id){}
 
-	// public function update(Request $req, $id){}
+	public function update(Request $req, $id){}
 
 }
  
