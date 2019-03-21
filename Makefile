@@ -4,13 +4,18 @@ conf:
 	cp .env.example .env
 	php artisan key:generate
 	sudo apt-get install mysql-server-5.7
-	# $(MAKE) bd-conf
+	$(MAKE) bd-conf
 
 composer:
 	composer install --no-scripts
 	cp .env.example .env
 	php artisan key:generate
-	# $(MAKE) bd-conf
+	$(MAKE) bd-conf
+
+Windows:
+	composer install --no-scripts
+	copy .env.example .env
+	php artisan key:generate
 
 conf-git-erickson:
 	git config user.email "erickson.rinho@hotmail.com"
@@ -36,3 +41,9 @@ conf-git-ricardo:
 	git config user.email "cranioscaner@gmail.com"
 	git config user.name "ricardomlp"
 
+bd-conf:
+	mysql -u root -p --execute="drop database if exists ctic; create database ctic; drop user if exists 'ctic'; create user 'ctic' identified by '123'; grant all privileges on ctic.* to 'ctic';"
+	sed -i 's/DB_DATABASE.*/DB_DATABASE=ctic/' .env
+	sed -i 's/DB_USERNAME.*/DB_USERNAME=ctic/' .env
+	sed -i 's/DB_PASSWORD.*/DB_PASSWORD=123/' .env
+	php artisan migrate:refresh --seed
