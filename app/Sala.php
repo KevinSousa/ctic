@@ -11,13 +11,10 @@ class Sala extends Model
 	protected $table 	= 	"salas";
 
 	/*nome dos atributos que poderão ser não alterados*/
-	protected $guarded	= ['cham_id','cham_funcionario','cham_sala', 'cham_equip', 'champ_tipo_problema'];
+	protected $guarded	= ['sala_id'];
 
 	/*nome dos atributos que poderão ser alterados*/
-	protected $fillable = ['cham_grau_urgencia', 'cham_descricao'];
-
-	/*nome dos atributos que representam as horas*/
-	protected $date 	= ['cham_data_chamado', 'cham_data_prevista'];
+	protected $fillable = ['sala_identificacao', 'sala_andar'];
 		
 	/*Função que representa o relacionamento de muitos para um*/
 	 public function cham_sala(){
