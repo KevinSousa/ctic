@@ -4,24 +4,30 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Funcionario;
+use Illuminate\Support\Facades\DB;
 
 class FuncionariosController extends Controller
 {
     
     public function index(){
 
-    	$func = Funcionario::all();
-    	return view('home', compact('func'));
+    	// $funcs = Funcionario::all();
+    	// return view('index', compact('funcs'));
 
+    	// return DB::table('funcionarios')->get();
+
+    	$funcs = DB::table('funcionarios')->get();
+    	return view('index', compact([$funcs]));
+    	
     }	
 
-	public function save(Request $req){}
+	// public function save(Request $req){}
 
-	public function remove($id){}
+	// public function remove($id){}
 
-	public function edit($id){}
+	// public function edit($id){}
 
-	public function update(Request $req, $id){}
+	// public function update(Request $req, $id){}
 
 }
  
