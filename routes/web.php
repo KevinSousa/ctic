@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 // ROTAS DOS FUNCIONÁRIOS
 
-Route::get('/funcionario/', ['as' => 'funcionario.home', 'uses' => 'FuncionariosController@index'])
+Route::get('/funcionario/', ['as' => 'funcionario.home', 'uses' => 'FuncionariosController@index']);
 
 Route::get('/funcionario/remove/{id}', ['as' => 'funcionario.remover', 'uses' => 'FuncionariosController@remove']);
 
@@ -31,7 +31,7 @@ Route::put('/funcionario/atualizar/{id}',['as'=>'funcionario.atualizar','uses'=>
 
 // ROTAS DOS EQUIPAMENTOS
 
-Route::get('/equipamento/', ['as' => 'equipamento.home', 'uses' => 'EquipamentosController@index'])
+Route::get('/equipamento/', ['as' => 'equipamento.home', 'uses' => 'EquipamentosController@index']);
 
 Route::get('/equipamento/remove/{id}', ['as' => 'equipamento.remover', 'uses' => 'EquipamentosController@remove']);
 
