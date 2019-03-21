@@ -5,6 +5,8 @@ conf:
 	php artisan key:generate
 	sudo apt-get install mysql-server-5.7
 	$(MAKE) bd-conf
+	@git config user.email "erickson.rinho@hotmail.com"
+	@git config user.name "Erickson"
 
 composer:
 	composer install --no-scripts
