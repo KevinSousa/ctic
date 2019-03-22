@@ -16,13 +16,13 @@
 		</tr>
 
 
-		@foreach ($funcs as $func)
+		@foreach ($users as $user)
 			<tr>
-				<td> {{$func -> func_id}} </td>
-				<td> {{$func -> func_name}} </td>
-				<td> {{$func -> func_cpf}} </td>
-				<td> {{$func -> func_numero_siap}} </td>
-				<td> {{$func -> funcao_name}}</td>
+				<td> {{$user -> user_id}} </td>
+				<td> {{$user -> user_name}} </td>
+				<td> {{$user -> user_cpf}} </td>
+				<td> {{$user -> user_numero_siap}} </td>
+				<td> {{$user -> funcao_name}}</td>
 			</tr>
 		@endforeach
 	</table>

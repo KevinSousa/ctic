@@ -18,15 +18,15 @@ Route::get('/', function () {
 
 // ROTAS DOS FUNCIONÁRIOS
 
-Route::get('/funcionario/', ['as' => 'funcionario.home', 'uses' => 'FuncionariosController@index']);
+Route::get('/user/', ['as' => 'user.home', 'uses' => 'UsersController@index']);
 
-Route::get('/funcionario/remove/{id}', ['as' => 'funcionario.remover', 'uses' => 'FuncionariosController@remove']);
+Route::get('/user/remove/{id}', ['as' => 'user.remover', 'uses' => 'UsersController@remove']);
 
-Route::post('/funcionario/salvar', ['as' => 'funcionario.salvar', 'uses' => 'FuncionariosController@save']);
+Route::post('/user/salvar', ['as' => 'user.salvar', 'uses' => 'UsersController@save']);
 
-Route::get('/funcionario/editar/{id}', ['as' => 'funcionario.editar', 'uses' => 'FuncionariosController@edit']);
+Route::get('/user/editar/{id}', ['as' => 'user.editar', 'uses' => 'UsersController@edit']);
 
-Route::put('/funcionario/atualizar/{id}',['as'=>'funcionario.atualizar','uses'=>'FuncionariosController@update']);
+Route::put('/user/atualizar/{id}',['as'=>'user.atualizar','uses'=>'UsersController@update']);
 
 
 // ROTAS DOS EQUIPAMENTOS
