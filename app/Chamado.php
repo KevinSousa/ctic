@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Funcionario;
+use App\User;
 use App\Sala;
 use App\Equipamento;
 use App\Tipo_problema;
@@ -15,7 +15,7 @@ class Chamado extends Model
 	protected $table 	= 	"chamados";
 
 	/*nome dos atributos que poderão ser não alterados*/
-	protected $guarded	= ['cham_id','cham_funcionario','cham_sala', 'cham_equip', 'champ_tipo_problema'];
+	protected $guarded	= ['cham_id','cham_user','cham_sala', 'cham_equip', 'champ_tipo_problema'];
 
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['cham_grau_urgencia', 'cham_descricao'];
@@ -24,8 +24,8 @@ class Chamado extends Model
 	protected $date 	= ['cham_data_chamado', 'cham_data_prevista'];
     
     /*Função que representa o relacionamento de muitos para um*/
-	  public function cham_func(){
-         return $this->belongsTo(Funcionario::class);
+	  public function cham_user(){
+         return $this->belongsTo(User::class);
      }      
 
      /*Função que representa o relacionamento de um para muitos*/
