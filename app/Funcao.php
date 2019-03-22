@@ -18,7 +18,7 @@ class Funcao extends Model
 	protected $fillable = ['funcao_nome'];
 		
 	/*Função que representa o relacionamento de muitos para um*/
-	 public function func_funcao(){
-         return $this->belongsTo(Funcionario::class);
+	 public function user_funcao(){
+         return $this->belongsTo(User::class);
      }
 }
