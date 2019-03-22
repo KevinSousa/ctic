@@ -5,35 +5,32 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\hasMany;
+
 
 class User extends Authenticatable
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    /*nome da tabela*/
+    protected $table    =   "users";
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    /*nome dos atributos que poderão ser não alterados*/
+    protected $guarded  = ['user_id', 'user_funcao'];
+    
+    /*nome dos atributos que poderão ser alterados*/
+    protected $fillable = ['user_name', 'user_email', 'user_password', 'user_cpf', 'user_numero_siap'];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    protected $hidden = ['user_password', 'remember_token'];
+
+    protected $casts = ['email_verified_at' => 'datetime'];
+
+    /*Função que representa o relacionamento de um para muitos*/
+     public function user_funcao(){
+         return $this->hasMany(Funcao::class);
+     }   
+    /*Função que representa o relacionamento de muitos para um*/
+     public function cham_user(){
+        return $this->hasMany(Chamado::class);
+    }
 }
