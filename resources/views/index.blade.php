@@ -32,10 +32,10 @@
 				<label> Senha: </label>
 				<input type="password" name="user_password" required="" placeholder="No mínimo 8 caracteres"><br><br>
 				<label> Função: </label>
-				<select>
+				<select name="user_funcao">
 					<option></option>
 					@foreach($funcaos as $func)
-					 <option value="">{{$func -> funcao_name}}</option>
+					 <option value="{{$func -> funcao_id}}">{{$func -> funcao_name}}</option>
 					@endforeach
 				</select><br>
 				<input class="ui primary button" type="submit" name="" value="Cadastrar">
