@@ -12,15 +12,27 @@ class UsersController extends Controller
     public function index(){
 
         $users = DB::table('users')
-                    ->join('funcaos', 'user_funcao', '=' , 'funcaos.funcao_id')
-                    ->select('users.*', 'funcaos.funcao_name')
-                    ->get();
+                ->join('funcaos', 'user_funcao', '=' , 'funcaos.funcao_id')
+                ->select('users.*', 'funcaos.funcao_name')
+                ->get();
 
-        return view ('index', compact('users'));
+        $funcaos = DB::table('funcaos')
+                ->select('funcao_id', 'funcao_name')
+                ->orderBy('funcao_name', 'asc')
+                -> get();
+
+        return view ('index', compact('users','funcaos'));
     	
     }	
 
-	public function save(Request $req){}
+	public function save(Request $req){
+
+        $dados = $req -> all();
+        User::create($dados);
+
+        return redirect() -> route('user.home');
+
+    }
 
 	public function remove($id){
 
@@ -28,13 +40,6 @@ class UsersController extends Controller
         return redirect()->route('user.home');
 
     }
-
-	// public function edit($id){
-
- //        $usuario = Users::find($id);
- //        return view('editar', compact('usuario'));
-
- //    }
 
 	public function update(Request $req, $id){}
 }
