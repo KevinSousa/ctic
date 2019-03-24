@@ -28,7 +28,6 @@ class UsersController extends Controller
 	public function save(Request $req){
 
         $dados = $req -> all();
-        dd($dados);
         User::create($dados);
         
         return redirect() -> route('user.home');
