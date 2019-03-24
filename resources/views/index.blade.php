@@ -21,7 +21,11 @@
 				<label> Senha:</label>
 				<input type="password" name="">
 				<label> Função </label>
-				<select></select><br>
+				<select>
+					@foreach($funcaos as $func)
+						<option>{{$func -> funcao_name }}</option>
+					@endforeach
+				</select><br>
 				<input class="ui primary button" type="submit" name="" value="Cadastrar">
 				<input class="ui button" type="reset" name="" value="Limpar">
 			</form>
