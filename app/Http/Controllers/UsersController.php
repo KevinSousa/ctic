@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\UsersController;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -20,9 +22,19 @@ class UsersController extends Controller
 
 	public function save(Request $req){}
 
-	public function remove($id){}
+	public function remove($id){
 
-	public function edit($id){}
+        DB::table('users')->where('user_id', '=', $id)->delete();
+        return redirect()->route('user.home');
+
+    }
+
+	// public function edit($id){
+
+ //        $usuario = Users::find($id);
+ //        return view('editar', compact('usuario'));
+
+ //    }
 
 	public function update(Request $req, $id){}
 }
