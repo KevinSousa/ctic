@@ -33,7 +33,7 @@ E-mail: erickson.ferreira@outlook.com
 #MakeFile
 Basicamente e em poucas palavras o “Makefile” instala o PHP, MYSQL,COMPOSER. Além disso ele configura o e-mail e usuário. Por fim, há nele um rápido e pequeno “script” do banco.
 
-#Os passos para baixar o projeto:
+##Os passos para baixar o projeto:
 1. Acesse o “github” através do link “https://github.com/KevinSousa/ctic.git”, clique no botão esverdeado “Clone or Download”.
 2. Entre no “Terminal”, escolha uma pasta para abrigar o projeto, como por exemplo – Downloads –, introduza-se nela com o comado “cd” e efetive o comando “git clone” somado ao link que foi adquerido no botão com tom verde. Desta forma: “git clone https://github.com/KevinSousa/ctic.git”. Pronto! Você já tem o projeto na sua máquina.
 
