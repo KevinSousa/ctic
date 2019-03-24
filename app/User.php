@@ -16,10 +16,10 @@ class User extends Authenticatable
     protected $table    =   "users";
 
     /*nome dos atributos que poderão ser não alterados*/
-    protected $guarded  = ['user_id', 'user_funcao'];
+    protected $guarded  = ['user_id'];
     
     /*nome dos atributos que poderão ser alterados*/
-    protected $fillable = ['user_name', 'user_email', 'user_password', 'user_cpf', 'user_numero_siap'];
+    protected $fillable = ['user_name','user_funcao','user_email', 'user_password', 'user_cpf', 'user_numero_siap'];
 
     protected $hidden = ['user_password', 'remember_token'];
 
