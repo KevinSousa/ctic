@@ -42,8 +42,19 @@ class UsersController extends Controller
     }
 
     public function edit($id){
+
+        $usuario = Users::find($id);
+        return view('user.editar', compact('usuario'));
          
     }
 
-	public function update(Request $req, $id){}
+	public function update(Request $req, $id){
+
+        $dados = $req -> all();
+        DB::table('users')
+            ->where('user_id', '=' , $id)
+            ->update($dados);   
+
+        return redirect() -> route('user.home');
+    }
 }
