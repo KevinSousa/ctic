@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-
 // ROTAS DOS FUNCIONÁRIOS
 
 Route::get('/user/', ['as' => 'user.home', 'uses' => 'UsersController@index']);
