@@ -47,7 +47,7 @@ conf-git-ricardo:
 	git config user.name "ricardomlp"
 
 bd-conf:
-	mysql -u root -p --execute="drop database if exists ctic; create database ctic; drop user if exists 'ctic'; create user 'ctic' identified by '123'; grant all privileges on ctic.* to 'ctic';"
+	mysql -u root -p --execute=" SET GLOBAL validate_password_policy=LOW; drop database if exists ctic; create database ctic; drop user if exists 'ctic'; create user 'ctic' identified by 'ctic'; grant all privileges on ctic.* to 'ctic';"
 	sed -i 's/DB_DATABASE.*/DB_DATABASE=ctic/' .env
 	sed -i 's/DB_USERNAME.*/DB_USERNAME=ctic/' .env
 	sed -i 's/DB_PASSWORD.*/DB_PASSWORD=123/' .env

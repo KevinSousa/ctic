@@ -38,7 +38,9 @@ Basicamente e em poucas palavras o “Makefile” instala o PHP, MYSQL,COMPOSER.
 2º) Entre no “Terminal”, escolha uma pasta para abrigar o projeto, como por exemplo – Downloads –, introduza-se nela com o comado “cd” e efetive o comando “git clone” somado ao link que foi adquerido no botão com tom verde. Desta forma: “git clone https://github.com/KevinSousa/ctic.git”. Pronto! Você já tem o projeto na sua máquina.
 
 
+#Protótipo disponivel para download no link a seguir
 
+<a href="https://drive.google.com/open?id=1Wi4tLw8tusp6PkNXbK1r-3S0-x5q8zHI">Link download </a>
 
 
 
