@@ -28,6 +28,7 @@ class UsersController extends Controller
 	public function save(Request $req){
 
         $dados = $req -> all();
+        dd($dados);
         User::create($dados);
 
         return redirect() -> route('user.home');
@@ -39,6 +40,10 @@ class UsersController extends Controller
         DB::table('users')->where('user_id', '=', $id)->delete();
         return redirect()->route('user.home');
 
+    }
+
+    public function edit($id){
+         
     }
 
 	public function update(Request $req, $id){}
