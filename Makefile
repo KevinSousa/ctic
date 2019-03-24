@@ -15,7 +15,7 @@ composer:
 	$(MAKE) bd-conf
 
 adc-user:
-	mysql -u root -p --execute="use ctic; insert into users (user_name, user_cpf, user_numero_siap, user_email, user_password, user_funcao) values ('Erickson Ferreira', '3452343214', '65465', 'erickson@email.com', 'admin', 1);"
+	mysql -u root -p --execute="use ctic; insert into funcaos (funcao_name) values ('Administração'); insert into users (user_name, user_cpf, user_numero_siap, user_email, user_password, user_funcao) values ('Erickson Ferreira', '3452343214', '65465', 'erickson@email.com', 'admin', 1);"
 
 Windows:
 	composer install --no-scripts
