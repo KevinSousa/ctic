@@ -6,8 +6,8 @@
 </head>
 <body>
 	<div class="ui container">
-		<h1> Cadastro de Funcionários </h1>
-		<p> Formulário de cadastro dos funcionários </p>
+		<h1> Alterar Dados </h1>
+		<p> Alteração de dados do funcionário </p>
 		<div>
 			<form method="post" action="{{route('user.salvar')}}" class="ui form">
 				{{ csrf_field() }}
@@ -32,31 +32,6 @@
 				<input class="ui button" type="reset" name="" value="Limpar">
 			</form>
 		</div>
-		<h1> Funcionários Cadastrados </h1>
-		<p> Lista de Funcionários cadastrados </p>
-		<table class="ui celled table">
-			<tr>
-				<th> NOME </th>
-				<th> CPF </th>
-				<th> SIAP </th>
-				<th> FUNÇÃO </th>
-				<th> AÇÃO </th>
-			</tr>
-
-
-			@foreach ($users as $user)
-				<tr>
-					<td> {{$user -> user_name}} </td>
-					<td> {{$user -> user_cpf}} </td>
-					<td> {{$user -> user_numero_siap}} </td>
-					<td> {{$user -> funcao_name}}</td>
-					<td> 
-						<a href="{{route('user.remover',$user->user_id)}}">DELETAR</a>
-						<a href="{{route('user.editar',$user->user_id)}}">EDITAR</a>
-					</td>
-				</tr>
-			@endforeach
-		</table>
 	</div>
 </body>
 </html>
