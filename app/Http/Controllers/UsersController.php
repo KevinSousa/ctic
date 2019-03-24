@@ -30,7 +30,7 @@ class UsersController extends Controller
         $dados = $req -> all();
         dd($dados);
         User::create($dados);
-
+        
         return redirect() -> route('user.home');
 
     }
