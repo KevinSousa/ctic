@@ -57,5 +57,6 @@ class UsersController extends Controller
             ->update($dados);   
 
         return redirect() -> route('user.home');
+        
     }
 }
