@@ -67,6 +67,7 @@
 				</tr>
 			@endforeach
 		</table>
+		<br>
 	</div>
 </body>
 </html>

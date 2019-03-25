@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\UsersController;
 use App\User;
+use App\Funcao;
 
 class UsersController extends Controller
 {
@@ -43,14 +44,14 @@ class UsersController extends Controller
 
     public function edit($id){
 
-        $usuario = User::find($id);
-        return view('user.editar', compact('usuario'));
-         
+        $usuario = DB::table('users')->where('user_id', '=', $id)->first();
+        $funcaos = Funcao::all();
+        return view('user.editar',compact('usuario','funcaos'));    
     }
 
 	public function update(Request $req, $id){
 
-        $dados = $req -> all();
+        $dados = $req->except(['_token','_method']);
         DB::table('users')
             ->where('user_id', '=' , $id)
             ->update($dados);   
