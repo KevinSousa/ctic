@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-#Colaboradores
+# Colaboradores
 
 Kevin Sousa Moura
 E-mail: kevinsmoura@hotmail.com
@@ -27,13 +27,13 @@ E-mail: cranioscaner@gmail.com
 Erickson Nascimento
 E-mail: erickson.ferreira@outlook.com
 
-#O Sistema
+# O Sistema
    Sistema de chamados para manutenção dos hardwares e softwares internos nos laboratórios do IFPE do campus Igarassu. que foram acometidos por problemas virtuais ou físicos, mediante mensagens enviadas e registradas ao celular do técnico. Assim sendo, tal profissional estará incumbido de resolver essas problemáticas ofertando ao fim da solução, o bem-estar dos computadores. Caso não seja possível solucionar o problema, essa informação ficara registrada e servirá para um chamado de técnicos de nível maior, com maiores possibilidades de solucionar tais problemas. As soluções aplicadas serão documentadas pelo técnico com o propósito de registrar as rotas seguidas as quais deram saúde ao computador. No mais esse sistema também servirá para agendamento dos dias e horários das salas disponíveis ou não do campus, a  fim de controle maior, evitando choque de eventos. 
 
-#MakeFile
+# MakeFile
 Basicamente e em poucas palavras o “Makefile” instala o PHP, MYSQL,COMPOSER. Além disso ele configura o e-mail e usuário. Por fim, há nele um rápido e pequeno “script” do banco.
 
-##Os passos para baixar o projeto:
+# Os passos para baixar o projeto:
 1. Acesse o “github” através do link “https://github.com/KevinSousa/ctic.git”, clique no botão esverdeado “Clone or Download”.
 2. Entre no “Terminal”, escolha uma pasta para abrigar o projeto, como por exemplo – Downloads –, introduza-se nela com o comado “cd” e efetive o comando “git clone” somado ao link que foi adquerido no botão com tom verde. Desta forma: “git clone https://github.com/KevinSousa/ctic.git”. Pronto! Você já tem o projeto na sua máquina.
 3. Já dentro da pasta do projeto, execute o comando **make conf** (só funciona em sistemas linux), que irá fazer toda a configuração necessária para o projeto funcionar na sua máquina.
@@ -42,11 +42,9 @@ Basicamente e em poucas palavras o “Makefile” instala o PHP, MYSQL,COMPOSER.
 6. Agora é só utilizar nosso sistema
 
 
-#Protótipo disponivel para download no link a seguir
+# Protótipo disponivel para download no link a seguir
 
 <a href="https://drive.google.com/open?id=1Wi4tLw8tusp6PkNXbK1r-3S0-x5q8zHI">Link download </a>
-
-
 
 ## About Laravel
 
