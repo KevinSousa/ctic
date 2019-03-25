@@ -17,27 +17,11 @@
 <body>
 	<div class="ui container">
 		<h1> Cadastro de Funcionários </h1>
-		<p> Formulário de cadastro dos funcionários </p>
+		<h2> Formulário de cadastro dos funcionários </h2>
 		<div>
 			<form method="post" action="{{route('user.salvar')}}" class="ui form">
 				{{ csrf_field() }}
-				<label> Nome: </label>
-				<input type="text" name="user_name" required="" placeholder="Nome do Funcionário"><br><br>
-				<label> CPF: </label>
-				<input type="text" name="user_cpf" required="" maxlength="11" placeholder="CPF do Funcionário"><br><br>
-				<label> Número do SIAPE: </label>
-				<input type="text" name="user_numero_siap" required="" maxlength="7" placeholder="No máximo 7 dígitos"><br><br>
-				<label> Email: </label>
-				<input type="email" name="user_email" required="" placeholder="Exemplo: example@example.com"><br><br>
-				<label> Senha: </label>
-				<input type="password" name="user_password" required="" placeholder="No mínimo 8 caracteres"><br><br>
-				<label> Função: </label>
-				<select name="user_funcao">
-					<option></option>
-					@foreach($funcaos as $func)
-					 <option value="{{$func -> funcao_id}}">{{$func -> funcao_name}}</option>
-					@endforeach
-				</select><br>
+				@include('user._form')
 				<input class="ui primary button" type="submit" name="" value="Cadastrar">
 				<input class="ui button" type="reset" name="" value="Limpar">
 			</form>
