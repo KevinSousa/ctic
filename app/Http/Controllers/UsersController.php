@@ -54,7 +54,7 @@ class UsersController extends Controller
         $dados = $req->except(['_token','_method']);
         DB::table('users')
             ->where('user_id', '=' , $id)
-            ->update($dados);   
+            ->update($dados);
 
         return redirect() -> route('user.home');
         
