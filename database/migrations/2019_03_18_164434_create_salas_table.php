@@ -17,6 +17,8 @@ class CreateSalasTable extends Migration
             $table->increments('sala_id');
             $table->string('sala_identificacao');
             $table->enum('sala_andar', ['BLOCO A','BLOCO B', 'BLOCO C']);
+            $table->timestamps();
+
         });
     }
 
