@@ -40,15 +40,15 @@ Route::get('/equipamento/editar/{id}', ['as' => 'equipamento.editar', 'uses' => 
 
 Route::put('/equipamento/atualizar/{id}',['as'=>'equipamento.atualizar','uses'=>'EquipamentosController@update']);
 
+
 // ROTAS DE SALAS
 
 Route::get('/sala/', ['as' => 'sala.home', 'uses' => 'SalasController@index']);
 
-Route::get('/sala/remover/{id}', ['as' => 'user.remover', 'uses' => 'SalasController@remove']);
+Route::get('/sala/remover/{id}', ['as' => 'sala.remover', 'uses' => 'SalasController@remove']);
 
-
-Route::post('/sala/salvar', ['as' => 'sala.salvar', 'uses' => 'SalasController@save']);
 Route::get('/sala/adicionar', ['as' => 'sala.adicionar', 'uses' => 'SalasController@add']);
+Route::post('/sala/salvar', ['as' => 'sala.salvar', 'uses' => 'SalasController@save']);
 
 Route::get('/sala/editar/{id}', ['as' => 'sala.editar', 'uses' => 'SalasController@edit']);
 Route::put('/sala/autalizar{id}', ['as' => 'sala.atualizar', 'uses' => 'SalasController@update']);
