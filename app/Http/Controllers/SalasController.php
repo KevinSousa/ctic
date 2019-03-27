@@ -14,8 +14,14 @@ class SalasController extends Controller
       
     }   
 
-    public function save(Request $req){
+    public function add(){
+        return view('salas.adicionar');
+    }
 
+    public function save(Request $req){
+        $registro = $req->all();
+        Sala::create($registro);
+        return redirect()->route('sala.home');
     }
 
     public function remove($id){
