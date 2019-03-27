@@ -28,7 +28,7 @@ Ricardo Maranhão
 E-mail: cranioscaner@gmail.com
 
 Erickson Nascimento
-E-mail: erickson.ferreira@outlook.com
+E-mail: erickson.ferreira@outlook.com.br
 
 ## O Sistema
    Sistema de chamados para manutenção dos hardwares e softwares internos nos laboratórios do IFPE do campus Igarassu. que foram acometidos por problemas virtuais ou físicos, mediante mensagens enviadas e registradas ao celular do técnico. Assim sendo, tal profissional estará incumbido de resolver essas problemáticas ofertando ao fim da solução, o bem-estar dos computadores. Caso não seja possível solucionar o problema, essa informação ficara registrada e servirá para um chamado de técnicos de nível maior, com maiores possibilidades de solucionar tais problemas. As soluções aplicadas serão documentadas pelo técnico com o propósito de registrar as rotas seguidas as quais deram saúde ao computador. No mais esse sistema também servirá para agendamento dos dias e horários das salas disponíveis ou não do campus, a  fim de controle maior, evitando choque de eventos. 
