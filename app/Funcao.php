@@ -11,11 +11,14 @@ class Funcao extends Model
     /*nome da tabela*/
 	protected $table 	= 	"funcaos";
 
-	/*nome dos atributos que poderão ser não alterados*/
-	protected $guarded	= ['funcao_id'];
+    /*nome da chave primaria da tabela*/
+	protected $primaryKey = 'funcao_id';
 
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['funcao_nome'];
+
+	/*nome dos atributos que representam as horas*/
+	public $timestamps = false;
 		
 	/*Função que representa o relacionamento de muitos para um*/
 	 public function user_funcao(){
