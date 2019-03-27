@@ -65,3 +65,17 @@ Route::post('/sala/salvar', ['as' => 'sala.salvar', 'uses' => 'SalasController@s
 Route::get('/sala/editar/{id}', ['as' => 'sala.editar', 'uses' => 'SalasController@edit']);
 
 Route::put('/sala/autalizar{id}', ['as' => 'sala.atualizar', 'uses' => 'SalasController@update']);
+
+// ROTAS DE TIPOS DE PROBLEMAS
+
+Route::get('/tiposProblemas/', ['as' => 'tiposProblemas.index', 'uses' => 'TiposProblemasController@index']);
+
+Route::post('/tiposProblemas/store', ['as' => 'tiposProblemas.store', 'uses' => 'TiposProblemasController@store']);
+
+Route::get('/tiposProblemas/destroy/{id}', ['as' => 'tiposProblemas.destroy', 'uses' => 'TiposProblemasController@destroy']);
+
+Route::get('/tiposProblemas/edit/{id}', ['as' => 'tiposProblemas.edit', 'uses' => 'TiposProblemasController@edit']);
+
+Route::put('/tiposProblemas/update/{id}',['as'=>'tiposProblemas.update','uses'=>'TiposProblemasController@update']);
+
+ 	
