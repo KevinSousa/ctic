@@ -86,6 +86,7 @@
 
                 <div class="links">
                     <a href="{{route('user.home')}}">User</a>
+                    <a href="{{route('funcao.index')}}">Funcao</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
