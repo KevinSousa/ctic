@@ -39,3 +39,15 @@ Route::post('/equipamento/salvar', ['as' => 'equipamento.salvar', 'uses' => 'Equ
 Route::get('/equipamento/editar/{id}', ['as' => 'equipamento.editar', 'uses' => 'EquipamentosController@edit']);
 
 Route::put('/equipamento/atualizar/{id}',['as'=>'equipamento.atualizar','uses'=>'EquipamentosController@update']);
+
+// ROTAS DAS FUNCOES
+
+Route::get('/funcao/', ['as' => 'funcao.index', 'uses' => 'FuncaoController@index']);
+
+Route::post('/funcao/store', ['as' => 'funcao.store', 'uses' => 'FuncaoController@store']);
+
+Route::get('/funcao/destroy/{id}', ['as' => 'funcao.destroy', 'uses' => 'FuncaoController@destroy']);
+
+Route::get('/funcao/edit/{id}', ['as' => 'funcao.edit', 'uses' => 'FuncaoController@edit']);
+
+Route::put('/funcao/update/{id}',['as'=>'funcao.update','uses'=>'FuncaoController@update']);
