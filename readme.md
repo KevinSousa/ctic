@@ -5,9 +5,9 @@
 
 <p align="center">
 <a href="#k"><img style="width: 20px;" src="https://laravel.com/assets/img/components/logo-laravel.svg" alt="Laravel"></a>
-<a href=#"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<!-- <a href=#"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
 <a href="#"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="#"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+<a href="#"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a> -->
 </p>
 
 ## Colaboradores
@@ -48,3 +48,7 @@ Basicamente e em poucas palavras o “Makefile” instala o PHP, MYSQL,COMPOSER.
 ## Protótipo disponivel para download no link a seguir
 
 <a href="https://drive.google.com/open?id=1Wi4tLw8tusp6PkNXbK1r-3S0-x5q8zHI">Link download </a>
+
+## Planilha de Produção Díaria
+
+https://docs.google.com/spreadsheets/d/1bz2tLTE38FMYSTAC0XuFRpjFleWwpoWsOgmh7gWFYRc/edit#gid=0
