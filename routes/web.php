@@ -39,3 +39,11 @@ Route::post('/equipamento/salvar', ['as' => 'equipamento.salvar', 'uses' => 'Equ
 Route::get('/equipamento/editar/{id}', ['as' => 'equipamento.editar', 'uses' => 'EquipamentosController@edit']);
 
 Route::put('/equipamento/atualizar/{id}',['as'=>'equipamento.atualizar','uses'=>'EquipamentosController@update']);
+
+// ROTAS DE SALAS
+
+Route::get('/sala/', ['as' => 'sala.home', 'uses' => 'SalaController@index']);
+Route::get('/sala/remover/{id}', ['as' => 'user.remover', 'uses' => 'SalaController@remove']);
+Route::post('/sala/salvar', ['as' => 'sala.salvar', 'uses' => 'SalaController@save']);
+Route::get('/sala/editar/{id}', ['as' => 'sala.editar', 'uses' => 'SalaController@edit']);
+Route::put('/sala/autalizar{id}', ['as' => 'sala.atualizar', 'uses' => 'SalaController@update']);
