@@ -88,6 +88,7 @@
                     <a href="{{route('user.home')}}">User</a>
                     <a href="{{route('funcao.index')}}">Funcao</a>
                     <a href="{{route('sala.home')}}">Salas</a>
+                    <a href="{{route('tiposProblemas.index')}}">Tipos de Problemas</a>
                 </div>
             </div>
         </div>
