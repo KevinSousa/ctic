@@ -1,4 +1,7 @@
-<p align="center" width: 20px><img src="https://portal.ifpe.edu.br/campus/olinda/noticias/campus-abre-novas-vagas-para-cursos-de-ingles-e-frances/marca-nova.png/image_view_fullscreen"></p>
+<p align="center">
+   <img src="https://portal.ifpe.edu.br/campus/olinda/noticias/campus-abre-novas-vagas-para-cursos-de-ingles-e-frances/marca-nova.png/@@images/182edafc-d9a0-44e8-8460-7d4d5db29d03.png" alt="IFPE">
+</p>
+
 
 <p align="center">
 <a href="#k"><img style="width: 20px;" src="https://laravel.com/assets/img/components/logo-laravel.svg" alt="Laravel"></a>
@@ -6,6 +9,7 @@
 <a href="#"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="#"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
+
 ## Colaboradores
 
 Kevin Sousa Moura
