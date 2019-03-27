@@ -9,8 +9,9 @@ class SalasController extends Controller
 {
     public function index(){ 
 
-        return view ('index', compact('users'));
-        
+        $salas = Sala::all();
+        return view('salas.index', compact('salas'));
+      
     }   
 
     public function save(Request $req){
