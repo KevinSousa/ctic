@@ -15,7 +15,7 @@ class Funcao extends Model
 	protected $primaryKey = 'funcao_id';
 
 	/*nome dos atributos que poderão ser alterados*/
-	protected $fillable = ['funcao_nome'];
+	protected $fillable = ['funcao_name'];
 
 	/*nome dos atributos que representam as horas*/
 	public $timestamps = false;

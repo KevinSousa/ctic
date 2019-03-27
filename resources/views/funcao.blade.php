@@ -35,7 +35,7 @@
 			</tr>
 			@foreach ($funcao as $funcoes)
 				<tr align="center">
-					<td> {{$funcoes->funcao_nome}}</td>
+					<td> {{$funcoes->funcao_name}}</td>
 					<td> 
 						<a href="{{route('funcao.destroy',$funcoes->funcao_id)}}"><i class="times icon"></i></a>
 						<a href="{{route('funcao.edit',$funcoes->funcao_id)}}"><i class="pencil alternate icon"></i></a>
