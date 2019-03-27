@@ -19,6 +19,7 @@
                 <tr>
                     <th>Identificação</th>
                     <th>Andar</th>
+                    <th>Ação</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,10 @@
                 <tr>
                     <td data-label="Indentificacao">{{ $sala->sala_identificacao }}</td>
                     <td data-label="Andar">{{ $sala->sala_andar }}</td>
+                    <td> 
+                        <a href="{{ route('sala.remover',$sala->sala_id)}}"><i class="times icon"></i></a>
+                        <a href="{{ route('sala.editar',$sala->sala_id)}}"><i class="pencil alternate icon"></i></a>
+                    </td>
                 </tr>
             @endforeach    
             </tbody>

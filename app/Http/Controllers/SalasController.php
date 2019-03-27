@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Sala;
 
 class SalasController extends Controller
@@ -25,7 +26,8 @@ class SalasController extends Controller
     }
 
     public function remove($id){
-
+        DB::table('salas')->where('sala_id', '=', $id)->delete();
+        return redirect()->route('sala.home');        
     }
 
     public function edit($id){
