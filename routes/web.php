@@ -78,4 +78,8 @@ Route::get('/tiposProblemas/edit/{id}', ['as' => 'tiposProblemas.edit', 'uses' =
 
 Route::put('/tiposProblemas/update/{id}',['as'=>'tiposProblemas.update','uses'=>'TiposProblemasController@update']);
 
- 	
+//ROTAS DE CHAMADOS faltando as algumas calma
+
+Route::get('/chamados/', ['as' => 'chamados.index', 'uses' => 'ChamadosController@index']);
+	
+Route::get('/chamados/add', ['as' => 'chamados.add', 'uses' => 'ChamadosController@add']);
