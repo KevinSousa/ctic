@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('123');
 });
 
 // ROTAS DOS FUNCIONÁRIOS
