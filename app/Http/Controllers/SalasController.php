@@ -37,6 +37,11 @@ class SalasController extends Controller
     }
 
     public function update(Request $req, $id){
-        
+
+        $registro = $req->except(['_token','_method']);
+        DB::table('salas')
+            ->where('sala_id', '=' , $id)
+            ->update($registro);
+        return redirect()->route('sala.home');
     }
 }
