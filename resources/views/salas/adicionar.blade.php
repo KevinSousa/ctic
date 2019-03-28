@@ -17,9 +17,9 @@
         <div>
             <form action="{{ route('sala.salvar') }}" method="POST" class="ui form">
                 {{ csrf_field() }}
-                @component('cards/card-sala', ['sala'=>$sala])
+                @component('cards/card-sala')
                 @endcomponent       
-                <button class="ui button blue" type="submit">Adicionar</button>
+                <button class="ui button green" type="submit">Adicionar</button>
             </form>
         </div>    
     </div>    

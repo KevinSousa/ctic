@@ -20,7 +20,7 @@
                 <input type="hidden" name="_method" value="put">
                 @component('cards/card-sala', ['sala'=>$sala])
                 @endcomponent       
-                <button class="ui button blue" type="submit">Editar</button>
+                <button class="ui button green" type="submit">Editar</button>
             </form>
         </div>    
     </div>    
