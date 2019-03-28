@@ -31,6 +31,8 @@ class SalasController extends Controller
     }
 
     public function edit($id){
+        $sala = DB::table('salas')->where('sala_id', '=', $id)->first();
+        return view('salas.editar', compact('sala'));
 
     }
 
