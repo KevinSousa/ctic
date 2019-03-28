@@ -31,10 +31,17 @@ class SalasController extends Controller
     }
 
     public function edit($id){
+        $sala = DB::table('salas')->where('sala_id', '=', $id)->first();
+        return view('salas.editar', compact('sala'));
 
     }
 
     public function update(Request $req, $id){
-        
+
+        $registro = $req->except(['_token','_method']);
+        DB::table('salas')
+            ->where('sala_id', '=' , $id)
+            ->update($registro);
+        return redirect()->route('sala.home');
     }
 }
