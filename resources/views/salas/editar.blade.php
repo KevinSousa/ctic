@@ -13,13 +13,14 @@
 </head>
 <body>
     <div class="ui container">
-        <h1>Cadastro de Salas</h1>
+        <h1>Editar Sala</h1>
         <div>
-            <form action="{{ route('sala.salvar') }}" method="POST" class="ui form">
+            <form action="{{ route('sala.atualizar', $sala->sala_id) }}" method="POST" class="ui form">
                 {{ csrf_field() }}
-                @component('cards/card-sala')
+                <input type="hidden" name="_method" value="put">
+                @component('cards/card-sala', ['sala'=>$sala])
                 @endcomponent       
-                <button class="ui button green" type="submit">Adicionar</button>
+                <button class="ui button green" type="submit">Editar</button>
             </form>
         </div>    
     </div>    

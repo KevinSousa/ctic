@@ -35,7 +35,7 @@
             @endforeach    
             </tbody>
         </table>
-        <a href="{{ route('sala.adicionar') }}" class="ui button green">Adicionar Sala</a>
+        <a href="{{ route('sala.adicionar') }}" class="ui button blue">Adicionar Sala</a>
     </div>    
 </body>
 </html>

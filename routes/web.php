@@ -64,7 +64,7 @@ Route::post('/sala/salvar', ['as' => 'sala.salvar', 'uses' => 'SalasController@s
 
 Route::get('/sala/editar/{id}', ['as' => 'sala.editar', 'uses' => 'SalasController@edit']);
 
-Route::put('/sala/autalizar{id}', ['as' => 'sala.atualizar', 'uses' => 'SalasController@update']);
+Route::put('/sala/atualizar/{id}', ['as' => 'sala.atualizar', 'uses' => 'SalasController@update']);
 
 // ROTAS DE TIPOS DE PROBLEMAS
 
