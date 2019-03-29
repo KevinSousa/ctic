@@ -4,24 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-//use App\Http\Controllers\ChamadosController;
+
+use App\User;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Chamados;
 class ChamadosController extends Controller
 {
    public function index(){ 
-
-        $chamados = DB::table('chamados')->get();
-        return view('chamados.index', compact('chamados'));
-      
+                 
+        $chamados =  DB::table('chamados')
+                    ->join('users', 'users.user_id', '=' , 'cham_user')
+                    ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
+                    ->join('tipo_problemas', 'tipo_problemas.probl_id', '=' , 'cham_tipo_problema')
+                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','tipo_problemas.probl_tipo','chamados.cham_id')
+                    ->get();
+                    return view('chamados.index', compact('chamados'));
+          
     }   
 
     public function add(){
-        return view('chamados.adicionar');
+         $salas = DB::table('salas')->get();
+        return view('chamados.adicionar', compact('salas'));
     }
 
     public function save(Request $req){
         $registro = $req->all();
-        Sala::create($registro);
-        return redirect()->route('sala.home');
+        Chamado::create($registro);
+        return redirect()->route('chamados.index');
     }
 
     public function remove($id){
