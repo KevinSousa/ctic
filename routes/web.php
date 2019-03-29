@@ -84,6 +84,6 @@ Route::get('/chamados/', ['as' => 'chamados.index', 'uses' => 'ChamadosControlle
 	
 Route::get('/chamados/add', ['as' => 'chamados.add', 'uses' => 'ChamadosController@add']);
 
-Route::get('/chamados/salvar', ['as' => 'chamados.salvar', 'uses' => 'ChamadosController@salvar']);
+Route::post('/chamados/salvar', ['as' => 'chamados.salvar', 'uses' => 'ChamadosController@save']);
 
 Route::get('/chamados/{id}', ['as' => 'chamados.detalhes', 'uses' => 'ChamadosController@detalhes']);
