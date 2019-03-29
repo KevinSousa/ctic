@@ -21,30 +21,28 @@
 		<div>
 				<table class="ui celled table">
 			<tr align="center">
+				<th>Autor</th>
 				<th> Grau de urgencia</th>
-				<th>Data prevista  </th>
+				<th>Onde encontrar  </th>
 				<th> Descrição </th>
 				<th>tipo problema  </th>
 				<th> Ações</th>
 				
 			</tr>
 
-
 			@foreach ($chamados as $chamado)
-				@if ($chamado == null)
+						
 				<tr align="center">
-					<td> Nenhum chamado no momento </td>
-				</tr>
-				@endif
-				<tr align="center">
-				
+					
+							
+					<td> {{$chamado -> user_name}} </td>
 					<td> {{$chamado -> cham_grau_urgencia}} </td>
-					<td> {{$chamado -> cham_data_prevista}} </td>
+					<td> {{$chamado -> sala_identificacao }},{{ $chamado -> sala_andar}} </td>
 					<td> {{$chamado -> cham_descricao}}</td>
-					<td> {{$chamado -> cham_tipo_problema}}</td>
-					<td> 
-						<a href=""><i class="times icon"></i></a>
-						<a href=""><i class="pencil alternate icon"></i></a>
+					<td> {{$chamado -> probl_tipo}}</td>
+					<td> 	
+						<a href="{{route('chamados.detalhes',$chamado->cham_id)}}"><i class="ui primary button">Detalhes</i></a>
+						
 					</td>
 				</tr>
 			@endforeach
