@@ -1259,7 +1259,7 @@
       inClass: 'fade-in',
       outClass: 'fade-out',
       inDuration: 900,
-      outDuration: 900,
+      outDuration: 90,
       linkElement: 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])',
       loading: true,
       loadingParentElement: 'html',
