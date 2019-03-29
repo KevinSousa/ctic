@@ -18,10 +18,10 @@
                                 <i class="fas fa-tachometer-alt"></i>Adicionar</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{route('funcao.index')}}">Chamados</a>
+                                    <a href="{{route('chamados.index')}}">Chamados</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">Equipamentos</a>
+                                    <a href="{{route('equipamento.home')}}">Equipamentos</a>
                                 </li>
                                 <li>
                                     <a href="{{route('user.home')}}">Usuarios</a>
