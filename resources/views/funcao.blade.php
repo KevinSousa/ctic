@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+@extends('layouts.app')
+
+@section('content')<!DOCTYPE html>
 <html>
 <head>
 	<title> CTIC </title>
