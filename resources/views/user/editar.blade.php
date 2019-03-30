@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
 <div id="edit">
 		<div>
 			<form method="post" action="{{route('user.atualizar', $usuario->user_id) }}" class="ui form">
@@ -10,7 +9,5 @@
 			</form>
 		</div>
 </div>
-
 @endsection
-
 
