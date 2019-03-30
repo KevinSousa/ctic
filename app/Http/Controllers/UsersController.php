@@ -22,7 +22,7 @@ class UsersController extends Controller
                 ->orderBy('funcao_name', 'asc')
                 -> get();
 
-        return view ('index', compact('users','funcaos'));
+        return view ('user.index', compact('users','funcaos'));
     	
     }	
 
