@@ -1,51 +1,47 @@
 @extends('layouts.app')
 
-@section('content')<!DOCTYPE html>
-<html>
-<head>
-	<title> CTIC </title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
-</head>
-<style type="text/css">
-	@import url('https://fonts.googleapis.com/css?family=Acme');
-	*{
-		font-family: 'Acme', sans-serif;
-	}
-	body {
-		margin-top: 25px;
-		margin-bottom: 30px;
-	}
-</style>
-<body>
-	<div class="ui container">
-		<h1> Cadastro de Funcao </h1>
-		<h2> Formulário de cadastro dos funções </h2>
-		<div>
-			<form method="post" action="{{route('funcao.store')}}" class="ui form">
-				{{ csrf_field() }}
-				@component('cards/card-funcao', ['funcao' => $funcao])
-				@endcomponent
-				<input class="ui primary button" type="submit" name="" value="Cadastrar">
-				<input class="ui button" type="reset" name="" value="Limpar">
+@section('content')
+	<div>
+{{-- 		<div>
+			<form method="post" action="{{route('funcao.store')}}">
+				<div class="form-group">
+					{{ csrf_field() }}
+					@component('cards/card-funcao', ['funcao' => $funcao])
+					@endcomponent
+					<input type="text" name="" class="form-control"><br>
+					<input class="btn btn-primary" type="submit" name="" value="Cadastrar">
+					<input class="btn btn-primary" type="reset" name="" value="Limpar">
+				</div>
 			</form>
-		</div>
-		<h1> Funções Cadastrados </h1>
-		<p> Lista de Funções cadastrados </p>
-		<table class="ui celled table">
-			<tr align="center">
-				<th> NOME: </th>
-			</tr>
-			@foreach ($funcao as $funcoes)
-				<tr align="center">
-					<td> {{$funcoes->funcao_name}}</td>
-					<td> 
-						<a href="{{route('funcao.destroy',$funcoes->funcao_id)}}"><i class="times icon"></i></a>
-						<a href="{{route('funcao.edit',$funcoes->funcao_id)}}"><i class="pencil alternate icon"></i></a>
-					</td>
+		</div> --}}
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col"> ID </th>
+					<th scope="col"> NOME </th>
+					<th scope="col"> AÇÃO </th>
 				</tr>
-			@endforeach
+			</thead>
+			<tbody>
+				@foreach ($funcao as $funcoes)
+					<tr>
+						<td> {{$funcoes->funcao_id}}</td>
+						<td> {{$funcoes->funcao_name}}</td>
+						<td> 
+							<a href="{{route('funcao.destroy',$funcoes->funcao_id)}}">	
+								<button id="delete" class="btn btn-danger">
+									Deletar
+								</button>
+							</a>
+							<a href="{{route('funcao.edit',$funcoes->funcao_id)}}">
+								<button id="edit" class="btn btn-warning">
+									Editar
+								</button>
+							</a>
+						</td>
+					</tr>
+				@endforeach
+			</tbody>
 		</table>
-		<br>
 	</div>
-</body>
-</html>
+@endsection
