@@ -14,11 +14,16 @@
 		margin-bottom: 30px;
 	}
 </style>
-<body>
+<body>		
+	
+
+
 	<div class="ui container">
 		<h1>Chamados para Técnico</h1>
 		<h2> Lista de chamados</h2>
 		<div>
+			<a  class="ui primary button " href="{{route('chamados.add')}}">Faça um chamado </a>
+		
 				<table class="ui celled table">
 			<tr align="center">
 				<th>Autor</th>
@@ -26,12 +31,12 @@
 				<th>Onde encontrar  </th>
 				<th> Descrição </th>
 				<th>tipo problema  </th>
-				<th> Ações</th>
+				<th>Ações</th>
 				
 			</tr>
 
 			@foreach ($chamados as $chamado)
-						
+			
 				<tr align="center">
 					
 							
@@ -41,14 +46,13 @@
 					<td> {{$chamado -> cham_descricao}}</td>
 					<td> {{$chamado -> probl_tipo}}</td>
 					<td> 	
-						<a href="{{route('chamados.detalhes',$chamado->cham_id)}}"><i class="ui primary button">Detalhes</i></a>
+						<a href="{{route('chamados.detalhes',$chamado->cham_id)}}"><i class="ui primary button ">Detalhes</i></a>
 						
 					</td>
 				</tr>
 			@endforeach
 		</table>
 		</div>
-		<a href="{{route('chamados.add')}}">Faça um chamado </a>
 		
 		
 		<br>
