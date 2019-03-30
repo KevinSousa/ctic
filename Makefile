@@ -25,7 +25,7 @@ conf-git-erickson:
 	git config user.name "Erickson"
 
 conf-git-kevin:
-	git config user.name "kevinsmoura"
+	git config user.name "kevinsousa"
 	git config user.email "kevinsmoura@hotmail.com"
 
 conf-git-luigi:
