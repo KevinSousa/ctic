@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
 	<div id="index">
-	<div>
-		<form method="post" action="{{route('user.salvar')}}" class="ui form">
-			{{ csrf_field() }}
-			@include('user._form')
-			<button class="btn btn-success" type="submit"> Cadastrar </button>
-		</form>
+		<div>
+			<form method="post" action="{{route('user.salvar')}}" class="">
+				{{ csrf_field() }}
+				@include('user._form')
+				<button class="btn btn-success" type="submit"> Cadastrar </button>
+			</form>
 		</div>
 {{-- 		<h1> Funcionários Cadastrados </h1>
 		<p> Lista de Funcionários cadastrados </p>
