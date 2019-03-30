@@ -40,7 +40,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="index.html">
+                <a href="#">
                     <img src="icon/ifpe.png" alt="IFPE" margin-left="0px" width="100px" height="50px" />
                 </a>
             </div>
@@ -319,7 +319,9 @@
                     </div>
                 </div>
             </header>
+<div class="main-content" align="center">
  @yield('content')
+</div>
  <!-- Jquery JS-->
     <script src="{{ asset('vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->
