@@ -2,21 +2,11 @@
 
 @section('content')
 	<div>
-{{-- 		<div>
-			<form method="post" action="{{route('funcao.store')}}">
-				<div class="form-group">
-					{{ csrf_field() }}
-					@component('cards/card-funcao', ['funcao' => $funcao])
-					@endcomponent
-					<input type="text" name="" class="form-control"><br>
-					<input class="btn btn-primary" type="submit" name="" value="Cadastrar">
-					<input class="btn btn-primary" type="reset" name="" value="Limpar">
-				</div>
-			</form>
-		</div> --}}
+		<h1> Funções Cadastradas </h1>
+		<br>
 		<table class="table">
 			<thead>
-				<tr>
+				<tr align="center">
 					<th scope="col"> ID </th>
 					<th scope="col"> NOME </th>
 					<th scope="col"> AÇÃO </th>
@@ -24,7 +14,7 @@
 			</thead>
 			<tbody>
 				@foreach ($funcao as $funcoes)
-					<tr>
+					<tr align="center">
 						<td> {{$funcoes->funcao_id}}</td>
 						<td> {{$funcoes->funcao_name}}</td>
 						<td> 
@@ -37,7 +27,7 @@
 								<button id="edit" class="btn btn-warning">
 									Editar
 								</button>
-							</a>
+							</a>	
 						</td>
 					</tr>
 				@endforeach
