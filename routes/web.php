@@ -78,7 +78,7 @@ Route::get('/tiposProblemas/edit/{id}', ['as' => 'tiposProblemas.edit', 'uses' =
 
 Route::put('/tiposProblemas/update/{id}',['as'=>'tiposProblemas.update','uses'=>'TiposProblemasController@update']);
 
-//ROTAS DE CHAMADOS faltando as algumas calma
+//ROTAS DE CHAMADOS 
 
 Route::get('/chamados/', ['as' => 'chamados.index', 'uses' => 'ChamadosController@index']);
 	
@@ -87,3 +87,9 @@ Route::get('/chamados/add', ['as' => 'chamados.add', 'uses' => 'ChamadosControll
 Route::post('/chamados/salvar', ['as' => 'chamados.salvar', 'uses' => 'ChamadosController@save']);
 
 Route::get('/chamados/{id}', ['as' => 'chamados.detalhes', 'uses' => 'ChamadosController@detalhes']);
+
+Route::get('/chamados/destroy/{id}', ['as' => 'chamados.destroy', 'uses' => 'ChamadosController@remove']);
+
+Route::get('/chamados/edit/{id}', ['as' => 'chamados.edit', 'uses' => 'ChamadosController@edit']);
+
+Route::post('/chamados/update/{id}', ['as' => 'chamados.update', 'uses' => 'ChamadosController@update']);
