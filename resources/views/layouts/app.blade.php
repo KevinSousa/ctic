@@ -8,7 +8,6 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-
     <!-- Title Page-->
     <title>CTIC</title>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
@@ -31,7 +30,6 @@
 
     <!-- Main CSS-->
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet" media="all">
-
 </head>
 
 <body class="animsition">
@@ -342,10 +340,8 @@
     <script src="{{ asset('vendor/chartjs/Chart.bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/select2/select2.min.js') }}">
     </script>
-
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    
     </div>
 
     </div>
