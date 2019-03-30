@@ -11,7 +11,7 @@ class FuncaoController extends Controller
 	public function index() {
 
      	$funcao = Funcao::all();
-        return view ('funcao', compact('funcao'));
+        return view ('/funcao/index-funcao', compact('funcao'));
 
     }
     
@@ -36,7 +36,7 @@ class FuncaoController extends Controller
 
 		/*Redireciona para o View editar com todos os dados do evento selecionado*/
 		$funcao = Funcao::where('funcao_id','=', $id)->first();
-		return view('editar-funcao', compact('funcao'));
+		return view('funcao/editar-funcao', compact('funcao'));
 
 	}
 
