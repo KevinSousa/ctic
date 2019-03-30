@@ -20,9 +20,12 @@ class Chamado extends Model
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['cham_grau_urgencia', 'cham_descricao'];
 
-	/*nome dos atributos que representam as horas*/
+	/*nome dos atributos que representam as horas 	*/
 	protected $date 	= ['cham_data_chamado', 'cham_data_prevista'];
     
+    public $timestamps = false;
+
+    public $updated_at = false;
     /*Função que representa o relacionamento de muitos para um*/
 	  public function cham_user(){
          return $this->belongsTo(User::class);

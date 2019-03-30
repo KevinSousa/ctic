@@ -56,7 +56,9 @@
                                   <option value="{{$equip -> tipo_id}}"> {{$equip -> tipo_nome}}</option>
                                   @endforeach
                             </select>
+
                          </div><!---  select da sala cadastrada e que esta o equipamento -->
+
 
                          <div class="field">
                                <label><b>Sala<b></label>
@@ -80,4 +82,6 @@
                 </div>  
         </div>    
     </body>
+
+    
 </html>
