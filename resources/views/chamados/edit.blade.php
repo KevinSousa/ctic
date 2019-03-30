@@ -56,7 +56,7 @@
                                   <option value="{{$equip -> tipo_id}}"> {{$equip -> tipo_nome}}</option>
                                   @endforeach
                             </select>
-                         </div>
+
 
                          <div class="field">
                                <label><b>Sala<b></label>
@@ -77,7 +77,11 @@
                         <button class="ui button green" type="submit">Adicionar</button>
                     </form>
                             <a href="{{route('chamados.index')}}" style="float: right; margin-right:5em;"><i class="ui button blue"> Voltar</i></a> 
+
+
                 </div>  
         </div>    
+
+        <!--- final -->
     </body>
 </html>
