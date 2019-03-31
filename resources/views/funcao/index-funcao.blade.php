@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-	<div>
-		<h1> Funções Cadastradas </h1>
+	<div id="index">
+		<div align="left">	
+			<h1 id="titulo"> Funções </h1>
+			<br>
+			<a href="{{route('funcao.create')}}"><button class="btn btn-primary"> Adicionar Função </button></a>
+		</div>
 		<br>
 		<table class="table">
 			<thead>
@@ -35,3 +39,13 @@
 		</table>
 	</div>
 @endsection
+
+<style type="text/css">
+	div#index{
+		margin: 0px 25px 0px 25px;
+	}
+
+	#titulo {
+		color: #666;
+	}
+</style>
