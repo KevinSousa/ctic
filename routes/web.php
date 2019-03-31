@@ -46,6 +46,8 @@ Route::get('/funcao/', ['as' => 'funcao.index', 'uses' => 'FuncaoController@inde
 
 Route::post('/funcao/store', ['as' => 'funcao.store', 'uses' => 'FuncaoController@store']);
 
+Route::get('/funcao/create', ['as' => 'funcao.create', 'uses' => 'FuncaoController@create']);
+
 Route::get('/funcao/destroy/{id}', ['as' => 'funcao.destroy', 'uses' => 'FuncaoController@destroy']);
 
 Route::get('/funcao/edit/{id}', ['as' => 'funcao.edit', 'uses' => 'FuncaoController@edit']);
