@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div id="index">
+    <h2 id="titulo" align="left"> Abertura de Chamado </h2>
+    <br>
     <form action="{{ route('chamados.salvar') }}" method="POST" class="ui form">
         {{ csrf_field() }}
         <div class="form-group">
             <label>Descrição do problema</label>
-            <textarea name="cham_descricao" class="form-control">
-                
-            </textarea>
+            <textarea name="cham_descricao" class="form-control"></textarea>
              <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}">
         </div>
         <div class="form-row">
@@ -59,7 +59,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-6">
                 <label>Sala</label>
                 <select name="cham_sala" class="form-control">
                     <option></option> 
@@ -84,5 +84,9 @@
 <style type="text/css">
     div#index{
         margin: 0px 25px 0px 25px;
+    }
+
+    h2#titulo {
+        color: #666;
     }
 </style>
