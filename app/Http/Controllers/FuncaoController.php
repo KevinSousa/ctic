@@ -14,6 +14,10 @@ class FuncaoController extends Controller
         return view ('/funcao/index-funcao', compact('funcao'));
 
     }
+
+    public function create(){
+    	return view('funcao.adicionar');
+    }
     
     public function store(Request $request) {
 
