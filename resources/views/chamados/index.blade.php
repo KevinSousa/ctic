@@ -2,7 +2,7 @@
 @section('content')	
 	<div id="index">
 		<div align="left">
-			<h2> Lista de chamados</h2>
+			<h1 id="titulo"> Chamados </h1>
 			<br>
 			<a href="{{route('chamados.add')}}"><button class="btn btn-primary"> Abrir Chamado </button></a>
 		</div><br>
@@ -40,5 +40,9 @@
 <style type="text/css">
 	div#index{
 		margin: 0px 25px 0px 25px;
+	}
+
+	#titulo {
+		color: #666;
 	}
 </style>
