@@ -5,11 +5,10 @@
 		<div align="left">	
 			<h1 id="titulo"> Funções </h1>
 			<br>
-			<a href="{{route('funcao.create')}}"><button class="btn btn-primary"> Adicionar Função </button></a>
 		</div>
 		<br>
-		<table class="table">
-			<thead>
+		<table class="table table-striped">
+			<thead class="thead-light">
 				<tr align="center">
 					<th scope="col"> ID </th>
 					<th scope="col"> NOME </th>
