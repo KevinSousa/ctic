@@ -56,7 +56,7 @@
                                     <a href="{{route('equipamento.home')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('user.home')}}"><i class="fas fa-user"></i>Usuarios</a>
+                                    <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
                                 </li>
                                 <li>
                                     <a href="{{route('sala.adicionar')}}"><i class="fas fa-home"></i>Salas</a>
