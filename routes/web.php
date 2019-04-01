@@ -74,6 +74,8 @@ Route::put('/sala/atualizar/{id}', ['as' => 'sala.atualizar', 'uses' => 'SalasCo
 
 Route::get('/tiposProblemas/', ['as' => 'tiposProblemas.index', 'uses' => 'TiposProblemasController@index']);
 
+Route::get('/tiposProblemas/create', ['as' => 'tiposProblemas.create', 'uses' => 'TiposProblemasController@create']);
+
 Route::post('/tiposProblemas/store', ['as' => 'tiposProblemas.store', 'uses' => 'TiposProblemasController@store']);
 
 Route::get('/tiposProblemas/destroy/{id}', ['as' => 'tiposProblemas.destroy', 'uses' => 'TiposProblemasController@destroy']);

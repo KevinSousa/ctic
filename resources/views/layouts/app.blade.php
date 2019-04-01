@@ -62,6 +62,9 @@
                                     <a href="{{route('sala.adicionar')}}"><i class="fas fa-home"></i>Salas</a>
                                 </li>
                                 <li>
+                                    <a href="{{route('tiposProblemas.create')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
+                                </li>
+                                <li>
                                     <a href="{{route('funcao.create')}}"><i class="fas fa-chart-bar"></i>Funções</a>
                                 </li>
                             </ul>
@@ -82,6 +85,9 @@
                                 </li>
                                 <li>
                                     <a href="{{route('sala.home')}}"><i class="fas fa-home"></i>Salas</a>
+                                </li>                                
+                                <li>
+                                    <a href="{{route('tiposProblemas.index')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                 </li>
                                 <li>
                                     <a href="{{route('funcao.index')}}"><i class="fas fa-chart-bar"></i>Funções</a>

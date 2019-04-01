@@ -25,7 +25,7 @@ class TiposProblemasController extends Controller
      */
     public function create()
     {
-        //
+        return view('tipos_problemas.adicionar-tiposProblemas');
     }
 
     /**
@@ -73,7 +73,6 @@ class TiposProblemasController extends Controller
         /*Redireciona para o View editar com todos os dados do evento selecionado*/
         $tipoProblema = Funcao::where('funcao_id','=', $id)->first();
         return view('editar-funcao', compact('funcao'));
-    
     }
 
     /**
