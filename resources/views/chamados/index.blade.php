@@ -4,9 +4,10 @@
 		<div align="left">
 			<h1 id="titulo"> Chamados </h1>
 			<br>
-			<a href="{{route('chamados.add')}}"><button class="btn btn-primary"> Abrir Chamado </button></a>
-		</div><br>
-		<table class="ui celled table">
+		</div>
+		<br>
+		<table class="table table-striped">
+			<thead class="thead-light">
 			<tr align="center">
 				<th> Autor </th>
 				<th> Grau de Urgência </th>
