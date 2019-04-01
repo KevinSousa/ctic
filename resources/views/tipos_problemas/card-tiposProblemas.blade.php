@@ -1,4 +1,7 @@
-<div class="field">
-	<h3> Nome: </h3>
-	<input type="text" name="problem_tipo" value="{{ old('problem_tipo') }}" required="">
+<div class="form-row" style="display:inline;">
+	<div class="col-4" align="center">
+    	<label >Nome do Tipo de Problema</label>
+			<input type="text" name="problem_tipo" value="{{ isset($tipoProblema->problem_tipo) ? $tipoProblema->problem_tipo : '' }}" required="" class="form-control">
+    	<br>
+	</div>
 </div>
