@@ -16,7 +16,7 @@ class FuncaoController extends Controller
     }
 
     public function create(){
-    	return view('funcao.adicionar');
+    	return view('funcao.adc-editar-funcao');
     }
     
     public function store(Request $request) {
@@ -40,7 +40,7 @@ class FuncaoController extends Controller
 
 		/*Redireciona para o View editar com todos os dados do evento selecionado*/
 		$funcao = Funcao::where('funcao_id','=', $id)->first();
-		return view('funcao/editar-funcao', compact('funcao'));
+		return view('funcao/adc-editar-funcao', compact('funcao'));
 
 	}
 
