@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::get('/user/', ['as' => 'user.home', 'uses' => 'UsersController@index']);
 
+Route::get('/user/cadastrar', ['as' => 'user.cadastrar', 'uses' => 'UsersController@cadastrar']);
+
 Route::get('/user/remove/{id}', ['as' => 'user.remover', 'uses' => 'UsersController@remove']);
 
 Route::post('/user/salvar', ['as' => 'user.salvar', 'uses' => 'UsersController@save']);
