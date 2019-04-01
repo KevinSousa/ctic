@@ -50,8 +50,30 @@
                                 <i class="fas fa-plus"></i>Adicionar</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{route('chamados.index')}}"><i class="fas fa-phone"></i>Chamados</a>
+                                    <a href="{{route('chamados.add')}}"><i class="fas fa-phone"></i>Chamados</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('equipamento.home')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('user.home')}}"><i class="fas fa-user"></i>Usuarios</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('sala.adicionar')}}"><i class="fas fa-home"></i>Salas</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('funcao.create')}}"><i class="fas fa-chart-bar"></i>Funções</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="js-arrow" href="#" style="color: red;">
+                                <i class="fas fa-list"></i>Visualizar
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+<!--                                 <li>
+                                    <a href="{{route('chamados.index')}}"><i class="fas fa-phone"></i>Chamados</a>
+                                </li> -->
                                 <li>
                                     <a href="{{route('equipamento.home')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
                                 </li>
@@ -61,15 +83,15 @@
                                 <li>
                                     <a href="{{route('sala.home')}}"><i class="fas fa-home"></i>Salas</a>
                                 </li>
+                                <li>
+                                    <a href="{{route('funcao.index')}}"><i class="fas fa-chart-bar"></i>Funções</a>
+                                </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="{{route('funcao.index')}}">
-                                <i class="fas fa-chart-bar"></i>Funções</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-list-ul"></i>Visualizar Chamados</a>
+                            <a href="{{route('chamados.index')}}" style="color: green;">
+                                <i class="fas fa-list-ul"></i>Visualizar Chamados
+                            </a>
                         </li>
                         <li>
                             <a href="form.html">
