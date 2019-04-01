@@ -1,21 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
+@extends('layouts.app')
+@section('content')
     <title>Salas</title>
-    <style type="text/css">
-    body {
-        margin-top: 25px;
-        margin-bottom: 30px;
-    }
-</style>
-</head>
-<body>
-    <div class="ui container">
-        <h1>Lista de Salas Cadastradas</h1>
-        <table class="ui celled table">
-            <thead>
+    <div id="index">
+        <div align="left">  
+            <h1 id="titulo"> Lista de Salas Cadastradas </h1>
+            <br>
+        </div>
+        <br>  
+        <table class="table table-striped">
+            <thead class="thead-light">
                 <tr>
                     <th>Identificação</th>
                     <th>Andar</th>
@@ -27,15 +20,30 @@
                 <tr>
                     <td data-label="Indentificacao">{{ $sala->sala_identificacao }}</td>
                     <td data-label="Andar">{{ $sala->sala_andar }}</td>
-                    <td> 
-                        <a href="{{ route('sala.remover',$sala->sala_id)}}"><i class="times icon"></i></a>
-                        <a href="{{ route('sala.editar',$sala->sala_id)}}"><i class="pencil alternate icon"></i></a>
+                    <td>
+                        <a href="{{route('sala.remover',$sala->sala_id)}}">  
+                            <button id="delete" class="btn btn-danger">
+                                Deletar
+                            </button>
+                        </a>
+                        <a href="{{route('sala.editar',$sala->sala_id)}}">
+                            <button id="edit" class="btn btn-warning">
+                                Editar
+                            </button>
+                        </a>
                     </td>
                 </tr>
             @endforeach    
             </tbody>
         </table>
-        <a href="{{ route('sala.adicionar') }}" class="ui button blue">Adicionar Sala</a>
     </div>    
-</body>
-</html>
+@endsection
+<style type="text/css">
+    div#index{
+        margin: 0px 25px 0px 25px;
+    }
+
+    h2#titulo {
+        color: #666;
+    }
+</style>
