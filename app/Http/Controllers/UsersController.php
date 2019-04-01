@@ -24,7 +24,18 @@ class UsersController extends Controller
 
         return view ('user.index', compact('users','funcaos'));
     	
-    }	
+    }
+
+    public function cadastrar(){
+
+        $funcaos = DB::table('funcaos')
+            ->select('funcao_id', 'funcao_name')
+            ->orderBy('funcao_name', 'asc')
+            ->get();
+
+        return view ('user.cadastrar', compact('funcaos'));
+
+    }
 
 	public function save(Request $req){
 
