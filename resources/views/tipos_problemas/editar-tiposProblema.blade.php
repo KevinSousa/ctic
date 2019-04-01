@@ -23,7 +23,7 @@
 			<form method="post" action="{{route('funcao.update', $funcao->funcao_id)}}" class="ui form">
 				{{ csrf_field() }}
 				<input type="hidden" name="_method" value="put">
-				@component('cards/card-funcao', ['funcao' => $funcao])
+				@component('tipos_problemas/card-tiposProblemas', ['tipoProblema' => $tipoProblema])
 				@endcomponent
 				<input class="ui primary button" type="submit" name="" value="Atualizar">
 				<input class="ui button" type="reset" name="" value="Limpar">

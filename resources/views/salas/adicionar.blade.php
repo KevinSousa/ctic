@@ -9,8 +9,8 @@
                 {{ csrf_field() }}
                 @component('cards/card-sala')
                 @endcomponent       
-        <br>
-        <button class="btn btn-success" type="submit">Adicionar</button>
+                <br>
+                <button class="btn btn-success" type="submit">Adicionar</button>
             </form>
         </div>    
     </div>    
