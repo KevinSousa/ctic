@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Tipo_problema;
 
 class TiposProblemasController extends Controller
@@ -34,21 +35,12 @@ class TiposProblemasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        /*Validando os dados*/
-        $validar            =   $request->validate([
-            'problem_tipo'           => 'required',
-        ],[ 'problem_tipo.required' => 'Preencha o nome da Função']);
-
-        /*Atualizando todos esses itens da model*/
-        $TipoProblemas                  = new Tipo_problema;
-        $TipoProblemas->probl_tipo    = $request->problem_tipo;
-        $TipoProblemas->save();
-
-        $request->session()->flash('alert-success', 'Tipo de Problema cadastrado com Sucesso!');
-        return redirect('/tiposProblemas');
-
+        $registro = $req->all();
+        Tipo_problema::create($registro);
+        $req->session()->flash('alert-success', 'Tipo de Problema cadastrado com Sucesso!');
+        return redirect()->route('tiposProblemas.index');
     }
 
     /**
@@ -71,8 +63,8 @@ class TiposProblemasController extends Controller
 
         public function edit($id) {
         /*Redireciona para o View editar com todos os dados do evento selecionado*/
-        $tipoProblema = Funcao::where('funcao_id','=', $id)->first();
-        return view('editar-funcao', compact('funcao'));
+        $tipoProblema = Tipo_problema::where('probl_id','=', $id)->first();
+        return view('tipos_problemas.editar-tiposProblema', compact('tipoProblema'));
     }
 
     /**
@@ -82,9 +74,13 @@ class TiposProblemasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $registro = $req->except(['_token','_method']);
+        $problemas = DB::table('tipo_problemas')->where('probl_id', '=', $id)->update($registro);
+        return redirect()->route('tiposProblemas.index');
+
+    
     }
 
     /**
@@ -95,6 +91,7 @@ class TiposProblemasController extends Controller
      */
     public function destroy($id)
     {
-        //
+         DB::table('tipo_problemas')->where('probl_id', '=', $id)->delete();
+        return redirect()->route('tiposProblemas.index');
     }
 }
