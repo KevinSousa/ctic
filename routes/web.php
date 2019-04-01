@@ -44,7 +44,7 @@ Route::put('/equipamento/atualizar/{id}',['as'=>'equipamento.atualizar','uses'=>
 
 Route::get('/funcao/', ['as' => 'funcao.index', 'uses' => 'FuncaoController@index']);
 
-Route::post('/funcao/store', ['as' => 'funcao.store', 'uses' => 'FuncaoController@store']);
+Route::put('/funcao/store', ['as' => 'funcao.store', 'uses' => 'FuncaoController@store']);
 
 Route::get('/funcao/create', ['as' => 'funcao.create', 'uses' => 'FuncaoController@create']);
 
