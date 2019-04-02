@@ -10,6 +10,7 @@
             <textarea name="cham_descricao" class="form-control"></textarea>
              <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}">
         </div>
+        <br>
         <div class="form-row">
             <div class="form-group col-md-2">
                 <label>Grau de urgência</label>
@@ -36,9 +37,9 @@
                 <input class="form-control" type="text" name="cham_equip" placeholder="Ex:: 5151551529">
             </div>
         </div>
-
+        <br>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label>Tipo de Equipamento</label>
 
                 <select name="cham_equip" class="form-control">
@@ -49,7 +50,7 @@
                 </select>
             </div>
 
-            <div>        
+            <div class="form-group col-md-3">        
                 <label>Bloco</label>
                 <select name="sala_andar" class="form-control">
                     <option></option>                    
@@ -59,7 +60,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Sala</label>
                 <select name="cham_sala" class="form-control">
                     <option></option> 
@@ -69,11 +70,11 @@
                 </select>
             </div>
 
+            <div class="form-group col-md-3">
+                <label>Prazo para o conserto</label>
+                <input class="form-control" type="date" name="cham_data_prevista">   
+            </div>     
         </div>
-        <div class="">
-            <label>Prazo para o conserto</label>
-            <input class="form-control" type="date" name="cham_data_prevista">   
-        </div>     
         <br>
         <button class="btn btn-success" type="submit">Adicionar</button>
         <a href="{{route('chamados.index')}}"><button class="btn btn-primary">Voltar</button></a> 
