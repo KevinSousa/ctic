@@ -19,11 +19,11 @@ class User extends Authenticatable
     protected $guarded  = ['user_id'];
     
     /*nome dos atributos que poderão ser alterados*/
-    protected $fillable = ['user_name','user_funcao','user_email', 'user_password', 'user_cpf', 'user_numero_siap'];
+    protected $fillable = ['user_name','user_funcao','user_email', 'user_password', 'user_cpf', 'user_numero_siap', 'user_telefone'];
 
     protected $hidden = ['user_password', 'remember_token'];
 
-    protected $casts = ['email_verified_at' => 'datetime'];
+    // protected $casts = ['email_verified_at' => 'datetime'];
 
     /*Função que representa o relacionamento de um para muitos*/
      public function user_funcao(){
