@@ -25,6 +25,7 @@ CREATE TABLE funcionario( /* TABELA DOS FUNCIONARIOS */
 	func_nome VARCHAR(255) NOT NULL,
     func_cpf VARCHAR(255) NOT NULL,
     func_numero_siap VARCHAR(9) NOT NULL,
+    func_contato varchar(15),
     func_funcao INT NOT NULL NOT NULL,
 		CONSTRAINT pkfunc PRIMARY KEY (func_id),
         CONSTRAINT fkfuncao FOREIGN KEY (func_funcao)
@@ -60,6 +61,15 @@ CREATE TABLE tipo_problema( /* ESSA TABELA É PRA ESPECIFICAR O TIPO DO PROBLEMA
 		CONSTRAINT pkprobl PRIMARY KEY (probl_id)
 );
 
+CREATE TABLE sublista_tipo_problema (
+	sub_id INT AUTO_INCREMENT NOT NULL,
+	sub_nome VARCHAR(200) NOT NULL,
+    tipo_problema INT NOT NULL,
+		CONSTRAINT pksublista PRIMARY KEY (sub_id),
+		CONSTRAINT fkproblema FOREIGN KEY (tipo_problema)
+			REFERENCES tipo_problema (probl_id)
+);
+
 CREATE TABLE chamados( /* TABELA DOS CHAMADOS */
 	cham_id INT AUTO_INCREMENT NOT NULL,
     cham_data_chamado TIMESTAMP NOT NULL, /*AQUI É A DATA DO CHAMADO EFETUADO*/
@@ -80,3 +90,7 @@ CREATE TABLE chamados( /* TABELA DOS CHAMADOS */
 		CONSTRAINT fktipoproblema FOREIGN KEY (cham_tipo_problema)
 			REFERENCES tipo_problema(probl_id)
 );
+
+select * from sublista_tipo_problema
+inner join tipo_problema
+on sublista_tipo_problema.tipo_problema = tipo_problema.probl_id;
