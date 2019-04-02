@@ -36,12 +36,19 @@
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
+        <script src="/vendor/Inputmask/dist/jquery.inputmask.bundle.js"></script>
+        
+        {{-- mascara de cpf --}}
         <script>
             $(document).ready(function () { 
                 var $CampoCpf = $("#cpf");
                 $CampoCpf.mask('000.000.000-00', {reverse: true});
+
+                $("#telefone").inputmask({
+                    mask: ["(99) 9999-9999", "(99) 99999-9999", ],
+                    keepStatic: true
+                });
             });
         </script>
-
 @endsection
 
