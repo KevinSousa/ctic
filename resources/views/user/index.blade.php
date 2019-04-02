@@ -5,7 +5,8 @@
 			<h1 align="left"> Usuários Cadastrados </h1>
 		</div>
 		<br>
-		<table class="ui celled table">
+        <table class="table table-striped">
+            <thead class="thead-light">
 			<tr align="center">
 				<th> NOME </th>
 				<th> CPF </th>
@@ -13,8 +14,8 @@
 				<th> FUNÇÃO </th>
 				<th> AÇÃO </th>
 			</tr>
-
-
+            </thead>
+            <tbody>
 			@foreach ($users as $user)
 				<tr align="center">
 					<td> {{$user -> user_name}} </td>
