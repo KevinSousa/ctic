@@ -11,7 +11,7 @@
 
 	<div class="form-group col-md-6">
 		<label for="">Número do SIAPE *</label>
-		<input class="form-control" type="text" name="user_numero_siap" value="{{ isset($usuario->user_numero_siap) ? $usuario->user_numero_siap : ''}}" required="" maxlength="7">
+		<input class="form-control" type="text" name="user_siap_matricula" value="{{ isset($usuario->user_siap_matricula) ? $usuario->user_siap_matricula : ''}}" required="" maxlength="7">
 	</div>
 </div>
 
@@ -36,7 +36,6 @@
 		@endforeach
 	</select>
 </div>
-
 <div class="form-row">
 
 	<div class="form-group col-md-6">
