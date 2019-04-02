@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 
 class Tipo_problema extends Model
 {
@@ -22,5 +22,9 @@ class Tipo_problema extends Model
 	/*Função que representa o relacionamento de muitos para um*/
 	  public function cham_tipo_probl(){
          return $this->hasMany(Chamado::class);
+     }		
+     /*Função que representa o relacionamento de muitos para um*/
+	  public function sub_tipo_probl(){
+         return $this->hasMany(SublistaTipoProblema::class);
      }	
 }
