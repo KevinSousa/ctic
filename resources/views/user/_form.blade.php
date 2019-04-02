@@ -6,7 +6,7 @@
 <div class="form-row">
 	<div class="form-group col-md-6">
 		<label for="">CPF</label>
-		<input class="form-control" type="text" name="user_cpf" value="{{ isset($usuario->user_cpf) ? $usuario->user_cpf : ''}}" required="" maxlength="11" id="CPF">
+		<input class="form-control" type="text" name="user_cpf" value="{{ isset($usuario->user_cpf) ? $usuario->user_cpf : ''}}" required="" maxlength="14" id="cpf">
 	</div>
 
 	<div class="form-group col-md-6">
