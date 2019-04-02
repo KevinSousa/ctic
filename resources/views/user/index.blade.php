@@ -20,7 +20,7 @@
 				<tr align="center">
 					<td> {{$user -> user_name}} </td>
 					<td> {{$user -> user_cpf}} </td>
-					<td> {{$user -> user_numero_siap}} </td>
+					<td> {{$user -> user_siap_matricula}} </td>
 					<td> {{$user -> funcao_name}}</td>
 					<td> 
 						<a href="{{route('user.remover',$user->user_id)}}"><button class="btn btn-danger">Deletar</button></a>
