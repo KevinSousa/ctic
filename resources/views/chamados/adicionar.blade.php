@@ -3,14 +3,9 @@
 <div id="index">
     <h2 id="titulo" align="left"> Abertura de Chamado </h2>
     <br>
-    <form action="{{ route('chamados.salvar') }}" method="POST" class="ui form">
+    <form action="{{ route('chamados.salvar') }}" method="POST" class="">
         {{ csrf_field() }}
-        <div class="form-group">
-            <label>Descrição do problema</label>
-            <textarea name="cham_descricao" class="form-control"></textarea>
-             <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}">
-        </div>
-        <br>
+                
         <div class="form-row">
             <div class="form-group col-md-2">
                 <label>Grau de urgência</label>
@@ -69,12 +64,13 @@
                     @endforeach
                 </select>
             </div>
-
-            <div class="form-group col-md-3">
-                <label>Prazo para o conserto</label>
-                <input class="form-control" type="date" name="cham_data_prevista">   
-            </div>     
+            
         </div>
+            <div class="form-group">
+                <label>Descrição do problema</label>
+                <textarea name="cham_descricao" class="form-control"></textarea>
+                <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}">
+            </div>     
         <br>
         <button class="btn btn-success" type="submit">Adicionar</button>
         <a href="{{route('chamados.index')}}"><button class="btn btn-primary">Voltar</button></a> 
@@ -116,4 +112,9 @@
     h2#titulo {
         color: #666;
     }
+
+    .form-row, .form-group{
+        text-align: left;
+    }
+
 </style>
