@@ -38,8 +38,8 @@ class ChamadosController extends Controller
         $model->cham_data_chamado = $req->get('cham_data_chamado');
         $model->cham_grau_urgencia = $req->get('cham_grau_urgencia');
         $model->cham_sala = $req->get('cham_sala');
-        $model->cham_equip = $req->get('cham_equip');       
-        $model->cham_data_prevista = $req->get('cham_data_prevista'); 
+        $model->cham_equip = $req->get('cham_equip');
+        $model->cham_data_prevista = date('Y-m-d', strtotime('+1 week'));  //colocando a data prevista por padrao de 1 semana desda data de envio do chamado podendo ser alterado pelo tecnico   
         $model->cham_tipo_problema = $req->get('cham_tipo_problema'); 
         $model->cham_user = 1;                 
         $model->save();
