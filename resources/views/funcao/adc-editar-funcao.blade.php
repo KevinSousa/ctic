@@ -63,6 +63,9 @@
     h2#titulo {
         color: #666;
     }
+    .form-group{
+        text-align: left;
+    }
 </style>
 
 
