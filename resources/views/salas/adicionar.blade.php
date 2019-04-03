@@ -48,4 +48,7 @@
     h2#titulo {
         color: #666;
     }
+    .form-row{
+        text-align: left;
+    }
 </style>
