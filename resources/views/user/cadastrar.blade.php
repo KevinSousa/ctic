@@ -68,5 +68,8 @@
 	div#titulo h1{
 		color: #666;
 	}
+    .form-row, .form-group{
+        text-align: left;
+    }
 
 </style>
