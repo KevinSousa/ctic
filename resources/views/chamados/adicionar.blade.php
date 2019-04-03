@@ -7,7 +7,7 @@
         {{ csrf_field() }}
                 
         <div class="form-row">
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <label>Grau de urgência</label>
                 <select name="cham_grau_urgencia" class="form-control">
                     <option></option>                    
@@ -17,8 +17,8 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-4">
-                <label>Categoria do problema</label>
+            <div class="form-group col-md-3">
+                <label> Categoria do problema </label>
                 <select name="cham_tipo_problema" class="form-control">
                     <option></option> 
                     @foreach ($tipos_problemas as $tipo)
@@ -26,15 +26,22 @@
                     @endforeach
                 </select>
             </div>
+
+            <div  class="form-group col-md-3">
+                <label> Subcategoria </label>
+                <select name="" class="form-control">
+                    <option></option>
+                </select>
+            </div>
                
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label>Número de tombamento</label>
                 <input class="form-control" type="text" name="cham_equip" placeholder="Ex:: 5151551529">
             </div>
         </div>
         <br>
         <div class="form-row">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label>Tipo de Equipamento</label>
 
                 <select name="cham_equip" class="form-control">
@@ -45,7 +52,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-3">        
+            <div class="form-group col-md-4">        
                 <label>Bloco</label>
                 <select name="sala_andar" class="form-control">
                     <option></option>                    
@@ -55,7 +62,7 @@
                 </select>
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label>Sala</label>
                 <select name="cham_sala" class="form-control">
                     <option></option> 
@@ -66,6 +73,7 @@
             </div>
             
         </div>
+            <br>
             <div class="form-group">
                 <label>Descrição do problema</label>
                 <textarea name="cham_descricao" class="form-control"></textarea>
