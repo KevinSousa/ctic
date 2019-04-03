@@ -11,7 +11,7 @@
 			<tr align="center">
 				<th> Autor </th>
 				<th> Grau de Urgência </th>
-				<th> Onde encontrar </th>
+				<th> Laboratório </th>
 				<th> Descrição </th>
 				<th> Tipo do Problema </th>
 				<th> Ações </th>
