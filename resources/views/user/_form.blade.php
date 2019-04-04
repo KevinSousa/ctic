@@ -5,10 +5,9 @@
 
 <div   class="form-row">
 	<div class="form-group col-md-6">
-		
+			<!---CONcertando conflitos aki  -->
 		<label  for="" id="cpf">CPF *</label>
-		
-		<input class="form-control readonly has-success" type="text" name="user_cpf" onkeypress="" value="{{ isset($usuario->user_cpf) ? $usuario->user_cpf : ''}}" required="" maxlength="14" id="user_cpf">
+		<input class="form-control" type="text" name="user_cpf" value="{{ isset($usuario->user_cpf) ? $usuario->user_cpf : ''}}" required="" maxlength="14" id="user_cpf">
 	</div>
 
 	<div class="form-group col-md-6">
@@ -23,7 +22,9 @@
 	 	<input class="form-control" type="email" name="user_email" value="{{ isset($usuario->user_email) ? $usuario->user_email : ''}}" required="">
 	 </div>
 	 <div class="form-group col-md-6">
-	 	<label for="" class="">Celular *</label>
+
+	 	<label for="">Celular *</label>
+
 	 	<input class="form-control" type="text" name="user_telefone" id="user_telefone">
 	 </div>
 </div>
