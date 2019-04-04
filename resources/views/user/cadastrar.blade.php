@@ -48,7 +48,8 @@
             var code  ="{{Request::query('cpf1')}}"; //codigo que é passado do back-end como segunda camada de proteção
             $(document).ready(function () { 
                 var $CampoCpf = $("#user_cpf");
-                $CampoCpf.mask('000.000.000-00', {reverse: true});      //mascaramento do cpf
+
+                $CampoCpf.mask('000.000.000-00', {reverse: true});  //deu conflito aki mas ja ta deboa kk
 
                 $("#user_telefone").inputmask({
                     mask: ["(99) 9999-9999", "(99) 99999-9999", ],
