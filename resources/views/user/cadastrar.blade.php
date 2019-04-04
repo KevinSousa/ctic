@@ -45,10 +45,10 @@
         {{-- mascara de cpf --}}
         <script>
             $(document).ready(function () { 
-                var $CampoCpf = $("#cpf");
+                var $CampoCpf = $("#user_cpf");
                 $CampoCpf.mask('000.000.000-00', {reverse: true});
 
-                $("#telefone").inputmask({
+                $("#user_telefone").inputmask({
                     mask: ["(99) 9999-9999", "(99) 99999-9999", ],
                     keepStatic: true
                 });
