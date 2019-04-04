@@ -30,6 +30,7 @@
 			@endforeach
 		</table>
 		<br>
+		{{$users->links()}}
 		<div>
 			<nav aria-label="Page navigation example">
 			  <ul class="pagination">
