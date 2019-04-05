@@ -94,4 +94,10 @@ class TiposProblemasController extends Controller
          DB::table('tipo_problemas')->where('probl_id', '=', $id)->delete();
         return redirect()->route('tiposProblemas.index');
     }
+
+    public function listSublist($id)
+    {
+        $sublist = DB::table('sublista_tipo_problemas')->where('sub_probl','=',$id)->get();
+        return $sublist;
+    }
 }
