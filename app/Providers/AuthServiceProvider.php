@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\User;
+use App\Funcao;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -22,9 +24,16 @@ class AuthServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        $this->registerPolicies();
+    {        
+        $this->registerPolicies($gate);
+    
+        /* Só o usuario manager pode criar evento */
+        $gate->define('admin', function(User $user){
+            return $user->user_funcao == '1';
+        });
+        $gate->define('user', function(User $user){
+            return $user->user_funcao != '1';
+        });
 
-        //
     }
 }
