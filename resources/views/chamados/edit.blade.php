@@ -57,6 +57,7 @@
                                   @endforeach
                             </select>
 
+                         </div><!---  select da sala cadastrada e que esta o equipamento -->
 
                          <div class="field">
                                <label><b>Sala<b></label>
@@ -66,9 +67,11 @@
                                         <option value="{{$sala -> sala_id}}"> {{$sala -> sala_identificacao}}</option>
                                          @endforeach
                                 </select>
+
+        <!--- Comentando algumas coisas para poder exterminar os conflitos -->
                         </div>
                         <div class="field">
-                                <label><b>Prazo para o concerto<b></label>
+                                <label><b>Prazo para o concerto</b></label>
                                 <input type = "date" name="cham_data_prevista">   
                                 </select>
                                 </div>
@@ -84,4 +87,6 @@
 
         <!--- final -->
     </body>
+
+    
 </html>

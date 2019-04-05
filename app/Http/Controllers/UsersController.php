@@ -40,9 +40,58 @@ class UsersController extends Controller
 	public function save(Request $req){
 
         $dados = $req -> all();
-        User::create($dados);
+        $cpf = $dados['user_cpf'];
+        $telefone = $dados['user_telefone'];
         
-        return redirect() -> route('user.home');
+        $cpf_formatado = trim($cpf);
+        $cpf_formatado = str_replace(".", "", $cpf_formatado);
+        $cpf_formatado = str_replace("-", "", $cpf_formatado);
+
+        // VALIDAÇÃO DE CPF
+        if(empty($cpf_formatado)) {
+
+            return "falso";
+        }
+     
+        $cpf_formatado = preg_match('/[0-9]/', $cpf_formatado)?$cpf_formatado:0;
+
+        $cpf_formatado = str_pad($cpf_formatado, 11, '0', STR_PAD_LEFT);
+         
+        
+        if (strlen($cpf_formatado) != 11) {
+            return "falso";
+        }
+        
+        else if ($cpf_formatado == '00000000000' || 
+            $cpf_formatado == '11111111111' || 
+            $cpf_formatado == '22222222222' || 
+            $cpf_formatado == '33333333333' || 
+            $cpf_formatado == '44444444444' || 
+            $cpf_formatado == '55555555555' || 
+            $cpf_formatado == '66666666666' || 
+            $cpf_formatado == '77777777777' || 
+            $cpf_formatado == '88888888888' || 
+            $cpf_formatado == '99999999999') {
+            return "falso";
+
+         } else {   
+             
+            for ($t = 9; $t < 11; $t++) {
+                 
+                for ($d = 0, $c = 0; $c < $t; $c++) {
+                    $d += $cpf_formatado{$c} * (($t + 1) - $c);
+                }
+                $d = ((10 * $d) % 11) % 10;
+                if ($cpf_formatado{$c} != $d) {
+                    return "falso";
+                }
+            }
+     
+            User::create($dados);
+            return redirect() -> route('user.home');
+            
+        }
+
 
     }
 
