@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Funcao;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class FuncaoSeeder extends Seeder
 {
@@ -12,8 +13,11 @@ class FuncaoSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('funcaos')->insert([
+        'funcao_name' => 'Administrador'
+        ]);
+
         factory(App\Funcao::class, 6)->create()->each(function ($user) {
-		
 		});
     }
 }
