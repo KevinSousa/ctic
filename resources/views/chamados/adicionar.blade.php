@@ -19,7 +19,7 @@
 
             <div class="form-group col-md-3">
                 <label> Categoria do problema </label>
-                <select name="cham_tipo_problema" class="form-control">
+                <select name="cham_tipo_problema" id="typeProblem" class="form-control">
                     <option></option> 
                     @foreach ($tipos_problemas as $tipo)
                         <option value="{{$tipo -> probl_id}}">{{$tipo -> probl_tipo}}</option>
@@ -29,7 +29,7 @@
 
             <div  class="form-group col-md-3">
                 <label> Subcategoria </label>
-                <select name="" class="form-control">
+                <select name="" class="form-control" id="sublist">
                     <option></option>
                 </select>
             </div>
@@ -109,6 +109,39 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+
+        <script>
+            $('#typeProblem').on('click', function(){
+
+                var idProblem = $("#typeProblem").val();
+                if (idProblem != ""){
+                    console.log(idProblem);
+                    $.ajax({
+                        url: "http://localhost:8000/subLista/list/"+idProblem,
+                        success: function(data) {
+                            var sublistas = [];
+                            try {
+                                sublistas = JSON.parse(data);
+                            } catch (err) {
+                                sublistas = data;
+                            }
+                            console.log(sublistas);
+                            $('#sublist').html('<option></option>');
+
+                            for (i = 0; i < sublistas.length; i++) {
+                                var option = `
+                                    <option value='${sublistas[i].sub_id}'>${sublistas[i].sub_nome}</option>
+                                `;
+                                $('#sublist').append(option);
+                            }
+                        }
+                    });    
+                } else{
+                    $('#sublist').html('<option></option>');
+                }
+            });
+            
+        </script>
 
 @endsection
 
