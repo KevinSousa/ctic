@@ -12,11 +12,18 @@ class Equipamento extends Model
 	/*nome da tabela*/
 	protected $table 	= 	"equipamentos";
 
+    /*nome da chave primaria da tabela*/
+	protected $primaryKey = 'equip_id';
+
 	/*nome dos atributos que poderão ser não alterados*/
-	protected $guarded	= ['equip_tipo','equip_id'];
+	protected $guarded	= ['equip_tipo'];
 
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['equip_marca', 'equip_tombamento'];
+
+		/*nome dos atributos que representam as horas*/
+	public $timestamps = false;
+
 	
     /*Função que representa o relacionamento de um para muitos*/
 	  public function equip_tipo_equip(){

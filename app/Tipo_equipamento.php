@@ -10,8 +10,9 @@ class Tipo_equipamento extends Model
     /*nome da tabela*/
 	protected $table 	= 	"tipo_equipamentos";
 
-	/*nome dos atributos que poderão ser não alterados*/
-	protected $guarded	= ['tipo_id'];
+
+    /*nome da chave primaria da tabela*/
+	protected $primaryKey = 'tipo_id';
 
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['tipo_nome'];

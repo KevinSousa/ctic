@@ -3,7 +3,7 @@
 @section('content')
 	<div id="index">
 		<div align="left">	
-			<h1 id="titulo"> Funções </h1>
+			<h1 id="titulo"> EQUIPAMENTOS </h1>
 			<br>
 		</div>
 		<br>
@@ -11,22 +11,30 @@
 			<thead class="thead-light">
 				<tr align="center">
 					<th scope="col"> ID </th>
-					<th scope="col"> NOME </th>
-					<th scope="col"> AÇÃO </th>
+					<th scope="col"> TIPO </th>
+					<th scope="col"> MARCA </th>
+                    <th scope="col"> TOMBAMENTO </th>
+                    <th scope="col"> AÇÃO </th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach ($funcao as $funcoes)
+				@foreach ($equipamento as $equipamentos)
 					<tr align="center">
-						<td> {{$funcoes->funcao_id}}</td>
-						<td> {{$funcoes->funcao_name}}</td>
+						<td> {{$equipamentos->equip_id}}</td>
+						@foreach ($tipoEquip as $tipo)
+							@if($equipamentos->equip_tipo == $tipo->tipo_id)
+		                    	<td> {{$tipo->tipo_nome}}</td>
+		                    @endif
+        				@endforeach
+                        <td> {{$equipamentos->equip_marca}}</td>
+						<td> {{$equipamentos->equip_tombamento}}</td>
 						<td> 
-							<a href="{{route('funcao.destroy',$funcoes->funcao_id)}}">	
+							<a href="{{route('equipamento.destroy',$equipamentos->equip_id)}}">	
 								<button id="delete" class="btn btn-danger">
 									Deletar
 								</button>
 							</a>
-							<a href="{{route('funcao.edit',$funcoes->funcao_id)}}">
+							<a href="{{route('equipamento.edit',$equipamentos->equip_id)}}">
 								<button id="edit" class="btn btn-warning">
 									Editar
 								</button>
