@@ -29,19 +29,6 @@ Route::get('/user/editar/{id}', ['as' => 'user.editar', 'uses' => 'UsersControll
 
 Route::put('/user/atualizar/{id}',['as'=>'user.atualizar','uses'=>'UsersController@update']);
 
-
-// ROTAS DOS EQUIPAMENTOS
-
-Route::get('/equipamento/', ['as' => 'equipamento.home', 'uses' => 'EquipamentosController@index']);
-
-Route::get('/equipamento/remove/{id}', ['as' => 'equipamento.remover', 'uses' => 'EquipamentosController@remove']);
-
-Route::post('/equipamento/salvar', ['as' => 'equipamento.salvar', 'uses' => 'EquipamentosController@save']);
-
-Route::get('/equipamento/editar/{id}', ['as' => 'equipamento.editar', 'uses' => 'EquipamentosController@edit']);
-
-Route::put('/equipamento/atualizar/{id}',['as'=>'equipamento.atualizar','uses'=>'EquipamentosController@update']);
-
 // ROTAS DAS FUNCOES
 
 Route::get('/funcao/', ['as' => 'funcao.index', 'uses' => 'FuncaoController@index']);
@@ -55,6 +42,20 @@ Route::get('/funcao/destroy/{id}', ['as' => 'funcao.destroy', 'uses' => 'FuncaoC
 Route::get('/funcao/edit/{id}', ['as' => 'funcao.edit', 'uses' => 'FuncaoController@edit']);
 
 Route::put('/funcao/update/{id}',['as'=>'funcao.update','uses'=>'FuncaoController@update']);
+
+// ROTAS DOS EQUIPAMENTOS
+
+Route::get('/equipamento/', ['as' => 'equipamento.index', 'uses' => 'EquipamentosController@index']);
+
+Route::put('/equipamento/store', ['as' => 'equipamento.store', 'uses' => 'EquipamentosController@store']);
+
+Route::get('/equipamento/create', ['as' => 'equipamento.create', 'uses' => 'EquipamentosController@create']);
+
+Route::get('/equipamento/destroy/{id}', ['as' => 'equipamento.destroy', 'uses' => 'EquipamentosController@destroy']);
+
+Route::get('/equipamento/edit/{id}', ['as' => 'equipamento.edit', 'uses' => 'EquipamentosController@edit']);
+
+Route::put('/equipamento/update/{id}',['as'=>'equipamento.update','uses'=>'EquipamentosController@update']);
 
 // ROTAS DE SALAS
 

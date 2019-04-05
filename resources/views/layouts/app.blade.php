@@ -53,7 +53,7 @@
                                     <a href="{{route('chamados.add')}}"><i class="fas fa-phone"></i>Chamados</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('equipamento.home')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                    <a href="{{route('equipamento.create')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
                                 </li>
                                 <li>
                                     <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
@@ -78,7 +78,7 @@
                                     <a href="{{route('chamados.index')}}"><i class="fas fa-phone"></i>Chamados</a>
                                 </li> -->
                                 <li>
-                                    <a href="{{route('equipamento.home')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                    <a href="{{route('equipamento.index')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
                                 </li>
                                 <li>
                                     <a href="{{route('user.home')}}"><i class="fas fa-user"></i>Usuarios</a>
