@@ -85,6 +85,9 @@ Route::get('/tiposProblemas/edit/{id}', ['as' => 'tiposProblemas.edit', 'uses' =
 
 Route::put('/tiposProblemas/update/{id}',['as'=>'tiposProblemas.update','uses'=>'TiposProblemasController@update']);
 
+    //Rota para listar as sublistas dos tipos de problemas
+Route::get('/subLista/list/{id}', ['as' => 'sublist.list', 'uses' => 'TiposProblemasController@listSublist']);    
+
 //ROTAS DE CHAMADOS 
 
 Route::get('/chamados/', ['as' => 'chamados.index', 'uses' => 'ChamadosController@index']);
