@@ -3,15 +3,20 @@
     <input class="form-control" type="text" name="user_name" value="{{ isset($usuario->user_name) ? $usuario->user_name : ''}}" required="">
 </div>
 
-<div class="form-row">
+
+<div   class="form-row">
 	<div class="form-group col-md-6">
-		<label for="">CPF *</label>
+			<!---CONcertando conflitos aki  -->
+		<label  for="" id="cpf">CPF *</label>
+
 		<input class="form-control" type="text" name="user_cpf" value="{{ isset($usuario->user_cpf) ? $usuario->user_cpf : ''}}" required="" maxlength="14" id="user_cpf">
 	</div>
 
 	<div class="form-group col-md-6">
 		<label for="">Número do SIAPE *</label>
-		<input class="form-control" type="text" name="user_siap_matricula" value="{{ isset($usuario->user_siap_matricula) ? $usuario->user_siap_matricula : ''}}" required="" maxlength="7">
+
+		<input class="form-control " type="text" name="user_siap_matricula" value="{{ isset($usuario->user_siap_matricula) ? $usuario->user_siap_matricula : ''}}" required="" maxlength="7">
+
 	</div>
 </div>
 
@@ -21,7 +26,13 @@
 	 	<input class="form-control" type="email" name="user_email" value="{{ isset($usuario->user_email) ? $usuario->user_email : ''}}" required="">
 	 </div>
 	 <div class="form-group col-md-6">
+
 	 	<label for="">Celular *</label>
+
+
+
+
+
 	 	<input class="form-control" type="text" name="user_telefone" id="user_telefone">
 	 </div>
 </div>
@@ -36,6 +47,8 @@
 		@endforeach
 	</select>
 </div>
+
+
 <div class="form-row">
 
 	<div class="form-group col-md-6">
@@ -47,4 +60,5 @@
 		<label for=""> Repita a Senha *</label>	
 		<input class="form-control" type="password" name="" maxlength="16" minlength="8">
 	</div>
+
 </div>

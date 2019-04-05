@@ -57,20 +57,24 @@
                                   @endforeach
                             </select>
 
-                         </div><!---  select da sala cadastrada e que esta o equipamento -->
 
+
+                         </div><!---  select da sala cadastrada e que esta o equipamento -->
 
                          <div class="field">
                                <label><b>Sala<b></label>
-                               <select name="cham_sala" class="ui fluid dropdown">
+                               <select name="cham_sala" class="ui fluid dropdown"><!---  select da sala cadastrada e que esta o equipamento -->
+
                                         <option></option> 
                                         @foreach ($salas as $sala)
                                         <option value="{{$sala -> sala_id}}"> {{$sala -> sala_identificacao}}</option>
                                          @endforeach
                                 </select>
+
+        <!--- Comentando algumas coisas para poder exterminar -->
                         </div>
                         <div class="field">
-                                <label><b>Prazo para o concerto<b></label>
+                                <label><b>Prazo para o concerto</b></label>
                                 <input type = "date" name="cham_data_prevista">   
                                 </select>
                                 </div>
@@ -79,8 +83,12 @@
                         <button class="ui button green" type="submit">Adicionar</button>
                     </form>
                             <a href="{{route('chamados.index')}}" style="float: right; margin-right:5em;"><i class="ui button blue"> Voltar</i></a> 
+
+
                 </div>  
         </div>    
+
+        <!--- final -->
     </body>
 
     
