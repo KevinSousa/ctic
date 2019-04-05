@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('123');
 });
+/* rota tradicional do método Auth*/
+Auth::routes();
 
 // ROTAS DOS FUNCIONÁRIOS
 
