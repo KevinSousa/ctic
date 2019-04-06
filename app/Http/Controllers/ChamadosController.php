@@ -41,7 +41,7 @@ class ChamadosController extends Controller
         $model->cham_equip = $req->get('cham_equip');
         $model->cham_data_prevista = date('Y-m-d', strtotime('+1 week'));  //colocando a data prevista por padrao de 1 semana desda data de envio do chamado podendo ser alterado pelo tecnico   
         $model->cham_tipo_problema = $req->get('cham_tipo_problema'); 
-        $model->cham_user = 1;                 
+        $model->cham_user = 1;
         $model->save();
 
         return redirect()->route('chamados.index'); 
