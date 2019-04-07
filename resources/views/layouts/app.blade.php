@@ -38,7 +38,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
+                <a href="{{route('home')}}">
                     <img src="/icon/ifpe.png" alt="IFPE" margin-left="0px" width="100px" height="50px" />
                 </a>
             </div>
