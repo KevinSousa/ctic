@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Chamado;
 class UsersSeeder extends Seeder
 {
     /**
@@ -16,4 +16,5 @@ class UsersSeeder extends Seeder
             // $user->posts()->save(factory(App\Post::class)->make());
         });
     }
+    
 }
