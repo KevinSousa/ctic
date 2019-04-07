@@ -39,7 +39,7 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="{{route('home')}}">
-                    <img src="/icon/ifpe.png" alt="IFPE" margin-left="0px" width="100px" height="50px" />
+                    <img src="/icon/logo-ifpe.png" alt="IFPE" margin-left="0px" width="4000em" height="4000em" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
