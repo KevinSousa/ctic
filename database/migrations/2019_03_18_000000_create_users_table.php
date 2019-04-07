@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('user_siap_matricula')->unique();
             $table->string('user_email')->unique();
             // $table->timestamp('user_email_verified_at')->nullable();
-            $table->string('user_password');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
 
