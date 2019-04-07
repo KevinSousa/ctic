@@ -24,14 +24,15 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <img id="ifpe" src="/icon/ifpe.png">
-            <form class="form-signin">
+            <form class="form-signin" method="post" action="{{route('login.entrar')}}">
+              {{ csrf_field() }}
               <div class="form-label-group">
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input name="user_email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                 <label for="inputEmail">E-Mail</label>
               </div>
 
               <div class="form-label-group">
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input name="user_password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                 <label for="inputPassword">Senha</label>
               </div>
 
