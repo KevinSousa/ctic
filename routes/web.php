@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('123');
 });
 
+Route::get('/testelogin', function(){
+	return view('auth.login');
+});
+
 // ROTAS DOS FUNCIONÁRIOS
 
 Route::get('/user/', ['as' => 'user.home', 'uses' => 'UsersController@index']);
