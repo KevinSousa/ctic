@@ -36,6 +36,9 @@
 			@endforeach
 		</table>
 	</div>
+	<div>
+		{{$chamados->links()}}
+	</div>
 @endsection
 @section('js')
      <!-- Jquery JS-->
