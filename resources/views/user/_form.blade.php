@@ -53,7 +53,7 @@
 
 	<div class="form-group col-md-6">
 		<label> Senha *</label>
-		<input class="form-control" type="password" name="user_password" required="" maxlength="16" minlength="8">
+		<input class="form-control" type="password" name="password" required="" maxlength="16" minlength="8">
 	</div>
 
 	<div class="form-group col-md-6">
