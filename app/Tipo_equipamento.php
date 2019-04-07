@@ -17,6 +17,9 @@ class Tipo_equipamento extends Model
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['tipo_nome'];
 	
+	/*nome dos atributos que representam as horas*/
+	public $timestamps = false;
+	
 	/*Função que representa o relacionamento de muitos para um*/
 	  public function equip_tipo_equip(){
         return $this->belongsTo(Equipamento::class);
