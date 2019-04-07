@@ -11,9 +11,9 @@ use App\Chamado;
 class ChamadosController extends Controller
 {
 
-    public function __construct(){
-        $this -> middleware('auth');
-    }
+    // public function __construct(){
+    //     $this -> middleware('auth');
+    // }
     
     public function index(){ 
                  
@@ -22,7 +22,7 @@ class ChamadosController extends Controller
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
                     ->join('tipo_problemas', 'tipo_problemas.probl_id', '=' , 'cham_tipo_problema')
                     ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','tipo_problemas.*')
-                    ->get();
+                    ->simplePaginate(10);
                     return view('chamados.index', compact('chamados'));
           
     }       //manda pro index de chamados passando os valores da lista
