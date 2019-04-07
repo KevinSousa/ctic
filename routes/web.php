@@ -19,6 +19,7 @@ Route::post('/login/entrar', ['as'=>'login.entrar', 'uses'=>'LoginController@log
 
 
 
+	
 Route::group(['middleware'=>'auth'],function() {
 	
 	Route::get('/', function () {

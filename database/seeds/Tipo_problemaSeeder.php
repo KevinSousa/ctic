@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Tipo_problema;
-class SalaSeeder extends Seeder
+class Tipo_problemaSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,8 @@ class SalaSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Sala::class, 2)->create()->each(function ($user) {
-
-
+    	 factory(App\Tipo_problema::class, 15)->create()->each(function ($user) {
+		
 		});
     }
 }
