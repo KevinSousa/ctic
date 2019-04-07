@@ -3,6 +3,7 @@
 use Faker\Generator as Faker;
 use App\Sala;
 
+
 $factory->define(Sala::class, function (Faker $faker) {
 	$random = $faker->randomLetter.$faker->numberBetween(1, 5); 
     return [
