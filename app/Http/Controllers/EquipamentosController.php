@@ -11,6 +11,11 @@ use App\Http\Controllers\FuncaoController;
 
 class EquipamentosController extends Controller
 {
+
+    public function __construct(){
+        $this -> middleware('auth');
+    }
+    
     public function index() {
      // $equipamento =  DB::table('equipamentos')
      //        ->join('tipo_equipamentos', 'tipo_equipamentos.tipo_id', '=' , 'equip_id')

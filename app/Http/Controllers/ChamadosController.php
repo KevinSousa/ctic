@@ -10,7 +10,12 @@ use App\Chamado;
 
 class ChamadosController extends Controller
 {
-   public function index(){ 
+
+    public function __construct(){
+        $this -> middleware('auth');
+    }
+    
+    public function index(){ 
                  
         $chamados =  DB::table('chamados')
                     ->join('users', 'users.user_id', '=' , 'cham_user')
