@@ -8,6 +8,11 @@ use App\Sala;
 
 class SalasController extends Controller
 {
+
+    public function __construct(){
+        $this -> middleware('auth');
+    }
+    
     public function index(){ 
 
         $salas = Sala::all();
