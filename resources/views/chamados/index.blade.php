@@ -6,18 +6,20 @@
 			<br>
 		</div>
 		<br>
-		<table class="table table-striped">
-			<thead class="thead-light">
+        <table class="table table-striped">
+            <thead class="thead-light">
 			<tr align="center">
 				<th> Autor </th>
 				<th> Grau de Urgência </th>
 				<th> Laboratório </th>
+				<th> Andar </th>
 				<th> Descrição </th>
 				<th> Tipo do Problema </th>
 				<th> Ações </th>
-				
-			</tr>
 
+			</tr>
+            </thead>
+            <tbody>
 			@foreach ($chamados as $chamado)
 			
 				<tr align="center">
@@ -25,7 +27,8 @@
 							
 					<td> {{$chamado -> user_name}} </td>
 					<td> {{$chamado -> cham_grau_urgencia}} </td>
-					<td> {{$chamado -> sala_identificacao }},{{ $chamado -> sala_andar}} </td>
+					<td> {{$chamado -> sala_identificacao }}</td>
+					<td> {{ $chamado -> sala_andar}}</td>
 					<td> {{$chamado -> cham_descricao}}</td>
 					<td> {{$chamado -> probl_tipo}}</td>
 					<td> 	
