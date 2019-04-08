@@ -11,7 +11,7 @@ class Tipo_problemaSeeder extends Seeder
      */
     public function run()
     {
-    	 factory(App\Tipo_problema::class, 15)->create()->each(function ($user) {
+    	 factory(App\Tipo_problema::class, 1)->create()->each(function ($user) {
 		
 		});
     }
