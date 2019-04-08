@@ -18,8 +18,6 @@ Route::get('/login/sair', ['as' => 'login.sair', 'uses' => 'LoginController@logo
 Route::post('/login/entrar', ['as'=>'login.entrar', 'uses'=>'LoginController@login']);	
 
 
-
-	
 Route::group(['middleware'=>'auth'],function() {
 	
 	Route::get('/', function () {
@@ -27,6 +25,7 @@ Route::group(['middleware'=>'auth'],function() {
 		return view('123');
 
 	})->name('home');
+
 	
 	// ROTAS DOS FUNCIONÁRIOS
 
@@ -36,6 +35,7 @@ Route::group(['middleware'=>'auth'],function() {
 	Route::get('/user/cadastrar', ['as' => 'user.cadastrar', 'uses' => 'UsersController@cadastrar']);
 
 	Route::post('/user/salvar', ['as' => 'user.salvar', 'uses' => 'UsersController@save']);
+	
 
 	Route::get('/user/editar/{id}', ['as' => 'user.editar', 'uses' => 'UsersController@edit']);
 
