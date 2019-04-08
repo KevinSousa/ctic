@@ -21,15 +21,17 @@ class LoginController extends Controller
     	if(Auth::attempt(['user_email'=>$dados['user_email'],'password'=>$dados['password']])){
 
             return redirect() -> route('home');
-            // echo "true";
+            
     	} else {
-            // echo "false";
             return redirect()->route('login');
         }
         
     }
 
     public function logout(){
+
+        Auth::logout();
+        return redirect()->route('login');
 
     }
 }
