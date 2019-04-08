@@ -12,8 +12,22 @@ class FuncaoSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Funcao::class, 6)->create()->each(function ($user) {
-		
+        factory(App\Funcao::class, 0)->create()->each(function ($user) {
 		});
+        DB::table('funcaos')->insert([
+        'funcao_name' => 'Administrador',
+        ]);      
+         DB::table('funcaos')->insert([
+        'funcao_name' => 'Professor',
+        ]);      
+         DB::table('funcaos')->insert([
+        'funcao_name' => 'Aluno',
+        ]);
+         DB::table('funcaos')->insert([
+        'funcao_name' => 'Terceirizado',
+        ]);
+         DB::table('funcaos')->insert([
+        'funcao_name' => 'Administrativo',
+        ]);
     }
 }
