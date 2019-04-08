@@ -16,7 +16,7 @@ class User extends Authenticatable
     protected $table    =   "users";
 
     /*nome dos atributos que poderão ser não alterados*/
-    protected $guarded  = ['user_id'];
+    protected $primaryKey  = 'user_id';
     
     /*nome dos atributos que poderão ser alterados*/
     protected $fillable = ['user_name','user_funcao','user_email', 'password', 'user_cpf', 'user_siap_matricula', 'user_telefone'];
