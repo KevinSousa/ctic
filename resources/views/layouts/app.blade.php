@@ -46,61 +46,66 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
+                            @can('user')
+                                <a href="{{route('chamados.add')}}">
+                                    <i class="fas fa-phone"></i>Adicionar Chamados</a>
+                            @endcan        
+                            @can('admin')
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-plus"></i>Adicionar</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="{{route('chamados.add')}}"><i class="fas fa-phone"></i>Chamados</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('equipamento.create')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('sala.adicionar')}}"><i class="fas fa-home"></i>Salas</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('tiposProblemas.create')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('funcao.create')}}"><i class="fas fa-chart-bar"></i>Funções</a>
-                                </li>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a href="{{route('equipamento.create')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                    </li>
+                                    <!-- <li>
+                                        <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
+                                    </li> -->
+                                    <li>
+                                        <a href="{{route('sala.adicionar')}}"><i class="fas fa-home"></i>Salas</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('tiposProblemas.create')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('funcao.create')}}"><i class="fas fa-chart-bar"></i>Funções</a>
+                                    </li>
                             </ul>
+                                @endcan
                         </li>
-                        <li>
-                            <a class="js-arrow" href="#" style="color: red;">
-                                <i class="fas fa-list"></i>Visualizar
-                            </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-<!--                                 <li>
-                                    <a href="{{route('chamados.index')}}"><i class="fas fa-phone"></i>Chamados</a>
-                                </li> -->
-                                <li>
-                                    <a href="{{route('equipamento.index')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('user.home')}}"><i class="fas fa-user"></i>Usuarios</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('sala.home')}}"><i class="fas fa-home"></i>Salas</a>
-                                </li>                                
-                                <li>
-                                    <a href="{{route('tiposProblemas.index')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
-                                </li>
-                                <li>
-                                    <a href="{{route('funcao.index')}}"><i class="fas fa-chart-bar"></i>Funções</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @can('admin')
+                            <li>
+                                <a class="js-arrow" href="#" style="color: red;">
+                                    <i class="fas fa-list"></i>Visualizar
+                                </a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+    <!--                                 <li>
+                                        <a href="{{route('chamados.index')}}"><i class="fas fa-phone"></i>Chamados</a>
+                                    </li> -->
+                                    <li>
+                                        <a href="{{route('equipamento.index')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('user.home')}}"><i class="fas fa-user"></i>Usuarios</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('sala.home')}}"><i class="fas fa-home"></i>Salas</a>
+                                    </li>                                
+                                    <li>
+                                        <a href="{{route('tiposProblemas.index')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{route('funcao.index')}}"><i class="fas fa-chart-bar"></i>Funções</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endcan
                         <li>
                             <a href="{{route('chamados.index')}}" style="color: green;">
                                 <i class="fas fa-list-ul"></i>Visualizar Chamados
                             </a>
                         </li>
                         <li>
-                            <a href="form.html">
+                            <a href="#">
                                 <i class="far fa-check-square"></i>Formulários</a>
                         </li>
                         <li>
@@ -108,10 +113,10 @@
                                 <i class="fas fa-calendar-alt"></i>Calendario</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="#">
                                 <i class="fas fa-map-marker-alt"></i>Mapas</a>
                         </li>
-                        <li class="has-sub">
+           <!--              <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Paginas</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -125,7 +130,7 @@
                                     <a href="forget-pass.html">Esqueceu a senha</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
 <!--                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-desktop"></i>UI Elements</a>
@@ -303,20 +308,20 @@
                                             <img src="/icon/avatar-01.jpg" alt="Bertonni" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">Bertonni</a>
+                                            <a class="js-acc-btn" href="#">{{ Auth::user()->user_name }}</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="/icon/avatar-01.jpg" alt="{{ Auth::user()->user_name }}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">Bertonni</a>
+                                                        <a href="#">{{ Auth::user()->user_name }}</a>
                                                     </h5>
-                                                    <span class="email">Bertonni@example.com</span>
+                                                    <span class="email">{{ Auth::user()->user_email }}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -334,8 +339,13 @@
                                                 </div> -->
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="{{route('login.sair')}}">
-                                                    <i class="zmdi zmdi-power"></i>Sair</a>
+                                                <a href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                    <i class="zmdi zmdi-power"></i>
+                                                      {{ __('Sair') }}
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                         @csrf
+                                                    </form>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
