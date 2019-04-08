@@ -40,6 +40,9 @@
               </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
               <hr class="my-4">
+              <div align="center">
+                <a href="#">Esqueci minha Senha </a>ou<a href="#"> Registre-se</a>
+              </div>
             </form>
           </div>
         </div>
