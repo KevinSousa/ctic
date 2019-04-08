@@ -113,11 +113,16 @@
         <script>
             $('#typeProblem').on('click', function(){
 
+                var url = window.location.href;
+                url = url.split("/");
+                preUrl = url[2];
+
+
                 var idProblem = $("#typeProblem").val();
                 if (idProblem != ""){
                     console.log(idProblem);
                     $.ajax({
-                        url: "http://localhost:8000/subLista/list/"+idProblem,
+                        url: "http://"+preUrl+"/subLista/list/"+idProblem,
                         success: function(data) {
                             var sublistas = [];
                             try {
