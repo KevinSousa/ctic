@@ -18,6 +18,9 @@ Route::get('/login/sair', ['as' => 'login.sair', 'uses' => 'LoginController@logo
 Route::post('/login/entrar', ['as'=>'login.entrar', 'uses'=>'LoginController@login']);	
 
 
+/* rota tradicional do método Auth*/
+Auth::routes();
+
 Route::group(['middleware'=>'auth'],function() {
 	
 	Route::get('/', function () {
