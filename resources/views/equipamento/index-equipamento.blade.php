@@ -20,7 +20,7 @@
 			<tbody>
 				@foreach ($equipamento as $equipamentos)
 					<tr align="center">
-						<td> {{$equipamentos->equip_id}}</td>
+						<td> {{$equipamentos->id}}</td>
 						@foreach ($tipoEquip as $tipo)
 							@if($equipamentos->equip_tipo == $tipo->tipo_id)
 		                    	<td> {{$tipo->tipo_nome}}</td>
@@ -29,12 +29,12 @@
                         <td> {{$equipamentos->equip_marca}}</td>
 						<td> {{$equipamentos->equip_tombamento}}</td>
 						<td> 
-							<a href="{{route('equipamento.destroy',$equipamentos->equip_id)}}">	
+							<a href="{{route('equipamento.destroy',$equipamentos->id)}}">	
 								<button id="delete" class="btn btn-danger">
 									Deletar
 								</button>
 							</a>
-							<a href="{{route('equipamento.edit',$equipamentos->equip_id)}}">
+							<a href="{{route('equipamento.edit',$equipamentos->id)}}">
 								<button id="edit" class="btn btn-warning">
 									Editar
 								</button>
