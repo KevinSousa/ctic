@@ -13,7 +13,7 @@
     @endisset
     <br>	
 	@isset($equipamento)
-		<form method="post" action="{{route('equipamento.update', $equipamento->equip_id)}}" class="ui form">
+		<form method="post" action="{{route('equipamento.update', $equipamento->id)}}" class="ui form">
 	@else
 		<form method="post" action="{{route('equipamento.store')}}" class="ui form">
 	@endisset
