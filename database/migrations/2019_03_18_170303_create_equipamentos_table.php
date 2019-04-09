@@ -14,9 +14,9 @@ class CreateEquipamentosTable extends Migration
     public function up()
     {
         Schema::create('equipamentos', function (Blueprint $table) {
-            $table->increments('equip_id');
+            $table->increments('id');
+            $table->Integer('equip_tombamento');
             $table->string('equip_marca');
-            $table->string('equip_tombamento');
 
             /** Chave Estrangeira do banco eventos*/          
             $table->Integer('equip_tipo')->unsigned();
