@@ -45,11 +45,8 @@ class EquipamentosController extends Controller
 			'equip_tombamento.numeric' => 'Este campo tem que ser númerico']);
 
 		/*Atualizando todos esses itens da model*/
-		$equip	 				= new Equipamento;
-		$equip->equip_tipo 	= $request->equip_tipo;
-		$equip->equip_marca 	= $request->equip_marca;
-		$equip->equip_tombamento 	= $request->equip_tombamento;
-		$equip->save();
+		$equip = $request->all();
+        Equipamento::create($equip);
 
 		$request->session()->flash('alert-success', 'Função cadastrada com Sucesso!');
 		return redirect()->route('equipamento.index');
@@ -60,7 +57,7 @@ class EquipamentosController extends Controller
 
 		/*Redireciona para o View editar com todos os dados do evento selecionado*/
 		$TipoEquip = Tipo_Equipamento::all();
-		$equipamento = Equipamento::where('equip_id','=', $id)->first();
+		$equipamento = Equipamento::where('id','=', $id)->first();
 		return view('equipamento/adc-editar-equipamento', compact('equipamento','TipoEquip'));
 
 	}
@@ -78,7 +75,7 @@ class EquipamentosController extends Controller
 			'equip_tombamento.numeric' => 'Este campo tem que ser númerico']);
 
 		/* Se o Id for igual ao id do Equipamento pega tudo*/
-		$equip	= Equipamento::where('equip_id','=', $id)->first();
+		$equip	= Equipamento::where('id','=', $id)->first();
 		$equip->equip_tipo 	= $request->equip_tipo;
 		$equip->equip_marca 	= $request->equip_marca;
 		$equip->equip_tombamento 	= $request->equip_tombamento;
@@ -92,8 +89,7 @@ class EquipamentosController extends Controller
 	public function destroy($id) {
 
 		/*Pega o item pelo id e destroi*/
-		$equip = Equipamento::where('equip_id','=',$id);
-		$equip->delete();
+		Equipamento::find($id)->delete();
 		return redirect()->route('equipamento.index');
 
 	}
