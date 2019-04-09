@@ -30,7 +30,7 @@ class CreateChamadosTable extends Migration
 
             /** Chave Estrangeira do banco eventos*/          
             $table->Integer('cham_equip')->unsigned();
-            $table->foreign('cham_equip')->references('equip_id')->on('equipamentos')->onDelete('cascade');
+            $table->foreign('cham_equip')->references('id')->on('equipamentos')->onDelete('cascade');
 
             /** Chave Estrangeira do banco eventos*/          
             $table->Integer('cham_tipo_problema')->unsigned();
