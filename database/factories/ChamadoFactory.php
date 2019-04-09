@@ -17,7 +17,7 @@ use App\Equipamento;
 	        'cham_descricao' => $faker->name,
 	        'cham_user' =>   User::get()->random()->user_id,
 	        'cham_sala' =>  Sala::get()->random()->sala_id,
-	        'cham_equip' => Equipamento::get()->random()->equip_id, 
+	        'cham_equip' => Equipamento::get()->random()->id, 
 	       	'cham_tipo_problema' =>  1,
 	    ];
 	});
