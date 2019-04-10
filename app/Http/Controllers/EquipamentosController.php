@@ -23,7 +23,7 @@ class EquipamentosController extends Controller
      //         ->get();
        	$tipoEquip = Tipo_Equipamento::all();
      	$equipamento = Equipamento::all();
-        return view ('/equipamento/index-equipamento', compact('equipamento','tipoEquip'));
+        return view ('/equipamento.index-equipamento', compact('equipamento','tipoEquip'));
 
     }
 
@@ -57,7 +57,7 @@ class EquipamentosController extends Controller
 
 		/*Redireciona para o View editar com todos os dados do evento selecionado*/
 		$TipoEquip = Tipo_Equipamento::all();
-		$equipamento = Equipamento::where('id','=', $id)->first();
+		$equipamento = Equipamento::where('equip_tombamento','=', $id)->first();
 		return view('equipamento/adc-editar-equipamento', compact('equipamento','TipoEquip'));
 
 	}
@@ -75,7 +75,7 @@ class EquipamentosController extends Controller
 			'equip_tombamento.numeric' => 'Este campo tem que ser númerico']);
 
 		/* Se o Id for igual ao id do Equipamento pega tudo*/
-		$equip	= Equipamento::where('id','=', $id)->first();
+		$equip	= Equipamento::where('equip_tombamento','=', $id)->first();
 		$equip->equip_tipo 	= $request->equip_tipo;
 		$equip->equip_marca 	= $request->equip_marca;
 		$equip->equip_tombamento 	= $request->equip_tombamento;
