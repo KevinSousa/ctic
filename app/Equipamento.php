@@ -13,7 +13,7 @@ class Equipamento extends Model
 	protected $table 	= 	"equipamentos";
 
     /*nome da chave primaria da tabela*/
-	protected $primaryKey = 'id';
+	protected $primaryKey = 'equip_tombamento';
 
 	/*nome dos atributos que poderão ser não alterados*/
 	protected $guarded	= [''];
