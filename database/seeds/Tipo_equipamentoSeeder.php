@@ -16,13 +16,23 @@ class Tipo_equipamentoSeeder extends Seeder
             // $user->posts()->save(factory(App\Post::class)->make());
         });
 		 DB::table('tipo_equipamentos')->insert([
-        'tipo_nome' => 'Hardware',
+        'tipo_nome' => 'Computador',
         ]);		 
 		 DB::table('tipo_equipamentos')->insert([
-        'tipo_nome' => 'Software',
+        'tipo_nome' => 'Mouse',
         ]);		 
 		 DB::table('tipo_equipamentos')->insert([
-        'tipo_nome' => 'Rede',
+        'tipo_nome' => 'Teclado',
         ]);
+         DB::table('tipo_equipamentos')->insert([
+        'tipo_nome' => 'Access Point',
+        ]);
+        DB::table('tipo_equipamentos')->insert([
+        'tipo_nome' => 'Projetor',
+        ]);
+        DB::table('tipo_equipamentos')->insert([
+        'tipo_nome' => 'No break',
+        ]);
+
     }
 }
