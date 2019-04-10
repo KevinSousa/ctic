@@ -9,8 +9,7 @@
 		<br>
 		<table class="table table-striped">
 			<thead class="thead-light">
-				<tr align="center">
-					<th scope="col"> ID </th>
+				<tr align="center">					
 					<th scope="col"> TIPO </th>
 					<th scope="col"> MARCA </th>
                     <th scope="col"> TOMBAMENTO </th>
@@ -20,7 +19,6 @@
 			<tbody>
 				@foreach ($equipamento as $equipamentos)
 					<tr align="center">
-						<td> {{$equipamentos->id}}</td>
 						@foreach ($tipoEquip as $tipo)
 							@if($equipamentos->equip_tipo == $tipo->tipo_id)
 		                    	<td> {{$tipo->tipo_nome}}</td>
@@ -29,12 +27,12 @@
                         <td> {{$equipamentos->equip_marca}}</td>
 						<td> {{$equipamentos->equip_tombamento}}</td>
 						<td> 
-							<a href="{{route('equipamento.destroy',$equipamentos->id)}}">	
+							<a href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}">	
 								<button id="delete" class="btn btn-danger">
 									Deletar
 								</button>
 							</a>
-							<a href="{{route('equipamento.edit',$equipamentos->id)}}">
+							<a href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
 								<button id="edit" class="btn btn-warning">
 									Editar
 								</button>
