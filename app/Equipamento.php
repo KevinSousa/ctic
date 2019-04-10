@@ -19,7 +19,7 @@ class Equipamento extends Model
 	protected $guarded	= [''];
 
 	/*nome dos atributos que poderão ser alterados*/
-	protected $fillable = ['equip_marca', 'equip_tombamento','equip_tipo'];
+	protected $fillable = ['equip_marca','equip_tipo'];
 
 		/*nome dos atributos que representam as horas*/
 	public $timestamps = false;
