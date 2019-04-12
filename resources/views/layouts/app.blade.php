@@ -9,7 +9,7 @@
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
     <!-- Title Page-->
-    <title>CTIC</title>
+    @yield('title')
     <link rel="shortcut icon" href="favicon.ico" />
 
         <!-- Fontfaces CSS-->
