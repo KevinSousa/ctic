@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+	<title> Usuários </title>
+@endsection
 @section('content')
 	<div id="index">
 		<div id="titulo">
