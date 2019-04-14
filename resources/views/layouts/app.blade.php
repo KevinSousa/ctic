@@ -109,7 +109,7 @@
                                 <i class="far fa-check-square"></i>Formulários</a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{route('calendar')}}">
                                 <i class="fas fa-calendar-alt"></i>Calendario</a>
                         </li>
                         <li>
