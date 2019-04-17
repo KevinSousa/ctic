@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
          $this->call(Tipo_equipamentoSeeder::class);
          $this->call(EquipamentoSeeder::class);
          $this->call(Tipo_problemaSeeder::class);
+         $this->call(SublistaTipoProblemaSeeder::class);
          $this->call(ChamadoSeeder::class);
     }
 }
