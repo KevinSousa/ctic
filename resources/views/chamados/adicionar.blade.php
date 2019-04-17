@@ -19,7 +19,7 @@
 
             <div class="form-group col-md-3">
                 <label> Categoria do problema </label>
-                <select name="cham_tipo_problema" id="typeProblem" class="form-control">
+                <select name="" id="typeProblem" class="form-control">
                     <option></option> 
                     @foreach ($tipos_problemas as $tipo)
                         <option value="{{$tipo -> probl_id}}">{{$tipo -> probl_tipo}}</option>
@@ -29,7 +29,7 @@
 
             <div  class="form-group col-md-3">
                 <label> Subcategoria </label>
-                <select name="" class="form-control" id="sublist">
+                <select name="cham_sublista_problema" class="form-control" id="sublist">
                     <option></option>
                 </select>
             </div>
@@ -44,7 +44,7 @@
             <div class="form-group col-md-4">
                 <label>Tipo de Equipamento</label>
 
-                <select name="cham_equip" class="form-control">
+                <select name="" class="form-control">
                     <option></option> 
                     @foreach ($tipos_equip as $equip)
                         <option value="{{$equip -> tipo_id}}"> {{$equip -> tipo_nome}}</option>
