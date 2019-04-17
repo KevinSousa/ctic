@@ -5,6 +5,7 @@ use App\Chamado;
 use App\User;
 use App\Sala;
 use App\Equipamento;
+use App\SublistaTipoProblema;
 	
 	$factory->define(App\Chamado::class, function (Faker $faker) {
     $numMat   = $faker->numberBetween($min = 1000, $max = 9999);
@@ -18,7 +19,7 @@ use App\Equipamento;
 	        'cham_user' =>   User::get()->random()->user_id,
 	        'cham_sala' =>  Sala::get()->random()->sala_id,
 	        'cham_equip' => Equipamento::get()->random()->equip_tombamento, 
-	       	'cham_tipo_problema' =>  1,
+	       	'cham_sublista_problema' =>  SublistaTipoProblema::get()->random()->sub_id,
 	    ];
 	});
     
