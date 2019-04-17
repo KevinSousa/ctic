@@ -20,9 +20,9 @@ class Tipo_problema extends Model
 	public $timestamps = false;
 
 	/*Função que representa o relacionamento de muitos para um*/
-	  public function cham_tipo_probl(){
-         return $this->hasMany(Chamado::class);
-     }		
+	  // public function cham_tipo_probl(){
+   //       return $this->hasMany(Chamado::class);
+   //   }		
      /*Função que representa o relacionamento de muitos para um*/
 	  public function sub_tipo_probl(){
          return $this->hasMany(SublistaTipoProblema::class);
