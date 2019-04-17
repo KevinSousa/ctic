@@ -18,6 +18,7 @@ class CreateChamadosTable extends Migration
             $table->timestamp('cham_data_chamado');
             $table->enum('cham_grau_urgencia', ['BAIXO', 'MÉDIO', 'ALTA']);
             $table->datetime('cham_data_prevista');
+            $table->enum('cham_status', ['ABERTO', 'EM ATENDIMENTO' ,'FECHADO'])->default('ABERTO');
             $table->string('cham_descricao');
 
             /** Chave Estrangeira do banco eventos*/          
@@ -33,8 +34,8 @@ class CreateChamadosTable extends Migration
             $table->foreign('cham_equip')->references('equip_tombamento')->on('equipamentos')->onDelete('cascade');
 
             /** Chave Estrangeira do banco eventos*/          
-            $table->Integer('cham_tipo_problema')->unsigned();
-            $table->foreign('cham_tipo_problema')->references('probl_id')->on('tipo_problemas')->onDelete('cascade');        
+            $table->Integer('cham_sublista_problema')->unsigned();
+            $table->foreign('cham_sublista_problema')->references('sub_id')->on('sublista_tipo_problemas')->onDelete('cascade');        
         });
     }
 
