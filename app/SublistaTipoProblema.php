@@ -16,9 +16,12 @@ class SublistaTipoProblema extends Model
 
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['sub_nome','sub_probl'];
+
+    public $timestamps = false;
     
     /*Função que representa o relacionamento de muitos para um*/
 	public function sub_tipo_probl(){
          return $this->belongsTo(Tipo_problema::class);
      }
+
 }
