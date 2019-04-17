@@ -20,8 +20,8 @@ class ChamadosController extends Controller
         $chamados =  DB::table('chamados')
                     ->join('users', 'users.user_id', '=' , 'cham_user')
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
-                    ->join('tipo_problemas', 'tipo_problemas.probl_id', '=' , 'cham_tipo_problema')
-                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','tipo_problemas.*')
+                    ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
+                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
                     ->simplePaginate(10);
                     return view('chamados.index', compact('chamados'));
           
