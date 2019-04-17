@@ -12,8 +12,8 @@
 		            <th>Grau de Urgência</th>
 		            <th>Laboratório</th>
 		            <th>Andar</th>
-		            <th>Descrição</th>
-		            <th>Tipo do Problema</th>
+                    <th>Tipo do Problema</th>
+		            <th>Status</th>
 		            <th>Ações</th>
 		        </tr>
 		    </thead>
@@ -24,8 +24,8 @@
 						<td> {{$chamado -> cham_grau_urgencia}} </td>
 						<td> {{$chamado -> sala_identificacao }}</td>
 						<td> {{ $chamado -> sala_andar}}</td>
-						<td> {{$chamado -> cham_descricao}}</td>
-						<td> {{$chamado -> probl_tipo}}</td>
+                        <td> {{$chamado -> sub_nome}}</td>
+						<td> {{$chamado -> cham_status}}</td>
 						<td> 	
 						<a href="{{route('chamados.detalhes',$chamado->cham_id)}}"><i class="ui primary button ">Detalhes</i></a>
 					</td>
