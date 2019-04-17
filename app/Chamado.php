@@ -5,7 +5,7 @@ namespace App;
 use App\User;
 use App\Sala;
 use App\Equipamento;
-use App\Tipo_problema;
+use App\SublistaTipoProblema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\belongsTo;
 
@@ -14,11 +14,11 @@ class Chamado extends Model
 	/*nome da tabela*/
 	protected $table 	= 	"chamados";
 
-	/*nome dos atributos que poderão ser não alterados*/
-	protected $guarded	= ['cham_id','cham_user','cham_sala', 'cham_equip', 'champ_tipo_problema'];
+	/*nome dos atributos que não poderão ser alterados*/
+	protected $guarded	= ['cham_id','cham_user','cham_sala', 'cham_equip', 'cham_sublista_problema'];
 
 	/*nome dos atributos que poderão ser alterados*/
-	protected $fillable = ['cham_grau_urgencia', 'cham_descricao'];
+	protected $fillable = ['cham_grau_urgencia', 'cham_descricao', 'cham_status'];
 
 	/*nome dos atributos que representam as horas 	*/
 	protected $date 	= ['cham_data_chamado', 'cham_data_prevista'];
@@ -42,8 +42,8 @@ class Chamado extends Model
      }
 
      /*Função que representa o relacionamento de um para muitos*/
-	  public function cham_tipo_probl(){
-         return $this->belongsTo(Tipo_problema::class);
+	  public function cham_sublista_problema(){
+         return $this->belongsTo(SublistaTipoProblema::class);
      }    
      
 }
