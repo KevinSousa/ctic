@@ -4,7 +4,7 @@
     <div id="titulo" align="left">
         <h1 align="left"> Calendário </h1>
         <br>
-        <a href="#"><button class="btn btn-primary"> Reservar Laboratório </button> </a>
+        <a href="{{route('calendar.addEvent')}}"><button class="btn btn-primary"> Reservar Laboratório </button> </a>
     </div>
     <br>
 
