@@ -1,6 +1,18 @@
 @extends('layouts.app')
 @section('content')
-<h1> Calendário </h1>
+<div id="index">
+    <div id="titulo" align="left">
+        <h1 align="left"> Calendário </h1>
+        <br>
+        <a href="#"><button class="btn btn-primary"> Reservar Laboratório </button> </a>
+    </div>
+    <br>
+
+    <div id="calendar">
+        {!! $calendar_details -> calendar() !!}
+        {!! $calendar_details->script() !!}
+    </div>
+</div>
 @endsection
 
 @section('js')
@@ -26,4 +38,19 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
 @endsection
+
+<style type="text/css">
+    div#index {
+        margin: 0px 25px 0px 25px;
+    }
+
+    div#calendar {
+        margin: 0px 80px 10px 80px;
+        padding: 15px;
+        border-radius: 5px;
+    }
+</style>
