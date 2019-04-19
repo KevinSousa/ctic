@@ -120,4 +120,7 @@ Route::group(['middleware'=>'auth'],function() {
 	Route::post('/chamados/update/{id}', ['as' => 'chamados.update', 'uses' => 'ChamadosController@update']);
 
 	Route::get('calendar', ['as'=>'calendar', 'uses'=>'EventController@index']);
+	Route::get('calendar/addEvent', ['as'=>'calendar.addEvent', 'uses'=>'EventController@addEvent']);
+	Route::post('calendar/saveEvent', ['as'=>'calendar.saveEvent', 'uses'=>'EventController@saveEvent']);
+	
 });	
