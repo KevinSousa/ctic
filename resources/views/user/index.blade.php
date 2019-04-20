@@ -8,7 +8,7 @@
 			<h1 align="left"> Usuários Cadastrados </h1>
 		</div>
 		<br>
-        <table id="example" class="display" style="width:100%">
+        <table id="example" class="table table-striped" style="width:100%">
 		    <thead>
 		        <tr>
 		            <th>Nome</th>
