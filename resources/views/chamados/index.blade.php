@@ -1,11 +1,14 @@
 @extends('layouts.app')
+@section('title')
+	<title> Chamados </title>
+@endsection
 @section('content')	
 	<div id="index">
 		<div align="left">
 			<h1 id="titulo"> Chamados </h1>
 		</div>
 		<br>
-        <table id="example" class="display" style="width:100%">
+        <table id="example" class="table table-striped" style="width:100%">
 		    <thead>
 		        <tr>
 		            <th>Autor</th>
@@ -23,7 +26,7 @@
 						<td> {{$chamado -> user_name}} </td>
 						<td> {{$chamado -> cham_grau_urgencia}} </td>
 						<td> {{$chamado -> sala_identificacao }}</td>
-						<td> {{ $chamado -> sala_andar}}</td>
+						<td> {{$chamado -> sala_andar}}</td>
                         <td> {{$chamado -> sub_nome}}</td>
 						<td> {{$chamado -> cham_status}}</td>
 						<td> 	
