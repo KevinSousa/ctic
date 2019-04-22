@@ -13,10 +13,13 @@
 
 //ROTAS DO LOGIN
 
+Route::post('/user/salvar', ['as' => 'user.salvar', 'uses' => 'UsersController@save']);
+
 Route::get('/login', ['as' => 'login', 'uses' => 'LoginController@index']);
 Route::get('/login/sair', ['as' => 'login.sair', 'uses' => 'LoginController@logout']);
 Route::post('/login/entrar', ['as'=>'login.entrar', 'uses'=>'LoginController@login']);	
 
+Route::get('/user/cadastrar', ['as' => 'user.cadastrar', 'uses' => 'UsersController@cadastrar']);
 
 /* rota tradicional do método Auth*/
 Auth::routes();
@@ -33,12 +36,8 @@ Route::group(['middleware'=>'auth'],function() {
 	// ROTAS DOS FUNCIONÁRIOS
 
 	Route::get('/user/', ['as' => 'user.home', 'uses' => 'UsersController@index']);
+
 	Route::get('/user/remove/{id}', ['as' => 'user.remover', 'uses' => 'UsersController@remove']);
-
-	Route::get('/user/cadastrar', ['as' => 'user.cadastrar', 'uses' => 'UsersController@cadastrar']);
-
-	Route::post('/user/salvar', ['as' => 'user.salvar', 'uses' => 'UsersController@save']);
-	
 
 	Route::get('/user/editar/{id}', ['as' => 'user.editar', 'uses' => 'UsersController@edit']);
 
