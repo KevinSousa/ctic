@@ -34,7 +34,7 @@ class UsersController extends Controller
             ->orderBy('funcao_name', 'asc')
             ->get();
 
-        return view ('user.cadastrar', compact('funcaos'));
+        return view ('user.cadastro', compact('funcaos'));
 
     }
 
@@ -89,7 +89,8 @@ class UsersController extends Controller
             }
      
             User::create($dados);
-            return redirect() -> route('user.home');
+                $cadastro ='sucesso';
+            return redirect() -> route('login', compact('cadastro')) ;
             
         }
 
