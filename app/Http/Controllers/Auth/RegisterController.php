@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,16 +49,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'user_name' => ['required', 'string', 'max:255'],
-            'user_funcao' => [, 'string', 'max:255'],
-            'user_siap_matricula' => ['required', 'string', 'max:255'],
-            'user_cpf' => [ 'string', 'max:255'],
-            'user_telefone' => [ 'string', 'max:255'],
-            'user_email' => ['required', 'string', 'email', 'max:30', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'user_name' => 'required |string |max:255',
+            'user_funcao' => 'numeric',
+            'user_siap_matricula' => 'required |string |max:255',
+            'user_cpf' => 'string |max:255',
+            'user_telefone' =>  'string |max:255',
+            'user_email' => 'required |string | email| max:30 | unique:users',
+            'password' => 'required |string |min:8 |confirmed',
         ]);
     }
 
+    
     /**
      * Create a new user instance after a valid registration.
      *
@@ -69,9 +70,10 @@ class RegisterController extends Controller
     {
         return User::create([
             'user_name' => $data['user_name'],
-            'user_email' => $data['email'],
+            'user_email' => $data['user_email'],
             'password' => Hash::make($data['password']),
             'user_cpf' => $data['user_cpf'],
+            // Adicionar excessão para adiministrador na user_funcao
             'user_funcao' => $data['user_funcao'],
             'user_telefone' => $data['user_telefone'],
             'user_siap_matricula' => $data['user_siap_matricula'],
