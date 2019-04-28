@@ -16,7 +16,9 @@ class SalasController extends Controller
     public function index(){ 
 
         $salas = Sala::all();
+
         return view('salas.index', compact('salas'));
+
       
     }   
 
