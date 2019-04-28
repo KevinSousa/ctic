@@ -91,10 +91,10 @@
                                         <a href="{{route('user.home')}}"><i class="fas fa-user"></i>Usuarios</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('sala.home')}}"><i class="fas fa-home"></i>Salas</a>
+                                        <a href="#" url="/sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>                                
                                     <li>
-                                        <a href="{{route('tiposProblemas.index')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
+                                        <a href="#" url="/tiposProblemas" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li>
                                     <li>
                                         <a href="{{route('funcao.index')}}"><i class="fas fa-chart-bar"></i>Funções</a>
@@ -358,7 +358,7 @@
                     </div>
                 </div>
             </header>
-            <div class="main-content" align="center">
+            <div class="main-content container">
                 @yield('content')
             </div>
         </div>
@@ -366,6 +366,8 @@
     </div>
     
     @yield('js')
+
+    <script src="/js/listAjax.js"></script>
 
 </body>
 
