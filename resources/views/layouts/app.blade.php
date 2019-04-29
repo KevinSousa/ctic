@@ -34,6 +34,17 @@
     <!-- Main CSS-->
     <link href="/css/theme.css" rel="stylesheet" media="all">
 </head>
+<script src=”./fullcalendar/locale/pt-br.js”></script>
+<script src=’fullcalendar/fullcalendar.js’></script>
+<script src=”./fullcalendar/locale/pt-br.js”></script>
+<script src=’fullcalendar/lang-all.js’></script>
+<script>
+$(function() {
+$(‘#calendar’).fullCalendar({
+        lang: ‘pt-br’;
+    });
+});
+</script>
 
 <body class="animsition">
     <div class="page-wrapper">
