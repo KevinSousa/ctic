@@ -121,5 +121,13 @@ Route::group(['middleware'=>'auth'],function() {
 	Route::get('calendar', ['as'=>'calendar', 'uses'=>'EventController@index']);
 	Route::get('calendar/addEvent', ['as'=>'calendar.addEvent', 'uses'=>'EventController@addEvent']);
 	Route::post('calendar/saveEvent', ['as'=>'calendar.saveEvent', 'uses'=>'EventController@saveEvent']);
+
+	Route::get( 'erickson', function(){
+		Mail::send('mail.treinaweb',['curso'=>'Eloquent'], function($m){
+			$m->from('erickson.rinho@gmail.com', 'Erickson');
+			$m->subject('Cadastro realizado com sucesso!');
+			$m->to('erickson.rinho@gmail.com');
+		});
+	});
 	
 });	
