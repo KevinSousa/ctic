@@ -7,20 +7,30 @@ $(document).ready(function()
             $('li').removeClass('active');
             $(this).parent('li').addClass('active');
   
-            var myurl = $(this).attr('url');
-            // var page=$(this).attr('href').split('page=')[1];
-  
-            getData(myurl);
+            var url = $(this).attr('url');
+
+            var actualPage = window.location.href;
+            var urlPage = actualPage.split("/");
+            
+            if (url == "/"+urlPage[3]){
+                return
+            }
+
+            urlPage = urlPage[0] +"/"+ urlPage[1] +"/"+ urlPage[2];
+
+            console.log(urlPage);
+            getData(urlPage, url);
         });
   
     });
   
-function getData(page){
-    var url = window.location.href;
+function getData(urlPage, url){
+
+    window.history.pushState("", "", url);
 
     $.ajax(
     {
-        url: url+page,
+        url: urlPage+url,
         type: "get",
         datatype: "html"
     }).done(function(data){
