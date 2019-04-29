@@ -203,7 +203,12 @@ $(‘#calendar’).fullCalendar({
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
                             </form>
-                            <div class="header-button">
+
+                        @guest
+                        @else
+                        <!-- Menu Logado -->
+
+                            <div class="header-button"> 
                                 <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-comment-more"></i>
@@ -329,6 +334,7 @@ $(‘#calendar’).fullCalendar({
                                                 <div class="image">
                                                     <a href="#">
                                                         <img src="/icon/avatar-01.jpg" alt="{{ Auth::user()->user_name }}" />
+
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -336,6 +342,7 @@ $(‘#calendar’).fullCalendar({
                                                         <a href="#">{{ Auth::user()->user_name }}</a>
                                                     </h5>
                                                     <span class="email">{{ Auth::user()->user_email }}</span>
+
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -347,10 +354,6 @@ $(‘#calendar’).fullCalendar({
                                                     <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Configuração</a>
                                                 </div>
-<!--                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
-                                                </div> -->
                                             </div>
                                             <div class="account-dropdown__footer">
                                                 <a href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -361,10 +364,20 @@ $(‘#calendar’).fullCalendar({
                                                     </form>
                                                 </a>
                                             </div>
+                                            <a href="{{ route('logout') }}"class="account-dropdown__footer" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                                <i class="zmdi zmdi-power"></i>
+                                                    {{ __('Logout') }}
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                </form>
+                                              </a>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
+                                </div> 
+                            </div> 
+                    @endguest
+    <!-- ======================================================================== -->
+
                         </div>
                     </div>
                 </div>

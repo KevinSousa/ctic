@@ -11,7 +11,15 @@
 |
 */
 
+<<<<<<< HEAD
 //ROTAS DO LOGIN
+=======
+Route::get('/', function () {
+    return view('123');
+});
+/* rota tradicional do método Auth*/
+Auth::routes();
+>>>>>>> 0febe75bf267acfa0c7d015c64ead81432e8e477
 
 Route::post('/user/salvar', ['as' => 'user.salvar', 'uses' => 'UsersController@save']);
 
