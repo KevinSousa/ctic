@@ -18,10 +18,15 @@ class TiposProblemasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $tiposProblemas = Tipo_problema::all();
-        return view ('tipos_problemas/tiposProblemas', compact("tiposProblemas"));
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('tipos_problemas.tiposProblemas', compact('tiposProblemas', 'ajax'));       
     }
 
     /**
