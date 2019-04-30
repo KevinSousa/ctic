@@ -20,7 +20,7 @@ Windows:
 	copy .env.example .env
 	php artisan key:generate
 
-conf-git-erickson:
+erickson:
 	git config user.email "erickson.rinho@hotmail.com"
 	git config user.name "Erickson"
 
@@ -48,5 +48,10 @@ bd-conf:
 	mysql -u root -p --execute="drop database if exists ctic; create database ctic; drop user if exists 'ctic'; create user 'ctic' identified by 'ctic'; grant all privileges on ctic.* to 'ctic';"
 	sed -i 's/DB_DATABASE.*/DB_DATABASE=ctic/' .env
 	sed -i 's/DB_USERNAME.*/DB_USERNAME=ctic/' .env
-	sed -i 's/DB_PASSWORD.*/DB_PASSWORD=ctic/' .env
+	sed -i 's/DB_PASSWORD.*/DB_PASSWORD=ctic/' .env	
+	sed -i 's/MAIL_HOST.*/MAIL_HOST=smtp.gmail.com/' .env
+	sed -i 's/MAIL_PORT.*/MAIL_PORT=587/' .env
+	sed -i 's/MAIL_USERNAME.*/MAIL_USERNAME=suporte.cticifpe@gmail.com/' .env
+	sed -i 's/MAIL_PASSWORD.*/MAIL_PASSWORD=suporte.ctic2019/' .env
+	sed -i 's/MAIL_ENCRYPTION.*/MAIL_ENCRYPTION=tls/' .env
 	php artisan migrate:refresh --seed
