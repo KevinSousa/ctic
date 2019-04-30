@@ -13,11 +13,15 @@ class SalasController extends Controller
         $this -> middleware('auth');
     }
     
-    public function index(){ 
+    public function index(Request $request){ 
 
         $salas = Sala::all();
+        $ajax = false;
 
-        return view('salas.index', compact('salas'));
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('salas.index', compact('salas', 'ajax'));
 
       
     }   
