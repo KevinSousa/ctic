@@ -16,14 +16,16 @@ class EquipamentosController extends Controller
         $this -> middleware('auth');
     }
     
-    public function index() {
-     // $equipamento =  DB::table('equipamentos')
-     //        ->join('tipo_equipamentos', 'tipo_equipamentos.tipo_id', '=' , 'equip_id')
-     //        ->select('equipamentos.*','tipo_equipamentos.*')
-     //         ->get();
+    public function index(Request $request) {
        	$tipoEquip = Tipo_Equipamento::all();
      	$equipamento = Equipamento::all();
-        return view ('/equipamento.index-equipamento', compact('equipamento','tipoEquip'));
+        
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view ('/equipamento.index-equipamento', compact('equipamento','tipoEquip','ajax'));
 
     }
 
