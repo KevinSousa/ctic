@@ -1,9 +1,7 @@
-@extends('layouts.app')
-@section('title')
-	<title> Funções </title>
-@endsection
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 
 @section('content')
+	<title> Funções </title>
 	<div id="index">
 		<div align="left">	
 			<h1 id="titulo"> Funções </h1>

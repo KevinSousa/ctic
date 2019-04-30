@@ -12,10 +12,15 @@ class FuncaoController extends Controller
     public function __construct(){
         $this -> middleware('auth');
     }
-	public function index() {
+	public function index(Request $request) {
 
      	$funcao = Funcao::all();
-        return view ('/funcao/index-funcao', compact('funcao'));
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('funcao.index-funcao', compact('funcao', 'ajax'));
 
     }
 
