@@ -1,8 +1,7 @@
-@extends('layouts.app')
-@section('title')
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
+
+@section('content') 
 	<title> Chamados </title>
-@endsection
-@section('content')	
 	<div id="index">
 		<div align="left">
 			<h1 id="titulo"> Chamados </h1>
@@ -64,14 +63,26 @@
         <!-- Main JS-->
         <script src="/js/main.js"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-		<script type="text/javascript">
-			$(document).ready( function (){
-			    $('#example').DataTable();
-			});
-		</script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script type="text/javascript">
+            $(document).ready( function (){
+                $('#example').DataTable();
+            });
+        </script>
 
+        
+
+@endsection
+@section('ajax-js')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function (){
+            $('#example').DataTable();
+        });
+    </script>
 @endsection
 <style type="text/css">
 	div#index{

@@ -15,7 +15,7 @@ class ChamadosController extends Controller
     //     $this -> middleware('auth');
     // }
     
-    public function index(){ 
+    public function index(Request $request){ 
                  
         $chamados =  DB::table('chamados')
                     ->join('users', 'users.user_id', '=' , 'cham_user')
@@ -23,7 +23,12 @@ class ChamadosController extends Controller
                     ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
                     ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
                     ->simplePaginate(10);
-                    return view('chamados.index', compact('chamados'));
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('chamados.index', compact('chamados','ajax'));
           
     }       //manda pro index de chamados passando os valores da lista
 
