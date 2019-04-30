@@ -11,7 +11,7 @@ use App\Funcao;
 class UsersController extends Controller
 {
 
-    public function index(){
+    public function index(Request $request){
 
         $users = DB::table('users')
                 ->join('funcaos', 'user_funcao', '=' , 'funcaos.funcao_id')
@@ -23,7 +23,11 @@ class UsersController extends Controller
                 ->orderBy('funcao_name', 'asc')
                 -> get();
 
-        return view ('user.index', compact('users','funcaos'));
+        $ajax = false;
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view ('user.index', compact('users','funcaos','ajax'));
     	
     }
 
