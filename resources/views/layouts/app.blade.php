@@ -48,13 +48,13 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li class="active has-sub">
+                        <li class="has-sub">
                             @can('user')
                                 <a href="{{route('chamados.add')}}">
                                     <i class="fas fa-phone"></i>Adicionar Chamados</a>
                             @endcan        
                             @can('admin')
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow text-success" href="#">
                                 <i class="fas fa-plus"></i>Adicionar</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
@@ -77,18 +77,18 @@
                         </li>
                         @can('admin')
                             <li>
-                                <a class="js-arrow" href="#" style="color: red;">
+                                <a class="js-arrow" href="#" style="color: blue;">
                                     <i class="fas fa-list"></i>Visualizar
                                 </a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
-    <!--                                 <li>
-                                        <a href="{{route('chamados.index')}}"><i class="fas fa-phone"></i>Chamados</a>
-                                    </li> -->
                                     <li>
-                                        <a href="{{route('equipamento.index')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                        <a href="#" url="/chamados" class="listAJAX"><i class="fas fa-phone"></i>Chamados</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('user.home')}}"><i class="fas fa-user"></i>Usuarios</a>
+                                        <a href="#" url="/equipamento" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" url="/user" class="listAJAX"><i class="fas fa-user"></i>Usuários</a>
                                     </li>
                                     <li>
                                         <a href="#" url="/sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
@@ -97,16 +97,16 @@
                                         <a href="#" url="/tiposProblemas" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('funcao.index')}}"><i class="fas fa-chart-bar"></i>Funções</a>
+                                        <a href="#" url="/funcao" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
                                 </ul>
                             </li>
                         @endcan
-                        <li>
+                        {{-- <li>
                             <a href="{{route('chamados.index')}}" style="color: green;">
                                 <i class="fas fa-list-ul"></i>Visualizar Chamados
                             </a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="#">
                                 <i class="far fa-check-square"></i>Formulários</a>
