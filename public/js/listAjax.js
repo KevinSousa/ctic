@@ -7,31 +7,32 @@ $(document).ready(function()
             if ($(this).parent('li').hasClass("active")){
                 return
             }
-            
+
             $('li').removeClass('active');
             $(this).parent('li').addClass('active');
   
             var url = $(this).attr('url');
-
-            var actualPage = window.location.href;
-            var urlPage = actualPage.split("/");
             
-
-            urlPage = urlPage[0] +"/"+ urlPage[1] +"/"+ urlPage[2];
-
-            console.log(urlPage);
-            getData(urlPage, url);
-        });
+            getData(url);
+            return false;
+        });    
+        // window.addEventListener('popstate', function(e){
+        //     if(e.state)
+        //         oldUrl = window.location.pathname.split("/");
+        //         oldUrl = "/"+oldUrl[1];
+                
+        //         getData(oldUrl);
+        // });
   
     });
   
-function getData(urlPage, url){
+function getData(url){
 
-    window.history.pushState("", "", url);
+    window.history.pushState({ url:url }, "", url);
 
     $.ajax(
     {
-        url: urlPage+url,
+        url: url,
         type: "get",
         datatype: "html"
     }).done(function(data){
