@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Cadastre-se</title>
-    <meta charset="UTF-8">
+	<title>Conta</title>
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
@@ -13,7 +13,8 @@
         <!-- Fontfaces CSS-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
     <link href="/css/font-face.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
@@ -22,17 +23,12 @@
     <link href="/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     <!-- Vendor CSS-->
     <link href="/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"media="all">
+    <link href="/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="/vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
     <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-    <link rel="stylesheet" type="text/css" href="{{asset('/css/login.css')}}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/index-css.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="/vendor/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap JS-->
         <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
@@ -59,83 +55,101 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
         <script src="/vendor/Inputmask/dist/jquery.inputmask.bundle.js"></script>
+</head>	
+<body><div id="index">
+	<div id="titulo" align="left">
+		<h1 style="color: white;"> Conta</h1>
+	</div>
+	<br>
+		{{ csrf_field() }}
+		@if( session('sucess'))
+			<div class="alert alert-sucess">
+					{{ session('sucess')}}
+			</div>
+		@endif
+	<form method="post" action="{{route('user.update', Auth::user()->user_id)}}" class="">
+	<div class="form-group">
+                        {{ csrf_field() }}
+		<label for="">Nome Completo *</label>
+		<input class="form-control" type="text" name="user_name" value="{{Auth::user()->user_name}}" required="">
+	</div>
 
-</head>
-<body><div class="container">
-    <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card card-signin my-5">
-                <div class="card-body">
-                    <img id="ifpe" src="/icon/ifpe.png">
 
-                        <form method="post" action="{{route('user.salvar')}}" class="">
-                                {{ csrf_field() }}
-                            <div class="form-label-group">
-                                <input id="nome" class="form-control" type="text" name="user_name" placeholder="a" required>
-                                <label for="nome">Nome Completo *</label>
-                            </div>
-                            <div class="row">
-                                <div class="form-label-group col-md-6">
-                                    <input id="user_cpf" class="form-control user_cpf" type="text" name="user_cpf" value="" required placeholder="a" maxlength="14" id="user_cpf">
-                                    <label  for="user_cpf" >CPF *</label>
-                                </div>
-                                <div class="form-label-group col-md-6">
-                                    <input id="inputMatricula" class="form-control" type="text" name="user_siap_matricula" placeholder="a" value="" maxlength="14" required>
-                                    <label for="inputMatricula">Matricula ou Siape *</label>
-                                </div>
-                            </div>
-                            <div class="form-label-group">
-                                <input id="email" class="form-control" type="email" name="user_email" placeholder="a" required>
-                                <label for="email">Email *</label>
-                            </div>
-                            <div class="form-label-group">
-                                <input class="form-control" type="text" name="user_telefone" id="user_telefone" placeholder="a">
-                                <label for="user_telefone">Celular *</label>
-                            </div>
-                            <div class="form-label-group">
+	<div   class="form-row">
+		<div class="form-group col-md-6">
+			<!---CONcertando conflitos aki  -->
+			<label  for="" id="cpf">CPF *</label>
 
-                                <select value="Função *"  name="user_funcao" class="form-control">
-                                    <option placeholder="Função *" disabled="">Escolha a Função *</option>
-                                    @foreach($funcaos as $func)
-                                        @if($func->funcao_name != 'Administrador')
-                                            <option value="{{$func -> funcao_id}}">{{$func -> funcao_name}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="row">
-                                <div class="form-label-group col-md-6">
-                                    <input id="senha" class="form-control" type="password" name="password" required placeholder="a" maxlength="16" minlength="8">
-                                    <label for="senha"> Senha *</label>
-                                </div>
+			<input class="form-control" type="text" name="user_cpf" value="{{Auth::user()->user_cpf}}" required="" maxlength="14" id="user_cpf">
+		</div>
 
-                                <div class="form-label-group col-md-6">
-                                    <input id="senha2" placeholder="a" class="form-control" type="password" name="" maxlength="16" minlength="8">
-                                    <label for="senha2"> Repita a Senha *</label> 
-                                </div>    
-                            </div>
-                        <div class="custom-control custom-checkbox mb-3">
-          
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
-                                Cadastrar
-                            </button>                   
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="form-group col-md-6">
+			<label for="">Número da Matricula ou Siape *</label>
+
+			<input class="form-control " type="text" name="user_siap_matricula" value="{{Auth::user()->user_siap_matricula}}" required="" maxlength="14" disabled>
+
+		</div>
+	</div>
+
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label for="">Email *</label>
+			<input class="form-control" type="email" name="user_email" value="{{Auth::user()->user_email}}" required="">
+		</div>
+		<div class="form-group col-md-6">
+			<label for="">Celular *</label>
+			<input class="form-control" type="text" value="{{Auth::user()->user_telefone}}" name="user_telefone" id="user_telefone">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="">Função</label>
+
+		<select name="user_funcao" class="form-control">
+			@foreach($funcaos as $func)
+				@if($func->funcao_id == Auth::user()->user_funcao)
+				<option value="{{$func -> funcao_id}}" 
+					@if($func->funcao_id == Auth::user()->user_funcao) Selected @endif;
+					@if($func->funcao_id == Auth::user()->user_funcao) disabled @endif;
+					>{{$func->funcao_name}}</option>
+				@endif;			
+			@endforeach
+		</select>
+	</div>
+
+
+	<div class="form-row">
+
+		<div class="form-group col-md-6">
+			<label> Senha *</label>
+			<input class="form-control" type="password" name="password" required="" maxlength="16" minlength="8">
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for=""> Repita a Senha *</label>	
+			<input class="form-control" type="password" name="" maxlength="16" minlength="8">
+		</div>
+
+	</div>
+	<button class="btn btn-success" id="enviar" type="submit"> Cadastrar </button>
+
+	</form>
 </div>
 <script>
             var code  ="{{Request::query('cpf1')}}"; //codigo que é passado do back-end como segunda camada de proteção
             $(document).ready(function () { 
                 var $CampoCpf = $("#user_cpf");
+
                 $CampoCpf.mask('000.000.000-00', {reverse: true});  //deu conflito aki mas ja ta deboa kk
+
+
                 $("#user_telefone").inputmask({
                     mask: ["(99) 9999-9999", "(99) 99999-9999", ],
                     keepStatic: true
                 });
             });
+
+
             if(code == 'code1'){
             mudar_falha();      //chama a função se por acaso o codigo retornado do back for code1
             }
@@ -185,19 +199,22 @@
         </script>
 </body>
 <style type="text/css">
-    
-    div#index {
-        margin: 0px 25px 0px 25px;
-    }
-    div#titulo h1{
-        color: #666;
-    }
+	
+	div#index {
+		margin: 0px 25px 0px 25px;
+	}
+
+	div#titulo h1{
+		color: #666;
+	}
     .form-row, .form-group{
         text-align: left;
     }
+
     body{
-        background: #666;
+    	background: #666;
   background: linear-gradient(to right, #666, #777  );
     }
+
 </style>
 </html>

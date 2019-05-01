@@ -39,9 +39,11 @@ Route::group(['middleware'=>'auth'],function() {
 
 	Route::get('/user/remove/{id}', ['as' => 'user.remover', 'uses' => 'UsersController@remove']);
 
+	Route::get('/user/conta/{id}', ['as' => 'user.conta', 'uses' => 'UsersController@conta']);
+
 	Route::get('/user/editar/{id}', ['as' => 'user.editar', 'uses' => 'UsersController@edit']);
 
-	Route::put('/user/atualizar/{id}',['as'=>'user.atualizar','uses'=>'UsersController@update']);
+	Route::post('/user/update/{id}',['as'=>'user.update','uses'=>'UsersController@update']);
 
 	// ROTAS DAS FUNCOES
 

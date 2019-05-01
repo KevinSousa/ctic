@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\UsersController;
+use Auth;
 use App\User;
 use App\Funcao;
 
@@ -104,25 +105,37 @@ class UsersController extends Controller
 	public function remove($id){
 
         DB::table('users')->where('user_id', '=', $id)->delete();
-        return redirect()->route('user.home');
+        return redirect()->route('home');
 
     }
 
     public function edit($id){
 
         $usuario = DB::table('users')->where('user_id', '=', $id)->first();
-        $funcaos = Funcao::all();
+        $funcaos = Funcao::all()->except('administrador');
         return view('user.editar',compact('usuario','funcaos'));    
     }
 
-	public function update(Request $req, $id){
+	public function update(Request $req){
 
-        $dados = $req->except(['_token','_method']);
-        DB::table('users')
-            ->where('user_id', '=' , $id)
-            ->update($dados);
+        $dados = $req->all();
 
-        return redirect() -> route('user.home');
-        
+        if($dados['password'] != null)
+            $dados['password'] = bcrypt($dados['password']);
+        else
+            unset($data['password']);
+
+        $update = Auth::user()->update($dados);
+        $user = Auth::user()->user_id;
+        if($update)
+            return redirect()
+                 -> route('user.conta', compact('user'));        
     }
+
+    public function conta($id){
+
+    $funcaos = Funcao::all();
+    return view('user.conta', compact('funcaos'));
+    }
+
 }
