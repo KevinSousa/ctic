@@ -4,6 +4,10 @@ $(document).ready(function()
         {
             event.preventDefault();
   
+            if ($(this).parent('li').hasClass("active")){
+                return
+            }
+            
             $('li').removeClass('active');
             $(this).parent('li').addClass('active');
   
@@ -12,9 +16,6 @@ $(document).ready(function()
             var actualPage = window.location.href;
             var urlPage = actualPage.split("/");
             
-            if (url == "/"+urlPage[3]){
-                return
-            }
 
             urlPage = urlPage[0] +"/"+ urlPage[1] +"/"+ urlPage[2];
 
