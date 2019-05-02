@@ -116,19 +116,40 @@ class UsersController extends Controller
         return view('user.editar',compact('usuario','funcaos'));    
     }
 
-	public function update(Request $req){
+	public function update(Request $request){
 
-        $dados = $req->all();
-
-        if($dados['password'] != null)
-            $dados['password'] = bcrypt($dados['password']);
-        else
-            unset($data['password']);
-
-        $update = Auth::user()->update($dados);
-        $user = Auth::user()->user_id;
-        if($update)
+        $dados = $request->all();
+        if ($request->password != $request->password2) {
             return redirect()
+                 -> route('user.conta', compact('user'));
+        }
+        $senha = bcrypt($request->password);
+        $nomeImagem = null;
+        if($request->hasFile('imagem')){
+            $imagem = $request->file('imagem');
+            $numero = rand(1111,9999);
+            $dir = "icon/user/";
+            $ex = $imagem -> guessClientExtension();
+            $nomeImagem = "imagem_".$numero.".".$ex;
+            $imagem->move($dir,$nomeImagem);
+            $dados['imagem'] = $dir."/".$nomeImagem;
+        }
+        $User                       = User::find(Auth::user()->user_id);
+        $User->user_id              = Auth::user()->user_id;
+        $User->user_name            = $request->user_name;
+        $User->user_funcao          = isset($request->user_funcao) ? $request->user_funcao : "4";
+        $User->user_email           = $request->user_email;
+        $User->password             = $senha;
+        $User->user_cpf             = $request->user_cpf;
+        $User->user_siap_matricula  = isset($request->user_siap_matricula) ? $request->user_siap_matricula : "123";
+        $User->user_telefone          = $request->user_telefone;
+            if(isset($nomeImagem)){
+                $User->user_imagem    = $nomeImagem;
+            }
+        $User->save();
+
+        $user = Auth::user()->user_id;
+        return redirect()
                  -> route('user.conta', compact('user'));        
     }
 

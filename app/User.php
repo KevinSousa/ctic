@@ -19,7 +19,7 @@ class User extends Authenticatable
     protected $primaryKey  = 'user_id';
     
     /*nome dos atributos que poderão ser alterados*/
-    protected $fillable = ['user_name','user_funcao','user_email', 'password', 'user_cpf', 'user_siap_matricula', 'user_telefone'];
+    protected $fillable = ['user_name','user_funcao','user_email', 'password', 'user_cpf', 'user_siap_matricula', 'user_telefone', 'user_imagem'];
 
     protected $hidden = ['password', 'remember_token'];
 

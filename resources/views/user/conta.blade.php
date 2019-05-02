@@ -67,17 +67,16 @@
 					{{ session('sucess')}}
 			</div>
 		@endif
-	<form method="post" action="{{route('user.update', Auth::user()->user_id)}}" class="">
+	<form method="post" action="{{route('user.update', Auth::user()->user_id)}}" class="" enctype="multipart/form-data">
 	<div class="form-group">
                         {{ csrf_field() }}
 		<label for="">Nome Completo *</label>
 		<input class="form-control" type="text" name="user_name" value="{{Auth::user()->user_name}}" required="">
 	</div>
 
-
 	<div   class="form-row">
 		<div class="form-group col-md-6">
-			<!---CONcertando conflitos aki  -->
+			<!---Consertando conflitos aki  -->
 			<label  for="" id="cpf">CPF *</label>
 
 			<input class="form-control" type="text" name="user_cpf" value="{{Auth::user()->user_cpf}}" required="" maxlength="14" id="user_cpf">
@@ -90,7 +89,12 @@
 
 		</div>
 	</div>
-
+	<div class="form-row">
+		<label for="file" >Adicionar Imagem:
+		<br><input type="file" name="imagem" class="" value="icon/user/{{Auth::user()->user_imagem}}" id="file" >
+		</label>
+		<img src="icon/user/{{Auth::user()->user_imagem}}" alt="">
+	</div>
 	<div class="form-row">
 		<div class="form-group col-md-6">
 			<label for="">Email *</label>
@@ -127,7 +131,7 @@
 
 		<div class="form-group col-md-6">
 			<label for=""> Repita a Senha *</label>	
-			<input class="form-control" type="password" name="" maxlength="16" minlength="8">
+			<input class="form-control" type="password" name="password2" maxlength="16" minlength="8">
 		</div>
 
 	</div>

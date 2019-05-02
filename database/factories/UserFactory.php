@@ -17,6 +17,7 @@ $factory->define(App\User::class, function (Faker $faker) {
         'user_cpf' => $cpf,
         'user_telefone' => $faker->phoneNumber,
         'user_siap_matricula' => $Mat,
+        'user_imagem' => 'avatar-01.jpg',
         'user_email' => $faker->unique()->safeEmail,
         'password' => ' secret', // secret
         'remember_token' => str_random(10),
