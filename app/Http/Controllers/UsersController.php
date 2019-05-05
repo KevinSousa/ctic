@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\UsersController;
 use Auth;
 use App\User;
@@ -56,7 +57,9 @@ class UsersController extends Controller
         // VALIDAÇÃO DE CPF
         if(empty($cpf_formatado)) {
 
-            return "falso";
+            \Session::flash('warning', 'CPF Inválido');
+            return Redirect::to('/user/cadastrar')->withInput()->withErrors('CPF Inválido');
+
         }
      
         $cpf_formatado = preg_match('/[0-9]/', $cpf_formatado)?$cpf_formatado:0;
@@ -65,7 +68,10 @@ class UsersController extends Controller
          
         
         if (strlen($cpf_formatado) != 11) {
-            return "falso";
+
+            \Session::flash('warning', 'CPF Inválido');
+            return Redirect::to('/user/cadastrar')->withInput()->withErrors('CPF Inválido');
+
         }
         
         else if ($cpf_formatado == '00000000000' || 
@@ -78,7 +84,8 @@ class UsersController extends Controller
             $cpf_formatado == '77777777777' || 
             $cpf_formatado == '88888888888' || 
             $cpf_formatado == '99999999999') {
-            return "falso";
+            \Session::flash('warning', 'CPF Inválido');
+            return Redirect::to('/user/cadastrar')->withInput()->withErrors('CPF Inválido');
 
          } else {   
              
@@ -89,10 +96,18 @@ class UsersController extends Controller
                 }
                 $d = ((10 * $d) % 11) % 10;
                 if ($cpf_formatado{$c} != $d) {
-                    return "falso";
+                    \Session::flash('warning', 'CPF Inválido');
+                    return Redirect::to('/user/cadastrar')->withInput()->withErrors('CPF Inválido');
                 }
             }
-     
+            
+            $senhas = $req -> validate([
+                
+                'password' => 'min:6|required_with:password2|same:password2',
+                'password2' => 'min:6'
+
+            ]);
+
             User::create($dados);
                 $cadastro ='sucesso';
             return redirect() -> route('login', compact('cadastro')) ;

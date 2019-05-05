@@ -67,7 +67,13 @@
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <img id="ifpe" src="/icon/ifpe.png">
-
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    As Senhas Devem ser iguais
+                                </ul>
+                            </div>          
+                        @endif
                         <form method="post" action="{{route('user.salvar')}}" class="">
                                 {{ csrf_field() }}
                             <div class="form-label-group">
@@ -110,7 +116,7 @@
                                 </div>
 
                                 <div class="form-label-group col-md-6">
-                                    <input id="senha2" placeholder="a" class="form-control" type="password" name="" maxlength="16" minlength="8">
+                                    <input id="senha2" placeholder="a" class="form-control" type="password" name="password2" maxlength="16" minlength="8">
                                     <label for="senha2"> Repita a Senha *</label> 
                                 </div>    
                             </div>
