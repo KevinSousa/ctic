@@ -307,8 +307,8 @@
                                 </div> -->
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
-                                        <div class="image">
-                                            <img src="/icon/user/{{isset(Auth::user()->user_imagem) ? Auth::user()->user_imagem : 'avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
+                                        <div  class="image">
+                                            <img style="height: 4em; width: 5em;" src="{{isset(Auth::user()->user_imagem) ? Auth::user()->user_imagem : 'avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">{{ Auth::user()->user_name }}</a>
@@ -317,7 +317,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="/icon/user/{{isset(Auth::user()->user_imagem) ? Auth::user()->user_imagem : 'avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
+                                                        <img style="height: 4em; width: 5em;" src="{{isset(Auth::user()->user_imagem) ? Auth::user()->user_imagem : 'avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
