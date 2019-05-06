@@ -74,7 +74,7 @@
                                 </ul>
                             </div>          
                         @endif
-                        <form method="post" action="{{route('user.salvar')}}" class="">
+                        <form method="post" action="{{route('user.salvar')}}" class="" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                             <div class="form-label-group">
                                 <input id="nome" class="form-control" type="text" name="user_name" placeholder="a" required>
@@ -83,7 +83,7 @@
                             <div class="row">
                                 <div class="form-label-group col-md-6">
                                     <input id="user_cpf" class="form-control user_cpf" type="text" name="user_cpf" value="" required placeholder="a" maxlength="14" id="user_cpf">
-                                    <label  for="user_cpf" >CPF *</label>
+                                    <label id="cpf" for="user_cpf" >CPF *</label>
                                 </div>
                                 <div class="form-label-group col-md-6">
                                     <input id="inputMatricula" class="form-control" type="text" name="user_siap_matricula" placeholder="a" value="" maxlength="14" required>
@@ -98,8 +98,10 @@
                                 <input class="form-control" type="text" name="user_telefone" id="user_telefone" placeholder="a">
                                 <label for="user_telefone">Celular *</label>
                             </div>
-                            <div class="form-label-group">
 
+                            <div class="form-label-group">
+                                <input type="file" name="user_imagem" class="custom-file-input " id="inputGroupFile03" aria-describedby="inputGroupFileAddon03"> 
+                                <label class="custom-file-label border" for="inputGroupFile01">Adicione uma foto de perfil</label>
                                 <select value="Função *"  name="user_funcao" class="form-control">
                                     <option placeholder="Função *" disabled="">Escolha a Função *</option>
                                     @foreach($funcaos as $func)
@@ -122,7 +124,7 @@
                             </div>
                         <div class="custom-control custom-checkbox mb-3">
           
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" id="enviar" type="submit">
                                 Cadastrar
                             </button>                   
                         </div>
@@ -147,17 +149,17 @@
             }
             
             function mudar_ok(){
-                  document.getElementById('cpf').innerHTML =  "<li class='text-success'>CPF OK</li>";
+                  document.getElementById('cpf').innerHTML =  "<li  class='text-white'>CPF OK</li>";
                    document.getElementById('user_cpf').style.backgroundColor = "#00FF7F";
                      $('#enviar').show();
                      ///utilizando doom pos é oque eu mas conheço posso retirar depois
                      //aqui nos estamos mudando o a cor e do botão e descrição para true porque o cpf é valido
             }
             function mudar_falha(){
-                  document.getElementById('cpf').innerHTML =  "<li class='text-danger'>CPF INVÁLIDO</li>";
+                  document.getElementById('cpf').innerHTML =  "<li ' class='text-warning'>CPF INVÁLIDO</li>";
                    document.getElementById('user_cpf').style.backgroundColor = "#B22222";
                    document.getElementById('user_cpf').style.color = "white";
-                   $('#enviar').hide();
+                   //$('#enviar').hide();
                     //aqui nos fazemos basicamente o contrario 
             }
             $("#user_cpf").keypress(function(e) { //faz a limpeza do cpf e chama a função responsavel por alertar os erros no cpf
