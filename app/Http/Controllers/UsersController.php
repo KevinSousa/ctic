@@ -103,12 +103,38 @@ class UsersController extends Controller
             
             $senhas = $req -> validate([
                 
-                'password' => 'min:6|required_with:password2|same:password2',
-                'password2' => 'min:6'
+                'password' => 'min:8|required_with:password2|same:password2',
+                'password2' => 'min:8'
 
             ]);
 
+             
+            // $imagem = $request->file('imagem'); 
+
+            if ($req->hasFile('user_imagem') && $req->file('user_imagem')->isValid()) {
+             
+             /*$name = rand(1111,9999).$dados['user_imagem'];
+             $extencao = $req->user_imagem->extension();
+             $namefile = "{$name}.{$extencao}";
+             */
+              $imagem = $dados['user_imagem'];
+             $numero = rand(1111,9999);
+             $dir = "icon/user";
+             $ex = $req->user_imagem->extension();
+             $nomeImagem = "imagem_".$numero.".".$ex;
+             $imagem->move($dir,$nomeImagem);
+             $dados['user_imagem'] = $dir."/".$nomeImagem;
+
+
+            //  $upload = $req->user_imagem->storeAs('icon/user/', $namefile);
+            }
+            if (!$imagem) {
+                return redirect()->back()->with('error','falha no upload da imagem');
+            }
+            
+           
             User::create($dados);
+
                 $cadastro ='sucesso';
             return redirect() -> route('login', compact('cadastro')) ;
             
@@ -134,7 +160,8 @@ class UsersController extends Controller
 	public function update(Request $request){
 
         $dados = $request->all();
-        if ($request->password != $request->password2) {
+
+        if ($request->password !== $request->password2) {
             return redirect()
                  -> route('user.conta', compact('user'));
         }
@@ -151,7 +178,7 @@ class UsersController extends Controller
         }
         $User                       = User::find(Auth::user()->user_id);
         $User->user_id              = Auth::user()->user_id;
-        $User->user_name            = $request->user_name;
+        $User->user_name            = $request->user_name;  
         $User->user_funcao          = isset($request->user_funcao) ? $request->user_funcao : "4";
         $User->user_email           = $request->user_email;
         $User->password             = $senha;
