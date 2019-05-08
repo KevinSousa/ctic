@@ -329,7 +329,7 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{route('user.conta', Auth::user()->user_id)}}">
+                                                    <a href="{{route('user.editar', Auth::user()->user_id)}}">
                                                         <i class="zmdi zmdi-account"></i>Conta</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
