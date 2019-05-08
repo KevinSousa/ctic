@@ -34,11 +34,16 @@ class ChamadosController extends Controller
 
 
 
-    public function add(){
+    public function add(Request $request){
+          $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
          $salas = DB::table('salas')->get();
          $tipos_problemas = DB::table('tipo_problemas')->get();         //Leva para view de adionar um chamado passando os dados necessários
          $tipos_equip = DB::table('tipo_equipamentos')->get();
-        return view('chamados.adicionar', compact('salas','tipos_problemas','tipos_equip'));
+        return view('chamados.adicionar', compact('salas','tipos_problemas','tipos_equip','ajax'));
     }
 
     public function save(Request $req){
@@ -64,12 +69,17 @@ class ChamadosController extends Controller
     }
 
     public function edit($id){
+         $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
         ///manda para view de editar chamados
          $tipos_problemas = DB::table('tipo_problemas')->get();
          $tipos_equip = DB::table('tipo_equipamentos')->get();
          $salas = DB::table('salas')->get();
           $chamados = DB::table('chamados')->where('cham_id', '=', $id)->first();
-        return view('chamados.edit',compact('chamados','tipos_problemas','tipos_equip','salas'));  
+        return view('chamados.edit',compact('chamados','tipos_problemas','tipos_equip','salas','ajax'));  
     }
 
     public function update(Request $req, $id){          ///salva a edição  do chamado que é enviado pelo view de edit

@@ -150,11 +150,16 @@ class UsersController extends Controller
 
     }
 
-    public function edit($id){
+    public function edit(Request $request, $id){
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
 
         $usuario = DB::table('users')->where('user_id', '=', $id)->first();
         $funcaos = Funcao::all()->except('administrador');
-        return view('user.editar',compact('usuario','funcaos'));    
+        return view('user.editar',compact('usuario','funcaos','ajax'));    
     }
 
 	public function update(Request $request){
