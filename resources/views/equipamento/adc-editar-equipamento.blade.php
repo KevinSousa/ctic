@@ -1,13 +1,14 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
+<title>Equipamentos</title>
 <div id="index" style="width: 45em;height: 30em">
     <ol>
         @foreach($errors->all() as $error)
             <li>{{$error}}</li>
         @endforeach
     </ol>
-	@isset($equipamento)
-   		<h2 id="titulo" align="left"> Editar Equipamento </h2>
+    @isset($equipamento)
+        <h2 id="titulo" align="left"> Editar Equipamento </h2>
     @else
     	<h2 id="titulo" align="left"> Cadastro de Equipamento </h2>
     @endisset
