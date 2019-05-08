@@ -24,8 +24,14 @@ class FuncaoController extends Controller
 
     }
 
-    public function create(){
-    	return view('funcao.adc-editar-funcao');
+    public function create(Request $request){
+        
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('funcao.adc-editar-funcao', compact('ajax'));
     }
     
     public function store(Request $request) {
