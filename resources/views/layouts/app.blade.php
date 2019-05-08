@@ -64,7 +64,7 @@
                                         <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
                                     </li> -->
                                     <li>
-                                        <a href="{{route('sala.adicionar')}}"><i class="fas fa-home"></i>Salas</a>
+                                        <a href="#" url="/sala/adicionar" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
                                     <li>
                                         <a href="{{route('tiposProblemas.create')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
