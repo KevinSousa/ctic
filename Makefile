@@ -19,6 +19,14 @@ Windows:
 	composer install --no-scripts
 	copy .env.example .env
 	php artisan key:generate
+	sed -i 's/DB_DATABASE.*/DB_DATABASE=ctic/' .env
+	sed -i 's/DB_USERNAME.*/DB_USERNAME=root/' .env
+	sed -i 's/DB_PASSWORD.*/DB_PASSWORD=/' .env	
+	sed -i 's/MAIL_HOST.*/MAIL_HOST=smtp.gmail.com/' .env
+	sed -i 's/MAIL_PORT.*/MAIL_PORT=587/' .env
+	sed -i 's/MAIL_USERNAME.*/MAIL_USERNAME=suporte.cticifpe@gmail.com/' .env
+	sed -i 's/MAIL_PASSWORD.*/MAIL_PASSWORD=suporte.ctic2019/' .env
+	sed -i 's/MAIL_ENCRYPTION.*/MAIL_ENCRYPTION=tls/' .env
 
 erickson:
 	git config user.email "erickson.rinho@hotmail.com"
