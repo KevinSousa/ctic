@@ -26,8 +26,14 @@ class SalasController extends Controller
       
     }   
 
-    public function add(){
-        return view('salas.adicionar');
+    public function add(Request $request){
+        
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('salas.adicionar', compact('ajax'));
     }
 
     public function save(Request $req){
