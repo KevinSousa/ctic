@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
+
+
 @section('content')
     <title>Salas</title>
 <div id="index">
@@ -15,6 +17,7 @@
         </div>    
     </div>    
 @endsection
+
 @section('js')
      <!-- Jquery JS-->
         <script src="/vendor/jquery-3.2.1.min.js"></script>

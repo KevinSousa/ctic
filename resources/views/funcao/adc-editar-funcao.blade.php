@@ -1,5 +1,7 @@
-@extends('layouts.app')
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
+
 @section('content')
+<title>Funções</title>
 <div id="index" style="width: 45em;height: 30em">
 	@isset($funcao)
    		<h2 id="titulo" align="left"> Editar Função </h2>
