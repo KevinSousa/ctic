@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
 <div id="index" style="width: 45em;height: 30em">
     <ol>
@@ -51,6 +51,7 @@
 		</form>
 </div>
 @endsection
+
 @section('js')
      <!-- Jquery JS-->
         <script src="/vendor/jquery-3.2.1.min.js"></script>

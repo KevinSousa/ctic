@@ -58,7 +58,7 @@
                                 <i class="fas fa-plus"></i>Adicionar</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{route('equipamento.create')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                        <a href="#" url="/equipamento/create" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
                                     </li>
                                     <!-- <li>
                                         <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
