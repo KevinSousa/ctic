@@ -29,9 +29,15 @@ class EquipamentosController extends Controller
 
     }
 
-    public function create(){
+    public function create(Request $request){
     	$TipoEquip = Tipo_Equipamento::all();
-    	return view('equipamento.adc-editar-equipamento', compact('TipoEquip'));
+    	
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view ('/equipamento.adc-editar-equipamento', compact('TipoEquip','ajax'));
     }
     
     public function store(Request $request) {

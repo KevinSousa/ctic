@@ -58,19 +58,19 @@
                                 <i class="fas fa-plus"></i>Adicionar</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="{{route('equipamento.create')}}"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                        <a href="#" url="/equipamento/create" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
                                     </li>
                                     <!-- <li>
                                         <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
                                     </li> -->
                                     <li>
-                                        <a href="{{route('sala.adicionar')}}"><i class="fas fa-home"></i>Salas</a>
+                                        <a href="#" url="/sala/adicionar" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
                                     <li>
                                         <a href="{{route('tiposProblemas.create')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('funcao.create')}}"><i class="fas fa-chart-bar"></i>Funções</a>
+                                        <a href="#" url="/funcao/create" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
                             </ul>
                                 @endcan
