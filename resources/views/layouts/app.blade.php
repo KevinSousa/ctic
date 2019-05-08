@@ -70,7 +70,7 @@
                                         <a href="{{route('tiposProblemas.create')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('funcao.create')}}"><i class="fas fa-chart-bar"></i>Funções</a>
+                                        <a href="#" url="/funcao/create" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
                             </ul>
                                 @endcan
