@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
 <div id="index">
 		<div align="left" id="titulo">
             <h1> Editar Usuários </h1>
         </div>
         <br>
-		<form method="post" action="{{route('user.atualizar', $usuario->user_id) }}" class="ui form">
+		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
 			{{ csrf_field() }}
 			@include('user._form')
 			<button class="btn btn-success" type="submit"> Atualizar </button>
