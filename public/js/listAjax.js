@@ -2,6 +2,7 @@ $(document).ready(function()
     {
         $(document).on('click', '.listAJAX',function(event)
         {
+            console.log("entrou");
             event.preventDefault();
   
             if ($(this).parent('li').hasClass("active")){
