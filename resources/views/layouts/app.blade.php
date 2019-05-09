@@ -50,7 +50,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             @can('user')
-                                <a href="{{route('chamados.add')}}">
+                                <a href="#" url="/chamados/add" class="listAJAX">
                                     <i class="fas fa-phone"></i>Adicionar Chamados</a>
                             @endcan        
                             @can('admin')
@@ -329,7 +329,7 @@
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="{{route('user.editar', Auth::user()->user_id)}}">
+                                                    <a href="#" url="/user/editar/{{Auth::user()->user_id}}">
                                                         <i class="zmdi zmdi-account"></i>Conta</a>
                                                 </div>
                                                 <div class="account-dropdown__item">
