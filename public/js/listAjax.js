@@ -1,6 +1,6 @@
 $(document).ready(function()
     {
-        $(document).on('click', '.listAJAX',function(event)
+        $('.listAJAX').on('click', function(event)
         {
             console.log("entrou");
             event.preventDefault();
