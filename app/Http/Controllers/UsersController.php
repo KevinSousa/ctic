@@ -128,7 +128,7 @@ class UsersController extends Controller
 
             //  $upload = $req->user_imagem->storeAs('icon/user/', $namefile);
             }else{
-                return redirect()->back();
+                $dados['user_imagem'] = "icon/user/imagem.png";
             }
             // if ($ex != 'jpeg') {
             //     return redirect()->back();
