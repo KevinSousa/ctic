@@ -111,6 +111,7 @@
                    document.getElementById('user_cpf').style.backgroundColor = "#B22222";
                    document.getElementById('user_cpf').style.color = "white";
                    $('#enviar').hide();
+
                     //aqui nos fazemos basicamente o contrario 
             }
             $("#user_cpf").keypress(function(e) { //faz a limpeza do cpf e chama a função responsavel por alertar os erros no cpf
