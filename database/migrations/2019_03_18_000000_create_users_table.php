@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('user_id');
             $table->string('user_name');
             $table->string('user_cpf')->unique();
-            $table->string('user_telefone');
+            $table->string('user_telefone')->nullable();
             $table->string('user_imagem')->default('avatar-01.jpg');
             $table->string('user_siap_matricula')->unique();
             $table->string('user_email')->unique();

@@ -127,10 +127,24 @@ class UsersController extends Controller
 
 
             //  $upload = $req->user_imagem->storeAs('icon/user/', $namefile);
+            }else{
+                return redirect()->back();
             }
-            if (!$imagem) {
-                return redirect()->back()->with('error','falha no upload da imagem');
-            }
+            // if ($ex != 'jpeg') {
+            //     return redirect()->back();
+            // // dd($ex);
+            //     // return $ex;
+            // }
+            // if ($ex != 'jpg') {
+            //     return redirect()->back();
+            // // dd($ex);
+            //     // return $ex;
+            // }
+            // if ($ex != 'png') {
+            //     return redirect()->back();
+            // // dd($ex);
+            //     // return $ex;
+            // }
             
            
             User::create($dados);

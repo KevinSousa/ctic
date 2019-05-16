@@ -77,26 +77,26 @@
                         <form method="post" action="{{route('user.salvar')}}" class="" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                             <div class="form-label-group">
-                                <input id="nome" class="form-control" type="text" name="user_name" placeholder="a" required>
+                                <input id="nome" class="form-control" type="text" name="user_name" placeholder="a" value="{{old('user_name')}}" required>
                                 <label for="nome">Nome Completo *</label>
                             </div>
                             <div class="row">
                                 <div class="form-label-group col-md-6">
-                                    <input id="user_cpf" class="form-control user_cpf" type="text" name="user_cpf" value="" required placeholder="a" maxlength="14" id="user_cpf">
+                                    <input id="user_cpf" class="form-control user_cpf" type="text" name="user_cpf" value="{{ old('user_cpf') }}" required placeholder="a" maxlength="14" id="user_cpf">
                                     <label id="cpf" for="user_cpf" >CPF *</label>
                                 </div>
                                 <div class="form-label-group col-md-6">
-                                    <input id="inputMatricula" class="form-control" type="text" name="user_siap_matricula" placeholder="a" value="" maxlength="14" required>
+                                    <input id="inputMatricula" class="form-control" type="text" name="user_siap_matricula" placeholder="a" value="{{old('user_siap_matricula')}}" maxlength="14" required>
                                     <label for="inputMatricula">Matricula ou Siape *</label>
                                 </div>
                             </div>
                             <div class="form-label-group">
-                                <input id="email" class="form-control" type="email" name="user_email" placeholder="a" required>
+                                <input id="email" class="form-control" type="email" name="user_email" placeholder="a" value="{{old('user_email')}}" required>
                                 <label for="email">Email *</label>
                             </div>
                             <div class="form-label-group">
-                                <input class="form-control" type="text" name="user_telefone" id="user_telefone" placeholder="a">
-                                <label for="user_telefone">Celular *</label>
+                                <input class="form-control" type="text" name="user_telefone" id="user_telefone" placeholder="a" value="{{old('user_telefone')}}">
+                                <label for="user_telefone">Celular</label>
                             </div>
 
                             <div class="form-label-group">
@@ -104,6 +104,7 @@
                                 <label class="custom-file-label border" for="inputGroupFile01">Adicione uma foto de perfil</label>
                                 <select value="Função *"  name="user_funcao" class="form-control">
                                     <option placeholder="Função *" disabled="">Escolha a Função *</option>
+                                    <option value="" disabled="">---</option>
                                     @foreach($funcaos as $func)
                                         @if($func->funcao_name != 'Administrador')
                                             <option value="{{$func -> funcao_id}}">{{$func -> funcao_name}}</option>
