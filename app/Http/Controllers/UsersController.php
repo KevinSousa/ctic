@@ -109,14 +109,10 @@ class UsersController extends Controller
             ]);
 
              
-            // $imagem = $request->file('imagem'); 
 
             if ($req->hasFile('user_imagem') && $req->file('user_imagem')->isValid()) {
              
-             /*$name = rand(1111,9999).$dados['user_imagem'];
-             $extencao = $req->user_imagem->extension();
-             $namefile = "{$name}.{$extencao}";
-             */
+        
               $imagem = $dados['user_imagem'];
              $numero = rand(1111,9999);
              $dir = "icon/user";
@@ -130,27 +126,10 @@ class UsersController extends Controller
             }else{
                 $dados['user_imagem'] = "icon/user/imagem.png";
             }
-            // if ($ex != 'jpeg') {
-            //     return redirect()->back();
-            // // dd($ex);
-            //     // return $ex;
-            // }
-            // if ($ex != 'jpg') {
-            //     return redirect()->back();
-            // // dd($ex);
-            //     // return $ex;
-            // }
-            // if ($ex != 'png') {
-            //     return redirect()->back();
-            // // dd($ex);
-            //     // return $ex;
-            // }
-            
-           
+                $mensagem = 'Sucesso ao fazer cadastro, logue-se.';
             User::create($dados);
-
-                $cadastro ='sucesso';
-            return redirect() -> route('login', compact('cadastro')) ;
+            $st = session()->put('sucesso', ['sucesso' => $mensagem] );
+            return redirect() -> route('login' , compact('st'));
             
         }
 

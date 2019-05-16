@@ -46,10 +46,20 @@
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
               <hr class="my-4">
               <div align="center">
+                     
+                @if(session('sucesso'))
+                    <div id="msg" class="alert alert-success">                
+                        <p >@foreach(session('sucesso') as $key)
+                        {{$key}}</p>
+                    </div> 
+                    @endforeach          
+                @endif
+                
+
                 <!-- <a href="#">Esqueci minha Senha </a> ou  -->
                 <a href="{{route('user.cadastrar')}}"> Registre-se</a>
                 <!-- <br><a href="{{route('register')}}"> Registre-se Cleyton</a> -->
-              </div>
+                        </div>
             </form>
           </div>
         </div>
