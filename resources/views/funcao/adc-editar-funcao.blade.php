@@ -56,6 +56,13 @@
         <!-- Main JS-->
         <script src="/js/main.js"></script>
 
+        <script>
+            $(document).ready( function(){
+                $('#adc-menu').click();
+                $('#adc-funcao').parent('li').addClass("active");
+            });
+        </script>
+
 @endsection
 <style type="text/css">
     div#index{
