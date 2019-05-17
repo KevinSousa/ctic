@@ -66,9 +66,9 @@
                                     <li>
                                         <a href="#" url="/sala/adicionar" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
-                                    <li>
+                                {{--     <li>
                                         <a href="#" url="/tiposProblemas/create" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="#" url="/funcao/create" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
