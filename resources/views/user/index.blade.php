@@ -65,8 +65,10 @@
         <script type="text/javascript">
             $(document).ready( function (){
                 $('#example').DataTable();
+                $('#vis-menu').click();
+                $('#visu-users').parent('li').addClass("active");
             });
-        </script>
+        </script> 
         
 @endsection
 
