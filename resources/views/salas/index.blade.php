@@ -69,6 +69,13 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+        
+        <script> 
+            $(document).ready(function (){
+                $('#vis-menu').click();
+                $('#visu-sala').parent('li').addClass("active");
+            });                
+        </script>
 
 @endsection    
 

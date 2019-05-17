@@ -12,7 +12,7 @@
     @yield('title')
     <link rel="shortcut icon" href="favicon.ico" />
         <!-- Fontfaces CSS-->
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
@@ -30,6 +30,8 @@
     <link href="/vendor/slick/slick.css" rel="stylesheet" media="all">
     <link href="/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
     <!-- Main CSS-->
     <link href="/css/theme.css" rel="stylesheet" media="all">
@@ -77,7 +79,7 @@
                         </li>
                         @can('admin')
                             <li>
-                                <a class="js-arrow" href="#" style="color: blue;">
+                                <a class="js-arrow" id="vis-menu" href="#" style="color: blue;">
                                     <i class="fas fa-list"></i>Visualizar
                                 </a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -91,7 +93,7 @@
                                         <a href="#" url="/user" class="listAJAX"><i class="fas fa-user"></i>Usuários</a>
                                     </li>
                                     <li>
-                                        <a href="#" url="/sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
+                                        <a href="#" url="/sala" id="visu-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>                                
                                     <li>
                                         <a href="#" url="/tiposProblemas" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
@@ -369,6 +371,10 @@
     @yield('js')
 
     <script src="/js/listAjax.js"></script>
+
+        
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    
 
 </body>
 

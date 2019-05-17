@@ -37,6 +37,7 @@
         <!-- Main JS-->
         <script src="/js/main.js"></script>
 
+
 @endsection
 <style type="text/css">
     div#index{
