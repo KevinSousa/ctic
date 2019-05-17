@@ -56,21 +56,21 @@
                                     <i class="fas fa-phone"></i>Adicionar Chamados</a>
                             @endcan        
                             @can('admin')
-                            <a class="js-arrow text-success" href="#">
+                            <a class="js-arrow text-success" id="adc-menu" href="#">
                                 <i class="fas fa-plus"></i>Adicionar</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="#" url="/equipamento/create" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                        <a href="#" url="/equipamento/create" id="adc-equip" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
                                     </li>
 
                                     <li>
-                                        <a href="#" url="/sala/adicionar" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
+                                        <a href="#" url="/sala/adicionar" id="adc-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
                                 {{--     <li>
                                         <a href="#" url="/tiposProblemas/create" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li> --}}
                                     <li>
-                                        <a href="#" url="/funcao/create" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
+                                        <a href="#" url="/funcao/create" id="adc-funcao" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
                             </ul>
                                 @endcan
