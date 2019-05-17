@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Chamado;
+use App\Equipamento;
 
 class ChamadosController extends Controller
 {
@@ -48,6 +49,12 @@ class ChamadosController extends Controller
 
     public function save(Request $req){
       
+        $validarEquip = Equipamento::find($req->cham_equip);
+
+        if (!$validarEquip){
+            return redirect()->back();
+        }
+
         $model = new Chamado;
         $model->cham_descricao = $req->get('cham_descricao'); // Dados que vem do form de adicionar chamados para salvar no banco
         $model->cham_data_chamado = $req->get('cham_data_chamado');

@@ -36,7 +36,7 @@
                
             <div class="form-group col-md-3">
                 <label>Número de tombamento</label>
-                <input class="form-control" type="text" name="cham_equip" placeholder="Ex:: 5151551529">
+                <input class="form-control" type="text" name="cham_equip" placeholder="Ex:: 5151551529">    
             </div>
         </div>
         <br>
