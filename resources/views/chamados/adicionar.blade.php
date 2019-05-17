@@ -111,6 +111,12 @@
         <script src="/js/main.js"></script>
 
         <script>
+            $(document).ready( function(){
+                $('#adc-chamado').parent('li').addClass("active");
+            });
+        </script>
+
+        <script>
             $('#typeProblem').on('click', function(){
 
                 var url = window.location.href;

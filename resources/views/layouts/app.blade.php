@@ -52,7 +52,7 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             @can('user')
-                                <a href="#" url="/chamados/add" class="listAJAX">
+                                <a href="#" url="/chamados/add" id="adc-chamado" class="listAJAX">
                                     <i class="fas fa-phone"></i>Adicionar Chamados</a>
                             @endcan        
                             @can('admin')
