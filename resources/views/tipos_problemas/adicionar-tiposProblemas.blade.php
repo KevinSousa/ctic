@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
     <title>Tipos Problemas</title>
 <div id="index">

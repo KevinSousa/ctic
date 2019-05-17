@@ -34,9 +34,15 @@ class TiposProblemasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('tipos_problemas.adicionar-tiposProblemas');
+        
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('tipos_problemas.adicionar-tiposProblemas', compact('ajax'));  
     }
 
     /**

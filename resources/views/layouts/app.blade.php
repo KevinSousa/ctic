@@ -62,14 +62,12 @@
                                     <li>
                                         <a href="#" url="/equipamento/create" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
                                     </li>
-                                    <!-- <li>
-                                        <a href="{{route('user.cadastrar')}}"><i class="fas fa-user"></i>Usuarios</a>
-                                    </li> -->
+
                                     <li>
                                         <a href="#" url="/sala/adicionar" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('tiposProblemas.create')}}"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
+                                        <a href="#" url="/tiposProblemas/create" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li>
                                     <li>
                                         <a href="#" url="/funcao/create" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
