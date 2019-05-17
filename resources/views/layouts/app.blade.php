@@ -82,22 +82,22 @@
                                 </a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
-                                        <a href="#" url="/chamados" class="listAJAX"><i class="fas fa-phone"></i>Chamados</a>
+                                        <a href="#" url="/chamados" id="visu-chamados" class="listAJAX"><i class="fas fa-phone"></i>Chamados</a>
                                     </li>
                                     <li>
-                                        <a href="#" url="/equipamento" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
+                                        <a href="#" url="/equipamento" id="visu-equips" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
                                     </li>
                                     <li>
-                                        <a href="#" url="/user" class="listAJAX"><i class="fas fa-user"></i>Usuários</a>
+                                        <a href="#" url="/user" id="visu-users" class="listAJAX"><i class="fas fa-user"></i>Usuários</a>
                                     </li>
                                     <li>
                                         <a href="#" url="/sala" id="visu-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>                                
                                     <li>
-                                        <a href="#" url="/tiposProblemas" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
+                                        <a href="#" url="/tiposProblemas" id="visu-tipo-problemas" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li>
                                     <li>
-                                        <a href="#" url="/funcao" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
+                                        <a href="#" url="/funcao" id="visu-funcoes" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
                                 </ul>
                             </li>
