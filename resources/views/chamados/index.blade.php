@@ -66,6 +66,8 @@
         <script type="text/javascript">
             $(document).ready( function (){
                 $('#example').DataTable();
+                $('#vis-menu').click();
+                $('#visu-chamados').parent('li').addClass("active");
             });
         </script>
 
