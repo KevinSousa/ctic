@@ -109,6 +109,7 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+        <script src="/js/select-sublistas.js"></script>
 
         <script>
             $(document).ready( function(){
@@ -116,46 +117,12 @@
             });
         </script>
 
-        <script>
-            $('#typeProblem').on('click', function(){
-
-                var url = window.location.href;
-                url = url.split("/");
-                preUrl = url[2];
-
-
-                var idProblem = $("#typeProblem").val();
-                if (idProblem != ""){
-                    console.log(idProblem);
-                    $.ajax({
-                        url: "http://"+preUrl+"/subLista/list/"+idProblem,
-                        success: function(data) {
-                            var sublistas = [];
-                            try {
-                                sublistas = JSON.parse(data);
-                            } catch (err) {
-                                sublistas = data;
-                            }
-                            console.log(sublistas);
-                            $('#sublist').html('<option></option>');
-
-                            for (i = 0; i < sublistas.length; i++) {
-                                var option = `
-                                    <option value='${sublistas[i].sub_id}'>${sublistas[i].sub_nome}</option>
-                                `;
-                                $('#sublist').append(option);
-                            }
-                        }
-                    });    
-                } else{
-                    $('#sublist').html('<option></option>');
-                }
-            });
-            
-        </script>
 
 @endsection
+@section('ajax-js')
+    <script src="/js/select-sublistas.js"></script>
 
+@endsection
 <style type="text/css">
     div#index{
         margin: 0px 25px 0px 25px;
