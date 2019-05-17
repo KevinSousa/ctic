@@ -68,6 +68,13 @@
         <!-- Main JS-->
         <script src="/js/main.js"></script>
 
+        <script> 
+            $(document).ready(function (){
+                $('#vis-menu').click();
+                $('#visu-tipo-problemas').parent('li').addClass("active");
+            });                
+        </script>
+
 @endsection    
 
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
