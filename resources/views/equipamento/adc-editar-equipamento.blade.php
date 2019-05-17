@@ -77,6 +77,13 @@
         <!-- Main JS-->
         <script src="/js/main.js"></script>
 
+        <script>
+            $(document).ready( function(){
+                $('#adc-menu').click();
+                $('#adc-equip').parent('li').addClass("active");
+            });
+        </script>
+
    
 
 @endsection
