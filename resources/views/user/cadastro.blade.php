@@ -130,6 +130,13 @@
                             </button>                   
                         </div>
                     </form>
+                    <div class="custom-control custom-checkbox mb-3">
+                        <a href="{{route('login')}}" style="text-decoration: none;">
+                            <button class="btn btn-lg btn-danger btn-block text-uppercase" id="enviar" type="submit">
+                                Cancelar
+                            </button>  
+                        </a>                 
+                    </div>
                 </div>
             </div>
         </div>
