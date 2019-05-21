@@ -1,12 +1,8 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
+
 @section('content')
 <title>Equipamentos</title>
 <div id="index" style="width: 45em;height: 30em">
-    <ol>
-        @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-        @endforeach
-    </ol>
     @isset($equipamento)
         <h2 id="titulo" align="left"> Editar Equipamento </h2>
     @else
@@ -24,6 +20,8 @@
             <label>Adicione o tipo do equipamento:</label>
             <br>	
                 <select name="equip_tipo" class="form-control">
+                    <option disabled>Escolha o tipo de equipamento</option> 
+                    <option disabled>---</option> 
                     <option></option> 
                     @foreach ($TipoEquip as $tipo)
                         <option value="{{$tipo -> tipo_id}}"
@@ -39,7 +37,7 @@
             <input type="text" name="equip_marca"  value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder=" Especifique a marca do equipamento" required="" class="form-control">
             <label>Adicione o numero de tombamento do equipamento:</label>
             <br>    
-            <input type="text" name="equip_tombamento"  value="{{ isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : '' }}" placeholder="Digite o numero do tombamento" required="" class="form-control">
+            <input type="text" name="equip_tombamento"  value="{{ isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : '' }}" placeholder="Ex: 221529" required="" class="form-control">
 		</div>
 		@isset($equipamento)
 			<button class="btn btn-success" type="submit">Editar Equipamento</button>
@@ -81,6 +79,50 @@
             $(document).ready( function(){
                 $('#adc-menu').click();
                 $('#adc-equip').parent('li').addClass("active");
+
+                (function ($) {
+                "use strict";
+    /*==================================================================
+    [ Validate ]*/
+    var name = $('.validate-input input[name="name"]');
+    var email = $('.validate-input input[name="email"]');
+    var subject = $('.validate-input input[name="subject"]');
+    var message = $('.validate-input textarea[name="message"]');
+
+    $('.validate-form').on('submit',function(){
+        var check = true;
+        if($(name).val().trim() == ''){
+            showValidate(name);
+            check=false;
+        }
+        if($(subject).val().trim() == ''){
+            showValidate(subject);
+            check=false;
+        }
+        if($(email).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+            showValidate(email);
+            check=false;
+        }
+        if($(message).val().trim() == ''){
+            showValidate(message);
+            check=false;
+        }
+        return check;
+    });
+    $('.validate-form .input1').each(function(){
+        $(this).focus(function(){
+           hideValidate(this);
+       });
+    });
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+        $(thisAlert).addClass('alert-validate');
+    }
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+        $(thisAlert).removeClass('alert-validate');
+    }
+    })(jQuery);
             });
         </script>
 

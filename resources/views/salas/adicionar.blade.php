@@ -3,18 +3,18 @@
 
 @section('content')
     <title>Salas</title>
-<div id="index">
+<div class="container">
+            <div class="col-md-6">
     <h2 id="titulo" align="left">Cadastro de Salas</h2>
     <br>
-        <div>
+                
             <form action="{{ route('sala.salvar') }}" method="POST" class="ui form">
                 {{ csrf_field() }}
                 @component('cards/card-sala')
                 @endcomponent       
-                <br>
-                <button class="btn btn-success" type="submit">Adicionar</button>
+                <button class="btn btn-success" type="submit">Adicionar Sala</button>
             </form>
-        </div>    
+            </div>
     </div>    
 @endsection
 
@@ -44,6 +44,14 @@
 
         <script>
             $(document).ready( function(){
+                $("#field").keyup(function(){
+                    
+                  if ( $("#field").val() > 10 ) {
+                     event.preventDefault();
+                    $("#field").val('10'); 
+                 }
+                    
+                });
                 $('#adc-menu').click();
                 $('#adc-sala').parent('li').addClass("active");
             });
