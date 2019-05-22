@@ -48,7 +48,7 @@ class ChamadosController extends Controller
     }
 
     public function save(Request $req){
-      
+       
         $validarEquip = Equipamento::find($req->cham_equip);
 
         if (!$validarEquip){
@@ -97,12 +97,16 @@ class ChamadosController extends Controller
     }
 
     public function detalhes($id){      ///mostra mas detalhes do chamado difença do list normal é que abre mas ações e mostra a data de envio e data prevista para concerto
+        
+           
         $chamado = DB::table('chamados')
             ->join('users', 'users.user_id', '=' , 'cham_user')
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
-                    ->join('tipo_problemas', 'tipo_problemas.probl_id', '=' , 'cham_tipo_problema')
-                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','tipo_problemas.*')
+                    ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
+                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
                     ->where('cham_id', $id)->get();
+
+                                        
                         return view('chamados.detalhes',compact('chamado'));    
     }
 }
