@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Chamado;
 use App\Equipamento;
+use Auth;
 
 class ChamadosController extends Controller
 {
@@ -63,7 +64,7 @@ class ChamadosController extends Controller
         $model->cham_equip = $req->get('cham_equip');
         $model->cham_data_prevista = date('Y-m-d', strtotime('+1 week'));  //colocando a data prevista por padrao de 1 semana desda data de envio do chamado podendo ser alterado pelo tecnico   
         $model->cham_sublista_problema = $req->get('cham_sublista_problema'); 
-        $model->cham_user = 1;
+        $model->cham_user = Auth::id();
         $model->save();
 
         return redirect()->route('chamados.index'); 
