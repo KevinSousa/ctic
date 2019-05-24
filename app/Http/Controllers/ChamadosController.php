@@ -97,9 +97,13 @@ class ChamadosController extends Controller
             ->update($dados);
     }
 
-    public function detalhes($id){      ///mostra mas detalhes do chamado difença do list normal é que abre mas ações e mostra a data de envio e data prevista para concerto
+    public function detalhes(Request $request, $id){      ///mostra mas detalhes do chamado difença do list normal é que abre mas ações e mostra a data de envio e data prevista para concerto
         
-           
+           $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
         $chamado = DB::table('chamados')
             ->join('users', 'users.user_id', '=' , 'cham_user')
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
@@ -108,6 +112,6 @@ class ChamadosController extends Controller
                     ->where('cham_id', $id)->get();
 
                                         
-                        return view('chamados.detalhes',compact('chamado'));    
+                        return view('chamados.detalhes',compact('chamado','ajax'));    
     }
 }
