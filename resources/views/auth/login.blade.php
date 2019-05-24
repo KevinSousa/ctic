@@ -33,12 +33,12 @@
               {{ csrf_field() }}
               <div class="form-label-group">
                 <input name="user_email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputEmail">E-Mail</label>
+                <label class="text-center" for="inputEmail">E-Mail</label>
               </div>
 
               <div class="form-label-group">
                 <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <label for="inputPassword">Senha</label>
+                <label class="text-center" for="inputPassword">Senha</label>
               </div>
 
               <div class="custom-control custom-checkbox mb-3">

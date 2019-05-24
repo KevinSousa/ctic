@@ -63,10 +63,10 @@
 </head>
 <body><div class="container">
     <div class="row">
-        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-            <div class="card card-signin my-5">
+        <div class="col-sm-9 col-md-12 col-lg-5 my-5  mx-auto" >
+            <div class="card card-signin  " style="box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.75);">
                 <div class="card-body">
-                    <img id="ifpe" src="/icon/ifpe.png">
+                    <img id="ifpe"  src="/icon/ifpe.png">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -77,32 +77,33 @@
                         <form method="post" action="{{route('user.salvar')}}" class="" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                             <div class="form-label-group">
-                                <input id="nome" class="form-control" type="text" name="user_name" placeholder="a" value="{{old('user_name')}}" required>
-                                <label for="nome">Nome Completo *</label>
+                                <input id="nome" class="form-control " type="text" name="user_name" placeholder="a" value="{{old('user_name')}}" required>
+                                <label for="nome" class="text-center">Nome Completo * </label>
                             </div>
                             <div class="row">
                                 <div class="form-label-group col-md-6">
                                     <input id="user_cpf" class="form-control user_cpf" type="text" name="user_cpf" value="{{ old('user_cpf') }}" required placeholder="a" maxlength="14" id="user_cpf">
-                                    <label id="cpf" for="user_cpf" >CPF *</label>
+                                    <label id="cpf" class="text-center" for="user_cpf" >CPF *</label>
                                 </div>
                                 <div class="form-label-group col-md-6">
                                     <input id="inputMatricula" class="form-control" type="text" name="user_siap_matricula" placeholder="a" value="{{old('user_siap_matricula')}}" maxlength="14" required>
-                                    <label for="inputMatricula">Matricula ou Siape *</label>
+                                    <label for="inputMatricula" class="text-center">Matricula ou Siape *</label>
                                 </div>
                             </div>
                             <div class="form-label-group">
                                 <input id="email" class="form-control" type="email" name="user_email" placeholder="a" value="{{old('user_email')}}" required>
-                                <label for="email">Email *</label>
+                                <label for="email" class="text-center">Email *</label>
                             </div>
                             <div class="form-label-group">
                                 <input class="form-control" type="text" name="user_telefone" id="user_telefone" placeholder="a" value="{{old('user_telefone')}}">
-                                <label for="user_telefone">Celular</label>
+                                <label class="text-center" for="user_telefone">Celular</label>
                             </div>
 
                             <div class="form-label-group">
-                                <input type="file" name="user_imagem" class="custom-file-input " id="inputGroupFile03" aria-describedby="inputGroupFileAddon03"> 
+                                <input type="file" style="border-radius: 100px; name="user_imagem" class="custom-file-input form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03"> 
+                                
                                 <label class="custom-file-label border" for="inputGroupFile01">Adicione uma foto de perfil</label>
-                                <select value="Função *"  name="user_funcao" class="form-control">
+                                <select value="Função *"  style="border-radius: 100px;" name="user_funcao" class="form-control">
                                     <option placeholder="Função *" disabled="">Escolha a Função *</option>
                                     <option value="" disabled="">---</option>
                                     @foreach($funcaos as $func)
@@ -113,14 +114,14 @@
                                 </select>
                             </div>
                             <div class="row">
-                                <div class="form-label-group col-md-6">
+                                <div class="form-label-group col-md-6 ">
                                     <input id="senha" class="form-control" type="password" name="password" required placeholder="a" maxlength="16" minlength="8">
-                                    <label for="senha"> Senha *</label>
+                                    <label class="text-center" for="senha"> Senha *</label>
                                 </div>
 
                                 <div class="form-label-group col-md-6">
                                     <input id="senha2" placeholder="a" class="form-control" type="password" name="password2" maxlength="16" minlength="8">
-                                    <label for="senha2"> Repita a Senha *</label> 
+                                    <label class="text-center" for="senha2"> Repita a Senha *</label> 
                                 </div>    
                             </div>
                         <div class="custom-control custom-checkbox mb-3">
@@ -132,8 +133,8 @@
                     </form>
                     <div class="custom-control custom-checkbox mb-3">
                         <a href="{{route('login')}}" style="text-decoration: none;">
-                            <button class="btn btn-lg btn-danger btn-block text-uppercase" id="enviar" type="submit">
-                                Cancelar
+                            <button style="float: right;" class="btn btn-info text-uppercase" id="enviar" type="submit">
+                                Voltar
                             </button>  
                         </a>                 
                     </div>
