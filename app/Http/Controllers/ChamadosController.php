@@ -53,7 +53,7 @@ class ChamadosController extends Controller
         $validarEquip = Equipamento::find($req->cham_equip);
 
         if (!$validarEquip){
-            return redirect()->back();
+            return redirect()->back()->withInput()->with('equipnull','n existe');
         }
 
         $model = new Chamado;

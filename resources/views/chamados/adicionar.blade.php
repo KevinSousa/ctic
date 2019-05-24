@@ -19,10 +19,14 @@
 
             <div class="form-group col-md-4">
                 <label> Categoria do problema </label>
-                <select name="" id="typeProblem" class="form-control">
+                <select name="typeproblem" id="typeProblem" class="form-control">
                     <option></option> 
                     @foreach ($tipos_problemas as $tipo)
-                        <option value="{{$tipo -> probl_id}}">{{$tipo -> probl_tipo}}</option>
+                        @if(old('typeproblem') == $tipo->probl_id)
+                            <option selected value="{{$tipo -> probl_id}}">{{$tipo -> probl_tipo}}</option>
+                        @else
+                            <option value="{{$tipo -> probl_id}}">{{$tipo -> probl_tipo}}</option>    
+                        @endif    
                     @endforeach
                 </select>
             </div>
@@ -35,11 +39,16 @@
                 </select>
             </div>               
         </div>
-        <br>
+
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label>Número de tombamento</label>
-                <input class="form-control" type="text" name="cham_equip" placeholder="Ex:: 5151551529">    
+                @if(!old('cham_equip')==null)
+                    <input class="form-control alert-danger" type="text" required="" name="cham_equip" placeholder="Ex:: 5151551529">               
+                @else
+                    <input class="form-control" type="text" value="{{ old('cham_equip') }}" name="cham_equip" placeholder="Ex:: 5151551529" required="">
+                          
+                @endif
             </div>
             <div class="form-group col-md-4">        
                 <label>Bloco</label>
@@ -56,21 +65,31 @@
                 <select name="cham_sala" class="form-control">
                     <option></option> 
                     @foreach ($salas as $sala)
-                        <option value="{{$sala -> sala_id}}"> {{$sala -> sala_identificacao}}</option>
+                        @if (old('cham_sala') == $sala->sala_id)
+                            <option value="{{$sala -> sala_id}}" selected> {{$sala -> sala_identificacao}}</option>
+                        @else
+                            <option value="{{$sala -> sala_id}}"> {{$sala -> sala_identificacao}}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
             
         </div>
-            <br>
-            <div class="form-group">
+        <div class="form-row">
+            <div class="form-group col-md-12">
                 <label>Descrição do problema</label>
-                <textarea name="cham_descricao" class="form-control"></textarea>
+                <textarea name="cham_descricao" class="form-control" value="">{{ old('cham_descricao') }}</textarea>
                 <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}">
-            </div>     
-        <br>
+            </div>
+            @if (!old('cham_equip') == null)
+                <div class="alert-danger alert">
+                    Número de Tombamento Informado Inválido
+                </div>    
+            @endif   
+        </div>
         <button class="btn btn-success" type="submit">Adicionar</button>
         <a href="{{route('chamados.index')}}"><button class="btn btn-primary">Voltar</button></a> 
+
     </form>
 </div>
 @endsection
