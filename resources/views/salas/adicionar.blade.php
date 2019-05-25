@@ -3,19 +3,41 @@
 
 @section('content')
     <title>Salas</title>
-<div class="container">
-            <div class="col-md-6">
-    <h2 id="titulo" align="left">Cadastro de Salas</h2>
-    <br>
-                
-            <form action="{{ route('sala.salvar') }}" method="POST" class="ui form">
-                {{ csrf_field() }}
-                @component('cards/card-sala')
-                @endcomponent       
-                <button class="btn btn-success" type="submit">Adicionar Sala</button>
-            </form>
+<style> 
+ img{
+    width: 60%;
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+}
+ img:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+</style>
+<div class="container-fluid">
+    <div class="row h-100 p-3" style="margin-top: -11%" >
+        <div class="col h-100 p-3" style="margin: 0 auto">
+            <img src="{{asset('img-01.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
+        </div>
+        <div class="col">
+            <div style="margin-top: 30%;">
+                <h2 id="titulo" align="left">Cadastro de Salas</h2>
+                <br>
+                <form action="{{ route('sala.salvar') }}" method="POST" class="ui form">
+                    {{ csrf_field() }}
+                    @component('cards/card-sala')
+                    @endcomponent       
+                    <button class="btn btn-success" type="submit">Adicionar Sala</button>
+                </form>
             </div>
+        </div>
     </div>    
+</div> 
 @endsection
 
 @section('js')
