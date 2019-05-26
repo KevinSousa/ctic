@@ -13,20 +13,29 @@
                     <div class="alert alert-danger">{{ Session::get('warnning')}}</div>
                 @endif
                 <label> Nome do Evento </label>
-                <input type="text" class="form-control" name="event_name" required="">
+                <input type="text" class="form-control"  name="event_name" required="">
             </div>
             <div class="form-group">
                 <label> Data de Início </label>
-                <input type="date" class="form-control" name="start_date" required="">
+                <input type="datetime-local"   class="form-control" name="start_date" required="">
             </div>
             <div class="form-group">
                 <label> Data de Término </label>
-                <input type="date" class="form-control" name="end_date" required="">
+                <input type="datetime-local"  class="form-control" name="end_date" required="">
             </div>
             <button class="btn btn-success" type="submit"> Cadastrar </button>
             <a href="{{route('calendar')}}"><button class="btn btn-primary">Voltar</button></a>
         </form>
     </div>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 </div>
 @endsection
 
