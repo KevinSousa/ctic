@@ -37,6 +37,7 @@
 				@endforeach
 			</tbody>
 		</table>
+		{{$funcao->links()}}
 	</div>
 @endsection
 @section('js')
@@ -65,12 +66,21 @@
 
         <script> 
             $(document).ready(function (){
+            	$('#example').DataTable();
                 $('#vis-menu').click();
                 $('#visu-funcoes').parent('li').addClass("active");
             });                
         </script>
 
 
+@endsection
+@section('ajax-js')
+    
+    <script type="text/javascript">
+        $(document).ready( function (){
+            $('#example').DataTable();
+        });
+    </script>
 @endsection
 
 <style type="text/css">

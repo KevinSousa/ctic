@@ -8,7 +8,7 @@
 			<br>
 		</div>
 		<br>
-		<table class="table table-striped">
+		<table id="example" class="table table-striped">
 			<thead class="thead-light">
 				<tr align="center">					
 					<th scope="col"> TIPO </th>
@@ -43,6 +43,7 @@
 				@endforeach
 			</tbody>
 		</table>
+		{{$equipamento->links()}}
 	</div>
 @endsection
 @section('js')
@@ -71,6 +72,7 @@
 
         <script> 
             $(document).ready(function (){
+            	$('#example').DataTable();
                 $('#vis-menu').click();
                 $('#visu-equips').parent('li').addClass("active");
             });                
@@ -78,6 +80,14 @@
 
 
 
+@endsection
+@section('ajax-js')
+    
+    <script type="text/javascript">
+        $(document).ready( function (){
+            $('#example').DataTable();
+        });
+    </script>
 @endsection
 
 <style type="text/css">
