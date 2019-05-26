@@ -21,7 +21,7 @@
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col h-100 p-3" style="margin: 0 auto">
-            <img src="{{asset('img-01.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
+            <img src="{{asset('img-03.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
         </div>
         <div class="col">
             <div style="margin-top: 30%;">
