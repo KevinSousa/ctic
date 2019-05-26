@@ -15,7 +15,7 @@ class SalasController extends Controller
     
     public function index(Request $request){ 
 
-        $salas = Sala::all();
+        $salas = DB::table('salas')->paginate(5);
         $ajax = false;
 
         if ($request->ajax()){

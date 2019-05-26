@@ -15,7 +15,7 @@
             <br>
         </div>
         <br>  
-        <table class="table table-striped">
+        <table class="table table-striped" id="example">
             <thead class="thead-light">
                 <tr>
                     <th>Identificação</th>
@@ -44,6 +44,7 @@
             @endforeach    
             </tbody>
         </table>
+        {{$salas->links()}}
     </div>
 @endsection
 @section('js')
@@ -72,11 +73,20 @@
         
         <script> 
             $(document).ready(function (){
+                $('#example').DataTable();
                 $('#vis-menu').click();
                 $('#visu-sala').parent('li').addClass("active");
             });                
         </script>
 
-@endsection    
+@endsection   
+@section('ajax-js')
+    
+    <script type="text/javascript">
+        $(document).ready( function (){
+            $('#example').DataTable();
+        });
+    </script>
+@endsection 
 
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
