@@ -66,9 +66,9 @@
                                     <li>
                                         <a href="#" url="/sala/adicionar" id="adc-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
-                                {{--     <li>
+                                    <li>
                                         <a href="#" url="/tiposProblemas/create" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
-                                    </li> --}}
+                                    </li>
                                     <li>
                                         <a href="#" url="/funcao/create" id="adc-funcao" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
@@ -317,7 +317,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img style="height: 4em; width: 5em;" src="{{isset(Auth::user()->user_imagem) ? Auth::user()->user_imagem : 'avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
+                                                        <img src="{{isset(Auth::user()->user_imagem) ? '/icon/'.Auth::user()->user_imagem : '/icon/avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
