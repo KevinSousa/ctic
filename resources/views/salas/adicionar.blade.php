@@ -2,7 +2,7 @@
 
 
 @section('content')
-    <title>Salas</title>
+<title>Salas</title>
 <style> 
  img{
     width: 60%;
