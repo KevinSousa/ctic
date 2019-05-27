@@ -44,7 +44,7 @@
 		                <select name="equip_tipo" class="form-control">
 		                    <option disabled>Escolha o tipo de equipamento</option> 
 		                    <option disabled>---</option> 
-		                    <option></option> 
+		                    <option hidden=""></option> 
 		                    @foreach ($TipoEquip as $tipo)
 		                        <option value="{{$tipo -> tipo_id}}"
 		                            @if (isset($equipamento) && $equipamento->equip_tipo == $tipo->tipo_id)
@@ -56,7 +56,7 @@
 		                </select>          
 		            <label>Adicione a marca do equipamento:</label>
 		            <br>    
-		            <input type="text" name="equip_marca"  value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder=" Especifique a marca do equipamento" required="" class="form-control">
+		            <input type="text" name="equip_marca"  value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder="Ex: Samsung" required="" class="form-control">
 		            <label>Adicione o numero de tombamento do equipamento:</label>
 		            <br>    
 		            <input type="text" name="equip_tombamento"  value="{{ isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : '' }}" placeholder="Ex: 221529" required="" class="form-control">
