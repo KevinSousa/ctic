@@ -4,19 +4,17 @@
 	<title> Chamados </title>
 	<div id="index">
 		<div align="left">
-			<h1 id="titulo"> Chamados </h1>
+			<h1 id="titulo">Chamados</h1>
 		</div>
 		<br>
-        <table id="example" class="table table-striped" style="width:100%">
-		    <thead>
-		        <tr>
-		            <th>Autor</th>
-		            <th>Grau de Urgência</th>
-		            <th>Laboratório</th>
-		            <th>Andar</th>
-                    <th>Tipo do Problema</th>
-		            <th>Status</th>
-		            <th>Ações</th>
+        <table id="example" class="table table-striped">
+		    <thead align="center" class="thead-light">
+		        <tr align="center">
+		            <th scope="col">AUTOR</th>
+		            <th scope="col">GRAU DE URGÊNCIA</th>
+                    <th scope="col">TIPO DO PROBLEMA</th>
+		            <th scope="col">STATUS</th>
+		            <th scope="col">AÇÕES</th>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -24,8 +22,6 @@
 					<tr align="center">
 						<td> {{$chamado -> user_name}} </td>
 						<td> {{$chamado -> cham_grau_urgencia}} </td>
-						<td> {{$chamado -> sala_identificacao }}</td>
-						<td> {{$chamado -> sala_andar}}</td>
                         <td> {{$chamado -> sub_nome}}</td>
 						<td> {{$chamado -> cham_status}}</td>
 						<td> 	
