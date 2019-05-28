@@ -3,17 +3,17 @@
 	<title> Usuários </title>
 	<div id="index">
 		<div id="titulo">
-			<h1 align="left"> Usuários Cadastrados </h1>
+			<h1 align="left">Usuários</h1>
 		</div>
 		<br>
-        <table id="example" class="table table-striped" style="width:100%">
-		    <thead>
-		        <tr>
-		            <th>Nome</th>
+        <table class="table table-striped" id="example">
+            <thead align="center" class="thead-light">
+                <tr>
+		            <th>NOME</th>
 		            <th>CPF</th>
 		            <th>SIAPE</th>
-		            <th>Função</th>
-		            <th>Ação</th>
+		            <th>FUNÇÃO</th>
+		            <th>AÇÃO</th>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -24,8 +24,12 @@
 						<td> {{$user -> user_siap_matricula}} </td>
 						<td> {{$user -> funcao_name}}</td>
 						<td> 
-							<a href="{{route('user.remover',$user->user_id)}}"><button class="btn btn-danger">Deletar</button></a>
-							<a href="{{route('user.editar',$user->user_id)}}"><button class="btn btn-warning">Editar</button></a>
+							<a href="{{route('user.editar',$user->user_id)}}">
+								<i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+							</a>
+							<a href="{{route('user.remover',$user->user_id)}}">
+								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+							</a>
 						</td>
 					</tr>
 				@endforeach
