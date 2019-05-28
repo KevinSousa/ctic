@@ -107,18 +107,12 @@
                                 <i class="fas fa-list-ul"></i>Visualizar Chamados
                             </a>
                         </li> --}}
-                        <li>
-                            <a href="#">
-                                <i class="far fa-check-square"></i>Formulários</a>
-                        </li>
+                       
                         <li>
                             <a href="{{route('calendar')}}">
                                 <i class="fas fa-calendar-alt"></i>Calendario</a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-map-marker-alt"></i>Mapas</a>
-                        </li>
+                        
            <!--              <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Paginas</a>
