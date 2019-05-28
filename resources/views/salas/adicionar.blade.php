@@ -32,7 +32,7 @@
                     {{ csrf_field() }}
                     @component('cards/card-sala')
                     @endcomponent       
-                    <button class="btn btn-success" type="submit">Adicionar Sala</button>
+                    <button class="btn btn-success" type="submit">Adicionar</button>
                 </form>
             </div>
         </div>

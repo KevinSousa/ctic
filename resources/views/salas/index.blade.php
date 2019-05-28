@@ -11,33 +11,29 @@
     <title>Salas</title>
     <div id="index">
         <div align="left">  
-            <h1 id="titulo"> Lista de Salas Cadastradas </h1>
+            <h1 id="titulo">Salas</h1>
             <br>
         </div>
         <br>  
         <table class="table table-striped" id="example">
-            <thead class="thead-light">
+            <thead align="center" class="thead-light">
                 <tr>
-                    <th>Identificação</th>
-                    <th>Andar</th>
-                    <th>Ação</th>
+                    <th>IDENTIFICAÇÃO</th>
+                    <th>ANDAR</th>
+                    <th>AÇÃO</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody align="center">
             @foreach ($salas as $sala)
                 <tr>
                     <td data-label="Indentificacao">{{ $sala->sala_identificacao }}</td>
                     <td data-label="Andar">{{ $sala->sala_andar }}</td>
                     <td>
-                        <a href="{{route('sala.remover',$sala->sala_id)}}">  
-                            <button id="delete" class="btn btn-danger">
-                                Deletar
-                            </button>
-                        </a>
                         <a href="{{route('sala.editar',$sala->sala_id)}}">
-                            <button id="edit" class="btn btn-warning">
-                                Editar
-                            </button>
+                           <i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+                        </a>
+                        <a href="{{route('sala.remover',$sala->sala_id)}}">  
+                            <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
                         </a>
                     </td>
                 </tr>
