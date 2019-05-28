@@ -4,40 +4,36 @@
     <title>Equipamentos</title>
 	<div id="index">
 		<div align="left">	
-			<h1 id="titulo"> EQUIPAMENTOS </h1>
+			<h1 id="titulo">Equipamentos</h1>
 			<br>
 		</div>
 		<br>
 		<table id="example" class="table table-striped">
-			<thead class="thead-light">
+			<thead align="center" class="thead-light">
 				<tr align="center">					
+                    <th scope="col"> TOMBAMENTO </th>
 					<th scope="col"> TIPO </th>
 					<th scope="col"> MARCA </th>
-                    <th scope="col"> TOMBAMENTO </th>
                     <th scope="col"> AÇÃO </th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach ($equipamento as $equipamentos)
 					<tr align="center">
+						<td> {{$equipamentos->equip_tombamento}}</td>
 						@foreach ($tipoEquip as $tipo)
 							@if($equipamentos->equip_tipo == $tipo->tipo_id)
 		                    	<td> {{$tipo->tipo_nome}}</td>
 		                    @endif
         				@endforeach
                         <td> {{$equipamentos->equip_marca}}</td>
-						<td> {{$equipamentos->equip_tombamento}}</td>
 						<td> 
+								<a href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
+									<i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+								</a>	
 							<a href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}">	
-								<button id="delete" class="btn btn-danger">
-									Deletar
-								</button>
+								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
 							</a>
-							<a href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
-								<button id="edit" class="btn btn-warning">
-									Editar
-								</button>
-							</a>	
 						</td>
 					</tr>
 				@endforeach
