@@ -5,7 +5,7 @@
 	    <select name="sala_andar" class="form-control">
             <option disabled>Escolha o bloco onde a sala está localizada</option> 
             <option disabled>---</option> 
-	        <option value=""></option> 
+	        <option value="" hidden></option> 
 	        <option value="BLOCO A">BLOCO A</option>
         	<option value="BLOCO B">BLOCO B</option>
         	<option value="BLOCO C">BLOCO C</option>
