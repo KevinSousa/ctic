@@ -18,7 +18,7 @@ class EquipamentosController extends Controller
     
     public function index(Request $request) {
        	$tipoEquip = Tipo_Equipamento::all();
-     	$equipamento = DB::table('equipamentos')->paginate(5);
+     	$equipamento = DB::table('equipamentos')->paginate(10);
         
         $ajax = false;
 
