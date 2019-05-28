@@ -49,7 +49,7 @@
                 		<button class="btn btn-primary">Voltar</button>
                 	</a>
         		@else
-        		    <button class="btn btn-success" type="submit">Adicionar Função</button>
+        		    <button class="btn btn-success" type="submit">Adicionar</button>
         		@endisset
         		</form>
             </div>

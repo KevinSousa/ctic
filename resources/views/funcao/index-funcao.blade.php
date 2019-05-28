@@ -4,14 +4,13 @@
 	<title> Funções </title>
 	<div id="index">
 		<div align="left">	
-			<h1 id="titulo"> Funções </h1>
+			<h1 id="titulo">Funções</h1>
 			<br>
 		</div>
 		<br>
 		<table class="table table-striped" id="example">
 			<thead class="thead-light">
 				<tr align="center">
-					<th scope="col"> ID </th>
 					<th scope="col"> NOME </th>
 					<th scope="col"> AÇÃO </th>
 				</tr>
@@ -19,19 +18,14 @@
 			<tbody>
 				@foreach ($funcao as $funcoes)
 					<tr align="center">
-						<td> {{$funcoes->funcao_id}}</td>
 						<td> {{$funcoes->funcao_name}}</td>
 						<td> 
-							<a href="{{route('funcao.destroy',$funcoes->funcao_id)}}">	
-								<button id="delete" class="btn btn-danger">
-									Deletar
-								</button>
-							</a>
 							<a href="{{route('funcao.edit',$funcoes->funcao_id)}}">
-								<button id="edit" class="btn btn-warning">
-									Editar
-								</button>
+								<i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
 							</a>	
+							<a href="{{route('funcao.destroy',$funcoes->funcao_id)}}">	
+								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+							</a>
 						</td>
 					</tr>
 				@endforeach
