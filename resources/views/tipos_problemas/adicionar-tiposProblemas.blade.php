@@ -30,7 +30,7 @@
         			{{ csrf_field() }}
         			@component('tipos_problemas/card-tiposProblemas')
         			@endcomponent
-        		 <button class="btn btn-success" type="submit">Adicionar Tipo de Problema</button>
+        		 <button class="btn btn-success" type="submit">Adicionar</button>
                 </form>
             </div>
         </div>

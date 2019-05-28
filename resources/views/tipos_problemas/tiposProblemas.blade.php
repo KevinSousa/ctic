@@ -11,15 +11,15 @@
     <title>Tipos de Problemas</title>
     <div id="index">
         <div align="left">  
-            <h1 id="titulo"> Tipos de Problemas </h1>
+            <h1 id="titulo">Tipos de Problemas</h1>
             <br>
         </div>
         <br>
         <table class="table table-striped" id="example">
             <thead class="thead-light">
                 <tr align="center">
-                    <th> Nome: </th>
-                    <th> Ação: </th>
+                    <th>NOME</th>
+                    <th>AÇÃO</th>
                 </tr>
             </thead>
       <tbody>
@@ -27,15 +27,11 @@
                 <tr align="center">
                     <td> {{$tipoProblemas->probl_tipo}}</td>
           <td>
-              <a href="{{route('tiposProblemas.destroy',$tipoProblemas->probl_id)}}">  
-                  <button id="delete" class="btn btn-danger">
-                      Deletar
-                  </button>
-              </a>
               <a href="{{route('tiposProblemas.edit',$tipoProblemas->probl_id)}}">
-                  <button id="edit" class="btn btn-warning">
-                      Editar
-                  </button>
+                <i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+              </a>
+              <a href="{{route('tiposProblemas.destroy',$tipoProblemas->probl_id)}}">  
+                <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
               </a>
           </td>
                 </tr>
