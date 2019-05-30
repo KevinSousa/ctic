@@ -2,15 +2,13 @@
 @section('content')
 <div id="index">
     <div id="titulo" align="left">
-        <h1 align="left"> Calendário </h1>
-        <br>
-        <a href="{{route('calendar.addEvent')}}"><button class="btn btn-primary"> Reservar Laboratório </button> </a>
-    </div>
-    <br>
 
-    <div id="calendar">
-        {!! $calendar_details -> calendar() !!}
-        {!! $calendar_details->script() !!}
+    </div>
+    <div class="row justify-content-md-left">
+        <div id="calendar" class="col col">
+            {!! $calendar_details -> calendar() !!}
+            {!! $calendar_details->script() !!}
+        </div>
     </div>
 </div>
 @endsection
@@ -38,9 +36,8 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
 @endsection
 
 <style type="text/css">

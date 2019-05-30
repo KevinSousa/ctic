@@ -12,7 +12,7 @@
     @yield('title')
     <link rel="shortcut icon" href="favicon.ico" />
         <!-- Fontfaces CSS-->
-    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
@@ -56,7 +56,7 @@
                                     <i class="fas fa-phone"></i>Adicionar Chamados</a>
                             @endcan        
                             @can('admin')
-                            <a class="js-arrow text-success" id="adc-menu" href="#">
+                            <a class="js-arrow" id="adc-menu" href="#">
                                 <i class="fas fa-plus"></i>Adicionar</a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
                                     <li>
@@ -77,7 +77,7 @@
                         </li>
                         @can('admin')
                             <li>
-                                <a class="js-arrow" id="vis-menu" href="#" style="color: blue;">
+                                <a class="js-arrow" id="vis-menu" href="#" style="">
                                     <i class="fas fa-list"></i>Visualizar
                                 </a>
                                 <ul class="list-unstyled navbar__sub-list js-sub-list">
@@ -102,15 +102,20 @@
                                 </ul>
                             </li>
                         @endcan
-                        {{-- <li>
-                            <a href="{{route('chamados.index')}}" style="color: green;">
-                                <i class="fas fa-list-ul"></i>Visualizar Chamados
+                        <li class="">
+                            <a class="js-arrow" id="vis-menu" href="#" style="">
+                                    <i class="fas fa-calendar-alt"></i>Calendário
                             </a>
-                        </li> --}}
-                       
-                        <li>
-                            <a href="{{route('calendar')}}">
-                                <i class="fas fa-calendar-alt"></i>Calendario</a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="{{route('calendar')}}">
+                                        <i class="fas fa-eye"></i>Visualizar</a>
+                                </li>
+                                <li>
+                                    <a href="{{route('calendar.addEvent')}}" class="listAJAX">
+                                        <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
+                                </li>
+                            </ul>
                         </li>
                         
            <!--              <li class="has-sub">
