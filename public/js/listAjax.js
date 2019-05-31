@@ -14,23 +14,24 @@ $(document).ready(function()
   
             var url = $(this).attr('url');
             
-            getData(url);
+            getData(url,true);
             return false;
-        });    
+        });
+
         // window.addEventListener('popstate', function(e){
         //     if(e.state)
         //         oldUrl = window.location.pathname.split("/");
         //         oldUrl = "/"+oldUrl[1];
                 
-        //         getData(oldUrl);
+        //         getData(oldUrl,true);
         // });
   
     });
   
-function getData(url){
+function getData(url, state){
 
     window.history.pushState({ url:url }, "", url);
-
+    
     $.ajax(
     {
         url: url,
