@@ -2,13 +2,14 @@
 @section('content')
 	<title> Usuários </title>
 	<div id="index">
-		<div id="titulo">
-			<h1 align="left">Usuários</h1>
+		<div align="left">	
+			<h1 id="titulo">Usuários</h1>
+			<br>
 		</div>
 		<br>
-        <table class="table table-striped" id="example">
-            <thead align="center" class="thead-light">
-                <tr>
+		<table class="table table-striped" id="example">
+			<thead class="thead-light">
+				<tr align="center">
 		            <th>NOME</th>
 		            <th>CPF</th>
 		            <th>SIAPE</th>
