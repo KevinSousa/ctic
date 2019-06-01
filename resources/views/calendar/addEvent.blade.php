@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
 <div id="index">
     <h1 align="left"> Agendar Laboratório </h1>
@@ -65,6 +65,12 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
+     <script> 
+            $(document).ready(function (){
+                $('#vis-calendar').click();
+                $('#reserv-calendar').parent('li').addClass("active");
+            });                
+        </script>
 @endsection
 
 <style type="text/css">

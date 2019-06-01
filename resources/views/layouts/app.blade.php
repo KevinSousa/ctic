@@ -103,16 +103,16 @@
                             </li>
                         @endcan
                         <li class="">
-                            <a class="js-arrow" id="vis-menu" href="#" style="">
+                            <a class="js-arrow" id="vis-calendar" href="#" style="">
                                     <i class="fas fa-calendar-alt"></i>Calendário
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="{{route('calendar')}}">
+                                    <a href="#" url="/calendar" id="visu-calendar" class="listAJAX">
                                         <i class="fas fa-eye"></i>Visualizar</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('calendar.addEvent')}}" class="listAJAX">
+                                    <a href="#" url="/calendar/addEvent" id="reserv-calendar" class="listAJAX">
                                         <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
                                 </li>
                             </ul>

@@ -11,7 +11,7 @@ use Calendar;
 
 class EventController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
 
         $events = Event::get();
         $event_list = [];
@@ -24,15 +24,24 @@ class EventController extends Controller
                 new \Datetime($event->end_date . ' +1 day')
             );
         }
+        $ajax = false;
 
+        if ($request->ajax()){
+            $ajax = true;
+        }
         $calendar_details = Calendar::addEvents($event_list);
 
-        return view('calendar.index', compact('calendar_details'));
+        return view('calendar.index', compact('calendar_details', 'ajax'));
 
     }
 
-    public function addEvent(){
-        return view('calendar.addEvent');   
+    public function addEvent(Request $request){
+         $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+        return view('calendar.addEvent', compact('ajax'));   
     }
 
     public function saveEvent(Request $request){

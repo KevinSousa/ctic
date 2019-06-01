@@ -6,6 +6,7 @@ $(document).ready(function()
             event.preventDefault();
   
             if ($(this).parent('li').hasClass("active")){
+                console.log("ok");
                 return
             }
 
