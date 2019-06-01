@@ -11,7 +11,7 @@
 		<table class="table table-striped" id="example">
 			<thead class="thead-light">
 				<tr align="center">
-					<th scope="col"> NOME </th>
+					<th scope="col" style="width: 60%;"> NOME </th>
 					<th scope="col"> AÇÃO </th>
 				</tr>
 			</thead>
@@ -31,7 +31,6 @@
 				@endforeach
 			</tbody>
 		</table>
-		{{$funcao->links()}}
 	</div>
 @endsection
 @section('js')
