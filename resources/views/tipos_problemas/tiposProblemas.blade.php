@@ -8,7 +8,7 @@
 	}
 </style>
 @section('content')
-    <title>Tipos de Problemas</title>
+    <title> Tipos de Problemas </title>
     <div id="index">
         <div align="left">  
             <h1 id="titulo">Tipos de Problemas</h1>
@@ -18,26 +18,26 @@
         <table class="table table-striped" id="example">
             <thead class="thead-light">
                 <tr align="center">
-                    <th>NOME</th>
-                    <th>AÇÃO</th>
+                    <th scope="col" style="width: 60%;">NOME</th>
+                    <th scope="col">AÇÃO</th>
                 </tr>
             </thead>
-      <tbody>
-            @foreach ($tiposProblemas as $tipoProblemas)
-                <tr align="center">
-                    <td> {{$tipoProblemas->probl_tipo}}</td>
-          <td>
-              <a href="{{route('tiposProblemas.edit',$tipoProblemas->probl_id)}}">
-                <i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
-              </a>
-              <a href="{{route('tiposProblemas.destroy',$tipoProblemas->probl_id)}}">  
-                <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
-              </a>
-          </td>
-                </tr>
-            @endforeach
+            <tbody>
+                @foreach ($tiposProblemas as $tipoProblemas)
+                    <tr align="center">
+                        <td> {{$tipoProblemas->probl_tipo}}</td>
+                        <td>
+                          <a href="{{route('tiposProblemas.edit',$tipoProblemas->probl_id)}}">
+                            <i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+                          </a>
+                          <a href="{{route('tiposProblemas.destroy',$tipoProblemas->probl_id)}}">  
+                            <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+                          </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
         </table>
-        <br>
     </div>
 @endsection
 @section('js')
