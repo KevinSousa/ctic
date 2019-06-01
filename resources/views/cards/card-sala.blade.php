@@ -1,6 +1,6 @@
 <div class="form-group">
     	<label>Numero da Sala:</label>
-        <input type="text" name="sala_identificacao" value="{{ isset($sala->sala_identificacao) ? $sala->sala_identificacao : '' }}" placeholder="Ex: 5" required="" class="form-control" id="field" maxlength="2"  max="10" pattern="([0-9]{2})">
+        <input type="text" name="sala_identificacao" value="{{ isset($sala->sala_identificacao) ? $sala->sala_identificacao : '' }}" placeholder="Ex: 5" required="" class="form-control" id="field" maxlength="2"  max="10">
 	    <label>Andar/Bloco:</label>
 	    <select name="sala_andar" class="form-control">
             <option disabled>Escolha o bloco onde a sala está localizada</option> 

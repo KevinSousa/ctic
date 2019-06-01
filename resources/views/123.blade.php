@@ -6,7 +6,11 @@
 
             <!-- MAIN CONTENT-->
             
-                <h1>teste</h1>
+                <div id="poll-div">
+
+                    <?=($lava->render('DonutChart', 'IMDB', 'poll-div'))?>
+                    
+                </div>
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
     

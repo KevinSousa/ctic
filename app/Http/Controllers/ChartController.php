@@ -42,13 +42,13 @@ class ChartController extends Controller
 		$lava->DonutChart('IMDB', $reasons, [
 		    'title' => 'Percentual de Chamados por tipo',
 		    'width' => 1000,
-        	'height' => 1000,
+        	'height' => 400,
         	'legend' => [
-        		'position' => 'left'
+        		'position' => 'right'
         	]
 		]);
 
-	    return View('chart.index', compact('lava'));
+	    return View('123', compact('lava'));
 
 
     }

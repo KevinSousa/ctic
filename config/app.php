@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         MaddHatter\LaravelFullcalendar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Khill\Lavacharts\Laravel\LavachartsServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -230,6 +231,7 @@ return [
         'Calendar' => MaddHatter\LaravelFullcalendar\Facades\Calendar::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
+        'Lava' => Khill\Lavacharts\Laravel\LavachartsFacade::class,
     ],
 
 ];

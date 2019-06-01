@@ -26,12 +26,7 @@ Auth::routes();
 
 Route::group(['middleware'=>'auth'],function() {
 	
-	Route::get('/', function () {
-
-		return view('123');
-
-	})->name('home');
-
+	Route::get('/', ['as' => 'home', 'uses' => 'ChartController@index']);
 	
 	// ROTAS DOS FUNCIONÁRIOS
 
