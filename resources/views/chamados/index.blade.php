@@ -2,14 +2,15 @@
 
 @section('content') 
 	<title> Chamados </title>
-	<div id="index">
-		<div align="left">
-			<h1 id="titulo">Chamados</h1>
-		</div>
-		<br>
-        <table id="example" class="table table-striped">
-		    <thead align="center" class="thead-light">
-		        <tr align="center">
+    <div id="index">
+        <div align="left">  
+            <h1 id="titulo">Chamados</h1>
+            <br>
+        </div>
+        <br>
+        <table class="table table-striped" id="example">
+            <thead class="thead-light">
+                <tr align="center">
 		            <th scope="col">AUTOR</th>
 		            <th scope="col">GRAU DE URGÊNCIA</th>
                     <th scope="col">TIPO DO PROBLEMA</th>
