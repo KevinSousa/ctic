@@ -5,8 +5,10 @@ use App\Funcao;
 
 $factory->define(App\User::class, function (Faker $faker) {
    
-    $cpf        = $faker->unique()->numberBetween($min = 10000000000, $max = 99999999999);
-   
+    $faker->addProvider(new \JansenFelipe\FakerBR\FakerBR($faker));
+
+    $cpf        = $faker->cpf;
+    
     $numMat     = $faker->numberBetween($min = 1000, $max = 9999);
     $letter1  = $faker->randomLetter;
     $letter2  = $faker->randomLetter;
