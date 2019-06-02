@@ -8,19 +8,17 @@
             <br>
         </div>
         <br>
-        <div class="box-body"></div>
-            <table class="table table-condensed table-hover dataTable table-orderdesc" id="example">
-                <thead >
-                    <tr align="center">
-                        <th>AUTOR</th>
-                        <th>GRAU DE URGÊNCIA</th>
-                        <th>TIPO DO PROBLEMA</th>
-                        <th>STATUS</th>
-                        <th>AÇÕES</th>
-                    </tr>
-                </thead>
-            </table>
-        </div>
+        <table class="table table-condensed" id="example">
+            <thead class="thead-light">
+                <tr align="center">
+                    <th scope="col">AUTOR</th>
+                    <th scope="col">GRAU DE URGÊNCIA</th>
+                    <th scope="col">TIPO DO PROBLEMA</th>
+                    <th scope="col">STATUS</th>
+                    <th scope="col">AÇÕES</th>
+                </tr>
+            </thead>
+        </table>
         <br>
     </div>
 @endsection
