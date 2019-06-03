@@ -2,57 +2,41 @@
 
 @section('content')
 <title>Funções</title>
-<style> 
- img{
-    width: 60%;
-    -webkit-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    transition: all 0.6s;
-}
- img:hover {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-}
-</style>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
-        <div class="col h-100 p-3" style="margin: 0 auto">
-            <img src="{{asset('img-03.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
-        </div>
         <div class="col">
             <div style="margin-top: 30%;">
-        	@isset($funcao)
-           		<h2 id="titulo" align="left"> Editar Função </h2>
+            @isset($funcao)
+                <h2 id="titulo" align="left"> Editar Função </h2>
             @else
-            	<h2 id="titulo" align="left"> Cadastro de Função </h2>
+                <h2 id="titulo" align="left"> Cadastro de Função </h2>
             @endisset
-            <br>	
-        	@isset($funcao)
-        		<form method="post" action="{{route('funcao.update', $funcao->funcao_id)}}" class="ui form">
-        	@else
-        		<form method="post" action="{{route('funcao.store')}}" class="ui form">
-        	@endisset
-        		{{ csrf_field() }}
-        		<input type="hidden" name="_method" value="put">
-        		<div class="form-group">
+            <br>    
+            @isset($funcao)
+                <form method="post" action="{{route('funcao.update', $funcao->funcao_id)}}" class="ui form">
+            @else
+                <form method="post" action="{{route('funcao.store')}}" class="ui form">
+            @endisset
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="put">
+                <div class="form-group">
                     <label>Digite o nome da Função:</label>
-                    <br>	
-        			<input type="text" name="funcao_name"  value="{{ isset($funcao->funcao_name) ? $funcao->funcao_name : '' }}" placeholder="Ex: Administrador" required="" class="form-control">
-        		</div>
-        		@isset($funcao)
-        			<button class="btn btn-success" type="submit">Editar Função</button>
-               		<a href="{{route('chamados.index')}}">
-                		<button class="btn btn-primary">Voltar</button>
-                	</a>
-        		@else
-        		    <button class="btn btn-success" type="submit">Adicionar</button>
-        		@endisset
-        		</form>
+                    <br>    
+                    <input type="text" name="funcao_name"  value="{{ isset($funcao->funcao_name) ? $funcao->funcao_name : '' }}" placeholder="Ex: Administrador" required="" class="form-control">
+                </div>
+                @isset($funcao)
+                    <button class="btn btn-success" type="submit">Editar Função</button>
+                    <a href="{{route('chamados.index')}}">
+                        <button class="btn btn-primary">Voltar</button>
+                    </a>
+                @else
+                    <button class="btn btn-success" type="submit">Adicionar</button>
+                @endisset
+                </form>
             </div>
+        </div>
+        <div class="col h-100 p-3" style="margin: 0 auto; margin-top: -6em">
+            <img src="{{asset('img-03.png')}}" class="icons-adc" >
         </div>
     </div>
 </div>

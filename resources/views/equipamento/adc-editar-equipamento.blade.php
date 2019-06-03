@@ -2,77 +2,61 @@
 
 @section('content')
 <title>Equipamentos</title>
-<style>	
- img{
-	width: 60%;
-	-webkit-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    transition: all 0.6s;
-}
- img:hover {
-	-webkit-transform: scale(1.1);
-  	-moz-transform: scale(1.1);
-  	-ms-transform: scale(1.1);
-  	-o-transform: scale(1.1);
-	transform: scale(1.1);
-}
-</style>
 <div class="container-fluid">
 	<div class="row h-100 p-3" style="margin-top: -11%" >
-		<div class="col h-100 p-3" style="margin: 0 auto">
-			<img src="{{asset('img-01.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
+        <div class="col">
+            <div style="margin-top: 30%;">
+            @isset($equipamento)
+                <h2 id="titulo" align="left"> Editar Equipamento </h2>
+            @else
+                <h2 id="titulo" align="left"> Cadastro de Equipamento </h2>
+            @endisset
+            <br>    
+            @isset($equipamento)
+                <form method="post" action="{{route('equipamento.update', $equipamento->equip_tombamento)}}" class="ui form">
+            @else
+                <form method="post" action="{{route('equipamento.store')}}" class="ui form">
+            @endisset
+                {{ csrf_field() }}
+                <input type="hidden" name="_method" value="put">
+                <div class="form-group">
+                    <label>Adicione o tipo do equipamento:</label>
+                    <br>    
+                        <select name="equip_tipo" class="form-control">
+                            <option disabled>Escolha o tipo de equipamento</option> 
+                            <option disabled>---</option> 
+                            <option hidden=""></option> 
+                            @foreach ($TipoEquip as $tipo)
+                                <option value="{{$tipo -> tipo_id}}"
+                                    @if (isset($equipamento) && $equipamento->equip_tipo == $tipo->tipo_id)
+                                        Selected
+                                    @endif>
+                                        {{$tipo -> tipo_nome}}
+                                    </option>
+                            @endforeach
+                        </select>          
+                    <label>Adicione a marca do equipamento:</label>
+                    <br>    
+                    <input type="text" name="equip_marca"  value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder="Ex: Samsung" required="" class="form-control">
+                    <label>Adicione o numero de tombamento do equipamento:</label>
+                    <br>    
+                    <input type="text" name="equip_tombamento"  value="{{ isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : '' }}" placeholder="Ex: 221529" required="" class="form-control">
+                </div>
+                @isset($equipamento)
+                    <button class="btn btn-success" type="submit">Editar Equipamento</button>
+                    <a href="{{route('equipamento.index')}}">
+                        <button class="btn btn-primary">Voltar</button>
+                    </a>
+                @else
+                   <button class="btn btn-success" type="submit">Adicionar</button>
+                @endisset
+                </form>
+            </div>
+        </div>
+		<div class="col h-100 p-3" style="margin: 0 auto;margin-top: -6em">
+			<img src="{{asset('img-01.png')}}" alt=""style="margin-top: 35%; margin-left: 12%">
 		</div>
-		<div class="col">
-			<div style="margin-top: 30%;">
-			@isset($equipamento)
-		        <h2 id="titulo" align="left"> Editar Equipamento </h2>
-		    @else
-		    	<h2 id="titulo" align="left"> Cadastro de Equipamento </h2>
-		    @endisset
-		    <br>	
-			@isset($equipamento)
-				<form method="post" action="{{route('equipamento.update', $equipamento->equip_tombamento)}}" class="ui form">
-			@else
-				<form method="post" action="{{route('equipamento.store')}}" class="ui form">
-			@endisset
-				{{ csrf_field() }}
-				<input type="hidden" name="_method" value="put">
-				<div class="form-group">
-		            <label>Adicione o tipo do equipamento:</label>
-		            <br>	
-		                <select name="equip_tipo" class="form-control">
-		                    <option disabled>Escolha o tipo de equipamento</option> 
-		                    <option disabled>---</option> 
-		                    <option hidden=""></option> 
-		                    @foreach ($TipoEquip as $tipo)
-		                        <option value="{{$tipo -> tipo_id}}"
-		                            @if (isset($equipamento) && $equipamento->equip_tipo == $tipo->tipo_id)
-		                                Selected
-		                            @endif>
-		                                {{$tipo -> tipo_nome}}
-		                            </option>
-		                    @endforeach
-		                </select>          
-		            <label>Adicione a marca do equipamento:</label>
-		            <br>    
-		            <input type="text" name="equip_marca"  value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder="Ex: Samsung" required="" class="form-control">
-		            <label>Adicione o numero de tombamento do equipamento:</label>
-		            <br>    
-		            <input type="text" name="equip_tombamento"  value="{{ isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : '' }}" placeholder="Ex: 221529" required="" class="form-control">
-				</div>
-				@isset($equipamento)
-					<button class="btn btn-success" type="submit">Editar Equipamento</button>
-		       		<a href="{{route('equipamento.index')}}">
-		        		<button class="btn btn-primary">Voltar</button>
-		        	</a>
-				@else
-				   <button class="btn btn-success" type="submit">Adicionar</button>
-				@endisset
-				</form>
-			</div>
-		</div>
-	</div>
+    </div>
 </div>
 @endsection
 
