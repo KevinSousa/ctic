@@ -1,16 +1,24 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
-<div id="index">
-		<div align="left" id="titulo">
-            <h1> Editar Usuários </h1>
+
+<div class="container-fluid">
+    <div class="row h-100 p-3" style="margin-top: -11%" >
+        <div class="col">
+            <div style="margin-top: 30%;">
+                <h2 id="titulo" align="left">Editar Usuário</h2>
+                <br>
+        		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
+        			{{ csrf_field() }}
+        			@include('user._form')
+        			<button class="btn btn-success" type="submit"> Atualizar </button>
+        		</form>
+                </div>
         </div>
-        <br>
-		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
-			{{ csrf_field() }}
-			@include('user._form')
-			<button class="btn btn-success" type="submit"> Atualizar </button>
-		</form>
-</div>
+        <div class="col h-100 p-3" style="margin: 0 auto;">
+            <img src="{{asset('img-05.png')}}" alt="" class="icons-edt">
+        </div>
+    </div>    
+</div> 
 @endsection
 @section('js')
      <!-- Jquery JS-->
@@ -55,14 +63,31 @@
 @endsection
 
 <style type="text/css">
-    
-    div#index {
+    div#index{
         margin: 0px 25px 0px 25px;
     }
 
-    div#titulo h1{
+    h2#titulo {
         color: #666;
     }
-
+    .form-group{
+        text-align: left;
+    }
+    .icons-edt{
+        width: 60%;
+        -webkit-transition: all 0.6s;
+        -o-transition: all 0.6s;
+        -moz-transition: all 0.6s;
+        transition: all 0.6s;
+        margin-top: 35%;
+        margin-left: 12%;
+    }
+    .icons-edt:hover {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+        transform: scale(1.1);
+    }
 </style>
 
