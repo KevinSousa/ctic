@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use Yajra\DataTables\DataTables;
 use App\Equipamento;
 use App\Tipo_equipamento;
 use Illuminate\Support\Facades\DB;
@@ -27,6 +28,13 @@ class EquipamentosController extends Controller
         }
         return view ('/equipamento.index-equipamento', compact('equipamento','tipoEquip','ajax'));
 
+    }
+
+    public function getEquipamentos()
+    {
+ 		$equipamento = DB::table('equipamentos')->join('tipo_equipamentos', 'tipo_equipamentos.tipo_id', '=' , 'equip_tipo')
+ 								  				->select('tipo_equipamentos.*','equipamentos.*');
+        return Datatables::of($equipamento)->make();
     }
 
     public function create(Request $request){

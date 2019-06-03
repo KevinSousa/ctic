@@ -81,7 +81,7 @@
                                 sLast: "Última",
                             },
                     },
-                    // bPaginate: false, //Next and Previous embaixo da tabela
+                    bPaginate: false, //Next and Previous embaixo da tabela
                     // bLengthChange: false,  //Show and entries em cima da tabela
                     // bFilter: true, //Search em cima da tabela
                     // bInfo: false,  //Showing em baixo da tabela

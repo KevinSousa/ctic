@@ -128,6 +128,8 @@ Route::group(['middleware'=>'auth'],function() {
 	});
 	
 
+	//Datatables
 	Route::get('chamados/getchamados', ['as'=>'chamados.getchamados', 'uses'=>'ChamadosController@getChamados']);
+	Route::get('equipamento/getequipamento', ['as'=>'equipamento.getequipamento', 'uses'=>'EquipamentosController@getEquipamentos']);
 
 });	
