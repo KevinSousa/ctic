@@ -1,4 +1,4 @@
-	<div   class="form-row">
+w	<div   class="form-row">
 		<div class="form-group col-md-6">
 	                        {{ csrf_field() }}
 			<label for="">Nome Completo *</label>

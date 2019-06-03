@@ -69,7 +69,7 @@
 
         <script type="text/javascript">
             $(document).ready( function (){
-                $('#example').DataTable();
+                @yield('datatables');
                 $('#vis-menu').click();
                 $('#visu-users').parent('li').addClass("active");
             });
@@ -80,7 +80,7 @@
 @section('ajax-js')
         <script type="text/javascript">
             $(document).ready( function (){
-                $('#example').DataTable();
+                @yield('datatables');
             });
         </script>
 @endsection
