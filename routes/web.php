@@ -107,7 +107,7 @@ Route::group(['middleware'=>'auth'],function() {
 
 	Route::post('/chamados/salvar', ['as' => 'chamados.salvar', 'uses' => 'ChamadosController@save']);
 
-	// Route::get('/chamados/{id}', ['as' => 'chamados.detalhes', 'uses' => 'ChamadosController@detalhes']);
+	Route::get('/chamados/{id}', ['as' => 'chamados.detalhes', 'uses' => 'ChamadosController@detalhes']);
 
 	Route::get('/chamados/destroy/{id}', ['as' => 'chamados.destroy', 'uses' => 'ChamadosController@remove']);
 
