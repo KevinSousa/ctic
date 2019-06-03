@@ -19,7 +19,7 @@ class EquipamentosController extends Controller
     
     public function index(Request $request) {
        	$tipoEquip = Tipo_Equipamento::all();
-     	$equipamento = DB::table('equipamentos')->paginate(10);
+     	$equipamento = DB::table('equipamentos')->paginate(8);
         
         $ajax = false;
 
@@ -30,12 +30,12 @@ class EquipamentosController extends Controller
 
     }
 
-    public function getEquipamentos()
-    {
- 		$equipamento = DB::table('equipamentos')->join('tipo_equipamentos', 'tipo_equipamentos.tipo_id', '=' , 'equip_tipo')
- 								  				->select('tipo_equipamentos.*','equipamentos.*');
-        return Datatables::of($equipamento)->make();
-    }
+   //  public function getEquipamentos()
+   //  {
+ 		// $equipamento = DB::table('equipamentos')->join('tipo_equipamentos', 'tipo_equipamentos.tipo_id', '=' , 'equip_tipo')
+ 		// 						  				->select('tipo_equipamentos.*','equipamentos.*');
+   //      return Datatables::of($equipamento)->make();
+   //  }
 
     public function create(Request $request){
     	$TipoEquip = Tipo_Equipamento::all();

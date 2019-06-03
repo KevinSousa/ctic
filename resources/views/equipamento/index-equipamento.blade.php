@@ -17,8 +17,30 @@
                     <th scope="col"> AÇÃO </th>
 				</tr>
 			</thead>
-		</table>
-	</div>
+           <tbody>
+                @foreach ($equipamento as $equipamentos)
+                    <tr align="center">
+                        <td> {{$equipamentos->equip_tombamento}}</td>
+                        @foreach ($tipoEquip as $tipo)
+                            @if($equipamentos->equip_tipo == $tipo->tipo_id)
+                                <td> {{$tipo->tipo_nome}}</td>
+                            @endif
+                        @endforeach
+                        <td> {{$equipamentos->equip_marca}}</td>
+                        <td> 
+                                <a href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
+                                    <i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+                                </a>    
+                            <a href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}"> 
+                                <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{$equipamento->links()}}
+    </div>
 @endsection
 @section('js')
      <!-- Jquery JS-->
@@ -53,47 +75,7 @@
             $(document).ready(function (){
                 $('#vis-menu').click();
                 $('#visu-equips').parent('li').addClass("active");
-                 // Datatable
-                $('#example').DataTable({
-                    bProcessing: true,
-                    deferRender: true,
-                    serverSide: true,
-                    oLanguage:{
-                        sProcessing: "Processando...",
-                        sLengthMenu: "Mostar _MENU_ registros pro página",
-                        sZeroRecords: "Nada encontrado com esse critérios",
-                        sEmptyTable: "Não há dados para serem mostrados",
-                        sLoadingRecords: "Carregando...",
-                        sInfo: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                        sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
-                        sInfoFiltered: "(filtro aplicado em _MAX_ registros)",
-                        sInfoPostFix: "",
-                        sInfoThousands: ".",
-                        sSearch: "Pesquisar:",
-                        sUrl: "",
-                            oPaginate:{
-                                sFirst: "Primeira",
-                                sPrevious: "Anterior",
-                                sNext: "Próxima",
-                                sLast: "Última",
-                            },
-                    },
-                    bPaginate: true, //Next and Previous embaixo da tabela
-                    bLengthChange: true,  //Show and entries em cima da tabela
-                    bFilter: true, //Search em cima da tabela
-                    bInfo: true,  //Showing em baixo da tabela
-                    ajax: "{{ route('equipamento.getequipamento')}}",
-                    columns: [
-                            {data:'equip_tombamento'},
-                            {data:'tipo_nome'},
-                            {data:'equip_marca'},
-                            {data:'equip_marca'},
-                        ],
-                    pageLength: 10,
-                    sScrollx: '100%',
-                    sScrollxInner: '100%',
-                    aaSorting: [[0,'asc']],
-                }); 
+                @yield('datatables');
             });
         </script>
 
@@ -104,7 +86,7 @@
     
     <script type="text/javascript">
         $(document).ready( function (){
-            $('#example').DataTable();
+            @yield('datatables');
         });
     </script>
 @endsection
