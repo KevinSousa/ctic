@@ -66,7 +66,7 @@
 
         <script> 
             $(document).ready(function (){
-                $('#example').DataTable();
+                @yield('datatables')
                 $('#vis-menu').click();
                 $('#visu-tipo-problemas').parent('li').addClass("active");
             });                
@@ -77,7 +77,7 @@
     
     <script type="text/javascript">
         $(document).ready( function (){
-            $('#example').DataTable();
+            @yield('datatables');
         });
     </script>
 @endsection
