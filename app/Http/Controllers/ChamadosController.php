@@ -35,17 +35,17 @@ class ChamadosController extends Controller
           
     }       
 
-    public function getChamados()
-    {
-        // $chamados = Chamado::select(['cham_user','cham_id']);
+   //  public function getChamados()
+   //  {
+         // $chamados = Chamado::select(['cham_user','cham_id']);
 
-		 $chamados = Chamado::join('users', 'users.user_id', '=' , 'cham_user')
-		                    ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
-		                    ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
-		                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*');
-        return Datatables::of($chamados)->make();
-        // echo "oi";
-    }
+		 // $chamados = Chamado::join('users', 'users.user_id', '=' , 'cham_user')
+		 //                    ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
+		 //                    ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
+		 //                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*');
+   //      return Datatables::of($chamados)->make();
+         // echo "oi";
+   //  }
 
 
     public function add(Request $request){

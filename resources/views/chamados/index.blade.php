@@ -18,9 +18,23 @@
                     <th scope="col">AÇÕES</th>
                 </tr>
             </thead>
-        </table>
-        <br>
-    </div>
+            <tbody>                 </thead>
+                @foreach ($chamados as $chamado)                </table>
+                    <tr align="center">         </div>
+                        <td> {{$chamado -> user_name}} </td>            <br>
+                        <td> {{$chamado -> cham_grau_urgencia}} </td>       </div>
+                        <td> {{$chamado -> sub_nome}}</td>  
+                        <td> {{$chamado -> cham_status}}</td>   
+                        <td>        
+                        <a href="{{route('chamados.detalhes',$chamado->cham_id)}}"><i class="ui primary button ">Detalhes</i></a>   
+                    </td>   
+                    </tr>   
+                @endforeach 
+            </tbody>    
+        </table>    
+        <br>    
+        {{$chamados->links()}}  
+    </div>    
 @endsection
 @section('js')
      <!-- Jquery JS-->
