@@ -75,37 +75,7 @@
         
         <script> 
             $(document).ready(function (){
-                $('#example').DataTable({ 
-                    bProcessing: true,
-                    deferRender: true,
-                    serverSide: true,
-                    oLanguage:{
-                        sProcessing: "Processando...",
-                        sLengthMenu: "Mostar _MENU_ registros pro página",
-                        sZeroRecords: "Nada encontrado com esse critérios",
-                        sEmptyTable: "Não há dados para serem mostrados",
-                        sLoadingRecords: "Carregando...",
-                        sInfo: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                        sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
-                        sInfoFiltered: "(filtro aplicado em _MAX_ registros)",
-                        sInfoPostFix: "",
-                        sInfoThousands: ".",
-                        sSearch: "Pesquisar:",
-                        sUrl: "",
-                            oPaginate:{
-                                sFirst: "Primeira",
-                                sPrevious: "Anterior",
-                                sNext: "Próxima",
-                                sLast: "Última",
-                            },
-                    },
-                    bPaginate: false, //Next and Previous embaixo da tabela
-                    // bLengthChange: false,  //Show and entries em cima da tabela
-                    // bFilter: true, //Search em cima da tabela
-                    // bInfo: false,  //Showing em baixo da tabela);
-                    }); 
-                $('#vis-menu').click();
-                $('#visu-sala').parent('li').addClass("active");
+                @yield('datatables');
             });                
         </script>
 
@@ -114,7 +84,7 @@
     
     <script type="text/javascript">
         $(document).ready( function (){
-            $('#example').DataTable();
+            @yield('datatables');
         });
     </script>
 @endsection 
