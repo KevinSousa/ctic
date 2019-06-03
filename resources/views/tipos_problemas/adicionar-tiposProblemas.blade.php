@@ -1,38 +1,23 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
 <title>Tipos Problemas</title>
-<style> 
- img{
-    width: 60%;
-    -webkit-transition: all 0.6s;
-    -o-transition: all 0.6s;
-    -moz-transition: all 0.6s;
-    transition: all 0.6s;
-}
- img:hover {
-    -webkit-transform: scale(1.1);
-    -moz-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    -o-transform: scale(1.1);
-    transform: scale(1.1);
-}
 </style>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
-        <div class="col h-100 p-3" style="margin: 0 auto">
-            <img src="{{asset('img-02.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
-        </div>
         <div class="col">
             <div style="margin-top: 30%;">
                 <h2 id="titulo" align="left">Cadastro de Tipos de Problemas</h2>
                 <br>
-        		<form method="post" action="{{route('tiposProblemas.store')}}" class="ui form">
-        			{{ csrf_field() }}
-        			@component('tipos_problemas/card-tiposProblemas')
-        			@endcomponent
-        		 <button class="btn btn-success" type="submit">Adicionar</button>
+                <form method="post" action="{{route('tiposProblemas.store')}}" class="ui form">
+                    {{ csrf_field() }}
+                    @component('tipos_problemas/card-tiposProblemas')
+                    @endcomponent
+                 <button class="btn btn-success" type="submit">Adicionar</button>
                 </form>
             </div>
+        </div>
+        <div class="col h-100 p-3" style="margin: 0 auto; margin-top: -6em">
+            <img src="{{asset('img-06.png')}}" alt="" class="icons-adc">
         </div>
     </div>    
 </div> 
