@@ -14639,3 +14639,19 @@ section {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
+.icons-adc{
+    width: 60%;
+    -webkit-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    transition: all 0.6s;
+    margin-top: 35%; 
+    margin-left: 12%;
+}
+.icons-a:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
