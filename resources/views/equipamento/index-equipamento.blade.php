@@ -8,7 +8,7 @@
 			<br>
 		</div>
 		<br>
-		<table id="example" class="table table-striped">
+        <table class="table table-striped table-bordered" id="example">
 			<thead align="center" class="thead-light">
 				<tr align="center">					
                     <th scope="col"> TOMBAMENTO </th>
@@ -29,10 +29,10 @@
                         <td> {{$equipamentos->equip_marca}}</td>
                         <td> 
                                 <a href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
-                                    <i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+                                    <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                                 </a>    
-                            <a href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}"> 
-                                <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+                            <a class="destroy" href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}"> 
+                                <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                             </a>
                         </td>
                     </tr>
@@ -76,6 +76,17 @@
                 $('#vis-menu').click();
                 $('#visu-equips').parent('li').addClass("active");
                 @yield('datatables');
+                
+                $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
             });
         </script>
 
@@ -100,3 +111,4 @@
 		color: #666;
 	}
 </style>
+         
