@@ -15,7 +15,7 @@
             <br>
         </div>
         <br>
-        <table class="table table-striped" id="example">
+        <table class="table table-striped table-bordered" id="example">
             <thead class="thead-light">
                 <tr align="center">
                     <th scope="col" style="width: 60%;">NOME</th>
@@ -28,10 +28,10 @@
                         <td> {{$tipoProblemas->probl_tipo}}</td>
                         <td>
                           <a href="{{route('tiposProblemas.edit',$tipoProblemas->probl_id)}}">
-                            <i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+                            <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                           </a>
                           <a href="{{route('tiposProblemas.destroy',$tipoProblemas->probl_id)}}">  
-                            <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+                            <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                           </a>
                         </td>
                     </tr>
