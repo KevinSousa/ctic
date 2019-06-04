@@ -26,7 +26,7 @@
                 </div>
                 @isset($funcao)
                     <button class="btn btn-success" type="submit">Editar Função</button>
-                    <a href="{{route('chamados.index')}}">
+                    <a href="{{  redirect()->back()->getTargetUrl() }}">
                         <button class="btn btn-primary">Voltar</button>
                     </a>
                 @else
@@ -69,6 +69,7 @@
             $(document).ready( function(){
                 $('#adc-menu').click();
                 $('#adc-funcao').parent('li').addClass("active");
+               
             });
         </script>
 
