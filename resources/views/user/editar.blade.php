@@ -2,9 +2,9 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row h-100 p-3" style="margin-top: -11%" >
+    <div class="row h-100 p-3">
         <div class="col">
-            <div style="margin-top: 30%;">
+            
                 <h2 id="titulo" align="left">Editar Usuário</h2>
                 <br>
         		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
@@ -12,7 +12,7 @@
         			@include('user._form')
         			<button class="btn btn-success" type="submit"> Atualizar </button>
         		</form>
-                </div>
+                <!-- </div> -->
         </div>
         <div class="col h-100 p-3" style="margin: 0 auto;">
             <img src="{{asset('img-05.png')}}" alt="" class="icons-edt">
@@ -79,7 +79,7 @@
         -o-transition: all 0.6s;
         -moz-transition: all 0.6s;
         transition: all 0.6s;
-        margin-top: 35%;
+        margin-top: 20%;
         margin-left: 12%;
     }
     .icons-edt:hover {
