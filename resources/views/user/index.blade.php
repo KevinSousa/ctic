@@ -7,7 +7,7 @@
 			<br>
 		</div>
 		<br>
-		<table class="table table-striped" id="example">
+        <table class="table table-striped table-bordered" id="example">
 			<thead class="thead-light">
 				<tr align="center">
 		            <th>NOME</th>
@@ -26,10 +26,10 @@
 						<td> {{$user -> funcao_name}}</td>
 						<td> 
 							<a href="{{route('user.editar',$user->user_id)}}">
-								<i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
 							</a>
 							<a href="{{route('user.remover',$user->user_id)}}">
-								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
 							</a>
 						</td>
 					</tr>
@@ -85,12 +85,11 @@
         </script>
 @endsection
 <style type="text/css">
-	div#index{
+		div#index{
 		margin: 0px 25px 0px 25px;
 	}
 
-	div#titulo h1{
+	#titulo {
 		color: #666;
 	}
-
 </style>
