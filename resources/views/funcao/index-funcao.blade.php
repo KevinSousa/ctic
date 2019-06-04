@@ -8,7 +8,7 @@
 			<br>
 		</div>
 		<br>
-		<table class="table table-striped" id="example">
+        <table class="table table-striped table-bordered" id="example">
 			<thead class="thead-light">
 				<tr align="center">
 					<th scope="col" style="width: 60%;"> NOME </th>
@@ -21,10 +21,10 @@
 						<td> {{$funcoes->funcao_name}}</td>
 						<td> 
 							<a href="{{route('funcao.edit',$funcoes->funcao_id)}}">
-								<i class="fas fa-edit" style="color: #E0E861;font-size: 2em"></i>
+								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
 							</a>	
 							<a href="{{route('funcao.destroy',$funcoes->funcao_id)}}">	
-								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 2em"></i>
+								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
 							</a>
 						</td>
 					</tr>
@@ -81,10 +81,10 @@
 	                                sLast: "Última",
 	                            },
 	                        },
-	                    bPaginate: true, //Next and Previous embaixo da tabela
+	                    bPaginate: false, //Next and Previous embaixo da tabela
 	                    bLengthChange: false,  //Show and entries em cima da tabela
 	                    bFilter: true, //Search em cima da tabela
-	                    bInfo: true,  //Showing em baixo da tabela);
+	                    bInfo: false,  //Showing em baixo da tabela);
 	                }); 
 	             @stop
 	             @yield('datatables');
