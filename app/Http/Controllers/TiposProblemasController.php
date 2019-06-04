@@ -77,10 +77,15 @@ class TiposProblemasController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-        public function edit($id) {
+        public function edit(REquest $request,$id) {
+        $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
         /*Redireciona para o View editar com todos os dados do evento selecionado*/
         $tipoProblema = Tipo_problema::where('probl_id','=', $id)->first();
-        return view('tipos_problemas.editar-tiposProblema', compact('tipoProblema'));
+        return view('tipos_problemas.editar-tiposProblema', compact('tipoProblema','ajax'));
     }
 
     /**

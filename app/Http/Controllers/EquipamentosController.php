@@ -69,12 +69,17 @@ class EquipamentosController extends Controller
 
 	}
 
-	public function edit($id) {
+	public function edit(Request $request, $id) {
 
 		/*Redireciona para o View editar com todos os dados do evento selecionado*/
 		$TipoEquip = Tipo_Equipamento::all();
 		$equipamento = Equipamento::where('equip_tombamento','=', $id)->first();
-		return view('equipamento/adc-editar-equipamento', compact('equipamento','TipoEquip'));
+		 $ajax = false;
+
+        if ($request->ajax()){
+            $ajax = true;
+        }
+		return view('equipamento/adc-editar-equipamento', compact('equipamento','TipoEquip','ajax'));
 
 	}
 

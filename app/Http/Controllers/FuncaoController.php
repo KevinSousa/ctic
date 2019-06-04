@@ -52,11 +52,15 @@ class FuncaoController extends Controller
 
 	}
 
-	public function edit($id) {
+	public function edit(Request $request,$id) {
+		$ajax = false;
 
+        if ($request->ajax()){
+            $ajax = true;
+        }
 		/*Redireciona para o View editar com todos os dados do evento selecionado*/
 		$funcao = Funcao::where('funcao_id','=', $id)->first();
-		return view('funcao/adc-editar-funcao', compact('funcao'));
+		return view('funcao/adc-editar-funcao', compact('funcao','ajax'));
 
 	}
 
