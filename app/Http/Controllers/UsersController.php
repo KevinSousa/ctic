@@ -46,6 +46,7 @@ class UsersController extends Controller
 
 	public function save(Request $req){
 
+
         $dados = $req -> all();
         $cpf = $dados['user_cpf'];
         $telefone = $dados['user_telefone'];
