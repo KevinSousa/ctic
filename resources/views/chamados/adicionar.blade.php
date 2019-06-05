@@ -18,18 +18,16 @@
 </style>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
-        <div class="col h-100 p-3" style="margin: 0 auto">
-            <img src="{{asset('img-01.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
-        </div>
         <div class="col">
-            <div style="margin-top: 30%;">
+            <div style="margin-top: 6em;">
             <h2 id="titulo" align="left"> Abertura de Chamado </h2>
             <br>
             <form action="{{ route('chamados.salvar') }}" method="POST" class="">
                 {{ csrf_field() }}
                         
                 <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
+                        
                         <label>Grau de urgência</label>
                         <select name="cham_grau_urgencia" class="form-control">
                             <option hidden></option>                    
@@ -39,7 +37,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label> Categoria do problema </label>
                         <select name="typeproblem" id="typeProblem" class="form-control">
                             <option hidden></option> 
@@ -53,26 +51,28 @@
                         </select>
                     </div>
 
-                    <div  class="form-group col-md-4">
+                </div>
+
+                <div class="form-row">
+                    <div  class="form-group col-md-7">
                         <label> Subcategoria </label>
                         <select name="cham_sublista_problema" class="form-control" id="sublist">
                             <option disabled>Selecione uma Categoria</option>
                             
                         </select>
                     </div>               
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-5">
                         <label>Tombamento</label>
                         @if(!old('cham_equip')==null)
-                            <input class="form-control alert-danger" type="text" required="" name="cham_equip" placeholder="Ex:: 5151551529">               
+                            <input class="form-control alert-danger" type="text" required="" name="cham_equip" placeholder="Ex:: 9543154">               
                         @else
-                            <input class="form-control" type="text" value="{{ old('cham_equip') }}" name="cham_equip" placeholder="Ex:: 5151551529" required="">
+                            <input class="form-control" type="text" value="{{ old('cham_equip') }}" name="cham_equip" placeholder="Ex:: 9543154" required="">
                                   
                         @endif
                     </div>
-                    <div class="form-group col-md-4">        
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">        
                         <label>Bloco</label>
                         <select name="sala_andar" class="form-control">
                             <option hidden></option>                    
@@ -82,7 +82,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                         <label>Sala</label>
                         <select name="cham_sala" class="form-control">
                             <option hidden></option> 
@@ -114,6 +114,9 @@
             </form>
         </div>
     </div>
+        <div class="col h-100 p-3" style="margin: 0 auto">
+            <img src="{{asset('img-01.png')}}" alt="" style="margin-top: 35%; margin-left: 12%">
+        </div>
 </div>
 @endsection
 

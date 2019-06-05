@@ -25,7 +25,7 @@ class ChamadosController extends Controller
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
                     ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
                     ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
-                    ->paginate(10);
+                    ->paginate(5);
         $ajax = false;
 
         if ($request->ajax()){
@@ -88,7 +88,7 @@ class ChamadosController extends Controller
         return redirect()->route('chamados.index' ,compact('delete'));        
     }
 
-    public function edit($id){
+    public function edit(Request $request,$id){
          $ajax = false;
 
         if ($request->ajax()){
@@ -99,6 +99,7 @@ class ChamadosController extends Controller
          $tipos_equip = DB::table('tipo_equipamentos')->get();
          $salas = DB::table('salas')->get();
           $chamados = DB::table('chamados')->where('cham_id', '=', $id)->first();
+          
         return view('chamados.edit',compact('chamados','tipos_problemas','tipos_equip','salas','ajax'));  
     }
 

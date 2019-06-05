@@ -5,7 +5,7 @@
 <div class="container-fluid">
 	<div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
-            <div style="margin-top: 30%;">
+            <div style="margin-top: 6em;">
             @isset($equipamento)
                 <h2 id="titulo" align="left"> Editar Equipamento </h2>
             @else
@@ -44,7 +44,7 @@
                 </div>
                 @isset($equipamento)
                     <button class="btn btn-success" type="submit">Editar Equipamento</button>
-                    <a href="{{route('equipamento.index')}}">
+                    <a href="{{ redirect()->back()->getTargetUrl() }}">
                         <button class="btn btn-primary">Voltar</button>
                     </a>
                 @else

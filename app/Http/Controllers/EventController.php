@@ -61,7 +61,7 @@ class EventController extends Controller
                 'start_date' => 'required|date:Y-m-d H:i|after:yesterday',
                 'end_date' => 'required|date:Y-m-d H:i|after:start_date',
                   ] , [
-                `required` => `falha no agendamento, sua data está disponive?`
+                `required` => `falha no agendamento, sua data está disponive?`,
                  ]);
 
 
@@ -72,6 +72,7 @@ class EventController extends Controller
 
         $event = new Event;
         $event->event_name = $request['event_name'];
+        $event->description = $request['description'];
         $event->start_date = $request['start_date'];
         $event->end_date = $request['end_date'];
         $event -> save();

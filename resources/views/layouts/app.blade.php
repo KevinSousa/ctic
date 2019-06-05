@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
     <!-- Title Page-->
     @yield('title')
-    <link rel="shortcut icon" href="favicon.ico" />
+    <!-- <link rel="shortcut icon" href="favicon.ico" /> -->
         <!-- Fontfaces CSS-->
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
@@ -190,7 +190,7 @@
                                 </button>
                             </form> -->
                             <div class="header-button">
-                                {{-- <div class="noti-wrap">
+                                <!-- <div class="noti-wrap">
                                     <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-comment-more"></i>
                                         <span class="quantity">1</span>
@@ -301,7 +301,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>  -->
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div  class="image">
@@ -330,10 +330,10 @@
                                                         <i class="zmdi zmdi-account"></i>Conta
                                                     </a>
                                                 </div>
-                                                <div class="account-dropdown__item">
+                                               <!--  <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Configuração</a>
-                                                </div>
+                                                </div> -->
 <!--                                                 <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-money-box"></i>Billing</a>

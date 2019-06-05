@@ -1,18 +1,21 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
-
 <div class="container-fluid">
-    <div class="row h-100 p-3">
+    <div class="row h-100 p-3"  >
         <div class="col">
-            
+            <div style="margin-top: -1em;">
                 <h2 id="titulo" align="left">Editar Usuário</h2>
                 <br>
         		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
         			{{ csrf_field() }}
         			@include('user._form')
         			<button class="btn btn-success" type="submit"> Atualizar </button>
+                    <a href="{{ redirect()->back()->getTargetUrl() }}">
+                        <button class="btn btn-primary">Voltar</button>
+                    </a>
         		</form>
                 <!-- </div> -->
+            </div>
         </div>
         <div class="col h-100 p-3" style="margin: 0 auto;">
             <img src="{{asset('img-05.png')}}" alt="" class="icons-edt">
@@ -43,23 +46,12 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
-
+        <!-- Mask JS-->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-
         <script src="/vendor/Inputmask/dist/jquery.inputmask.bundle.js"></script>
-        
-        {{-- mascara de cpf --}}
-        <script>
-            $(document).ready(function () { 
-                var $CampoCpf = $("#cpf");
-                $CampoCpf.mask('000.000.000-00', {reverse: true});
 
-                $("#telefone").inputmask({
-                    mask: ["(99) 9999-9999", "(99) 99999-9999", ],
-                    keepStatic: true
-                });
-            });
-        </script>
+
+       
 @endsection
 
 <style type="text/css">
@@ -89,5 +81,6 @@
         -o-transform: scale(1.1);
         transform: scale(1.1);
     }
+
 </style>
 
