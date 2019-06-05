@@ -129,7 +129,7 @@ class UsersController extends Controller
             }
                 $mensagem = 'Sucesso ao fazer cadastro, logue-se.';
             User::create($dados);
-            $st = session()->put('sucesso', ['sucesso' => $mensagem] );
+            $st = session()->put('sucesso', ['sucesso' => $mensagem]);
             return redirect() -> route('login' , compact('st'));
             
         }
