@@ -330,15 +330,11 @@
                                                         <i class="zmdi zmdi-account"></i>Conta
                                                     </a>
                                                 </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Configuração</a>
-                                                </div>
-<!--                                                 <div class="account-dropdown__item">
+                                                <!--<div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-money-box"></i>Billing</a>
                                                 </div> -->
-                                            </div>
+                                        
                                             <div class="account-dropdown__footer">
                                                 <a href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                                     <i class="zmdi zmdi-power"></i>
@@ -354,7 +350,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </header>
             <div class="main-content container">
                 @yield('content')
