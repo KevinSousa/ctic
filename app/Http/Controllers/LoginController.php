@@ -23,7 +23,9 @@ class LoginController extends Controller
             return redirect() -> route('home');
             
     	} else {
-            return redirect()->route('login');
+            $mensagem = 'Dados de login incorretos';
+            $fail = session()->put('fail', ['fail' => $mensagem]);
+            return redirect() -> route('login' , compact('fail'));
         }
         
     }
