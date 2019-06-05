@@ -52,9 +52,21 @@
                         <p >@foreach(session('sucesso') as $key)
                         {{$key}}</p>
                     </div> 
-                    @endforeach          
+                    @endforeach
+                    <?php Session::pull('fail')?>         
                 @endif
+               
+                @if(session('fail'))
+                     <div id="msg" class="alert alert-danger">                
+                        <p >@foreach(session('fail') as $key)
+                        {{$key}}</p>
+                    </div> 
+                    @endforeach  
+                    <?php Session::pull('fail')?>
+                  @endif  
+          
                 
+
 
                 <!-- <a href="#">Esqueci minha Senha </a> ou  -->
                 <a href="{{route('user.cadastrar')}}"> Registre-se</a>
