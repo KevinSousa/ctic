@@ -6,18 +6,13 @@
 		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 		<style type="text/css">
-	        .destaque{
-   			border-style: ridge;
-   			font-size: 115%;
-   			position: center;
-	        }
 		</style>
                         
                         
 			<!---- DESTALHES DO CHAMADO DIFERENÇA DA LISTA É QUE DIZ O DIA DO CHAMADO E DATA PREVISTA-->
 
 			<div class="ui container">
-				<h1>Destalhes do chamado</h1>
+				<h1>Detalhes do chamado</h1>
 				<div>
 						
 				<table class="fixed-center  table table-hover col-md-10 border border-dark m-2" id="coluna">
@@ -79,18 +74,6 @@
 				</div>
 				
 			</div>
-			<script type="text/javascript">
-				$(function(){
-					$(".hover").hover(
-					    function(){
-					        $(this).addClass('destaque');
-					    },
-					    function(){
-					        $(this).removeClass('destaque');
-					    }
-					    );
-					});
-					</script>
 			@endsection
 
 @section('js')
