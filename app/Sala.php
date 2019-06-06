@@ -23,4 +23,8 @@ class Sala extends Model
 	 public function cham_sala(){
          return $this->hasMany(Chamado::class);
      } 
+     /*Função que representa o relacionamento de muitos para um*/
+     public function event_sala(){
+        return $this->hasMany(Chamado::class);
+    }
 }

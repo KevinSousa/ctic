@@ -16,10 +16,15 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->string('event_name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->datetime('start_date');
             $table->datetime('end_date');
             $table->timestamps();
+
+            /** Chave Estrangeira do banco eventos*/          
+            $table->Integer('event_sala')->unsigned();
+            $table->foreign('event_sala')->references('sala_id')->on('salas')->onDelete('cascade');
+
         });
     }
 

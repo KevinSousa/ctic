@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\Event;
+use App\Sala;
 use Illuminate\Support\Facades\DB;
 use Calendar;
 
@@ -41,7 +42,8 @@ class EventController extends Controller
         if ($request->ajax()){
             $ajax = true;
         }
-        return view('calendar.addEvent', compact('ajax'));   
+        $salas = Sala::all();
+        return view('calendar.addEvent', compact('ajax','salas'));   
     }
 
     public function saveEvent(Request $request){
@@ -73,6 +75,7 @@ class EventController extends Controller
         $event = new Event;
         $event->event_name = $request['event_name'];
         $event->description = $request['description'];
+        $event->event_sala = $request['event_sala'];
         $event->start_date = $request['start_date'];
         $event->end_date = $request['end_date'];
         $event -> save();

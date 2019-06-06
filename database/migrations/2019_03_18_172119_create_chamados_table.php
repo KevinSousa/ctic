@@ -19,7 +19,7 @@ class CreateChamadosTable extends Migration
             $table->enum('cham_grau_urgencia', ['BAIXO', 'MÉDIO', 'ALTA']);
             $table->datetime('cham_data_prevista');
             $table->enum('cham_status', ['ABERTO', 'EM ATENDIMENTO' ,'FECHADO'])->default('ABERTO');
-            $table->string('cham_descricao');
+            $table->string('cham_descricao')->nullable();
 
             /** Chave Estrangeira do banco eventos*/          
             $table->Integer('cham_user')->unsigned();
