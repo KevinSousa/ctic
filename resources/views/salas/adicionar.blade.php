@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
-            <div style="margin-top: 30%;">
+            <div style="margin-top: 6em;">
                 <h2 id="titulo" align="left">Cadastro de Salas</h2>
                 <br>
                 <form action="{{ route('sala.salvar') }}" method="POST" class="ui form">
