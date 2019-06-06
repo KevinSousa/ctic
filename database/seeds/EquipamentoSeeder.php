@@ -15,5 +15,10 @@ class EquipamentoSeeder extends Seeder
         factory(App\Equipamento::class, 15)->create()->each(function ($user) {
 		
 		});
+        DB::table('equipamentos')->insert([
+        'equip_tipo' => 1,
+        'equip_marca' => 'Samsung',
+        'equip_tombamento' => 9543154,
+        ]);
     }
 }

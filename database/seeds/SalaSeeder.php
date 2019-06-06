@@ -11,9 +11,27 @@ class SalaSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Sala::class, 2)->create()->each(function ($user) {
+        // factory(App\Sala::class, 1)->create()->each(function ($user) {
+$number = 6;
+        for ($i=1; $i < $number; $i++) {
+            DB::table('salas')->insert([ 
+                'sala_identificacao' => $i,
+                'sala_andar' => 'BLOCO A',
+            ]);
+        }
+        for ($i=1; $i < $number; $i++) { 
+            DB::table('salas')->insert([ 
+                'sala_identificacao' => $i,
+                'sala_andar' => 'BLOCO B',
+            ]);
+        }
+        for ($i=1; $i < $number; $i++) { 
+            DB::table('salas')->insert([ 
+                'sala_identificacao' => $i,
+                'sala_andar' => 'BLOCO C',
+            ]);
+        }
 
-
-		});
+		// });
     }
 }
