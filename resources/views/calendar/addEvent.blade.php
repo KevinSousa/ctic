@@ -23,23 +23,35 @@
                         <textarea name="description" class="form-control" value="">{{ old('description') }}</textarea>
                         <!-- <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}"> -->
                     </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                            <label> Data de Início* </label>
-                            <input type="datetime-local"  value="{{old('start_date')}}" class="form-control" name="start_date" required="">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Sala*</label>
+                            <select name="event_sala" class="form-control">
+                                <option hidden></option> 
+                                @foreach ($salas as $sala)
+                                    @if (old('event_sala') == $sala->sala_id)
+                                        <option value="{{$sala -> sala_id}}" selected> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
+                                    @else
+                                        <option value="{{$sala -> sala_id}}"> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                            <label> Data de Término* </label>
-                            <input type="datetime-local"  value="{{old('end_date')}}" class="form-control" name="end_date" required="">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                                <label> Data de Início* </label>
+                                <input type="datetime-local"  value="{{old('start_date')}}" class="form-control" name="start_date" required="">
+                        </div>
+                        <div class="form-group col-md-6">
+                                <label> Data de Término* </label>
+                                <input type="datetime-local"  value="{{old('end_date')}}" class="form-control" name="end_date" required="">
+                        </div>
                     </div>
-                </div>
                     <button class="btn btn-success" type="submit"> Cadastrar </button>
                     <a href="{{route('calendar')}}"><button class="btn btn-primary">Voltar</button></a>
                 </form>
             </div>
-
-
-
 
             @if ($errors->any())
                 <div class="alert alert-danger">
