@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
-            <div style="margin-top: 30%;">
+            <div style="margin-top: 6em;">
                 <h2 id="titulo" align="left">Agendar Laboratório</h2>
                 <br>
                  <form action="{{route('calendar.saveEvent')}}" method="post">
@@ -15,21 +15,32 @@
                         @elseif (Session::has('warnning'))
                             <div class="alert alert-danger">{{ Session::get('warnning')}}</div>
                         @endif
-                        <label> Nome do Evento </label>
-                        <input type="text" class="form-control"  name="event_name" required="">
+                        <label> Nome do Evento* </label>
+                        <input type="text" class="form-control"  value="{{old('event_name')}}" name="event_name" required="">
                     </div>
                     <div class="form-group">
-                        <label> Data de Início </label>
-                        <input type="datetime-local"   class="form-control" name="start_date" required="">
+                        <label>Descrição do agendamento</label>
+                        <textarea name="description" class="form-control" value="">{{ old('description') }}</textarea>
+                        <!-- <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}"> -->
                     </div>
-                    <div class="form-group">
-                        <label> Data de Término </label>
-                        <input type="datetime-local"  class="form-control" name="end_date" required="">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                            <label> Data de Início* </label>
+                            <input type="datetime-local"  value="{{old('start_date')}}" class="form-control" name="start_date" required="">
                     </div>
+                    <div class="form-group col-md-6">
+                            <label> Data de Término* </label>
+                            <input type="datetime-local"  value="{{old('end_date')}}" class="form-control" name="end_date" required="">
+                    </div>
+                </div>
                     <button class="btn btn-success" type="submit"> Cadastrar </button>
                     <a href="{{route('calendar')}}"><button class="btn btn-primary">Voltar</button></a>
                 </form>
             </div>
+
+
+
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
