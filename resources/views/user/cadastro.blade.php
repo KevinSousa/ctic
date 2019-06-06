@@ -9,7 +9,6 @@
     <meta name="keywords" content="au theme template">
     <!-- Title Page-->
     @yield('title')
-    <link rel="shortcut icon" href="favicon.ico" />
         <!-- Fontfaces CSS-->
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
