@@ -158,16 +158,13 @@
             }
             
             function mudar_ok(){
-                  document.getElementById('cpf').innerHTML =  "<li  class='text-white'>CPF OK</li>";
-                   document.getElementById('user_cpf').style.backgroundColor = "#00FF7F";
+                  document.getElementById('user_cpf').style.borderColor = "green";
                      $('#enviar').show();
                      ///utilizando doom pos é oque eu mas conheço posso retirar depois
                      //aqui nos estamos mudando o a cor e do botão e descrição para true porque o cpf é valido
             }
             function mudar_falha(){
-                  document.getElementById('cpf').innerHTML =  "<li ' class='text-warning'>CPF INVÁLIDO</li>";
-                   document.getElementById('user_cpf').style.backgroundColor = "#B22222";
-                   document.getElementById('user_cpf').style.color = "white";
+                  document.getElementById('user_cpf').style.borderColor = "red";
                    $('#enviar').hide();
                     //aqui nos fazemos basicamente o contrario 
             }
