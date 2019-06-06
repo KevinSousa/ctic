@@ -3,16 +3,19 @@
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
-            <div style="margin-top: 30%;">
+            <div style="margin-top: 6em;">
                 <h2 id="titulo" align="left">Editar Tipos de Problemas</h2>
                 <br>
                 <form method="post" action="{{route('tiposProblemas.update', $tipoProblema->probl_id)}}" class="ui form">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="put">
-                @component('tipos_problemas/card-tiposProblemas', ['tipoProblema' => $tipoProblema])
-                @endcomponent
-                <button class="btn btn-success" type="submit"> Atualizar </button>
-            </form>
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="put">
+                    @component('tipos_problemas/card-tiposProblemas', ['tipoProblema' => $tipoProblema])
+                    @endcomponent
+                    <button class="btn btn-success" type="submit"> Atualizar </button>
+                    <a href="{{ redirect()->back()->getTargetUrl() }}">
+                        <button class="btn btn-primary">Voltar</button>
+                    </a>
+                </form>
             </div>
         </div>
         <div class="col h-100 p-3" style="margin: 0 auto; margin-top: -6em">
@@ -56,11 +59,3 @@
         color: #666;
     }
 </style>
-
-<form method="post" action="{{route('tiposProblemas.update', $tipoProblema->probl_id)}}" class="ui form">
-                {{ csrf_field() }}
-                <input type="hidden" name="_method" value="put">
-                @component('tipos_problemas/card-tiposProblemas', ['tipoProblema' => $tipoProblema])
-                @endcomponent
-                <button class="btn btn-success" type="submit"> Atualizar </button>
-            </form>
