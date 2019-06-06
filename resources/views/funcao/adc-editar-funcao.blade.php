@@ -20,7 +20,7 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
                 <div class="form-group">
-                    <label>Digite o nome da Função:</label>
+                    <label>Digite o nome da Função*</label>
                     <br>    
                     <input type="text" name="funcao_name"  value="{{ isset($funcao->funcao_name) ? $funcao->funcao_name : '' }}" placeholder="Ex: Administrador" required="" class="form-control">
                 </div>
