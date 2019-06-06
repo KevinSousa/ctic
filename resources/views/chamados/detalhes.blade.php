@@ -61,11 +61,12 @@
 			    	@endforeach
 			      <th class="border border-dark" scope="row">Ações</th>
 			   
-			    
+			    @can('chamuser')
 						    <td>
-						    <a href="{{route('chamados.destroy' ,$chamados->cham_id)}}"><i class="times icon"></i></a>
-							<a href="{{route('chamados.edit' ,$chamados->cham_id)}}"><i class="pencil alternate icon"></i></a>
+							    <a href="{{route('chamados.destroy' ,$chamados->cham_id)}}"><i class="times icon"></i></a>
+								<a href="{{route('chamados.edit' ,$chamados->cham_id)}}"><i class="pencil alternate icon"></i></a>
 							</td>
+			    @endcan
 						</tr>
 			  </thead>
 			 </tbody>

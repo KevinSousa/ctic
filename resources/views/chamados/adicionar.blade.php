@@ -28,7 +28,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         
-                        <label>Grau de urgência</label>
+                        <label>Grau de urgência*</label>
                         <select name="cham_grau_urgencia" class="form-control">
                             <option hidden></option>                    
                             <option value="BAIXO">BAIXO</option>
@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                        <label> Categoria do problema </label>
+                        <label> Categoria do problema*</label>
                         <select name="typeproblem" id="typeProblem" class="form-control">
                             <option hidden></option> 
                             @foreach ($tipos_problemas as $tipo)
@@ -55,14 +55,14 @@
 
                 <div class="form-row">
                     <div  class="form-group col-md-7">
-                        <label> Subcategoria </label>
+                        <label> Subcategoria*</label>
                         <select name="cham_sublista_problema" class="form-control" id="sublist">
                             <option disabled>Selecione uma Categoria</option>
                             
                         </select>
                     </div>               
                     <div class="form-group col-md-5">
-                        <label>Tombamento</label>
+                        <label>Tombamento*</label>
                         @if(!old('cham_equip')==null)
                             <input class="form-control alert-danger" type="text" required="" name="cham_equip" placeholder="Ex:: 9543154">               
                         @else
@@ -72,30 +72,19 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">        
-                        <label>Bloco</label>
-                        <select name="sala_andar" class="form-control">
-                            <option hidden></option>                    
-                            <option value="BLOCO A">BLOCO A</option>
-                            <option value="BLOCO B">BLOCO B</option>
-                            <option value="BLOCO C">BLOCO C</option>
-                        </select>
-                    </div>
-
                     <div class="form-group col-md-6">
-                        <label>Sala</label>
+                        <label>Sala*</label>
                         <select name="cham_sala" class="form-control">
                             <option hidden></option> 
                             @foreach ($salas as $sala)
                                 @if (old('cham_sala') == $sala->sala_id)
-                                    <option value="{{$sala -> sala_id}}" selected> {{$sala -> sala_identificacao}}</option>
+                                    <option value="{{$sala -> sala_id}}" selected> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
                                 @else
-                                    <option value="{{$sala -> sala_id}}"> {{$sala -> sala_identificacao}}</option>
+                                    <option value="{{$sala -> sala_id}}"> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
                                 @endif
                             @endforeach
                         </select>
                     </div>
-                    
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-12">
