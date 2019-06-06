@@ -26,7 +26,7 @@
               {{ csrf_field() }}
                       
               <div class="form-row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                      @php($grau = ['BAIXO', 'MÉDIO', 'ALTA'])
                       <label>Grau de urgência</label>
                       <select name="cham_grau_urgencia" class="form-control">
@@ -39,7 +39,7 @@
                       </select>
                   </div>
 
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                       <label> Categoria do problema </label>
                       <select name="typeproblem" id="typeProblem" class="form-control">
                           <option hidden></option> 
@@ -53,17 +53,17 @@
                       </select>
                   </div>
 
-                  <div  class="form-group col-md-4">
+              </div>
+
+              <div class="form-row">
+                  <div  class="form-group col-md-6">
                       <label> Subcategoria </label>
                       <select name="cham_sublista_problema" class="form-control" id="sublist">
                           <option disabled>Selecione uma Categoria</option>
                           
                       </select>
                   </div>               
-              </div>
-
-              <div class="form-row">
-                  <div class="form-group col-md-4">
+                  <div class="form-group col-md-6">
                       <label>Tombamento</label>
                       @if(!old('cham_equip')==null)
                           <input class="form-control alert-danger" type="text" value="{{$chamados -> cham_equip}}" required="" name="cham_equip" placeholder="Ex:: 9543154">               
@@ -72,37 +72,21 @@
                                 
                       @endif
                   </div>
-                  <div class="form-group col-md-4"> 
-                  @php($bloco = ['BLOCO A', 'BLOCO B', 'BLOCO C'])
-                      <label>Bloco</label>
-                      <select name="sala_andar" class="form-control">
-                          <option hidden></option>    
-                          @foreach($bloco as $value) 
-                            @foreach ($salas as $sala)
-                              @if ($chamados->cham_sala == $sala->sala_id)
-                                <option value="{{$value}}"
-                                    @if($value == $sala->sala_andar) Selected @endif            
-                                >{{$value}}</option>
-                              @endif
-                            @endforeach
-                          @endforeach
-                      </select>       
-                  </div>
-
-                  <div class="form-group col-md-4">
-                      <label>Sala</label>
-                      <select name="cham_sala" class="form-control">
-                          <option hidden></option> 
-                          @foreach ($salas as $sala)
-                              @if ($chamados->cham_sala == $sala->sala_id)
-                                  <option value="{{$sala -> sala_id}}" selected> {{$sala -> sala_identificacao}}</option>
-                              @else
-                                  <option value="{{$sala -> sala_id}}"> {{$sala -> sala_identificacao}}</option>
-                              @endif
-                          @endforeach
-                      </select>
-                  </div>
-                  
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Sala*</label>
+                    <select name="cham_sala" class="form-control">
+                        <option hidden></option> 
+                        @foreach ($salas as $sala)
+                            @if (old('cham_sala') == $sala->sala_id)
+                                <option value="{{$sala -> sala_id}}" selected> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
+                            @else
+                                <option value="{{$sala -> sala_id}}"> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
+                            @endif
+                        @endforeach
+                    </select>
+                </div>
               </div>
               <div class="form-row">
                   <div class="form-group col-md-12">
@@ -169,13 +153,10 @@
     div#index{
         margin: 0px 25px 0px 25px;
     }
-
     h2#titulo {
         color: #666;
     }
-
     .form-row, .form-group{
         text-align: left;
     }
-
 </style>
