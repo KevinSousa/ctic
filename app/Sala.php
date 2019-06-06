@@ -15,6 +15,9 @@ class Sala extends Model
 
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['sala_identificacao', 'sala_andar'];
+
+	/*nome dos atributos que representam as horas*/
+	public $timestamps = false;
 		
 	/*Função que representa o relacionamento de muitos para um*/
 	 public function cham_sala(){
