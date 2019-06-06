@@ -50,8 +50,14 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             @can('user')
-                                <a href="#" url="/chamados/add" id="adc-chamado" class="listAJAX">
-                                    <i class="fas fa-phone"></i>Adicionar Chamados</a>
+                                <li>
+                                    <a href="#" url="/chamados/add" id="adc-chamado" class="listAJAX">
+                                        <i class="fas fa-phone"></i>Adicionar Chamados
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" url="/chamados" id="visu-chamados" class="listAJAX"><i class="fas fa-list"></i>Visualizar Chamados</a>
+                                </li>
                             @endcan        
                             @can('admin')
                             <a class="js-arrow" id="adc-menu" href="#">
@@ -109,10 +115,12 @@
                                     <a href="#" url="/calendar" id="visu-calendar" class="listAJAX">
                                         <i class="fas fa-eye"></i>Visualizar</a>
                                 </li>
+                            @can('professor')
                                 <li>
                                     <a href="#" url="/calendar/addEvent" id="reserv-calendar" class="listAJAX">
                                         <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
                                 </li>
+                            @endcan 
                             </ul>
                         </li>
                         
@@ -305,8 +313,9 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div  class="image">
-                                            <img src="{{isset(Auth::user()->user_imagem) ? Auth::user()->user_imagem : '/icon/avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
+                                            <img src="{{isset(Auth::user()->user_imagem) ? '/icon/user/'.Auth::user()->user_imagem : '/icon/user/avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
                                         </div>
+                                        
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">{{ Auth::user()->user_name }}</a>
                                         </div>
@@ -314,7 +323,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="{{isset(Auth::user()->user_imagem) ? Auth::user()->user_imagem : '/icon/avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
+                                                        <img src="{{isset(Auth::user()->user_imagem) ? '/icon/user/'.Auth::user()->user_imagem : '/icon/user/avatar-01.jpg' }}" alt="{{ Auth::user()->user_name }}" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
