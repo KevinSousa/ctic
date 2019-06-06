@@ -331,8 +331,11 @@
                                                     </a>
                                                 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                 <!--<div class="account-dropdown__item">
 =======
+=======
+>>>>>>> refs/remotes/origin/ericksono
                                                <!--  <div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Configuração</a>
