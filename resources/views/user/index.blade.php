@@ -6,7 +6,6 @@
 			<h1 id="titulo">Usuários</h1>
 			<br>
 		</div>
-		<br>
         <table class="table table-striped table-bordered" id="example">
 			<thead class="thead-light">
 				<tr align="center">
@@ -67,21 +66,72 @@
         <!-- Main JS-->
         <script src="/js/main.js"></script>
 
-        <script type="text/javascript">
-            $(document).ready( function (){
-                @yield('datatables');
+        <script> 
+            $(document).ready(function (){
                 $('#vis-menu').click();
                 $('#visu-users').parent('li').addClass("active");
-            });
-        </script> 
-        
+                $('#example').DataTable({ 
+	                oLanguage:{
+	                    sProcessing: "Processando...",
+	                    sLengthMenu: "Mostar _MENU_ registros pro página",
+	                    sZeroRecords: "Nada encontrado com esse critérios",
+	                    sEmptyTable: "Não há dados para serem mostrados",
+	                    sLoadingRecords: "Carregando...",
+	                    sInfo: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+	                    sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
+	                    sInfoFiltered: "(filtro aplicado em _MAX_ registros)",
+	                    sInfoPostFix: "",
+	                    sInfoThousands: ".",
+	                    sSearch: "Pesquisar:",
+	                    sUrl: "",
+	                        oPaginate:{
+	                            sFirst: "Primeira",
+	                            sPrevious: "Anterior",
+	                            sNext: "Próxima",
+	                            sLast: "Última",
+	                        },
+	                    },
+	                bPaginate: false, //Next and Previous embaixo da tabela
+	                bLengthChange: false,  //Show and entries em cima da tabela
+	                bFilter: true, //Search em cima da tabela
+	                bInfo: false,  //Showing em baixo da tabela);
+	            }); 
+            });                
+        </script>        
 @endsection
 
 @section('ajax-js')
-        <script type="text/javascript">
-            $(document).ready( function (){
-                @yield('datatables');
-            });
+        <script> 
+            $(document).ready(function (){
+                $('#vis-menu').click();
+                $('#visu-users').parent('li').addClass("active");
+                $('#example').DataTable({ 
+	                oLanguage:{
+	                    sProcessing: "Processando...",
+	                    sLengthMenu: "Mostar _MENU_ registros pro página",
+	                    sZeroRecords: "Nada encontrado com esse critérios",
+	                    sEmptyTable: "Não há dados para serem mostrados",
+	                    sLoadingRecords: "Carregando...",
+	                    sInfo: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+	                    sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
+	                    sInfoFiltered: "(filtro aplicado em _MAX_ registros)",
+	                    sInfoPostFix: "",
+	                    sInfoThousands: ".",
+	                    sSearch: "Pesquisar:",
+	                    sUrl: "",
+	                        oPaginate:{
+	                            sFirst: "Primeira",
+	                            sPrevious: "Anterior",
+	                            sNext: "Próxima",
+	                            sLast: "Última",
+	                        },
+	                    },
+	                bPaginate: false, //Next and Previous embaixo da tabela
+	                bLengthChange: false,  //Show and entries em cima da tabela
+	                bFilter: true, //Search em cima da tabela
+	                bInfo: false,  //Showing em baixo da tabela);
+	            }); 
+            });                
         </script>
 @endsection
 <style type="text/css">
