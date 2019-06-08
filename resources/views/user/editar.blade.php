@@ -1,5 +1,6 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
+
 <div class="container-fluid">
     <div class="row h-100 p-3"  >
         <div class="col">
@@ -9,7 +10,7 @@
         		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
         			{{ csrf_field() }}
         			@include('user._form')
-        			<button class="btn btn-success" type="submit"> Atualizar </button>
+        			<button class="btn btn-success" id="mudar" type="submit" > Atualizar </button>
                     <a href="{{ redirect()->back()->getTargetUrl() }}">
                         <button class="btn btn-primary">Voltar</button>
                     </a>
@@ -22,10 +23,24 @@
         </div>
     </div>    
 </div> 
+
+
+<script src="/vendor/Inputmask/dist/jquery.inputmask.bundle.js"></script>
 @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
+
 @section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
      <!-- Jquery JS-->
-        <script src="/vendor/jquery-3.2.1.min.js"></script>
+        <script src="/vendor/jquery-3.2.1.min.js">
+        
+        </script>
         <!-- Bootstrap JS-->
         <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
         <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -46,14 +61,9 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+        <script src="/js/cpf.js"></script>
         <!-- Mask JS-->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-        <script src="/vendor/Inputmask/dist/jquery.inputmask.bundle.js"></script>
-
-
-       
 @endsection
-
 <style type="text/css">
     div#index{
         margin: 0px 25px 0px 25px;
@@ -83,4 +93,3 @@
     }
 
 </style>
-
