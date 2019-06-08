@@ -151,6 +151,14 @@ class UsersController extends Controller
             $ajax = true;
         }
 
+        if (Auth::user()-> user_id != $id){
+            $id = Auth::user()-> user_id;
+            $usuario = DB::table('users')->where('user_id', '=', $id)->first();
+            $funcaos = Funcao::all()->except('administrador');
+            $error = "Sem permissão";
+            return view('user.editar',compact('usuario','funcaos','ajax','error'));  
+        }
+
         $usuario = DB::table('users')->where('user_id', '=', $id)->first();
         $funcaos = Funcao::all()->except('administrador');
         return view('user.editar',compact('usuario','funcaos','ajax'));    
