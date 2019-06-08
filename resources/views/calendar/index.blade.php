@@ -4,8 +4,8 @@
     <div id="titulo" align="left">
 
     </div>
-    <div class="row justify-content-md-left">
-        <div id="calendar" class="col col">
+    <div class="row justify-content-md-left" style="width: 810px; height: 500px;" align="center">
+        <div id="calendar" class="col col" >
             {!! $calendar_details -> calendar() !!}
             {!! $calendar_details->script() !!}
         </div>
