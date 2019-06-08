@@ -9,7 +9,7 @@
 		<div class="form-group col-md-6">
 			<!---Consertando conflitos aki  -->
 			<label  for="">CPF *</label>
-			<input class="form-control" type="text" name="user_cpf" value="{{$usuario->user_cpf}}" required="" maxlength="14" id="user_cpf">
+			<input class="form-control" type="text" name="user_cpf" idate="user_cpf"  value="{{$usuario->user_cpf}}" required="" maxlength="14" id="user_cpf"  data-toggle="tooltip" data-placement="top" title="Adicione um CPF Válido">
 		</div>
 		<div class="form-group col-md-6">
 			@if(Auth::user()->user_funcao == 3)
