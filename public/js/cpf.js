@@ -15,12 +15,14 @@
                     
                     function mudar_ok(){
                         document.getElementById('user_cpf').style.borderColor = "green";
+                            $("#cpf").html('CPF VÁLIDO');
                             $('#mudar').show();
                             ///utilizando doom pos é oque eu mas conheço posso retirar depois
                             //aqui nos estamos mudando o a cor e do botão e descrição para true porque o cpf é valido
                     }
                     function mudar_falha(){
                         document.getElementById('user_cpf').style.borderColor = "red";
+                         $("#cpf").html('CPF INVÁLIDO');
                         $('#mudar').hide();
                             //aqui nos fazemos basicamente o contrario 
                     }

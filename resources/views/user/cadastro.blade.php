@@ -146,6 +146,7 @@
 <script type="text/javascript">
      $('#user_cpf').tooltip();
 </script>
+<script type="text/javascript" src="{{asset('js/cpf.js')}}"></script>
 <style type="text/css">
     
     div#index {
