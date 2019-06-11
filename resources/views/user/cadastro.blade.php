@@ -311,13 +311,12 @@
                                         </script>
                                     @endif
                             </div>
-                        <div class="custom-control custom-checkbox mb-3">
           
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" id="mudar"  type="submit">
                                 Cadastrar
                             </button>                   
-                        </div>
                     </form>
+                    <br>
                     <div class="custom-control custom-checkbox mb-3">
                         <a href="{{route('login')}}" style="text-decoration: none;">
                             <button style="float: right;" class="btn btn-info text-uppercase" type="submit">

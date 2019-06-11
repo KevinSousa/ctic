@@ -36,4 +36,18 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'user_email' => 'required | email| max:30 | unique:users',
+            'password' => 'required |min:8',
+        ],[
+            'user_email.required' => 'É obrigatório preencher o Email',
+            'user_email.email' => 'Digite um E-mail válido',
+            'user_email.max' => 'Digite menos de 30 caracteres no campo E-mail',
+            'user_email.unique' => 'Já existe um registro com esse Email',
+            'password.required'=> 'É necessário preencher os dois campos de senha',
+            'password.min' => 'Digite mais de 8 caracteres no campo de Senha',
+        ]);
+    }
 }

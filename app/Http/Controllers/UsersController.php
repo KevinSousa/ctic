@@ -106,7 +106,7 @@ class UsersController extends Controller
                 'user_name' => 'required',
                 'user_cpf' => 'required|unique:users',
                 'user_siap_matricula' => 'required|unique:users',
-                'user_email' => 'required|unique:users',
+                'user_email' => 'required| email| max:30| unique:users',
                 'password' => 'min:8|required_with:password2|same:password2',
                 'password2' => 'min:8'
             ],[
@@ -116,11 +116,13 @@ class UsersController extends Controller
                 'user_siap_matricula.required' => 'É obrigatório preencher a Matricula/Siap',
                 'user_siap_matricula.unique' => 'Já existe um registro com essa Matricula/Siap',
                 'user_email.required' => 'É obrigatório preencher o Email',
+                'user_email.email' => 'Digite um E-mail válido',
+                'user_email.max' => 'Digite menos de 30 caracteres no campo E-mail',
                 'user_email.unique' => 'Já existe um registro com esse Email',
-                'password.min' => 'Digite mais de 8 caracteres',
+                'password.min' => 'Digite mais de 8 caracteres no campo de Senha',
                 'password.required_with'=> 'É necessário preencher os dois campos de senha',
                 'password.same'=> 'As senhas tem que estar iguais',
-                'password2.min' => 'Digite mais de 8 caracteres',
+                'password2.min' => 'Digite mais de 8 caracteres no campo Repita a Senha',
             ]);
 
              
@@ -146,10 +148,11 @@ class UsersController extends Controller
             }else{
                 $dados['user_imagem'] = "icon/user/imagem.png";
             }
-                $mensagem = 'Sucesso ao fazer cadastro, logue-se.';
+                $mensagem = 'Sucesso ao fazer cadastro, Entre.';
             User::create($dados);
-            $st = session()->put('sucesso', ['sucesso' => $mensagem]);
-            return redirect() -> route('login' , compact('st'));
+            // $st = session()->put('sucesso', ['sucesso' => $mensagem]);
+            return redirect() -> route('login')
+                              -> with('success',$mensagem);
             
         }
 
