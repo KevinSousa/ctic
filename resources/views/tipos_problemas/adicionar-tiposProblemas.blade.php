@@ -7,16 +7,6 @@
             <div style="margin-top: 6em;">
                 <h2 id="titulo" align="left">Cadastro de Tipos de Problemas</h2>
                 <br>
-                @if($errors->all())
-                    <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
-                        @foreach($errors->all() as $error)
-                            <li>{{$error}}</li>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        @endforeach
-                    </ol>
-                @endif
                 <form method="post" action="{{route('tiposProblemas.store')}}" class="ui form">
                     {{ csrf_field() }}
                     @component('tipos_problemas/card-tiposProblemas')
