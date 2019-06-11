@@ -39,8 +39,11 @@ class FuncaoController extends Controller
 
 		/*Validando os dados*/
 		$validar 			= 	$request->validate([
-			'funcao_name' 			=> 'required',
-		],[ 'funcao_name.required' => 'Preencha o nome da Função']);
+			'funcao_name' 			=> 'required | max:30',
+		],[ 
+			'funcao_name.required' => 'Preencha o nome da Função',
+			'funcao_name.max' => 'Digite no máximo 30 caracteres neste campo',
+		]);
 
 		/*Atualizando todos esses itens da model*/
 		$funcao	 				= new Funcao;
