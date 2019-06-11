@@ -62,6 +62,24 @@ class ChamadosController extends Controller
 
     public function save(Request $req){
        
+        $senhas = $req -> validate([
+            'cham_grau_urgencia' => 'required',
+            'typeproblem' => 'required',
+            'cham_sublista_problema' => 'required',
+            'cham_equip' => 'required| numeric| max:30',
+            'cham_sala' => 'required',
+            'cham_descricao' => 'max:300'
+        ],[
+            'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
+            'typeproblem.required' => 'É obrigatório selecionar a Categoria do Problema',
+            'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
+            'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
+            'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
+            'cham_equip.max' => 'Digite menos de 30 caracteres no numero de Tombamento',
+            'cham_sala.required' => 'É obrigatório selecionar uma Sala',
+            'cham_descricao.max' => 'Digite menos de 300 caracteres no numero de Tombamento',
+        ]);
+
         $validarEquip = Equipamento::find($req->cham_equip);
 
         if (!$validarEquip){
@@ -104,6 +122,23 @@ class ChamadosController extends Controller
     }
 
     public function update(Request $req, $id){          ///salva a edição  do chamado que é enviado pelo view de edit
+        $senhas = $req -> validate([
+            'cham_grau_urgencia' => 'required',
+            'typeproblem' => 'required',
+            'cham_sublista_problema' => 'required',
+            'cham_equip' => 'required| numeric| max:30',
+            'cham_sala' => 'required',
+            'cham_descricao' => 'max:300'
+        ],[
+            'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
+            'typeproblem.required' => 'É obrigatório selecionar a Categoria do Problema',
+            'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
+            'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
+            'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
+            'cham_equip.max' => 'Digite menos de 30 caracteres no numero de Tombamento',
+            'cham_sala.required' => 'É obrigatório selecionar uma Sala',
+            'cham_descricao.max' => 'Digite menos de 300 caracteres no numero de Tombamento',
+        ]);
         $dados = $req->except(['_token','_method']);
         DB::table('chamados')
             ->where('cham_id', '=' , $id)

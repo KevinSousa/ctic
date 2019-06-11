@@ -7,6 +7,16 @@
             <div style="margin-top: 6em;">
             <h2 id="titulo" align="left"> Abertura de Chamado </h2>
             <br>
+            @if($errors->all())
+                <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </ol>
+            @endif 
             <form action="{{ route('chamados.salvar') }}" method="POST" class="">
                 {{ csrf_field() }}
                         
@@ -14,12 +24,18 @@
                     <div class="form-group col-md-6">
                         
                         <label>Grau de urgência*</label>
+                        @php($valor = ['BAIXO','MÉDIO', 'ALTA'])
                         <select name="cham_grau_urgencia" class="form-control">
-                            <option hidden></option>                    
-                            <option value="BAIXO">BAIXO</option>
-                            <option value="MÉDIO">MÉDIO</option>
-                            <option value="ALTA">ALTA</option>
+                            <option hidden></option>  
+                            @foreach($valor as $value)
+                                <option value="{{$value}}"
+                                    @if(old('cham_grau_urgencia') == $value)
+                                       Selected
+                                    @endif                     
+                                >{{$value}}</option>
+                            @endforeach
                         </select>
+                        {{old('cham_grau_urgencia')}}
                     </div>
 
                     <div class="form-group col-md-6">
@@ -27,13 +43,18 @@
                         <select name="typeproblem" id="typeProblem" class="form-control">
                             <option hidden></option> 
                             @foreach ($tipos_problemas as $tipo)
-                                @if(old('typeproblem') == $tipo->probl_id)
-                                    <option selected value="{{$tipo -> probl_id}}">{{$tipo -> probl_tipo}}</option>
-                                @else
-                                    <option value="{{$tipo -> probl_id}}">{{$tipo -> probl_tipo}}</option>    
-                                @endif    
+                                <option value="{{$tipo -> probl_id}}"
+                                    @if(old('typeproblem') == $tipo->probl_id)
+                                        Selected
+                                    @endif    
+                                >{{$tipo -> probl_tipo}}</option>
                             @endforeach
                         </select>
+                        @if ($errors->has('typeProblem')) 
+                            <script >
+                                document.getElementById('typeProblem').style.borderColor ="red";
+                            </script>
+                        @endif
                     </div>
 
                 </div>
@@ -43,16 +64,14 @@
                         <label> Subcategoria*</label>
                         <select name="cham_sublista_problema" class="form-control" id="sublist">
                             <option disabled>Selecione uma Categoria</option>
-                            
                         </select>
                     </div>               
                     <div class="form-group col-md-5">
                         <label>Tombamento*</label>
                         @if(!old('cham_equip')==null)
-                            <input class="form-control alert-danger" type="text" required="" name="cham_equip" placeholder="Ex:: 9543154">               
+                            <input class="form-control alert-danger" type="text" required="" name="cham_equip" placeholder="Ex:: 9543154">
                         @else
-                            <input class="form-control" type="text" value="{{ old('cham_equip') }}" name="cham_equip" placeholder="Ex:: 9543154" required="">
-                                  
+                            <input class="form-control" type="text" value="{{old('cham_equip')}}" name="cham_equip" placeholder="Ex:: 9543154" required="">
                         @endif
                     </div>
                 </div>
@@ -77,11 +96,7 @@
                         <textarea name="cham_descricao" class="form-control" value="">{{ old('cham_descricao') }}</textarea>
                         <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}">
                     </div>
-                    @if (!old('cham_equip') == null)
-                        <div class="alert-danger alert">
-                            Número de Tombamento Informado Inválido
-                        </div>    
-                    @endif   
+                      
                 </div>
                 <button class="btn btn-success" type="submit">Adicionar</button>
                 <a href="{{route('chamados.index')}}"><button class="btn btn-primary">Voltar</button></a> 
