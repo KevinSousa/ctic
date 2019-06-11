@@ -46,12 +46,12 @@ class FuncaoController extends Controller
 		]);
 
 		/*Atualizando todos esses itens da model*/
-		$funcao	 				= new Funcao;
-		$funcao->funcao_name 	= $request->funcao_name;
+		$funcao	= new Funcao;
+		$funcao->funcao_name = $request->funcao_name;
 		$funcao->save();
 
-		$request->session()->flash('alert-success', 'Função cadastrada com Sucesso!');
-		return redirect('/funcao');
+		$message = 'Função cadastrada com Sucesso!';
+		return redirect('/funcao')->with('success',$message);
 
 	}
 
