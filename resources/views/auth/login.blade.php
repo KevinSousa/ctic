@@ -2,7 +2,7 @@
   <!DOCTYPE html>
 <html>
 <head>
-  <title>Login</title>
+  <title>Entrar</title>
         <!-- <link href="/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all"> -->
     <!-- <link href="/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all"> -->
     <!-- <link href="/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all"> -->
@@ -39,6 +39,17 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 @endforeach
+              @if(session('fail'))
+                <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">              
+                    @foreach(session('fail') as $key)
+                      <p>{{$key}}</p>
+                    @endforeach  
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </ol> 
+                <?php Session::pull('fail')?>
+              @endif  
             <form class="form-signin" method="post" action="{{route('login.entrar')}}">
               {{ csrf_field() }}
               <div class="form-label-group">
@@ -50,7 +61,7 @@
                 <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                 <label class="text-center" for="inputPassword">Senha</label>
               </div>
-
+              <!-- <a href="#">Esqueça-me</a> -->
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Entrar</button>
               <hr class="my-4">
               <div align="center">
