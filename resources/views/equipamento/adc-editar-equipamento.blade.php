@@ -17,12 +17,25 @@
             @else
                 <form method="post" action="{{route('equipamento.store')}}" class="ui form">
             @endisset
+
+            @if($errors->all())
+                 <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    @foreach($errors->all() as $error)
+                
+                        <li>{{$error}}</li>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </ol>
+            @endif
+               
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
                 <div class="form-group">
                     <label>Adicione o tipo do equipamento*</label>
                     <br>    
-                        <select name="equip_tipo" class="form-control">
+                        <select name="equip_tipo" id="equip_tipo" class="form-control">
                             <option disabled>Escolha o tipo de equipamento</option> 
                             <option disabled>---</option> 
                             <option hidden=""></option> 
@@ -34,13 +47,28 @@
                                         {{$tipo -> tipo_nome}}
                                     </option>
                             @endforeach
-                        </select>          
+                        </select>
+                    @if ($errors->has('equip_tipo')) 
+                        <script >
+                            document.getElementById('equip_tipo').style.borderColor ="red";
+                        </script>
+                    @endif          
                     <label>Adicione a marca do equipamento*</label>
                     <br>    
-                    <input type="text" name="equip_marca"  value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder="Ex: Samsung" required="" class="form-control">
+                    <input type="text" name="equip_marca" id="equip_marca" value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder="Ex: Samsung" class="form-control">
+                     @if ($errors->has('equip_marca')) 
+                        <script >
+                            document.getElementById('equip_marca').style.borderColor ="red";
+                        </script>
+                    @endif
                     <label>Adicione o numero de tombamento do equipamento*</label>
                     <br>    
-                    <input type="text" name="equip_tombamento"  value="{{ isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : '' }}" placeholder="Ex: 221529" required="" class="form-control">
+                    <input type="text" name="equip_tombamento" id="equip_tombamento" value="{{isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : ''}}" placeholder="Ex: 221529"  class="form-control">
+                    @if ($errors->has('equip_tombamento')) 
+                        <script >
+                            document.getElementById('equip_tombamento').style.borderColor ="red";
+                        </script>
+                    @endif
                 </div>
                 @isset($equipamento)
                     <button class="btn btn-success" type="submit">Editar Equipamento</button>

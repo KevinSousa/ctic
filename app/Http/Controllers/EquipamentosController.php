@@ -55,17 +55,18 @@ class EquipamentosController extends Controller
 			'equip_tipo' => 'required',
 			'equip_marca' => 'required',
 			'equip_tombamento' => 'required|numeric',
-		 ],['equip_tipo.required' => 'Preencha o tipo de equipamento',
-			'equip_marca.required' => 'Preencha a marca do equipamento',
-			'equip_tombamento.required' => 'Preencha o numero de tombamento do equipamento',
-			'equip_tombamento.numeric' => 'Este campo tem que ser númerico']);
+		 ],['equip_tipo.required' => 'Escolha um tipo de Equipamento',
+			'equip_marca.required' => 'Preencha o campo marca do Equipamento',
+			'equip_tombamento.required' => 'Preencha o campo do numero de tombamento do Equipamento',
+			'equip_tombamento.numeric' => 'O campo do numero de Tombamento de conter apenas números']);
 
 		/*Atualizando todos esses itens da model*/
 		$equip = $request->all();
         Equipamento::create($equip);
 
-		$request->session()->flash('alert-success', 'Função cadastrada com Sucesso!');
-		return redirect()->route('equipamento.index');
+		$mensagem = 'Função cadastrada com Sucesso!';
+		return redirect()->route('equipamento.index')
+						 ->with('success',$mensagem);
 
 	}
 
