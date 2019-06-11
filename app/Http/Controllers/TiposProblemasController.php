@@ -54,6 +54,12 @@ class TiposProblemasController extends Controller
     public function store(Request $req)
     {
         $registro = $req->all();
+        $senhas = $req -> validate([
+            'probl_tipo' => 'required | max:25',
+        ],[
+            'probl_tipo.required' => 'É obrigatório preencher o Tipo do Problema',
+            'probl_tipo.max' => 'Digite no máximo 30 caracteres neste campo',
+        ]);
         Tipo_problema::create($registro);
         $req->session()->flash('alert-success', 'Tipo de Problema cadastrado com Sucesso!');
         return redirect()->route('tiposProblemas.index');
@@ -97,6 +103,12 @@ class TiposProblemasController extends Controller
      */
     public function update(Request $req, $id)
     {
+        $senhas = $req -> validate([
+            'probl_tipo' => 'required | max:25',
+        ],[
+            'probl_tipo.required' => 'É obrigatório preencher o Tipo do Problema',
+            'probl_tipo.max' => 'Digite no máximo 30 caracteres neste campo',
+        ]);
         $registro = $req->except(['_token','_method']);
         $problemas = DB::table('tipo_problemas')->where('probl_id', '=', $id)->update($registro);
         return redirect()->route('tiposProblemas.index');
