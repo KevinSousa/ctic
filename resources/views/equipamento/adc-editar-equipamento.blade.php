@@ -41,12 +41,16 @@
                             <option hidden=""></option> 
                             @foreach ($TipoEquip as $tipo)
                                 <option value="{{$tipo -> tipo_id}}"
-                                    @if (isset($equipamento) && $equipamento->equip_tipo == $tipo->tipo_id)
+                                    @if (old('equip_tipo') == $tipo -> tipo_id or !empty($equipamento->equip_tipo) == $tipo->tipo_id)    
                                         Selected
                                     @endif>
                                         {{$tipo -> tipo_nome}}
                                     </option>
                             @endforeach
+
+                            $equipamento->equip_tipo == $tipo->tipo_id
+
+
                         </select>
                     @if ($errors->has('equip_tipo')) 
                         <script >
@@ -55,7 +59,7 @@
                     @endif          
                     <label>Adicione a marca do equipamento*</label>
                     <br>    
-                    <input type="text" name="equip_marca" id="equip_marca" value="{{ isset($equipamento->equip_marca) ? $equipamento->equip_marca : '' }}" placeholder="Ex: Samsung" class="form-control">
+                    <input type="text" name="equip_marca" id="equip_marca" value="{{old('equip_marca',$equipamento->equip_marca ?? '')}}" placeholder="Ex: Samsung" class="form-control" required>
                      @if ($errors->has('equip_marca')) 
                         <script >
                             document.getElementById('equip_marca').style.borderColor ="red";
@@ -63,7 +67,7 @@
                     @endif
                     <label>Adicione o numero de tombamento do equipamento*</label>
                     <br>    
-                    <input type="text" name="equip_tombamento" id="equip_tombamento" value="{{isset($equipamento->equip_tombamento) ? $equipamento->equip_tombamento : ''}}" placeholder="Ex: 221529"  class="form-control">
+                    <input type="text" name="equip_tombamento" id="equip_tombamento" value="{{old('equip_tombamento',$equipamento->equip_tombamento ?? '')}}" placeholder="Ex: 221529"  class="form-control" required>
                     @if ($errors->has('equip_tombamento')) 
                         <script >
                             document.getElementById('equip_tombamento').style.borderColor ="red";
