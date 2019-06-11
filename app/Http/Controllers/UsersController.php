@@ -103,10 +103,24 @@ class UsersController extends Controller
             }
             
             $senhas = $req -> validate([
-                
+                'user_name' => 'required',
+                'user_cpf' => 'required|unique:users',
+                'user_siap_matricula' => 'required|unique:users',
+                'user_email' => 'required|unique:users',
                 'password' => 'min:8|required_with:password2|same:password2',
                 'password2' => 'min:8'
-
+            ],[
+                'user_name.required' => 'É obrigatório preencher o Nome',
+                'user_cpf.required' => 'É obrigatório preencher o CPF',
+                'user_cpf.unique' => 'Já existe um registro com esse CPF',
+                'user_siap_matricula.required' => 'É obrigatório preencher a Matricula/Siap',
+                'user_siap_matricula.unique' => 'Já existe um registro com essa Matricula/Siap',
+                'user_email.required' => 'É obrigatório preencher o Email',
+                'user_email.unique' => 'Já existe um registro com esse Email',
+                'password.min' => 'Digite mais de 8 caracteres',
+                'password.required_with'=> 'É necessário preencher os dois campos de senha',
+                'password.same'=> 'As senhas tem que estar iguais',
+                'password2.min' => 'Digite mais de 8 caracteres',
             ]);
 
              
@@ -122,6 +136,11 @@ class UsersController extends Controller
              $imagem->move($dir,$nomeImagem);
              $dados['user_imagem'] = $dir."/".$nomeImagem;
 
+
+            $valor = $dados['user_cpf'];
+            $valor = str_replace(".", "", $valor);
+            $valor = str_replace("-", "", $valor);
+            $dados['user_cpf'] = $valor;
 
             //  $upload = $req->user_imagem->storeAs('icon/user/', $namefile);
             }else{

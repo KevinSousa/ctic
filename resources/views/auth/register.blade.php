@@ -43,11 +43,16 @@
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control{{ $errors->has('user_name') ? ' is-invalid' : '' }}" name="user_name" value="{{ old('user_name') }}" required autofocus>
 
-                                @if ($errors->has('user_name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('user_name') }}</strong>
-                                    </span>
-                                @endif
+
+@if ($errors->has('user_name'))
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+@endif
+                              
                             </div>
                             </div>
                              <div class="form-group row">
