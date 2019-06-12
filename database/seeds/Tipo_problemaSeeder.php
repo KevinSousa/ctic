@@ -23,5 +23,8 @@ class Tipo_problemaSeeder extends Seeder
          DB::table('tipo_problemas')->insert([
         'probl_tipo' => 'Rede',
         ]);
+         DB::table('tipo_problemas')->insert([
+        'probl_tipo' => 'Objetos em Geral',
+        ]);
     }
 }

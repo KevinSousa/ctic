@@ -33,6 +33,15 @@ class Tipo_equipamentoSeeder extends Seeder
         DB::table('tipo_equipamentos')->insert([
         'tipo_nome' => 'No break',
         ]);
+        DB::table('tipo_equipamentos')->insert([
+        'tipo_nome' => 'Ar-Condicionado',
+        ]);
+        DB::table('tipo_equipamentos')->insert([
+        'tipo_nome' => 'Mesa',
+        ]);
+        DB::table('tipo_equipamentos')->insert([
+        'tipo_nome' => 'Cadeira',
+        ]);
 
     }
 }

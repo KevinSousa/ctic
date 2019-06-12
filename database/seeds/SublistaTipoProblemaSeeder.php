@@ -51,6 +51,18 @@ class SublistaTipoProblemaSeeder extends Seeder
             'sub_probl' => 3,
             'sub_nome' => 'Rede Indisponível',
         ]); 
-
+        DB::table('sublista_tipo_problemas')->insert([
+            'sub_probl' => 4,
+            'sub_nome' => 'Mesa Quebrada',
+        ]);
+        DB::table('sublista_tipo_problemas')->insert([
+            'sub_probl' => 4,
+            'sub_nome' => 'Cadeira Quebrada',
+        ]); 
+        DB::table('sublista_tipo_problemas')->insert([
+            'sub_probl' => 4,
+            'sub_nome' => 'Ar-Condicionado não funciona',
+        ]); 
+        
     }
 }
