@@ -64,7 +64,7 @@ class EquipamentosController extends Controller
 		$equip = $request->all();
         Equipamento::create($equip);
 
-		$mensagem = 'Função cadastrada com Sucesso!';
+		$mensagem = 'Equipamento cadastrado com Sucesso!';
 		return redirect()->route('equipamento.index')
 						 ->with('success',$mensagem);
 
@@ -103,8 +103,11 @@ class EquipamentosController extends Controller
 		$equip->equip_tombamento 	= $request->equip_tombamento;
 		$equip->save();
 
-		$request->session()->flash('alert-update', 'Evento Atualizado com sucesso!');
-		return redirect()->route('equipamento.index');
+
+		$mensagem = 'Equipamento atualizado com Sucesso!';
+		return redirect()->route('equipamento.index')
+						 ->with('success',$mensagem);
+
 
 	}
 
