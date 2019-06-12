@@ -64,14 +64,14 @@ class ChamadosController extends Controller
        
         $senhas = $req -> validate([
             'cham_grau_urgencia' => 'required',
-            'typeproblem' => 'required',
+            'typeProblem' => 'required',
             'cham_sublista_problema' => 'required',
             'cham_equip' => 'required| numeric',
             'cham_sala' => 'required',
             'cham_descricao' => 'max:300'
         ],[
             'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
-            'typeproblem.required' => 'É obrigatório selecionar a Categoria do Problema',
+            'typeProblem.required' => 'É obrigatório selecionar a Categoria do Problema',
             'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
             'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
             'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
@@ -82,7 +82,7 @@ class ChamadosController extends Controller
         $validarEquip = Equipamento::find($req->cham_equip);
 
         if (!$validarEquip){
-            return redirect()->back()->withInput()->with('equipnull','n existe');
+            return redirect()->back()->withInput()->with('equipnull','Não Existe');
         }
 
         $model = new Chamado;
@@ -96,7 +96,9 @@ class ChamadosController extends Controller
         $model->cham_user = Auth::id();
         $model->save();
 
-        return redirect()->route('chamados.index'); 
+        $mensagem = 'Chamado adicionado com Sucesso';
+        return redirect()->route('chamados.index')
+                         ->with('success',$mensagem); 
     }
 
     public function remove($id){        ///remove um chamado 
@@ -115,38 +117,56 @@ class ChamadosController extends Controller
          $tipos_problemas = DB::table('tipo_problemas')->get();
          $tipos_equip = DB::table('tipo_equipamentos')->get();
          $salas = DB::table('salas')->get();
-          $chamados = DB::table('chamados')->where('cham_id', '=', $id)->first();
+         $chamados = DB::table('chamados')->where('cham_id', '=', $id)->first();
+         $sublista = DB::table('sublista_tipo_problemas')->get();
           
-        return view('chamados.edit',compact('chamados','tipos_problemas','tipos_equip','salas','ajax'));  
+        return view('chamados.edit',compact('chamados','tipos_problemas','tipos_equip','salas','ajax','sublista'));  
     }
 
     public function update(Request $req, $id){          ///salva a edição  do chamado que é enviado pelo view de edit
         $senhas = $req -> validate([
             'cham_grau_urgencia' => 'required',
-            'typeproblem' => 'required',
+            'typeProblem' => 'required',
             'cham_sublista_problema' => 'required',
-            'cham_equip' => 'required| numeric| max:30',
+            'cham_equip' => 'required| numeric',
             'cham_sala' => 'required',
             'cham_descricao' => 'max:300'
         ],[
             'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
-            'typeproblem.required' => 'É obrigatório selecionar a Categoria do Problema',
+            'typeProblem.required' => 'É obrigatório selecionar a Categoria do Problema',
             'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
             'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
             'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
-            'cham_equip.max' => 'Digite menos de 30 caracteres no numero de Tombamento',
             'cham_sala.required' => 'É obrigatório selecionar uma Sala',
             'cham_descricao.max' => 'Digite menos de 300 caracteres no numero de Tombamento',
         ]);
         $dados = $req->except(['_token','_method']);
-        DB::table('chamados')
-            ->where('cham_id', '=' , $id)
-            ->update($dados);
+        $validarEquip = Equipamento::find($req->cham_equip);
+
+        if (!$validarEquip){
+            return redirect()->back()->withInput()->with('equipnull','Não Existe');
+        }
+
+        $model = Chamado::where('cham_id', '=' , $id)->first();
+        $model->cham_descricao = $req->cham_descricao; // Dados que vem do form de adicionar chamados para salvar no banco
+        $model->cham_data_chamado = $req->cham_data_chamado;
+        $model->cham_grau_urgencia = $req->cham_grau_urgencia;
+        $model->cham_sala = $req->cham_sala;
+        $model->cham_equip = $req->cham_equip;
+        $model->cham_data_prevista = date('Y-m-d', strtotime('+1 week'));  //colocando a data prevista por padrao de 1 semana desda data de envio do chamado podendo ser alterado pelo tecnico   
+        $model->cham_sublista_problema = $req->cham_sublista_problema; 
+        $model->save();
+
+        $mensagem = 'Chamado editado com Sucesso';
+        return redirect()->route('chamados.index')
+                         ->with('success',$mensagem);
     }
 
     public function detalhes(Request $request, $id){      ///mostra mas detalhes do chamado difença do list normal é que abre mas ações e mostra a data de envio e data prevista para concerto
         
            $ajax = false;
+         $sublista = DB::table('sublista_tipo_problemas')->get();
+         $tipos_problemas = DB::table('tipo_problemas')->get();
 
         if ($request->ajax()){
             $ajax = true;
@@ -159,6 +179,6 @@ class ChamadosController extends Controller
                     ->where('cham_id', $id)->get();
 
                                         
-                        return view('chamados.detalhes',compact('chamado','ajax'));    
+                        return view('chamados.detalhes',compact('chamado','ajax','sublista','tipos_problemas'));    
     }
 }

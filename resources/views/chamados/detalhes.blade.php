@@ -38,6 +38,20 @@
 			     	<td class="border border-dark"> {{$chamados -> cham_descricao}}</td>
 			    </tr>
 			    <tr class="hover">
+			    	<th class="border border-dark " scope="row">Tipo do problema</th>
+			   		<td class="border border-dark">
+				   		@foreach($tipos_problemas as $tipo)
+					   		@foreach($sublista as $sub)
+		                      @if($sub->sub_id == $chamados->cham_sublista_problema)
+		                        @if($sub->sub_probl == $tipo->probl_id)
+		                          {{$tipo->probl_tipo}}
+		                        @endif
+		                      @endif
+		                    @endforeach
+	                    @endforeach
+			   		</td>
+			    </tr>
+			    <tr class="hover">
 			    	<th class="border border-dark " scope="row">Especulação do problema</th>
 			   		<td class="border border-dark"> {{$chamados -> sub_nome}}</td>
 			    </tr>
@@ -53,8 +67,8 @@
 			    	<tr class="hover">
 				      	<th class="border border-dark" scope="row">Ações</th>
 					    <td class="border border-dark">
-						    <a style="font-size: 1.5em; color: #25d881;" href="{{route('chamados.destroy' ,$chamados->cham_id)}}"><i class="fas fa-edit"></i></a>
-							<a style="font-size: 1.5em; color:  #E95B45;" href="{{route('chamados.edit' ,$chamados->cham_id)}}"><i class="fas fa-trash-alt"></i></a>
+						    <a style="font-size: 1.5em; color: #25d881;" href="{{route('chamados.edit' ,$chamados->cham_id)}}"><i class="fas fa-edit"></i></a>
+							<a style="font-size: 1.5em; color:  #E95B45;" href="{{route('chamados.destroy' ,$chamados->cham_id)}}"><i class="fas fa-trash-alt"></i></a>
 						</td>
 					</tr>
 				@else
