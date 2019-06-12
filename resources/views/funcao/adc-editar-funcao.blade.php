@@ -11,7 +11,18 @@
             @else
                 <h2 id="titulo" align="left"> Cadastro de Função </h2>
             @endisset
-            <br>   
+            <br> 
+            @if($errors->all())
+                <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    @foreach($errors->all() as $error)
+                
+                        <li>{{$error}}</li>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </ol>
+            @endif  
            
             @isset($funcao)
                 <form method="post" action="{{route('funcao.update', $funcao->funcao_id)}}" class="ui form">
@@ -22,10 +33,15 @@
                 <input type="hidden" name="_method" value="put">
                 <div class="form-group">
                     <label>Digite o nome da Função*</label>
-                    @if ($errors->has('funcao_name'))
+                    <!-- @if ($errors->has('funcao_name'))
                             <p style="margin-left:1em;color:red;font-size:small">{{$errors->first('funcao_name')}}</p>
-                    @endif    
+                    @endif -->    
                     <input type="text" name="funcao_name" id="funcao_name"  value="{{ isset($funcao->funcao_name) ? $funcao->funcao_name : '' }}" placeholder="Ex: Administrador"  class="form-control" required>
+                    @if ($errors->has('funcao_name')) 
+                        <script >
+                            $('#funcao_name').addClass('alert-danger');
+                        </script>
+                    @endif
                 </div>
                 @isset($funcao)
                     <button class="btn btn-success" type="submit">Editar Função</button>

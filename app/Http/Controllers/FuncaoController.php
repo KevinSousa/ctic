@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\FuncaoController;
 use App\Funcao;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +14,7 @@ class FuncaoController extends Controller
     }
 	public function index(Request $request) {
 
-     	$funcao = DB::table('funcaos')->paginate(5);;
+     	$funcao = DB::table('funcaos')->paginate(5);
         $ajax = false;
 
         if ($request->ajax()){
