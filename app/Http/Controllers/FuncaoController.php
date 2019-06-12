@@ -78,9 +78,8 @@ class FuncaoController extends Controller
 		$funcao->funcao_name = $request->funcao_name;
 		$funcao->save();
 
-		$request->session()->flash('alert-update', 'Evento Atualizado com sucesso!');
-		return redirect('/funcao');
-
+        $mensagem = 'Função atualizada com Sucesso';
+		return redirect('/funcao')->with('success',$mensagem);;
 	}
 
 	public function destroy($id) {
