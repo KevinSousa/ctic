@@ -226,7 +226,6 @@ class UsersController extends Controller
         $User->user_name            = $request->user_name;  
         $User->user_funcao          = Auth::user()->user_funcao;
         $User->user_email           = $request->user_email;
-        $User->password             = Auth::user()->password;
         $User->user_cpf             = $request->user_cpf;
         $User->user_siap_matricula  = isset($request->user_siap_matricula) ? $request->user_siap_matricula : "123";
         $User->user_telefone          = $request->user_telefone;
