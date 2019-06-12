@@ -39,16 +39,17 @@ class SalasController extends Controller
     public function save(Request $req){
         $registro = $req->all();
         $senhas = $req -> validate([
-            'sala_identificacao' => 'required| numeric| max:2',
+            'sala_identificacao' => 'required| numeric',
             'sala_andar' => 'required',
         ],[
             'sala_identificacao.required' => 'É obrigatório preencher o Numero da Sala',
             'sala_identificacao.numeric' => 'Digite apenas numeros no campo numero da Sala',
-            'sala_identificacao.max' => 'Digite menos de 2 caracteres no campo numero da Sala',
             'sala_andar.required' => 'É obrigatório selecionar Andar/Bloco',
         ]);
+        $mensagem = 'Sala cadastrada com Sucesso!';
         Sala::create($registro);
-        return redirect()->route('sala.home');
+        return redirect()->route('sala.home')
+                         ->with('success',$mensagem);
     }
 
     public function remove($id){
@@ -65,12 +66,11 @@ class SalasController extends Controller
 
     public function update(Request $req, $id){
         $senhas = $req -> validate([
-            'sala_identificacao' => 'required| numeric| max:2',
+            'sala_identificacao' => 'required| numeric',
             'sala_andar' => 'required',
         ],[
             'sala_identificacao.required' => 'É obrigatório preencher o Numero da Sala',
             'sala_identificacao.numeric' => 'Digite apenas numeros no campo numero da Sala',
-            'sala_identificacao.max' => 'Digite menos de 2 caracteres no campo numero da Sala',
             'sala_andar.required' => 'É obrigatório selecionar Andar/Bloco',
         ]);
 
@@ -78,6 +78,11 @@ class SalasController extends Controller
         DB::table('salas')
             ->where('sala_id', '=' , $id)
             ->update($registro);
-        return redirect()->route('sala.home');
+         $mensagem = 'Sala atualizada com Sucesso!';
+        // Sala::create($registro);
+        return redirect()->route('sala.home')
+                         ->with('success',$mensagem);
+
+
     }
 }

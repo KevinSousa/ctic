@@ -13,6 +13,15 @@
         <div align="left">  
             <h1 id="titulo">Salas</h1>
             <br>
+            @if(session('success'))
+                <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
+                    <p>{{session('success')}}</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </ol> 
+                <?php Session::pull('fail')?>         
+            @endif
         </div>
         <table class="table table-striped table-bordered" id="example">
             <thead align="center" class="thead-light">
