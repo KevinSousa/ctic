@@ -137,7 +137,7 @@ class UsersController extends Controller
              $ex = $req->user_imagem->extension();
              $nomeImagem = "imagem_".$numero.".".$ex;
              $imagem->move($dir,$nomeImagem);
-             $dados['user_imagem'] = $dir."/".$nomeImagem;
+             $dados['user_imagem'] = $nomeImagem;
 
 
             $valor = $dados['user_cpf'];

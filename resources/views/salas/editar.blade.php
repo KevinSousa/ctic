@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+<style>
+    input[type=number]::-webkit-inner-spin-button{
+            -webkit-appearance:none;
+        }
+        input[type=number]{
+            -moz-appearance:textfield;
+            appearance:textfield;
+        }
+</style>
     <title>Salas</title>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >

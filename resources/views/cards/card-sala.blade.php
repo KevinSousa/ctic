@@ -4,7 +4,7 @@
     <!-- @if ($errors->has('sala_identificacao'))
         <p style="margin-left:1em;color:red;font-size:small">{{$errors->first('sala_identificacao')}}</p>
     @endif -->
-    <input type="text" name="sala_identificacao" id="sala_identificacao" value="{{ old('sala_identificacao',$sala->sala_identificacao ?? '') }}" placeholder="Ex: 5" required="" class="form-control" id="field" maxlength="2"  max="10">
+    <input type="number" name="sala_identificacao" id="sala_identificacao" value="{{ old('sala_identificacao',$sala->sala_identificacao ?? '') }}" placeholder="Ex: 5" required="" class="form-control" id="field" maxlength="2"  max="10">
     @if ($errors->has('sala_identificacao')) 
         <script >
             $('#sala_identificacao').addClass('alert-danger');                                            

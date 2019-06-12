@@ -1,9 +1,18 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 
 @section('content')
-<title>Equipamentos</title>
+    <style type="text/css">
+        input[type=number]::-webkit-inner-spin-button{
+            -webkit-appearance:none;
+        }
+        input[type=number]{
+            -moz-appearance:textfield;
+            appearance:textfield;
+        }     
+    </style>
+<title>Equipamentos{</title>
 <div class="container-fluid">
-	<div class="row h-100 p-3" style="margin-top: -11%" >
+    <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
             <div style="margin-top: 6em;">
             @isset($equipamento)
@@ -67,7 +76,7 @@
                     <!-- @if ($errors->has('equip_tombamento'))
                         <p style="margin-left:1em;color:red;font-size:small">{{$errors->first('equip_tombamento')}}</p>
                     @endif  -->
-                    <input type="text" name="equip_tombamento" id="equip_tombamento" value="{{old('equip_tombamento',$equipamento->equip_tombamento ?? '')}}" placeholder="Ex: 221529"  class="form-control" required>
+                    <input type="number" name="equip_tombamento" id="equip_tombamento" value="{{old('equip_tombamento',$equipamento->equip_tombamento ?? '')}}" placeholder="Ex: 221529"  class="form-control" required>
                     @if ($errors->has('equip_tombamento')) 
                         <script >
                             $('#equip_tombamento').addClass('alert-danger');                                            
