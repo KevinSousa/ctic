@@ -33,12 +33,13 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <img id="ifpe" src="/icon/ifpe.png">
-                @foreach($errors->all() as $error)
-                      <li>{{$error}}</li>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                @endforeach
+              <!-- Mensagens de Erros -->
+              @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+              @endforeach
               @if(session('fail'))
                 <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">              
                     @foreach(session('fail') as $key)
@@ -50,6 +51,17 @@
                 </ol> 
                 <?php Session::pull('fail')?>
               @endif  
+              <!-- Mensagens de Sucesso ao Cadastrar-se -->
+              @if(session('success'))
+                <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
+                    <p>{{session('success')}}</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </ol> 
+                <?php Session::pull('fail')?>         
+              @endif
+
             <form class="form-signin" method="post" action="{{route('login.entrar')}}">
               {{ csrf_field() }}
               <div class="form-label-group">
@@ -66,15 +78,6 @@
               <hr class="my-4">
               <div align="center">
                      
-              @if(session('success'))
-                <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
-                    <p>{{session('success')}}</p>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </ol> 
-                <?php Session::pull('fail')?>         
-              @endif
 
                 <!-- <a href="#">Esqueci minha Senha </a> ou  -->
               <a href="{{route('user.cadastrar')}}" class="btn btn-lg btn-success btn-block text-uppercase"> Registre-se</a>
