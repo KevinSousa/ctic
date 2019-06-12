@@ -60,9 +60,11 @@ class TiposProblemasController extends Controller
             'probl_tipo.required' => 'É obrigatório preencher o Tipo do Problema',
             'probl_tipo.max' => 'Digite no máximo 30 caracteres neste campo',
         ]);
+        $mensagem = 'Tipo de Problema cadastrado com Sucesso!';
         Tipo_problema::create($registro);
-        $req->session()->flash('alert-success', 'Tipo de Problema cadastrado com Sucesso!');
-        return redirect()->route('tiposProblemas.index');
+        return redirect()->route('tiposProblemas.index')
+                         ->with('success',$mensagem);
+
     }
 
     /**
@@ -111,9 +113,9 @@ class TiposProblemasController extends Controller
         ]);
         $registro = $req->except(['_token','_method']);
         $problemas = DB::table('tipo_problemas')->where('probl_id', '=', $id)->update($registro);
-        return redirect()->route('tiposProblemas.index');
-
-    
+        $mensagem = 'Tipo de Problema atualizado com Sucesso!';
+        return redirect()->route('tiposProblemas.index')
+                         ->with('success',$mensagem);
     }
 
     /**
