@@ -17,13 +17,26 @@
             @else
                 <form method="post" action="{{route('equipamento.store')}}" class="ui form">
             @endisset
+            <!-- Mensagens de Erro -->
+            @if($errors->all())
+                 <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    @foreach($errors->all() as $error)
+                
+                        <li>{{$error}}</li>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    @endforeach
+                </ol>
+            @endif
+
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="put">
                 <div class="form-group">
                     <label>Adicione o tipo do equipamento*</label>
-                    @if ($errors->has('equip_tipo'))
+                    <!-- @if ($errors->has('equip_tipo'))
                         <p style="margin-left:1em;color:red;font-size: small;">{{$errors->first('equip_tipo')}}</p>
-                    @endif          
+                    @endif  -->         
                         <select name="equip_tipo" id="equip_tipo" class="form-control">
                             <option disabled>Escolha o tipo de equipamento</option> 
                             <option disabled>---</option> 
@@ -39,16 +52,27 @@
 
                             $equipamento->equip_tipo == $tipo->tipo_id
                         </select>
+                        @if ($errors->has('equip_tipo')) 
+                            <script >
+                                $('#equip_tipo').addClass('alert-danger');                                            
+                            </script>
+                        @endif
+
                     <label>Adicione a marca do equipamento*</label>
-                    @if ($errors->has('equip_marca'))
+                    <!-- @if ($errors->has('equip_marca'))
                         <p style="margin-left:1em;color:red;">{{$errors->first('equip_marca')}}</p>
-                    @endif          
+                    @endif    -->       
                     <input type="text" name="equip_marca" id="equip_marca" value="{{old('equip_marca',$equipamento->equip_marca ?? '')}}" placeholder="Ex: Samsung" class="form-control" required>
                     <label>Adicione o numero de tombamento do equipamento*</label>
-                    @if ($errors->has('equip_tombamento'))
+                    <!-- @if ($errors->has('equip_tombamento'))
                         <p style="margin-left:1em;color:red;font-size:small">{{$errors->first('equip_tombamento')}}</p>
-                    @endif 
+                    @endif  -->
                     <input type="text" name="equip_tombamento" id="equip_tombamento" value="{{old('equip_tombamento',$equipamento->equip_tombamento ?? '')}}" placeholder="Ex: 221529"  class="form-control" required>
+                    @if ($errors->has('equip_tombamento')) 
+                        <script >
+                            $('#equip_tombamento').addClass('alert-danger');                                            
+                        </script>
+                    @endif
                 </div>
                 @isset($equipamento)
                     <button class="btn btn-success" type="submit">Editar Equipamento</button>

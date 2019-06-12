@@ -58,7 +58,7 @@ class EquipamentosController extends Controller
 		 ],['equip_tipo.required' => 'Escolha um tipo de Equipamento',
 			'equip_marca.required' => 'Preencha o campo marca do Equipamento',
 			'equip_tombamento.required' => 'Preencha o campo do numero de tombamento do Equipamento',
-			'equip_tombamento.numeric' => 'O campo do numero de Tombamento de conter apenas números']);
+			'equip_tombamento.numeric' => 'O campo do numero de Tombamento deve conter apenas números']);
 
 		/*Atualizando todos esses itens da model*/
 		$equip = $request->all();
