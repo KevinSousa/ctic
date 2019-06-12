@@ -56,15 +56,24 @@ class EventController extends Controller
         
         $conflitoStart = DB::table('events')->whereBetween('start_date', [$inicio, $fim])->whereDate('start_date', $inicio)->count('start_date');//aqui ele verifica se tem alguma data de inicio entre a data de inicio e fim 
         $conflitoEnd = DB::table('events')->whereBetween('end_date', [$inicio, $fim])->count('end_date');
-                    //aqui ele faz a mesma coisa de cima só tem se é a data de fim que está entre.
 
-               ;
-             $dados = $request->validate([
-                'start_date' => 'required|date:Y-m-d H:i|after:yesterday',
-                'end_date' => 'required|date:Y-m-d H:i|after:start_date',
-                  ] , [
-                `required` => `falha no agendamento, sua data está disponive?`,
-                 ]);
+        //aqui ele faz a mesma coisa de cima só tem se é a data de fim que está entre.
+        $dados = $request->validate([
+            'event_name' => 'required',
+            'description' => 'max:300',
+            'event_sala' => 'required',
+            'start_date' => 'required|date:Y-m-d H:i',
+            'end_date' => 'required|date:Y-m-d H:i|after:start_date',
+            ],[
+            'event_name.required' => 'É obrigatório preencher o nome do Agendamento',
+            'description.max' => 'Digite menos de 300 caracteres na Descrição',
+            'event_sala.required' => 'É obrigatório selecionar uma Sala',
+            'start_date.required' => 'É obrigatório ter uma Data de Início',
+            'start_date.date' => 'Adicione uma Data de Início em um formato aceitavel',
+            'end_date.required' => 'É obrigatório ter uma Data de Término',
+            'end_date.date' => 'Adicione uma Data de Término em um formato aceitavel',
+            'end_date.after' => 'A Data de Término está maior que a Data de Início',
+        ]);
 
 
         if ($reservas != null || $conflitoStart != false || $conflitoEnd != false ){
