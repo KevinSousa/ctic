@@ -43,11 +43,11 @@
 			    </tr>
 			    <tr class="hover">
 			    	<th class="border border-dark" scope="row">Data do chamado</th>
-			    	<td class="border border-dark"> {{$chamados -> cham_data_chamado}}</td>  
+			     	<td class="border border-dark"> {{date("d-m-Y H:i", strtotime($chamados -> cham_data_chamado))}}</td> 
 			    </tr>
 			    <tr class="hover">
 			    	<th class="border border-dark " scope="row">Data prevista até a finalização do chamado</th>
-			     	<td class="border border-dark"> {{$chamados -> cham_data_prevista}}</td> 
+			     	<td class="border border-dark"> {{date("d-m-Y H:i", strtotime($chamados -> cham_data_prevista))}}</td> 
 			    </tr>
 				@if(Auth::user()->user_id == $chamados->cham_user)
 			    	<tr class="hover">

@@ -66,7 +66,7 @@ class ChamadosController extends Controller
             'cham_grau_urgencia' => 'required',
             'typeproblem' => 'required',
             'cham_sublista_problema' => 'required',
-            'cham_equip' => 'required| numeric| max:30',
+            'cham_equip' => 'required| numeric',
             'cham_sala' => 'required',
             'cham_descricao' => 'max:300'
         ],[
@@ -75,9 +75,8 @@ class ChamadosController extends Controller
             'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
             'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
             'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
-            'cham_equip.max' => 'Digite menos de 30 caracteres no numero de Tombamento',
             'cham_sala.required' => 'É obrigatório selecionar uma Sala',
-            'cham_descricao.max' => 'Digite menos de 300 caracteres no numero de Tombamento',
+            'cham_descricao.max' => 'Digite menos de 300 caracteres na Descrição',
         ]);
 
         $validarEquip = Equipamento::find($req->cham_equip);
