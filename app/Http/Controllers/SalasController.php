@@ -56,7 +56,14 @@ class SalasController extends Controller
         return redirect()->route('sala.home');        
     }
 
-    public function edit($id){
+    public function edit(Request $req,$id){
+
+        $sala = DB::table('salas')->where('sala_id', '=', $id)->first();
+        return view('salas.editar', compact('sala'));
+
+    }
+
+    public function update(Request $req, $id){
         $senhas = $req -> validate([
             'sala_identificacao' => 'required| numeric| max:2',
             'sala_andar' => 'required',
@@ -66,13 +73,6 @@ class SalasController extends Controller
             'sala_identificacao.max' => 'Digite menos de 2 caracteres no campo numero da Sala',
             'sala_andar.required' => 'É obrigatório selecionar Andar/Bloco',
         ]);
-
-        $sala = DB::table('salas')->where('sala_id', '=', $id)->first();
-        return view('salas.editar', compact('sala'));
-
-    }
-
-    public function update(Request $req, $id){
 
         $registro = $req->except(['_token','_method']);
         DB::table('salas')
