@@ -7,14 +7,38 @@
             <div style="margin-top: -1em;">
                 <h2 id="titulo" align="left">Editar Usuário</h2>
                 <br>
+                
+                <!-- Mensagem de Succeso ao Editar Dados -->
+                @if(session('success'))
+                    <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
+                        <p>{{session('success')}}</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </ol> 
+                    <?php Session::pull('fail')?>         
+                @endif
+                
+                <!-- Mensagens de Erro -->
+                @if($errors->all())
+                     <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                        @foreach($errors->all() as $error)
+                    
+                            <li>{{$error}}</li>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        @endforeach
+                    </ol>
+                @endif
         		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
         			{{ csrf_field() }}
         			@include('user._form')
         			<button class="btn btn-success" id="mudar" type="submit" > Atualizar </button>
-                    <a href="{{ redirect()->back()->getTargetUrl() }}">
+<!--                     <a href="{{ redirect()->back()->getTargetUrl() }}">
                         <button class="btn btn-primary">Voltar</button>
-                    </a>
-        		</form>
+                    </a> -->
+                </form>
                 <!-- </div> -->
             </div>
         </div>

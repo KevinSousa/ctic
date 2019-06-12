@@ -9,7 +9,12 @@
 		<div class="form-group col-md-6">
 			<!---Consertando conflitos aki  -->
 			<label  for="">CPF *</label>
-			<input class="form-control" type="text" name="user_cpf" idate="user_cpf"  value="{{$usuario->user_cpf}}" required="" maxlength="14" id="user_cpf"  data-toggle="tooltip" data-placement="top" title="Adicione um CPF Válido">
+			<input class="form-control" type="text" name="user_cpf" id="user_cpf" idate="user_cpf"  value="{{$usuario->user_cpf}}" required="" maxlength="14" id="user_cpf"  data-toggle="tooltip" data-placement="top" title="Adicione um CPF Válido">
+			@if ($errors->has('user_cpf')) 
+                <script >
+                    $('#user_cpf').addClass('alert-danger');
+                </script>
+            @endif
 		</div>
 		<div class="form-group col-md-6">
 			@if(Auth::user()->user_funcao == 3)
@@ -17,7 +22,12 @@
 			@else
 				<label for="">Número da Siape *</label>
 			@endif
-			<input class="form-control " type="text" name="user_siap_matricula" value="{{$usuario->user_siap_matricula}}" required="" maxlength="14" disabled>
+			<input class="form-control " type="text" name="user_siap_matricula" id="user_siap_matricula" value="{{$usuario->user_siap_matricula}}" required="" maxlength="14" disabled>
+            @if ($errors->has('user_siap_matricula')) 
+                <script >
+                    $('#user_siap_matricula').addClass('alert-danger');
+                </script>
+            @endif
 		</div>
 
 	</div>
@@ -29,17 +39,27 @@
 		</div>
 		<div class="form-group col-md-7">
 			<label for="">Email *</label>
-			<input class="form-control" type="email" name="user_email" value="{{$usuario->user_email}}" required="">
+			<input class="form-control" type="email" name="user_email" id="user_email" value="{{$usuario->user_email}}" required="">
+            @if ($errors->has('user_email')) 
+                <script >
+                    $('#user_email').addClass('alert-danger');
+                </script>
+            @endif
 		</div>
 	</div>
 	<div class="form-row">
 		<div class="form-group col-md-6">
 			<label for="">Celular *</label>
 			<input class="form-control" type="text" value="{{$usuario->user_telefone}}" name="user_telefone" id="user_telefone">
+            @if ($errors->has('user_telefone')) 
+                <script >
+                    $('#user_telefone').addClass('alert-danger');
+                </script>
+            @endif
 		</div>
 		<div class="form-group col-md-6">
 			<label for="">Função*</label>
-			<select name="user_funcao" class="form-control">
+			<select name="user_funcao" id="user_funcao" class="form-control">
 				@foreach($funcaos as $func)
 					@if($func->funcao_id == $usuario->user_funcao)
 					<option value="{{$func -> funcao_id}}" 
@@ -49,15 +69,11 @@
 					@endif;			
 				@endforeach
 			</select>
+			@if ($errors->has('user_funcao')) 
+                <script >
+                    $('#user_funcao').addClass('alert-danger');
+                </script>
+            @endif
 		</div>
 	</div>
-	<div class="form-row">
-		<div class="form-group col-md-6">
-			<label> Senha Antiga*</label>
-			<input class="form-control" type="password" name="password" required="" maxlength="16" minlength="8">
-		</div>
-		<div class="form-group col-md-6">
-			<label for=""> Senha Atual*</label>	
-			<input class="form-control" type="password" name="password2" maxlength="16" minlength="8">
-		</div>
-	</div>
+

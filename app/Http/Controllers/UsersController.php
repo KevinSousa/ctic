@@ -9,6 +9,7 @@ use App\Http\Controllers\UsersController;
 use Auth;
 use App\User;
 use App\Funcao;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
@@ -189,7 +190,22 @@ class UsersController extends Controller
 	public function update(Request $request){
 
         $dados = $request->all();
-
+        $id = Auth::user()->user_id;
+        $senhas = $request -> validate([
+                'user_name' => 'required',
+                'user_cpf' => 'required',
+                'user_email' => 'required| email| max:30',
+            
+            ],[
+                'user_name.required' => 'É obrigatório preencher o Nome',
+                'user_cpf.required' => 'É obrigatório preencher o CPF',
+                'user_cpf.unique' => 'Já existe um registro com esse CPF',
+                'user_siap_matricula.required' => 'É obrigatório preencher a Matricula/Siap',
+                'user_email.required' => 'É obrigatório preencher o Email',
+                'user_email.email' => 'Digite um E-mail válido',
+                'user_email.max' => 'Digite menos de 30 caracteres no campo E-mail',
+                'user_email.unique' => 'Já existe um registro com esse Email',
+        ]);
         if ($request->password !== $request->password2) {
             return redirect()
                  -> route('user.conta', compact('user'));
@@ -208,9 +224,9 @@ class UsersController extends Controller
         $User                       = User::find(Auth::user()->user_id);
         $User->user_id              = Auth::user()->user_id;
         $User->user_name            = $request->user_name;  
-        $User->user_funcao          = isset($request->user_funcao) ? $request->user_funcao : "4";
+        $User->user_funcao          = Auth::user()->user_funcao;
         $User->user_email           = $request->user_email;
-        $User->password             = $senha;
+        $User->password             = Auth::user()->password;
         $User->user_cpf             = $request->user_cpf;
         $User->user_siap_matricula  = isset($request->user_siap_matricula) ? $request->user_siap_matricula : "123";
         $User->user_telefone          = $request->user_telefone;
@@ -220,8 +236,10 @@ class UsersController extends Controller
         $User->save();
 
         $user = Auth::user()->user_id;
+        $mensagem = 'Dados Alterados com Sucesso!';
         return redirect()
-                 -> route('user.conta', compact('user'));        
+                 -> route('user.editar',compact('id'))
+                 ->with('success',$mensagem);        
     }
 
     public function conta($id){

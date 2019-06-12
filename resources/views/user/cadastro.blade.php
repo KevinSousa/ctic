@@ -230,7 +230,7 @@
                                 <label for="nome" class="text-center">Nome Completo * </label>
                                 @if ($errors->has('user_name')) 
                                     <script >
-                                        document.getElementById('nome').style.borderColor ="red";
+                                        $('#nome').addClass('alert-danger');
                                     </script>
                                 @endif
                             </div>
@@ -239,9 +239,8 @@
                                     <input id="user_cpf" class="form-control user_cpf" type="text" name="user_cpf" value="{{ old('user_cpf') }}" required placeholder="a" maxlength="14"  data-toggle="tooltip" data-placement="top" title="Adicione um CPF Válido">
                                     <label id="cpf" class="text-center" for="user_cpf" >CPF *</label>
                                     @if ($errors->has('user_cpf')) 
-                                        
                                         <script >
-                                            document.getElementById('user_cpf').style.borderColor ="red";
+                                            $('#user_cpf').addClass('alert-danger');
                                         </script>
                                     @endif
                                 </div>
@@ -249,9 +248,8 @@
                                     <input id="inputMatricula" class="form-control" type="text" name="user_siap_matricula" placeholder="a" value="{{old('user_siap_matricula')}}" maxlength="14" required>
                                     <label for="inputMatricula" class="text-center">Matricula ou Siape *</label>
                                     @if ($errors->has('user_siap_matricula')) 
-                                        
                                         <script >
-                                            document.getElementById('inputMatricula').style.borderColor ="red";
+                                            $('#inputMatricula').addClass('alert-danger');
                                         </script>
                                     @endif
                                 </div>
@@ -260,21 +258,19 @@
                                 <input id="email" class="form-control" type="email" name="user_email" placeholder="a" value="{{old('user_email')}}" required>
                                 <label for="email" class="text-center">Email *</label>
                                 @if ($errors->has('user_email')) 
-                                        
-                                        <script >
-                                            document.getElementById('email').style.borderColor ="red";
-                                        </script>
-                                    @endif
+                                    <script >
+                                        $('#email').addClass('alert-danger');
+                                    </script>
+                                @endif
                             </div>
                             <div class="form-label-group">
                                 <input class="form-control" type="text" name="user_telefone" id="user_telefone" placeholder="a" value="{{old('user_telefone')}}">
                                 <label class="text-center" for="user_telefone">Celular</label>
                                 @if ($errors->has('user_telefone')) 
-                                        
-                                        <script >
-                                            document.getElementById('user_telefone').style.borderColor ="red";
-                                        </script>
-                                    @endif
+                                    <script >
+                                        $('#user_telefone').addClass('alert-danger');                                            
+                                    </script>
+                                @endif
                             </div>
 
                             <div class="form-label-group">
@@ -306,8 +302,8 @@
                                     @if ($errors->has('password')) 
                                         
                                         <script >
-                                            document.getElementById('senha').style.borderColor ="red";
-                                            document.getElementById('senha2').style.borderColor ="red";
+                                            $('#senha').addClass('alert-danger');
+                                            $('#senha2').addClass('alert-danger');
                                         </script>
                                     @endif
                             </div>
