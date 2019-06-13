@@ -46,6 +46,7 @@
                 @endforeach
             </tbody>
         </table>
+        {{$tiposProblemas->links()}}
     </div>
 @endsection
 @section('js')
@@ -71,11 +72,16 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+        <!-- DataTables JS-->
+        <script src="https://datatables.yajrabox.com/js/jquery.min.js"></script>
+        <script src="https://datatables.yajrabox.com/js/bootstrap.min.js"></script>
+        <script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
+        <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
-        <script> 
+        <script type="text/javascript"> 
             $(document).ready(function (){
                 $('#vis-menu').click();
-                $('#visu-tipo-problemas').parent('li').addClass("active");
+                $('#visu-equips').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
                         sProcessing: "Processando...",
@@ -101,15 +107,14 @@
                     bLengthChange: false,  //Show and entries em cima da tabela
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
-                });          
-            });  
+                }); 
         </script>
 @endsection
 @section('ajax-js')
-        <script> 
+    <script> 
             $(document).ready(function (){
                 $('#vis-menu').click();
-                $('#visu-tipo-problemas').parent('li').addClass("active");
+                $('#visu-equips').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
                         sProcessing: "Processando...",

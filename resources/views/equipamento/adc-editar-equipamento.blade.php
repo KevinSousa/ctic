@@ -10,7 +10,7 @@
             appearance:textfield;
         }     
     </style>
-<title>Equipamentos{</title>
+<title>Equipamentos</title>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">

@@ -39,6 +39,7 @@
 				@endforeach
 			</tbody>
 		</table>
+		{{$funcao->links()}}
 	</div>
 @endsection
 @section('js')
