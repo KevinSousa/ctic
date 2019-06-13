@@ -18,14 +18,25 @@
         <option disabled>Escolha o bloco onde a sala está localizada</option> 
         <option disabled>---</option> 
         <option value="" hidden></option> 
-        @foreach ($bloco as $blocos)
-            <option value="{{$blocos}}"
-                @if (old('sala_andar') == $blocos or !empty($sala->sala_andar) == $blocos)
-                    Selected
-                @endif>
-                    {{$blocos}}
-                </option>
-        @endforeach
+        @isset($sala->sala_andar)
+            @foreach ($bloco as $blocos)
+                <option value="{{$blocos}}"
+                    @if (old('sala_andar') == $blocos or $sala->sala_andar == $blocos)
+                        Selected
+                    @endif>
+                        {{$blocos}}
+                    </option>
+            @endforeach
+        @else
+            @foreach ($bloco as $blocos)
+                <option value="{{$blocos}}"
+                    @if (old('sala_andar') == $blocos)
+                        Selected
+                    @endif>
+                        {{$blocos}}
+                    </option>
+            @endforeach
+        @endisset
 	</select>
     @if ($errors->has('sala_andar')) 
         <script >
