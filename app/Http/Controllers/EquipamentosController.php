@@ -114,8 +114,12 @@ class EquipamentosController extends Controller
 	public function destroy($id) {
 
 		/*Pega o item pelo id e destroi*/
-		Equipamento::find($id)->delete();
-		return redirect()->route('equipamento.index');
+		$resultado = Equipamento::find($id)->delete();
+		if ($resultado == true) {
+			$mensagem = "Sucesso ao deletar o item";
+		}
+		
+		return redirect()->route('equipamento.index')->with('success',$mensagem );
 
 	}
 }
