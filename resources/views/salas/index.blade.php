@@ -12,6 +12,15 @@
     <div id="index">
         <div align="left">  
             <h1 id="titulo">Salas</h1>
+                 @if(session('remover_sala'))
+                <ol class="float-right alert alert-warning alert-dismissible fade col-md-4 show mt-2" role="alert">              
+                    {{session('remover_sala')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </ol> 
+                <?php Session::pull('sucesso-excluir-sala')?>         
+              @endif
             <br>
             @if(session('success'))
                 <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
@@ -20,7 +29,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </ol> 
-                <?php Session::pull('fail')?>         
+                <?php Session::pull('success')?>         
             @endif
         </div>
         <table class="table table-striped table-bordered" id="example">
@@ -40,11 +49,31 @@
                         <a href="{{route('sala.editar',$sala->sala_id)}}">
                            <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                         </a>
-                        <a href="{{route('sala.remover',$sala->sala_id)}}">  
+                        <a href="#" data-toggle="modal" data-target="#delete" data-toggle="modal" data-target="#delete">  
                             <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                         </a>
                     </td>
                 </tr>
+                 <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title text-center" id="myModalLabel">Comfirmação de exclusão</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              </div>
+                                  <div class="modal-body">
+                                        <p class="text-center">
+                                            Tem certeza que deseja deletar esse item ?
+                                        </p>
+                                        <input type="hidden" name="category_id" id="cat_id" value="">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
+                                    <a id="deletar-sucesso" href="{{route('sala.remover',$sala->sala_id)}}" class="btn btn-warning">Sim, Deletar</a>
+                                  </div>
+                            </div>
+                          </div>
+                        </div>
             @endforeach    
             </tbody>
         </table>
