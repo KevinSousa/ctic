@@ -149,7 +149,8 @@ class UsersController extends Controller
             }else{
                 $dados['user_imagem'] = "icon/user/imagem.png";
             }
-                $mensagem = 'Sucesso ao fazer cadastro, Entre.';
+            
+            $mensagem = 'Sucesso ao fazer cadastro, Entre.';
             User::create($dados);
             // $st = session()->put('sucesso', ['sucesso' => $mensagem]);
             return redirect() -> route('login')
@@ -162,9 +163,17 @@ class UsersController extends Controller
 
 	public function remove($id){
 
-        DB::table('users')->where('user_id', '=', $id)->delete();
-        return redirect()->route('home');
-
+      $resultado =  DB::table('users')->where('user_id', '=', $id)->delete();
+       if ($resultado == true) {
+            $sucess = 'Sucesso ao deletar usuario';
+             $users = DB::table('users')
+                ->join('funcaos', 'user_funcao', '=' , 'funcaos.funcao_id')
+                ->select('users.*', 'funcaos.funcao_name')
+                ->Paginate(5);       
+          
+       }
+      
+        return redirect()-> route('user.home')->with('success',$sucess);
     }
 
     public function edit(Request $request, $id){
