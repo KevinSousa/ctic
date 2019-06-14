@@ -26,7 +26,7 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		    	@foreach ($users as $user)
+		    	@foreach ($users as $count =>  $user)
 					<tr align="center">
 						<td> {{$user -> user_name}} </td>
 						<td> {{$user -> user_cpf}} </td>
@@ -36,13 +36,13 @@
 							<a href="{{route('user.editar',$user->user_id)}}" >
 								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
 							</a>
-							<a  data-toggle="modal" data-target="#delete" data-toggle="modal" data-target="#delete" href="#">
+							<a  data-toggle="modal" data-target="#delete{{$count}}" href="#">
 								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
 							</a><!--  href="{{route('user.remover',$user->user_id)}}"  -->
 						</td>
 					</tr>
 						
-						<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						<div class="modal modal-danger fade" id="delete{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -53,7 +53,7 @@
                                         <p class="text-center">
                                             Tem certeza que deseja deletar esse Usuário?
                                         </p>
-                                        <input type="hidden" name="category_id" id="cat_id" value="">
+                             
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>

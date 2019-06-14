@@ -83,7 +83,7 @@ class FuncaoController extends Controller
 	public function destroy($id) {
 
 		/*Pega o item pelo id e destroi*/
-
+		
 		$funcao = Funcao::find($id)->delete();
 		return redirect('/funcao');
 

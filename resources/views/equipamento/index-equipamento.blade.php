@@ -35,7 +35,7 @@
 				</tr>
 			</thead>
            <tbody>
-                @foreach ($equipamento as $equipamentos)
+                @foreach ($equipamento as $count => $equipamentos)
                     <tr align="center">
                         <td> {{$equipamentos->equip_tombamento}}</td>
                         @foreach ($tipoEquip as $tipo)
@@ -48,12 +48,12 @@
                             <a  href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
                                 <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                             </a>    
-                            <a  id="btn-excluir" class="destroy" data-catid="{{$equipamentos->equip_tombamento}}" data-toggle="modal" data-target="#delete" data-toggle="modal" data-target="#delete" href="#"> 
+                            <a  id="btn-excluir" class="destroy" data-catid="{{$equipamentos->equip_tombamento}}" data-toggle="modal" data-target="#delete{{$count}}"  href="#"> 
                                 <i  class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                             </a>
                         </td>
                     </tr>
-                        <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal modal-danger fade" id="delete{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">

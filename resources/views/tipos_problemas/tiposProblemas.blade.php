@@ -40,19 +40,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tiposProblemas as $tipoProblemas)
+                @foreach ($tiposProblemas as $cont => $tipoProblemas)
                     <tr align="center">
                         <td> {{$tipoProblemas->probl_tipo}}</td>
                         <td>
                           <a href="{{route('tiposProblemas.edit',$tipoProblemas->probl_id)}}" >
                             <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                           </a>
-                          <a href="#" data-toggle="modal" data-target="#delete" data-toggle="modal" data-target="#delete">  
+                          <a href="#" data-toggle="modal" data-target="#delete{{$cont}}" data-toggle="modal" data-target="#delete">  
                             <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                           </a>
                         </td>
                     </tr>
-                        <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal modal-danger fade" id="delete{{$cont}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
