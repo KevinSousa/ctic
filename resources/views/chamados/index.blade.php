@@ -7,7 +7,7 @@
             <h1 id="titulo">Chamados</h1>
             <br>
              @if(session('success'))
-                <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
+                <ol class="alert alert-warning alert-dismissible fade show mt-2" role="alert">              
                     <p>{{session('success')}}</p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
