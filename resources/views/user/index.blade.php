@@ -4,6 +4,15 @@
 	<div id="index">
 		<div align="left">	
 			<h1 id="titulo">Usuários</h1>
+			 @if(session('success'))
+                <ol class="float-right alert alert-warning alert-dismissible fade col-md-4 show mt-2" role="alert">              
+                    {{session('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </ol> 
+                <?php Session::pull('fail')?>         
+              @endif
 			<br>
 		</div>
         <table class="table table-striped table-bordered" id="example">
@@ -24,14 +33,35 @@
 						<td> {{$user -> user_siap_matricula}} </td>
 						<td> {{$user -> funcao_name}}</td>
 						<td> 
-							<a href="{{route('user.editar',$user->user_id)}}">
+							<a href="{{route('user.editar',$user->user_id)}}" >
 								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
 							</a>
-							<a href="{{route('user.remover',$user->user_id)}}">
+							<a  data-toggle="modal" data-target="#delete" data-toggle="modal" data-target="#delete" href="#">
 								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
-							</a>
+							</a><!--  href="{{route('user.remover',$user->user_id)}}"  -->
 						</td>
 					</tr>
+						
+						<div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title text-center" id="myModalLabel">Comfirmação de exclusão</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              </div>
+                                  <div class="modal-body">
+                                        <p class="text-center">
+                                            Tem certeza que deseja deletar esse Usuário?
+                                        </p>
+                                        <input type="hidden" name="category_id" id="cat_id" value="">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
+                                    <a id="deletar-sucesso" href="{{route('user.remover',$user->user_id)}}" class="btn btn-warning">Sim, Deletar</a>
+                                  </div>
+                            </div>
+                          </div>
+                        </div>
 				@endforeach
 		    </tbody>
 		</table>
@@ -60,8 +90,6 @@
         </script>
         <script src="/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-        <script src="/vendor/select2/select2.min.js">
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
