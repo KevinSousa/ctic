@@ -56,14 +56,12 @@ class FuncaoController extends Controller
 
 	public function edit(Request $request,$id) {
 		$ajax = false;
-
         if ($request->ajax()){
             $ajax = true;
         }
 		/*Redireciona para o View editar com todos os dados do evento selecionado*/
 		$funcao = Funcao::where('funcao_id','=', $id)->first();
 		return view('funcao/adc-editar-funcao', compact('funcao','ajax'));
-
 	}
 
 	public function update(Request $request, $id) {
@@ -85,8 +83,8 @@ class FuncaoController extends Controller
 	public function destroy($id) {
 
 		/*Pega o item pelo id e destroi*/
-		$funcao = Funcao::where('funcao_id','=',$id);
-		$funcao->delete();
+
+		$funcao = Funcao::find($id)->delete();
 		return redirect('/funcao');
 
 	}
