@@ -3,12 +3,21 @@
 @section('content')
     <title>Equipamentos</title>
 	<div id="index">
-		<div align="left">	
+		<div align="left row">	
 			<h1 id="titulo">Equipamentos</h1>
-			<br>
+			
             @if(session('success'))
-                <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
-                    <p>{{session('success')}}</p>
+                <ol class="float-right alert alert-warning alert-dismissible fade col-md-4 show mt-2" role="alert">              
+                    {{session('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </ol> 
+                <?php Session::pull('fail')?>         
+              @endif
+              @if(session('fail'))
+                <ol class="float-right alert alert-danger alert-dismissible fade col-md-4 show mt-2" role="alert">              
+                    {{session('fail')}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -36,19 +45,41 @@
                         @endforeach
                         <td> {{$equipamentos->equip_marca}}</td>
                         <td> 
-                                <a href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
-                                    <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
-                                </a>    
-                            <a class="destroy" href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}"> 
-                                <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
+                            <a  href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
+                                <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
+                            </a>    
+                            <a  id="btn-excluir" class="destroy" data-catid="{{$equipamentos->equip_tombamento}}" data-toggle="modal" data-target="#delete" data-toggle="modal" data-target="#delete" href="#"> 
+                                <i  class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                        <div class="modal modal-danger fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title text-center" id="myModalLabel">Comfirmação de exclusão</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              </div>
+                                  <div class="modal-body">
+                                        <p class="text-center">
+                                            Tem certeza que deseja deletar esse item ?
+                                        </p>
+                                        <input type="hidden" name="category_id" id="cat_id" value="">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
+                                    <a id="deletar-sucesso" href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}" class="btn btn-warning">Sim, Deletar</a>
+                                  </div>
+                            </div>
+                          </div>
+                        </div>
+                                        
+            @endforeach
             </tbody>
         </table>
         {{$equipamento->links()}}
     </div>
+
 @endsection
 @section('js')
      <!-- Jquery JS-->
@@ -68,19 +99,16 @@
         </script>
         <script src="/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-        <script src="/vendor/select2/select2.min.js">
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
 		<!-- DataTables JS-->
-        <script src="https://datatables.yajrabox.com/js/jquery.min.js"></script>
-        <script src="https://datatables.yajrabox.com/js/bootstrap.min.js"></script>
         <script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
         <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
         <script type="text/javascript"> 
             $(document).ready(function (){
+                
                 $('#vis-menu').click();
                 $('#visu-equips').parent('li').addClass("active");
                 $('#example').DataTable({ 
