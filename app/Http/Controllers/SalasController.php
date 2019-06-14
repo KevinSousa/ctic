@@ -52,9 +52,13 @@ class SalasController extends Controller
                          ->with('success',$mensagem);
     }
 
-    public function remove($id){
-        DB::table('salas')->where('sala_id', '=', $id)->delete();
-        return redirect()->route('sala.home');        
+    public function remove($sala_id){
+
+        Sala::where('sala_id','=',$sala_id)->delete();
+            $mensagem = 'Sucesso ao remover sala';
+
+        return redirect()->route('sala.home')
+                         ->with('remover_sala',$mensagem);    
     }
 
     public function edit(Request $req,$id){
