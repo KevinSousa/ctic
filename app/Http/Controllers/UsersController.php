@@ -183,12 +183,12 @@ class UsersController extends Controller
             $ajax = true;
         }
 
-        if (Auth::user()-> user_id != $id){
-            $id = Auth::user()-> user_id;
+        if (Auth::user()->user_id != 11){
+            $id = Auth::user()->user_id;
             $usuario = DB::table('users')->where('user_id', '=', $id)->first();
             $funcaos = Funcao::all()->except('administrador');
             $error = "Sem permissão";
-            return view('user.editar',compact('usuario','funcaos','ajax','error'));  
+            return view('user.editar',compact('usuario','funcaos','ajax','error'));
         }
 
         $usuario = DB::table('users')->where('user_id', '=', $id)->first();
@@ -202,18 +202,20 @@ class UsersController extends Controller
         $id = Auth::user()->user_id;
         $senhas = $request -> validate([
                 'user_name' => 'required',
-                'user_cpf' => 'required',
-                'user_email' => 'required| email| max:30',
+                // 'user_telefone' => 'numeric',
+                // 'user_cpf' => 'required',
+                // 'user_email' => 'required| email| max:30',
             
             ],[
                 'user_name.required' => 'É obrigatório preencher o Nome',
-                'user_cpf.required' => 'É obrigatório preencher o CPF',
-                'user_cpf.unique' => 'Já existe um registro com esse CPF',
-                'user_siap_matricula.required' => 'É obrigatório preencher a Matricula/Siap',
-                'user_email.required' => 'É obrigatório preencher o Email',
-                'user_email.email' => 'Digite um E-mail válido',
-                'user_email.max' => 'Digite menos de 30 caracteres no campo E-mail',
-                'user_email.unique' => 'Já existe um registro com esse Email',
+                // 'user_telefone.numeric' => 'O campo do numero de Telefone deve conter apenas números',
+                // 'user_cpf.required' => 'É obrigatório preencher o CPF',
+                // 'user_cpf.unique' => 'Já existe um registro com esse CPF',
+                // 'user_siap_matricula.required' => 'É obrigatório preencher a Matricula/Siap',
+                // 'user_email.required' => 'É obrigatório preencher o Email',
+                // 'user_email.email' => 'Digite um E-mail válido',
+                // 'user_email.max' => 'Digite menos de 30 caracteres no campo E-mail',
+                // 'user_email.unique' => 'Já existe um registro com esse Email',
         ]);
         if ($request->password !== $request->password2) {
             return redirect()
@@ -231,13 +233,13 @@ class UsersController extends Controller
             $dados['imagem'] = $dir."/".$nomeImagem;
         }
         $User                       = User::find(Auth::user()->user_id);
-        $User->user_id              = Auth::user()->user_id;
+        // $User->user_id              = Auth::user()->user_id;
         $User->user_name            = $request->user_name;  
-        $User->user_funcao          = Auth::user()->user_funcao;
-        $User->user_email           = $request->user_email;
-        $User->user_cpf             = $request->user_cpf;
-        $User->user_siap_matricula  = isset($request->user_siap_matricula) ? $request->user_siap_matricula : "123";
-        $User->user_telefone          = $request->user_telefone;
+        // $User->user_funcao          = Auth::user()->user_funcao;
+        // $User->user_email           = $request->user_email;
+        // $User->user_cpf             = $request->user_cpf;
+        // $User->user_siap_matricula  = $request->user_siap_matricula;
+        $User->user_telefone        = $request->user_telefone;
             if(isset($nomeImagem)){
                 $User->user_imagem    = $nomeImagem;
             }

@@ -110,7 +110,7 @@
         <script type="text/javascript"> 
             $(document).ready(function (){
                 $('#vis-menu').click();
-                $('#visu-equips').parent('li').addClass("active");
+                $('#visu-tipo-problemas').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
                         sProcessing: "Processando...",
@@ -143,7 +143,7 @@
     <script> 
             $(document).ready(function (){
                 $('#vis-menu').click();
-                $('#visu-equips').parent('li').addClass("active");
+                $('#visu-tipo-problemas').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
                         sProcessing: "Processando...",
