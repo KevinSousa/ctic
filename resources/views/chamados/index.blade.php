@@ -74,8 +74,11 @@
         <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
          <script type="text/javascript">
+
+            $('#vis-menu').click();
+            
             $(document).ready(function (){
-                $('#vis-menu').click();
+                
                 $('#visu-menu').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{

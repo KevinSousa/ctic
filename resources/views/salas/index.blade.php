@@ -110,9 +110,12 @@
         <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
         
-<script> 
+<script>
+    
+    $('#vis-menu').click();
+
     $(document).ready(function (){
-        $('#vis-menu').click();
+        
         $('#visu-sala').parent('li').addClass("active");
         $('#example').DataTable({ 
             oLanguage:{

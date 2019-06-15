@@ -36,7 +36,7 @@
 			</thead>
            <tbody>
                 @foreach ($equipamento as $count => $equipamentos)
-                    <tr align="center">
+                    <tr id="{{ $equipamentos->equip_tombamento }}" align="center">
                         <td> {{$equipamentos->equip_tombamento}}</td>
                         @foreach ($tipoEquip as $tipo)
                             @if($equipamentos->equip_tipo == $tipo->tipo_id)
@@ -48,7 +48,7 @@
                             <a  href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
                                 <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                             </a>    
-                            <a  id="btn-excluir" class="destroy" data-catid="{{$equipamentos->equip_tombamento}}" data-toggle="modal" data-target="#delete{{$count}}"  href="#"> 
+                            <a  id="" class="destroy" data-catid="{{$equipamentos->equip_tombamento}}" data-toggle="modal" data-target="#delete{{$count}}"  href="#"> 
                                 <i  class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                             </a>
                         </td>
@@ -64,11 +64,11 @@
                                         <p class="text-center">
                                             Tem certeza que deseja deletar esse item ?
                                         </p>
-                                        <input type="hidden" name="category_id" id="cat_id" value="">
+                                        <input type="hidden" name="category_id" id="cat_id" value="">       
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
-                                    <a id="deletar-sucesso" href="{{route('equipamento.destroy',$equipamentos->equip_tombamento)}}" class="btn btn-warning">Sim, Deletar</a>
+                                    <a href="#" data-dismiss="modal" count="{{$count}}" url="{{$equipamentos->equip_tombamento }}" class="btn btn-warning deletar-sucesso">Sim, Deletar</a>
                                   </div>
                             </div>
                           </div>
@@ -99,7 +99,7 @@
         </script>
         <script src="/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-        </script>
+
         <!-- Main JS-->
         <script src="/js/main.js"></script>
 		<!-- DataTables JS-->
@@ -107,9 +107,10 @@
         <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
         <script type="text/javascript"> 
+            
+            $('#vis-menu').click();
+            
             $(document).ready(function (){
-                
-                $('#vis-menu').click();
                 $('#visu-equips').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
@@ -146,6 +147,26 @@
                     console.log("destruir");
                     event.preventDefault();
           
+                });
+
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var count = $(this).attr('count');
+
+                    $.ajax({
+                        url: "/equipamento/destroy/"+url,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+url).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
                 });
             });
         </script>
