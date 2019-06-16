@@ -1,34 +1,33 @@
-$(document).ready(function()
+
+function starting()
     {
-        $('.listAJAX').on('click', function(event)
-        {
-            console.log("entrou");
-            event.preventDefault();
-  
-            if ($(this).parent('li').hasClass("active")){
-                console.log("ok");
-                return
-            }
+            $('.listAJAX').on('click', function(event)
+            {
+                console.log("entrou");
+                event.preventDefault();
+    
+                if ($(this).parent('li').hasClass("active")){
+                    console.log("ok");
+                    return
+                }
 
-            $('li').removeClass('active');
-            $(this).parent('li').addClass('active');
-  
-            var url = $(this).attr('url');
-            
-            getData(url,true);
-            return false;
-        });
-
-        // window.addEventListener('popstate', function(e){
-        //     if(e.state)
-        //         oldUrl = window.location.pathname.split("/");
-        //         oldUrl = "/"+oldUrl[1];
+                $('li').removeClass('active');
+                $(this).parent('li').addClass('active');
+    
+                var url = $(this).attr('url');
                 
-        //         getData(oldUrl,true);
-        // });
-  
-    });
-  
+                getData(url,true);
+                return false;
+            });
+
+            // window.addEventListener('popstate', function(e){
+            //     if(e.state)
+            //         oldUrl = window.location.pathname.split("/");
+            //         oldUrl = "/"+oldUrl[1];
+                    
+            //         getData(oldUrl,true);
+            // });
+    }  
 function getData(url, state){
 
     window.history.pushState({ url:url }, "", url);
@@ -40,8 +39,13 @@ function getData(url, state){
         datatype: "html"
     }).done(function(data){
         $(".main-content").empty().html(data);
+        starting();
     
     }).fail(function(jqXHR, ajaxOptions, thrownError){
           alert('No response from server');
     });
 }
+
+$(document).ready(function (){
+    starting();
+})

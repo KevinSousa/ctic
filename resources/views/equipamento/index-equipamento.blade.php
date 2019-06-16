@@ -45,7 +45,7 @@
                         @endforeach
                         <td> {{$equipamentos->equip_marca}}</td>
                         <td> 
-                            <a  href="{{route('equipamento.edit',$equipamentos->equip_tombamento)}}">
+                            <a id="{{$count}}" href="#" class="listAJAX" url="/equipamento/edit/{{$equipamentos->equip_tombamento}}">
                                 <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                             </a>    
                             <a  id="" class="destroy" data-catid="{{$equipamentos->equip_tombamento}}" data-toggle="modal" data-target="#delete{{$count}}"  href="#"> 
