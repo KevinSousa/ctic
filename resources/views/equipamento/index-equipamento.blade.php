@@ -57,7 +57,7 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title text-center" id="myModalLabel">Comfirmação de exclusão</h4>
+                                <h4 class="modal-title text-center" id="myModalLabel">Confirmação de exclusão</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                               </div>
                                   <div class="modal-body">
@@ -155,6 +155,8 @@
                     var url = $(this).attr('url');
                     var count = $(this).attr('count');
 
+                    console.log(url);
+                    console.log(count);
                     $.ajax({
                         url: "/equipamento/destroy/"+url,
                         type: "get",
@@ -203,7 +205,39 @@
                     bLengthChange: false,  //Show and entries em cima da tabela
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
-                }); 
+                });
+                $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var count = $(this).attr('count');
+
+                    console.log(url);
+                    console.log(count);
+                    $.ajax({
+                        url: "/equipamento/destroy/"+url,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+url).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
+                });
             });                
         </script>
 @endsection
