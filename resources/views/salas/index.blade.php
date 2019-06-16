@@ -42,14 +42,14 @@
             </thead>
             <tbody align="center">
             @foreach ($salas as $count =>  $sala)
-                <tr>
+                <tr id="{{$sala->sala_id}}">
                     <td data-label="Indentificacao">{{ $sala->sala_identificacao }}</td>
                     <td data-label="Andar">{{ $sala->sala_andar }}</td>
                     <td>
                         <a href="{{route('sala.editar',$sala->sala_id)}}">
                            <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#delete{{$count}}">  
+                        <a href="#" class="destroy  " data-catid="{{$sala->sala_id}}" data-toggle="modal" data-toggle="modal" data-target="#delete{{$count}}">  
                             <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                         </a>
                     </td>
@@ -69,7 +69,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
-                                    <a id="deletar-sucesso" href="{{route('sala.remover',$sala->sala_id)}}" class="btn btn-warning">Sim, Deletar</a>
+                                    <a href="#" data-dismiss="modal" count="{{$count}}" url="{{$sala->sala_id}}" class="btn btn-warning deletar-sucesso">Sim, Deletar</a>
                                   </div>
                             </div>
                           </div>
@@ -98,20 +98,14 @@
         </script>
         <script src="/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-        <script src="/vendor/select2/select2.min.js">
-        </script>
+
         <!-- Main JS-->
         <script src="/js/main.js"></script>
-         <!-- DataTables JS-->
-        <script src="https://datatables.yajrabox.com/js/jquery.min.js"></script>
-        <script src="https://datatables.yajrabox.com/js/bootstrap.min.js"></script>
+        <!-- DataTables JS-->
         <script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
         <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
-        
-<script>
-    
+        <script type="text/javascript"> 
     $('#vis-menu').click();
 
     $(document).ready(function (){
@@ -142,7 +136,40 @@
             bLengthChange: false,  //Show and entries em cima da tabela
             bFilter: true, //Search em cima da tabela
             bInfo: false,  //Showing em baixo da tabela);
-        }); 
+        });
+        $('.destroy').on('click', function(event)
+        {
+            //pega a url
+            var url = window.location.href;
+            //explode a url
+            var result = url.split('/');
+            console.log("destruir");
+            event.preventDefault();
+  
+        });
+
+        $('.deletar-sucesso').on("click", function(event)
+        {
+            event.preventDefault();
+            var url = $(this).attr('url');
+            var result = url.split('/');
+            var count = $(this).attr('count');
+
+            console.log(url);
+            console.log(count);
+            $.ajax({
+                url: "/sala/remover/"+url,
+                type: "get",
+                datatype: "html"
+            }).done(function(data){
+                $("#"+url).remove();
+                // $("#delete"+count).modal('toggle');
+                var modal = "#delete" + count;
+                $(modal+" .close").click()
+            }).fail(function(jqXHR, ajaxOptions, thrownError){
+                alert('No response from server');
+            });
+        });
     });                
 </script>
 
@@ -178,7 +205,40 @@
                     bLengthChange: false,  //Show and entries em cima da tabela
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
-                }); 
+                });
+                $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var result = url.split('/');
+                    var count = $(this).attr('count');
+
+                    console.log(url);
+                    console.log(count);
+                    $.ajax({
+                        url: "/sala/remover/"+url,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+url).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
+                });
             });                
         </script>
 @endsection 
