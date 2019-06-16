@@ -37,7 +37,8 @@
 					<tr id="{{$funcoes->funcao_id}}" align="center">
 						<td> {{$funcoes->funcao_name}}</td>
 						<td> 
-							<a href="{{route('funcao.edit',$funcoes->funcao_id)}}">
+							<!-- <a href="{{route('funcao.edit',$funcoes->funcao_id)}}"> -->
+                                <a id="{{$count}}" href="#" class="listAJAX" url="/funcao/edit/{{$funcoes->funcao_id}}">
 								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
 							</a>
                             <a class="destroy" data-catid="{{$funcoes->funcao_id}}" data-toggle="modal" data-target="#delete{{$count}}"  href="#"> 	

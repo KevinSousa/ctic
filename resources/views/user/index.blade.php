@@ -33,7 +33,9 @@
 						<td> {{$user -> user_siap_matricula}} </td>
 						<td> {{$user -> funcao_name}}</td>
 						<td> 
-							<a href="{{route('user.editar',$user->user_id)}}" >
+							<!-- <a href="{{route('user.editar',$user->user_id)}}" > -->
+                            <a id="{{$count}}" href="#" class="listAJAX" url="/user/editar/{{$user->user_id}}">
+
 								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
 							</a>
 							<a class="destroy" data-catid="{{$user->user_id}}" data-toggle="modal" data-target="#delete{{$count}}" href="#">

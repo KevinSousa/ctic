@@ -44,7 +44,7 @@
                     <tr id="{{$tipoProblemas->probl_id}}" align="center">
                         <td> {{$tipoProblemas->probl_tipo}}</td>
                         <td>
-                          <a href="{{route('tiposProblemas.edit',$tipoProblemas->probl_id)}}" >
+                          <a id="{{$count}}" href="#" class="listAJAX" url="/tiposProblemas/edit/{{$tipoProblemas->probl_id}}">
                             <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                           </a>
                           <a href="#" class="destroy" data-toggle="modal" data-target="#delete{{$count}}" data-catid="{{$tipoProblemas->probl_id}}">  
