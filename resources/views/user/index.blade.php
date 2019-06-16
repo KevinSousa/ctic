@@ -27,7 +27,7 @@
 		    </thead>
 		    <tbody>
 		    	@foreach ($users as $count =>  $user)
-					<tr align="center">
+					<tr id="{{ $user->user_id }}" align="center">
 						<td> {{$user -> user_name}} </td>
 						<td> {{$user -> user_cpf}} </td>
 						<td> {{$user -> user_siap_matricula}} </td>
@@ -36,7 +36,7 @@
 							<a href="{{route('user.editar',$user->user_id)}}" >
 								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
 							</a>
-							<a  data-toggle="modal" data-target="#delete{{$count}}" href="#">
+							<a class="destroy" data-catid="{{$user->user_id}}" data-toggle="modal" data-target="#delete{{$count}}" href="#">
 								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
 							</a><!--  href="{{route('user.remover',$user->user_id)}}"  -->
 						</td>
@@ -46,18 +46,17 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title text-center" id="myModalLabel">Comfirmação de exclusão</h4>
+                                <h4 class="modal-title text-center" id="myModalLabel">Confirmação de exclusão</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                               </div>
                                   <div class="modal-body">
                                         <p class="text-center">
                                             Tem certeza que deseja deletar esse Usuário?
                                         </p>
-                             
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
-                                    <a id="deletar-sucesso" href="{{route('user.remover',$user->user_id)}}" class="btn btn-warning">Sim, Deletar</a>
+                                    <a id="deletar-sucesso" href="#" data-dismiss="modal" count="{{$count}}" url="{{route('user.remover',$user->user_id)}}" class="btn btn-warning deletar-sucesso">Sim, Deletar</a>
                                   </div>
                             </div>
                           </div>
@@ -65,7 +64,6 @@
 				@endforeach
 		    </tbody>
 		</table>
-		<br>
 		<div>
 			{{$users->links()}}
 		</div>
@@ -90,13 +88,16 @@
         </script>
         <script src="/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-        </script>
+
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+		<!-- DataTables JS-->
+        <script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
+        <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
-        <script> 
+        <script type="text/javascript"> 
+            $('#vis-menu').click();
             $(document).ready(function (){
-                $('#vis-menu').click();
                 $('#visu-users').parent('li').addClass("active");
                 $('#example').DataTable({ 
 	                oLanguage:{
@@ -123,7 +124,40 @@
 	                bLengthChange: false,  //Show and entries em cima da tabela
 	                bFilter: true, //Search em cima da tabela
 	                bInfo: false,  //Showing em baixo da tabela);
-	            }); 
+	            });
+	            $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var result = url.split('/');
+                    var count = $(this).attr('count');
+
+                    console.log(result[5]);
+                    console.log(count);
+                    $.ajax({
+                        url: "/user/remove/"+result[5],
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+result[5]).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
+                });
             });                
         </script>        
 @endsection
@@ -158,7 +192,40 @@
 	                bLengthChange: false,  //Show and entries em cima da tabela
 	                bFilter: true, //Search em cima da tabela
 	                bInfo: false,  //Showing em baixo da tabela);
-	            }); 
+	            });
+	            $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var result = url.split('/');
+                    var count = $(this).attr('count');
+
+                    console.log(result[5]);
+                    console.log(count);
+                    $.ajax({
+                        url: "/user/remove/"+result[5],
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+result[5]).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
+                });
             });                
         </script>
 @endsection
