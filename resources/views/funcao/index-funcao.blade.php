@@ -34,13 +34,13 @@
 			</thead>
 			<tbody>
 				@foreach ($funcao as $count => $funcoes)
-					<tr align="center">
+					<tr id="{{$funcoes->funcao_id}}" align="center">
 						<td> {{$funcoes->funcao_name}}</td>
 						<td> 
 							<a href="{{route('funcao.edit',$funcoes->funcao_id)}}">
 								<i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
-							</a>	
-							<a href="#"  data-toggle="modal" data-target="#delete{{$count}}" >	
+							</a>
+                            <a class="destroy" data-catid="{{$funcoes->funcao_id}}" data-toggle="modal" data-target="#delete{{$count}}"  href="#"> 	
 								<i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
 							</a>
 						</td>
@@ -59,7 +59,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
-                                    <a id="deletar-sucesso" href="{{route('funcao.destroy',$funcoes->funcao_id)}}" class="btn btn-warning">Sim, Deletar</a>
+                                    <a href="#" data-dismiss="modal" count="{{$count}}" url="{{$funcoes->funcao_id}}" class="btn btn-warning deletar-sucesso">Sim, Deletar</a>
                                   </div>
                             </div>
                           </div>
@@ -95,9 +95,9 @@
         <script src="/js/main.js"></script>
 
         <script> 
-		    $(document).ready(function (){
-		        $('#vis-menu').click();
-		        $('#visu-funcaos').parent('li').addClass("active");
+                $('#vis-menu').click();
+            $(document).ready(function (){
+                $('#visu-funcoes').parent('li').addClass("active");
 		        $('#example').DataTable({ 
 		            oLanguage:{
 		                sProcessing: "Processando...",
@@ -124,6 +124,38 @@
 		            bFilter: true, //Search em cima da tabela
 		            bInfo: false,  //Showing em baixo da tabela);
 		        }); 
+                $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var count = $(this).attr('count');
+
+                    console.log(url);
+                    console.log(count);
+                    $.ajax({
+                        url: "/funcao/destroy/"+url,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+url).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
+                });
 		    });                
 		</script>
 
@@ -159,7 +191,39 @@
             bLengthChange: false,  //Show and entries em cima da tabela
             bFilter: true, //Search em cima da tabela
             bInfo: false,  //Showing em baixo da tabela);
-        }); 
+        });
+        $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var count = $(this).attr('count');
+
+                    console.log(url);
+                    console.log(count);
+                    $.ajax({
+                        url: "/funcao/destroy/"+url,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+url).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
+                }); 
     });                
 </script>
 @endsection
