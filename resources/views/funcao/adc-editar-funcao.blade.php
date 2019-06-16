@@ -85,8 +85,8 @@
         <script src="/js/main.js"></script>
 
         <script>
-            $(document).ready( function(){
                 $('#adc-menu').click();
+            $(document).ready( function(){
                 $('#adc-funcao').parent('li').addClass("active");
                
             });
