@@ -126,11 +126,11 @@ class TiposProblemasController extends Controller
      */
     public function destroy($id)
     {
-         DB::table('tipo_problemas')->where('probl_id', '=', $id)->delete();
-            
-         $sucesso = 'Sucesso ao remover esse tipo de problema';
-
-        return redirect()->route('tiposProblemas.index')->with('sucesso-remover' , $sucesso);
+        $resultado = DB::table('tipo_problemas')->where('probl_id', '=', $id)->delete();
+        if ($resultado == true) {
+            $sucesso = 'Sucesso ao remover esse tipo de problema';
+        }
+        return redirect()->route('tiposProblemas.index')->with('success' , $sucesso);
     }
 
     public function listSublist($id)

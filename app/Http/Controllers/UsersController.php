@@ -157,8 +157,6 @@ class UsersController extends Controller
                               -> with('success',$mensagem);
             
         }
-
-
     }
 
 	public function remove($id){
@@ -166,13 +164,11 @@ class UsersController extends Controller
       $resultado =  DB::table('users')->where('user_id', '=', $id)->delete();
        if ($resultado == true) {
             $sucess = 'Sucesso ao deletar usuario';
-             $users = DB::table('users')
-                ->join('funcaos', 'user_funcao', '=' , 'funcaos.funcao_id')
-                ->select('users.*', 'funcaos.funcao_name')
-                ->Paginate(5);       
-          
+             // $users = DB::table('users')
+             //    ->join('funcaos', 'user_funcao', '=' , 'funcaos.funcao_id')
+             //    ->select('users.*', 'funcaos.funcao_name')
+             //    ->Paginate(5);       
        }
-      
         return redirect()-> route('user.home')->with('success',$sucess);
     }
 
