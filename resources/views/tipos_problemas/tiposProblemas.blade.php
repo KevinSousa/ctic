@@ -40,19 +40,19 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tiposProblemas as $cont => $tipoProblemas)
-                    <tr align="center">
+                @foreach ($tiposProblemas as $count => $tipoProblemas)
+                    <tr id="{{$tipoProblemas->probl_id}}" align="center">
                         <td> {{$tipoProblemas->probl_tipo}}</td>
                         <td>
                           <a href="{{route('tiposProblemas.edit',$tipoProblemas->probl_id)}}" >
                             <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                           </a>
-                          <a href="#" data-toggle="modal" data-target="#delete{{$cont}}" data-toggle="modal" data-target="#delete">  
+                          <a href="#" class="destroy" data-toggle="modal" data-target="#delete{{$count}}" data-catid="{{$tipoProblemas->probl_id}}">  
                             <i class="fas fa-trash-alt" style="color: #E95B45;font-size: 1.5em"></i>
                           </a>
                         </td>
                     </tr>
-                        <div class="modal modal-danger fade" id="delete{{$cont}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal modal-danger fade" id="delete{{$count}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -67,7 +67,7 @@
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
-                                    <a id="deletar-sucesso" href="{{route('tiposProblemas.destroy',$tipoProblemas->probl_id)}}" class="btn btn-warning">Sim, Deletar</a>
+                                    <a  href="#" data-dismiss="modal" count="{{$count}}" url="{{$tipoProblemas->probl_id}}" class="btn btn-warning deletar-sucesso">Sim, Deletar</a>
                                   </div>
                             </div>
                           </div>
@@ -79,7 +79,7 @@
     </div>
 @endsection
 @section('js')
-     <!-- Jquery JS-->
+      <!-- Jquery JS-->
         <script src="/vendor/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap JS-->
         <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
@@ -96,20 +96,16 @@
         </script>
         <script src="/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-        <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
-        <script src="/vendor/select2/select2.min.js">
-        </script>
+
         <!-- Main JS-->
         <script src="/js/main.js"></script>
         <!-- DataTables JS-->
-        <script src="https://datatables.yajrabox.com/js/jquery.min.js"></script>
-        <script src="https://datatables.yajrabox.com/js/bootstrap.min.js"></script>
         <script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
-        <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
-
+        <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>  
+        
         <script type="text/javascript"> 
+            $('#vis-menu').click();
             $(document).ready(function (){
-                $('#vis-menu').click();
                 $('#visu-tipo-problemas').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
@@ -136,7 +132,39 @@
                     bLengthChange: false,  //Show and entries em cima da tabela
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
+                });
+                $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var count = $(this).attr('count');
+
+                    console.log(url);
+                    console.log(count);
+                    $.ajax({
+                        url: "/tiposProblemas/destroy/"+url,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+url).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
                 }); 
+            }); 
         </script>
 @endsection
 @section('ajax-js')
@@ -169,6 +197,37 @@
                     bLengthChange: false,  //Show and entries em cima da tabela
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
+                });
+                $('.destroy').on('click', function(event)
+                {
+                    //pega a url
+                    var url = window.location.href;
+                    //explode a url
+                    var result = url.split('/');
+                    console.log("destruir");
+                    event.preventDefault();
+          
+                });
+                $('.deletar-sucesso').on("click", function(event)
+                {
+                    event.preventDefault();
+                    var url = $(this).attr('url');
+                    var count = $(this).attr('count');
+
+                    console.log(url);
+                    console.log(count);
+                    $.ajax({
+                        url: "/tiposProblemas/destroy/"+url,
+                        type: "get",
+                        datatype: "html"
+                    }).done(function(data){
+                        $("#"+url).remove();
+                        // $("#delete"+count).modal('toggle');
+                        var modal = "#delete" + count;
+                        $(modal+" .close").click()
+                    }).fail(function(jqXHR, ajaxOptions, thrownError){
+                        alert('No response from server');
+                    });
                 }); 
             });                
         </script>
