@@ -74,7 +74,7 @@
                                         <a href="#" url="/sala/adicionar" id="adc-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
                                     <li>
-                                        <a href="#" url="/tiposProblemas/create" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
+                                        <a href="#" url="/tiposProblemas/create" id="adc-tipo" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
                                     </li>
                                     <li>
                                         <a href="#" url="/funcao/create" id="adc-funcao" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>

@@ -70,6 +70,7 @@ input[type=number]::-webkit-inner-spin-button{
         <script src="/js/main.js"></script>
 
         <script>
+                $('#adc-menu').click();
             $(document).ready( function(){
                 $("#field").keyup(function(){
                     
@@ -79,7 +80,6 @@ input[type=number]::-webkit-inner-spin-button{
                  }
                     
                 });
-                $('#adc-menu').click();
                 $('#adc-sala').parent('li').addClass("active");
             });
         </script>

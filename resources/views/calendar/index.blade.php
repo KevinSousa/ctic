@@ -38,11 +38,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
 
-          <script> 
-            $(document).ready(function (){
+        <script> 
                 $('#vis-calendar').click();
+            $(document).ready(function (){
                 $('#visu-calendar').parent('li').addClass("active");
-                
             });                
         </script>
 @endsection

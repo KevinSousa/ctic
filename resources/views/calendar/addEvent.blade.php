@@ -101,7 +101,7 @@
 @endsection
 
 @section('js')
-     <!-- Jquery JS-->
+         <!-- Jquery JS-->
         <script src="/vendor/jquery-3.2.1.min.js"></script>
         <!-- Bootstrap JS-->
         <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
@@ -123,12 +123,9 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-     <script> 
-            $(document).ready(function (){
+        <script type="text/javascript"> 
                 $('#vis-calendar').click();
+            $(document).ready(function (){
                 $('#reserv-calendar').parent('li').addClass("active");
             });                
         </script>

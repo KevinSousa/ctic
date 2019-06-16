@@ -54,8 +54,12 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
-
-
+        <script type="text/javascript"> 
+            $('#adc-menu').click();
+            $(document).ready(function (){
+                $('#adc-tipo').parent('li').addClass("active");
+            });
+        </script>
 @endsection
 <style type="text/css">
     div#index{
