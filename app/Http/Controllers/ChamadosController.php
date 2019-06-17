@@ -60,8 +60,40 @@ class ChamadosController extends Controller
         return view('chamados.adicionar', compact('salas','tipos_problemas','tipos_equip','ajax'));
     }
 
-    public function save(Request $req){
+    public function add3dadmin(Request $request , $id ){
+            
        
+        $ajax = false;
+        if ($request->ajax()){
+            $ajax = true;
+        }
+         $salas = DB::table('salas')->get();
+         $tipos_problemas = DB::table('tipo_problemas')->get();         //Leva para view de adionar um chamado passando os dados necessários
+         $tipos_equip = DB::table('tipo_equipamentos')->get();
+        if ($request->query('id')){
+           
+            $id = $request->query('id'); 
+            return view('chamados.adicionar3d', compact('id','tipos_problemas','tipos_equip','ajax'));
+        }
+        return view('chamados.adicionar3d', compact('salas','tipos_problemas','tipos_equip','ajax'));
+    }
+    
+     public function add3d(Request $request){
+            
+       
+        $ajax = false;
+        if ($request->ajax()){
+            $ajax = true;
+        }
+         $salas = DB::table('salas')->get();
+         $tipos_problemas = DB::table('tipo_problemas')->get();         //Leva para view de adionar um chamado passando os dados necessários
+         $tipos_equip = DB::table('tipo_equipamentos')->get();
+      
+        return view('chamados.adicionar3d-user', compact('salas','tipos_problemas','tipos_equip','ajax'));
+    }
+
+    public function save(Request $req){
+
         $senhas = $req -> validate([
             'cham_grau_urgencia' => 'required',
             'typeProblem' => 'required',
@@ -98,8 +130,48 @@ class ChamadosController extends Controller
 
         $mensagem = 'Chamado adicionado com Sucesso';
         return redirect()->route('chamados.index')
-                         ->with('success',$mensagem); 
+     
+                        ->with('success',$mensagem); 
     }
+
+        
+    public function save3d(Request $req){
+       
+
+        $senhas = $req -> validate([
+            'cham_grau_urgencia' => 'required',
+            'typeProblem' => 'required',
+            'cham_sublista_problema' => 'required',
+            'cham_equip' => 'required',
+            'cham_sala' => 'required',
+            'cham_descricao' => 'max:300'
+        ],[
+            'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
+            'typeProblem.required' => 'É obrigatório selecionar a Categoria do Problema',
+            'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
+            'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
+            'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
+            'cham_sala.required' => 'É obrigatório selecionar uma Sala',
+            'cham_descricao.max' => 'Digite menos de 300 caracteres na Descrição',
+        ]);
+
+        $model = new Chamado;
+        $model->cham_descricao = $req->get('cham_descricao'); // Dados que vem do form de adicionar chamados para salvar no banco
+        $model->cham_data_chamado = $req->get('cham_data_chamado');
+        $model->cham_grau_urgencia = $req->get('cham_grau_urgencia');
+        $model->cham_sala = $req->get('cham_sala');
+        $model->cham_equip = 0;
+        $model->cham_data_prevista = date('Y-m-d', strtotime('+1 week'));  //colocando a data prevista por padrao de 1 semanadesda data de envio do chamado podendo ser alterado pelo tecnico    
+        $model->cham_sublista_problema = $req->get('cham_sublista_problema'); 
+         $model->cham_obj = $req->get('cham_equip');
+        $model->cham_user = Auth::id();
+        $model->save();
+
+        $mensagem = 'Chamado adicionado com Sucesso';
+        return redirect()->route('chamados.index')
+                         ->with('success',$mensagem); 
+     }
+
 
     public function remove($id){        ///remove um chamado 
         $delete = 'sucess';
