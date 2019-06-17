@@ -147,7 +147,7 @@ class UsersController extends Controller
 
             //  $upload = $req->user_imagem->storeAs('icon/user/', $namefile);
             }else{
-                $dados['user_imagem'] = "icon/user/imagem.png";
+                $dados['user_imagem'] = "imagem.png";
             }
             
             $mensagem = 'Sucesso ao fazer cadastro, Entre.';

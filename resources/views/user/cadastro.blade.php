@@ -275,8 +275,8 @@
 
                             <div class="form-label-group">
                                 <input type="file" style="border-radius: 100px;" name="user_imagem" class="custom-file-input form-control" id="inputGroupFile03" aria-describedby="inputGroupFileAddon03"> 
-                                
                                 <label class="custom-file-label border" for="inputGroupFile01">Adicione uma foto de perfil</label>
+                                
                                 <select value="Função *"  style="border-radius: 100px;" name="user_funcao" class="form-control">
                                     <option placeholder="Função *" disabled="">Escolha a Função *</option>
                                     <option value="" disabled="">---</option>
