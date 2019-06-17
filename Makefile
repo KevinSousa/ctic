@@ -5,7 +5,6 @@ conf:
 	php artisan key:generate
 	sudo apt-get install mysql-server-5.7
 	$(MAKE) bd-conf
-
 composer:
 	composer install --no-scripts
 	cp .env.example .env
@@ -63,3 +62,4 @@ bd-conf:
 	sed -i 's/MAIL_PASSWORD.*/MAIL_PASSWORD=suporte.ctic2019/' .env
 	sed -i 's/MAIL_ENCRYPTION.*/MAIL_ENCRYPTION=tls/' .env
 	php artisan migrate:refresh --seed
+	mysql -u root -p --execute="use ctic; insert into equipamentos(equip_tombamento, equip_marca,equip_tipo) values (000000,'default','1');"
