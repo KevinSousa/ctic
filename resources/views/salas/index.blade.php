@@ -46,7 +46,7 @@
                     <td data-label="Indentificacao">{{ $sala->sala_identificacao }}</td>
                     <td data-label="Andar">{{ $sala->sala_andar }}</td>
                     <td>
-                        <a href="{{route('sala.editar',$sala->sala_id)}}">
+                    <a id="{{$count}}" href="#" class="listAJAX" url="/sala/editar/{{$sala->sala_id}}">
                            <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
                         </a>
                         <a href="#" class="destroy  " data-catid="{{$sala->sala_id}}" data-toggle="modal" data-toggle="modal" data-target="#delete{{$count}}">  
