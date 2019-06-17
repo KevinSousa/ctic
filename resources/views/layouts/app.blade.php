@@ -41,24 +41,6 @@
 <body class="animsition">
     <div class="page-wrapper">
 
-        <!-- MENU SIDEBAR-->
-        <div class="modal" id="exemplomodal2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="gridSystemModalLabel">Escolha qual tipo de chamado você deseja abrir
-                </div>
-                <div class="modal-body">
-                  <center><h3 class="m-2"><i class="fab fa-wpforms"></i><a href="/chamados/add">Formulário Simplificado</a></h3> 
-                    <h3 class="m-2"><i class="fas fa-cube"></i><a href="/chamados/add3d">Chamado Mapeado em 3d</a></h3> 
-                    </center>
-                </div>
-                    <div class="modal-footer">
-                         <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
-                    </div>
-            </div>
-      </div>
-    </div>
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="{{route('home')}}">
@@ -70,11 +52,19 @@
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
                             @can('user')
-                                <li>
-                                    <a href="#" url="/chamados/add" id="adc-chamado" class="listAJAX">
-                                        <i class="fas fa-phone"></i>Adicionar Chamados
-                                    </a>
-                                </li>
+                               
+                                    <a class="js-arrow" id="adc-menu" href="#">
+                                        <i class="fas fa-phone"></i>Adicionar Chamados</a>
+                                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                                <li>
+                                                    <a  href="/chamados/add" ><i class="fab fa-wpforms"></i>Formulário Simplificado</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/chamados/add3d" url=""  ><i class="fas fa-cube"></i>Chamado Mapeado em 3d</a>
+                                                </li>
+                                        </ul>
+                                    
+                                
                                 <li>
                                     <a href="#" url="/chamados" id="visu-chamados" class="listAJAX"><i class="fas fa-list"></i>Visualizar Chamados</a>
                                 </li>
@@ -400,10 +390,7 @@
     <script src="/vendor/Inputmask/dist/jquery.inputmask.bundle.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        $('#adc-chamado').on('click' , function(e){
-            e.preventDefault();
-            $('#exemplomodal2').modal('show');
-        });
+
     </script>
 </body>
 
