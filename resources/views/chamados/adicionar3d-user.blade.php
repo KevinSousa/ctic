@@ -184,12 +184,13 @@
         <script src="/js/main.js"></script>
         <script src="/js/select-sublistas.js"></script>
          
-        <script>
+
+       <script>
+             $('#adc-menu').click();
             $(document).ready( function(){
-                $('#adc-chamado').parent('li').addClass("active");
+                $('#adc-cham-3d').parent('li').addClass("active");
             });
         </script>
-
 
 @endsection
 @section('ajax-js')

@@ -156,8 +156,9 @@
         <script src="/js/select-sublistas.js"></script>
 
         <script>
+             $('#adc-menu').click();
             $(document).ready( function(){
-                $('#adc-chamado').parent('li').addClass("active");
+                $('#adc-cham').parent('li').addClass("active");
             });
         </script>
 

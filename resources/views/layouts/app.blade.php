@@ -57,14 +57,12 @@
                                         <i class="fas fa-phone"></i>Adicionar Chamados</a>
                                         <ul class="list-unstyled navbar__sub-list js-sub-list">
                                                 <li>
-                                                    <a  href="/chamados/add" ><i class="fab fa-wpforms"></i>Formulário Simplificado</a>
+                                                    <a href="#" url="/chamados/add" id="adc-cham" class="listAJAX"><i class="fab fa-wpforms" ></i>Formulário Simplificado</a>
                                                 </li>
                                                 <li>
-                                                    <a href="/chamados/add3d" url=""  ><i class="fas fa-cube"></i>Chamado Mapeado em 3d</a>
+                                                    <a href="/chamados/add3d" id="adc-cham-3d"><i class="fas fa-cube"></i>Chamado Mapeado em 3d</a>
                                                 </li>
                                         </ul>
-                                    
-                                
                                 <li>
                                     <a href="#" url="/chamados" id="visu-chamados" class="listAJAX"><i class="fas fa-list"></i>Visualizar Chamados</a>
                                 </li>
