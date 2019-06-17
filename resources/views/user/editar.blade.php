@@ -31,7 +31,7 @@
                         @endforeach
                     </ol>
                 @endif
-        		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form">
+        		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form" enctype="multipart/form-data">
         			{{ csrf_field() }}
         			@include('user._form')
         			<button class="btn btn-success" id="mudar" type="submit" > Atualizar </button>

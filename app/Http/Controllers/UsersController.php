@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\UsersController;
+use Illuminate\Http\UploadedFile;
 use Auth;
 use App\User;
 use App\Funcao;
@@ -219,14 +220,15 @@ class UsersController extends Controller
         }
         $senha = bcrypt($request->password);
         $nomeImagem = null;
-        if($request->hasFile('imagem')){
-            $imagem = $request->file('imagem');
+        if($request->hasFile('user_imagem')){
+            $imagem = $request->file('user_imagem');
             $numero = rand(1111,9999);
             $dir = "icon/user/";
-            $ex = $imagem -> guessClientExtension();
+            $ex = $imagem->guessClientExtension();
             $nomeImagem = "imagem_".$numero.".".$ex;
             $imagem->move($dir,$nomeImagem);
             $dados['imagem'] = $dir."/".$nomeImagem;
+            // dd($imagem);
         }
         $User                       = User::find(Auth::user()->user_id);
         // $User->user_id              = Auth::user()->user_id;

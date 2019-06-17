@@ -1,6 +1,5 @@
 	<div   class="form-row">
 		<div class="form-group col">
-	                        {{ csrf_field() }}
 			<label for="">Nome Completo *</label>
 			<input class="form-control" type="text" name="user_name" value="{{$usuario->user_name}}" required="">
 		</div>
@@ -34,7 +33,7 @@
 	<div class="form-row">
 		<div class="form-group col-md-5">
 			<label for="file" >Adicionar Imagem:</label><br>	
-			<input type="file" name="imagem" value="{{$usuario->user_imagem}}" id="file" >
+			<input type="file" name="user_imagem" value="{{$usuario->user_imagem}}" id="file" >
 			<!-- <img src="icon/user/{{$usuario->user_imagem}}" alt=""> -->
 		</div>
 		<div class="form-group col-md-7">
