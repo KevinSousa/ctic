@@ -39,4 +39,8 @@ class User extends Authenticatable
      public function cham_user(){
         return $this->hasMany(Chamado::class);
     }
+    /*Função que representa o relacionamento de muitos para um*/
+     public function event_user(){
+        return $this->hasMany(Event::class);
+    }
 }
