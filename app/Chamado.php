@@ -24,9 +24,11 @@ class Chamado extends Model
 	protected $fillable = ['cham_grau_urgencia', 'cham_descricao', 'cham_status'];
 
 	/*nome dos atributos que representam as horas 	*/
-	protected $date 	= ['cham_data_chamado', 'cham_data_prevista'];
+	protected $date = ['cham_data_chamado', 'cham_data_prevista'];
     
     public $timestamps = false;
+        
+   
 
     public $updated_at = false;
     /*Função que representa o relacionamento de muitos para um*/
