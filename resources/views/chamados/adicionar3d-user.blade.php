@@ -27,8 +27,8 @@
       
                 
     <div id="teste">
-        <button id='reverter' class="btn-info ml-10" style="position: center; position: fixed; margin-top: -3em;">Escolher outro equipamento</button>
-        <button id='next'  class=" ml-10" style="display: none;  position: fixed; ">Prosseguir com o chamado <i class="fas fa-check"></i></button>
+        <button id='reverter' class="btn-info ml-10" style="position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
+        <button id='next'  class=" ml-10" style="display: none;  position: fixed; margin-top: 1em;  ">Prosseguir com o chamado <i class="fas fa-check"></i></button>
          <canvas style="width: 150%; margin-left: -10em; margin-right: -10em; height: 100%; margin-top: -4em;" id="renderCanvas"></canvas>
     </div>
     
