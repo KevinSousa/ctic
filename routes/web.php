@@ -105,6 +105,13 @@ Route::group(['middleware'=>'auth'],function() {
 		
 	Route::get('/chamados/add', ['as' => 'chamados.add', 'uses' => 'ChamadosController@add']);
 
+	Route::get('/chamados/add3d', ['as' => 'chamados.add3d', 'uses' => 'ChamadosController@add3d']);
+
+	Route::get('/chamados/add3d/{id}', ['as' => 'chamados.add3d', 'uses' => 'ChamadosController@add3dadmin']);
+
+	Route::post('/chamados/salvar3d', ['as' => 'chamados.salvar3d', 'uses' => 'ChamadosController@save3d']);
+
+
 	Route::post('/chamados/salvar', ['as' => 'chamados.salvar', 'uses' => 'ChamadosController@save']);
 
 	Route::get('/chamados/{id}', ['as' => 'chamados.detalhes', 'uses' => 'ChamadosController@detalhes']);
