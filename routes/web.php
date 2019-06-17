@@ -123,11 +123,25 @@ Route::group(['middleware'=>'auth'],function() {
 	Route::post('/chamados/update/{id}', ['as' => 'chamados.update', 'uses' => 'ChamadosController@update']);
 
 	Route::post('/chamados/status/{id}', ['as' => 'chamados.status', 'uses' => 'ChamadosController@status']);
-
+	
+	//ROTAS DO CALENDARIO
+	
 	Route::get('calendar', ['as'=>'calendar', 'uses'=>'EventController@index']);
+	
 	Route::get('calendar/addEvent', ['as'=>'calendar.addEvent', 'uses'=>'EventController@addEvent']);
+	
 	Route::post('calendar/saveEvent', ['as'=>'calendar.saveEvent', 'uses'=>'EventController@saveEvent']);
 
+	Route::get('calendar/show/', ['as'=>'calendar.show', 'uses'=>'EventController@show']);
+
+	Route::get('/calendar/destroy/{id}', ['as' => 'calendar.destroy', 'uses' => 'EventController@destroy']);
+
+	Route::post('/calendar/update/{id}', ['as' => 'calendar.update', 'uses' => 'EventController@update']);
+
+	Route::get('/calendar/edit/{id}', ['as' => 'calendar.edit', 'uses' => 'EventController@edit']);
+
+
+	//ROTAS DE E-MAIL
 	Route::get( 'erickson', function(){
 		Mail::send('mail.treinaweb',['curso'=>'Eloquent'], function($m){
 			$m->from('erickson.rinho@gmail.com', 'Erickson');

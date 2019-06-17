@@ -5,7 +5,7 @@
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
             <div style="margin-top: 6em;">
-                <h2 id="titulo" align="left">Reservar Laboratório</h2>
+                <h2 id="titulo" align="left">Editar Reserva de Laboratório</h2>
                 <br>
                 <!-- Mensagens de Erro -->
                 @if($errors->all())
@@ -20,7 +20,7 @@
                     </ol>
                 @endif
                  
-                 <form action="{{route('calendar.saveEvent')}}" method="post">
+                 <form action="{{route('calendar.update',$event->id)}}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group">
                         @if (Session::has('success'))
@@ -30,7 +30,7 @@
                         @endif
 
                         <label> Nome do Agendamento* </label>
-                        <input type="text" class="form-control"  value="{{old('event_name')}}" name="event_name" id="event_name" required="">
+                        <input type="text" class="form-control"  value="{{old('event_name',$event->event_name ?? '')}}" name="event_name" id="event_name" required="">
                         @if ($errors->has('event_name')) 
                             <script >
                                 $('#event_name').addClass('alert-danger');                                            
@@ -39,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <label>Descrição do Agendamento</label>
-                        <textarea name="description" id="description" class="form-control" value="">{{ old('description') }}</textarea>
+                        <textarea name="description" id="description" class="form-control" value="">{{ old('description',$event->description ?? '') }}</textarea>
                         @if ($errors->has('description')) 
                             <script >
                                 $('#description').addClass('alert-danger');                                            
@@ -53,7 +53,7 @@
                             <select name="event_sala" id="event_sala" class="form-control">
                                 <option hidden></option> 
                                 @foreach ($salas as $sala)
-                                    @if (old('event_sala') == $sala->sala_id)
+                                    @if (old('event_sala',$event->event_sala ?? '') == $sala->sala_id)
                                         <option value="{{$sala -> sala_id}}" selected> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
                                     @else
                                         <option value="{{$sala -> sala_id}}"> {{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</option>
@@ -70,7 +70,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                                 <label> Data de Início* </label>
-                                <input type="datetime-local"  value="{{old('start_date')}}" class="form-control" name="start_date" id="start_date" required="">
+                                <input type="datetime-local"  value="{{old('start_date',str_replace(' ','T',$event->start_date) ?? '')}}" class="form-control" name="start_date" id="start_date" required="">
                                 @if ($errors->has('start_date')) 
                                     <script >
                                         $('#start_date').addClass('alert-danger');                                            
@@ -79,7 +79,7 @@
                         </div>
                         <div class="form-group col-md-6">
                                 <label> Data de Término* </label>
-                                <input type="datetime-local"  value="{{old('end_date')}}" class="form-control" name="end_date" id="end_date" required="">
+                                <input type="datetime-local"  value="{{old('end_date',str_replace(' ','T',$event->end_date) ?? '')}}" class="form-control" name="end_date" id="end_date" required="">
                                 @if ($errors->has('end_date')) 
                                     <script >
                                         $('#end_date').addClass('alert-danger');                                            
@@ -87,7 +87,8 @@
                                 @endif
                         </div>
                     </div>
-                    <button class="btn btn-success" type="submit"> Cadastrar </button>
+                    <!-- <input type="hidden" name="_method" value="put"> -->
+                    <button class="btn btn-success" type="submit"> Atualizar </button>
                 </form>
             </div>  
         </div>
@@ -125,7 +126,7 @@
         <script type="text/javascript"> 
                 $('#vis-calendar').click();
             $(document).ready(function (){
-                $('#reserv-calendar').parent('li').addClass("active");
+                // $('#reserv-calendar').parent('li').addClass("active");
             });                
         </script>
 @endsection
@@ -141,4 +142,5 @@
     .form-group{
         text-align: left;
     }
+</style>
 </style>
