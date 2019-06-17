@@ -31,19 +31,24 @@
                     <tr align="center">  
                         <td> {{$chamado -> user_name}} </td>
                         <td> {{$chamado -> cham_grau_urgencia}} </td>  
-                        <td> {{$chamado -> sub_nome}}</td>  
-                        <td>@php($status = ['ABERTO','EM ATENDIMENTO','FECHADO'])
-                            <form method="POST" action="{{route('chamados.status',$chamado->cham_id)}}">
-                                @csrf
-                                <select name="cham_status" id="form" onchange="this.form.submit()">
-                                    @foreach($status as $statu)
-                                        <option value="{{$statu}}" @if($chamado->cham_status == $statu) selected @endif>
-                                            {{$statu}}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </form>
-                        </td>   
+                        <td> {{$chamado -> sub_nome}}</td>
+                        @can('user')  
+                            <td> {{$chamado -> cham_status}}</td>
+                        @endcan
+                        @can('admin')  
+                            <td>@php($status = ['ABERTO','EM ATENDIMENTO','FECHADO'])
+                                <form method="POST" action="{{route('chamados.status',$chamado->cham_id)}}">
+                                    @csrf
+                                    <select name="cham_status" id="form" onchange="this.form.submit()">
+                                        @foreach($status as $statu)
+                                            <option value="{{$statu}}" @if($chamado->cham_status == $statu) selected @endif>
+                                                {{$statu}}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </form>
+                            </td>
+                        @endcan  
                         <td>        
                             <a href="{{route('chamados.detalhes',$chamado->cham_id)}}"><i class="ui primary button ">Detalhes</i></a>   
                         </td>   
