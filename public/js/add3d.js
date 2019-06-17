@@ -3,38 +3,23 @@ $(window).load(function(){
   
     $('#b10').on('click' ,function(){
       start($('#b10').val());
-      $('#info2').css('border', '3px solid red'); 
-      setTimeout(function(){ 
-        $('#info3').css('border', '3px solid red');
-          $('#info2').css('border', ''); 
-         }, 2000);
-        setTimeout(function(){ 
-        $('#info4').css('border', '3px solid red');
-         $('#info3').css('border', ''); 
-           fecharmodal();
-       }, 6000);
+
+        fecharmodal();
+      
       });
-   function fecharmodal(){
-       setTimeout(function(){ 
-          $('#exemplomodal').modal('hide');
-       }, 2000);
-   };
+     function fecharmodal(){
+         setTimeout(function(){ 
+            $('#exemplomodal').modal('hide');
+         },500);
+     };
 
-     $('#b2').on('click' ,function(){
-        start($('#b2').val(),'');    
-        $('#info2').css('border', '3px solid red'); 
-        setTimeout(function(){ 
-            $('#info3').css('border', '3px solid red');
-             $('#info2').css('border', ''); 
-           }, 2000);
-        setTimeout(function(){ 
-          $('#info3').css('border', ''); 
-          $('#info4').css('border', '3px solid red');
-           fecharmodal();
-         }, 6000);
-       });
-       $('#exemplomodal').modal('show');
-
+       $('#b2').on('click' ,function(){
+          start($('#b2').val(),'');   
+         
+             fecharmodal();
+           
+         });
+         $('#exemplomodal').modal('show');
   });
             
               
