@@ -51,22 +51,23 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="has-sub">
+
                             @can('user')
-                               
-                                    <a class="js-arrow" id="adc-menu" href="#">
-                                        <i class="fas fa-phone"></i>Adicionar Chamados</a>
-                                        <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                                <li>
-                                                    <a href="#" url="/chamados/add" id="adc-cham" class="listAJAX"><i class="fab fa-wpforms" ></i>Formulário Simplificado</a>
-                                                </li>
-                                                <li>
-                                                    <a href="/chamados/add3d" id="adc-cham-3d"><i class="fas fa-cube"></i>Chamado Mapeado em 3d</a>
-                                                </li>
-                                        </ul>
+                            <a class="js-arrow" id="adc-menu" href="#">
+                                <i class="fas fa-phone"></i>Adicionar Chamados</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a href="#" url="/chamados/add" id="adc-cham" class="listAJAX"><i class="fab fa-wpforms" ></i>Formulário Simplificado</a>
+                                    </li>
+                                    <li>
+                                        <a href="/chamados/add3d" id="adc-cham-3d"><i class="fas fa-cube"></i>Chamado Mapeado em 3d</a>
+                                    </li>
+                                </ul>
                                 <li>
                                     <a href="#" url="/chamados" id="visu-chamados" class="listAJAX"><i class="fas fa-list"></i>Visualizar Chamados</a>
                                 </li>
-                            @endcan        
+                            @endcan  
+
                             @can('admin')
                             <a class="js-arrow" id="adc-menu" href="#">
                                 <i class="fas fa-plus"></i>Adicionar</a>
@@ -74,7 +75,6 @@
                                     <li>
                                         <a href="#" url="/equipamento/create" id="adc-equip" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
                                     </li>
-
                                     <li>
                                         <a href="#" url="/sala/adicionar" id="adc-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
                                     </li>
@@ -85,7 +85,8 @@
                                         <a href="#" url="/funcao/create" id="adc-funcao" class="listAJAX"><i class="fas fa-chart-bar"></i>Funções</a>
                                     </li>
                             </ul>
-                                @endcan
+                            @endcan
+                        
                         </li>
                         @can('admin')
                             <li>
@@ -128,70 +129,23 @@
                                     <a href="#" url="/calendar/addEvent" id="reserv-calendar" class="listAJAX">
                                         <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
                                 </li>
+                                <li>
+                                    <a href="{{route(calendar.show, $Auth::user()->user_id)}}" id="my-reserv-calendar">
+                                        <i class="fas fa-calendar-plus"></i>Minhas Reservas</a>
+                                </li>
                             @endcan 
                             @can('admin')
                                 <li>
                                     <a href="#" url="/calendar/addEvent" id="reserv-calendar" class="listAJAX">
                                         <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
                                 </li>
+                                <li>
+                                    <a href="#" url="/calendar/show" id="my-reserv-calendar" class="listAJAX">
+                                        <i class="fas fa-calendar-plus"></i>Minhas Reservas</a>
+                                </li>
                             @endcan 
                             </ul>
                         </li>
-                        
-           <!--              <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Paginas</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Entrar</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Cadastre-se</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Esqueceu a senha</a>
-                                </li>
-                            </ul>
-                        </li> -->
-<!--                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
-                            </ul>
-                        </li> -->
                     </ul>
                 </nav>
             </div>
@@ -205,125 +159,7 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap" style="float:right;">
-                          <!--   <form class="form-header" action="" method="POST">
-                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Procurar por .." />
-                                <button class="au-btn--submit" type="submit">
-                                    <i class="zmdi zmdi-search"></i>
-                                </button>
-                            </form> -->
-                            <div class="header-button">
-                                <!-- <div class="noti-wrap">
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-comment-more"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="mess-dropdown js-dropdown">
-                                            <div class="mess__title">
-                                                <p>Você tem 2 mensagens</p>
-                                            </div>
-                                            <div class="mess__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="/icon/avatar-06.jpg" alt="Ezreal" />
-                                                </div>
-                                                <div class="content">
-                                                    <h6>Marcos Andrade</h6>
-                                                    <p>A sala de Informática do Bloco B está disponivel para a proxima Segunda Feira?</p>
-                                                    <span class="time">3 min</span>
-                                                </div>
-                                            </div>
-                                            <div class="mess__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="/icon/avatar-04.jpg" alt="Diane Myers" />
-                                                </div>
-                                                <div class="content">
-                                                    <h6>Paulo Diamont</h6>
-                                                    <p>O projetor da sala 02 do Bloco C não está funcionando! </p>
-                                                    <span class="time">Ontem</span>
-                                                </div>
-                                            </div>
-                                            <div class="mess__footer">
-                                                <a href="#">Ver todas as mensagens</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-email"></i>
-                                        <span class="quantity">1</span>
-                                        <div class="email-dropdown js-dropdown">
-                                            <div class="email__title">
-                                                <p>Você tem 3 novos emails</p>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="/icon/avatar-06.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Utilizou nossa plataforma</p>
-                                                    <span>Marcos Andrade, 3 min</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="/icon/avatar-05.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Utilizou nossa plataforma</p>
-                                                    <span>Carlos Harvey, Ontem</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__item">
-                                                <div class="image img-cir img-40">
-                                                    <img src="/icon/avatar-04.jpg" alt="Cynthia Harvey" />
-                                                </div>
-                                                <div class="content">
-                                                    <p>Utilizou nossa plataforma</p>
-                                                    <span>Paulo Diamond, 12 Abril 2019</span>
-                                                </div>
-                                            </div>
-                                            <div class="email__footer">
-                                                <a href="#">Veja todos os emails</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="noti__item js-item-menu">
-                                        <i class="zmdi zmdi-notifications"></i>
-                                        <span class="quantity">3</span>
-                                        <div class="notifi-dropdown js-dropdown">
-                                            <div class="notifi__title">
-                                                <p>Você tem 3 notificações</p>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c1 img-cir img-40">
-                                                    <i class="zmdi zmdi-email-open"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Você recebeu um email de notificação</p>
-                                                    <span class="date">12 Abril 2018, 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c2 img-cir img-40">
-                                                    <i class="zmdi zmdi-account-box"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Sua conta foi bloqueada</p>
-                                                    <span class="date">12 Abril 2018, 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__item">
-                                                <div class="bg-c3 img-cir img-40">
-                                                    <i class="zmdi zmdi-file-text"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <p>Você tem um novo arquivo</p>
-                                                    <span class="date">12 Abril 2018, 06:50</span>
-                                                </div>
-                                            </div>
-                                            <div class="notifi__footer">
-                                                <a href="#">Todas as notificações</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  -->
+                            <div class="header-button">                                
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div  class="image">
