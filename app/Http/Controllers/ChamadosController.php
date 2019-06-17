@@ -181,4 +181,15 @@ class ChamadosController extends Controller
                                         
                         return view('chamados.detalhes',compact('chamado','ajax','sublista','tipos_problemas'));    
     }
+    public function status(Request $request,$id){
+        $model = Chamado::where('cham_id', '=' , $id)->first();
+        // $model->cham_id = $id; 
+        $model->cham_status = $request->cham_status; 
+        $model->save();
+
+        $mensagem = 'Status modificado com Sucesso';
+        return redirect()->route('chamados.index')
+                         ->with('success',$mensagem); 
+    }
+
 }

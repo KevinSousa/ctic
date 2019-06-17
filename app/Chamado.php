@@ -13,9 +13,12 @@ class Chamado extends Model
 {
 	/*nome da tabela*/
 	protected $table 	= 	"chamados";
+    
+    /*nome da chave primaria da tabela*/
+    protected $primaryKey = 'cham_id';
 
 	/*nome dos atributos que não poderão ser alterados*/
-	protected $guarded	= ['cham_id','cham_user','cham_sala', 'cham_equip', 'cham_sublista_problema'];
+	protected $guarded	= ['cham_user','cham_sala', 'cham_equip', 'cham_sublista_problema'];
 
 	/*nome dos atributos que poderão ser alterados*/
 	protected $fillable = ['cham_grau_urgencia', 'cham_descricao', 'cham_status'];

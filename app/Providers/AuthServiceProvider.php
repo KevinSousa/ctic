@@ -37,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
         });
         // Permissão para o Professor 
         $gate->define('professor', function(User $user){
-            return $user->user_funcao != '2';
+            return $user->user_funcao == '2';
         });
         // Permissão para o Usuario só poder modificar o seu chamado 
         $gate->define('cham-user', function(User $user, Chamado $chamados){

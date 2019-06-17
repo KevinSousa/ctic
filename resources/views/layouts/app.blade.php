@@ -124,6 +124,12 @@
                                         <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
                                 </li>
                             @endcan 
+                            @can('admin')
+                                <li>
+                                    <a href="#" url="/calendar/addEvent" id="reserv-calendar" class="listAJAX">
+                                        <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
+                                </li>
+                            @endcan 
                             </ul>
                         </li>
                         

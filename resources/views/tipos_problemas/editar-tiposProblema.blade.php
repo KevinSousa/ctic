@@ -12,9 +12,7 @@
                     @component('tipos_problemas/card-tiposProblemas', ['tipoProblema' => $tipoProblema])
                     @endcomponent
                     <button class="btn btn-success" type="submit"> Atualizar </button>
-                    <a href="{{ redirect()->back()->getTargetUrl() }}">
-                        <button class="btn btn-primary">Voltar</button>
-                    </a>
+
                 </form>
             </div>
         </div>

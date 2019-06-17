@@ -85,10 +85,10 @@
                 </div>
                 @isset($equipamento)
                     <button class="btn btn-success" type="submit">Editar Equipamento</button>
-                    <a href="{{ redirect()->back()->getTargetUrl() }}">
+<!--                     <a href="{{ redirect()->back()->getTargetUrl() }}">
                         <button class="btn btn-primary">Voltar</button>
                     </a>
-                @else
+ -->                @else
                    <button class="btn btn-success" type="submit">Adicionar</button>
                 @endisset
                 </form>
@@ -126,10 +126,17 @@
         <script src="/js/main.js"></script>
 
         <script>
+            @isset($equipamento)
                 $('#adc-menu').click();
+            @else
+                $('#vis-menu').click();
+            @endisset
             $(document).ready( function(){
+            @isset($equipamento)
                 $('#adc-equip').parent('li').addClass("active");
-
+            @else
+                $('#visu-equips').parent('li').addClass("active");
+            @endisset
                 (function ($) {
                 "use strict";
     /*==================================================================

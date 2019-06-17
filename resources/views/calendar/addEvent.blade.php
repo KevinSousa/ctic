@@ -88,7 +88,6 @@
                         </div>
                     </div>
                     <button class="btn btn-success" type="submit"> Cadastrar </button>
-                    <a href="{{route('calendar')}}"><button class="btn btn-primary">Voltar</button></a>
                 </form>
             </div>  
         </div>

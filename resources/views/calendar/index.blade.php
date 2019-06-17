@@ -6,7 +6,6 @@
     </div>
     <div class="row justify-content-md-left" style="width: 810px; height: 500px;" align="center">
         <div id="calendar" class="col col" >
-            {!! $calendar_details -> calendar() !!}
             {!! $calendar_details->script() !!}
         </div>
     </div>
@@ -42,6 +41,20 @@
                 $('#vis-calendar').click();
             $(document).ready(function (){
                 $('#visu-calendar').parent('li').addClass("active");
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    defaultDate: Date(),
+                    navLinks: true, // can click day/week names to navigate views
+                    editable: true,
+                    eventLimit: true, // allow "more" link when too many events
+                    events: [
+                       
+                    ]
+                });
             });                
         </script>
 @endsection

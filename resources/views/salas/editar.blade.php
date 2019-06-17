@@ -33,9 +33,7 @@
                     @component('cards/card-sala',['sala'=>$sala])
                     @endcomponent       
                     <button class="btn btn-success" type="submit">Editar</button>
-                    <a href="{{ redirect()->back()->getTargetUrl() }}">
-                        <button class="btn btn-primary">Voltar</button>
-                    </a>
+
                 </form>
             </div>
         </div>

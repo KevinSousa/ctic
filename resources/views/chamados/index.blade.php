@@ -7,7 +7,7 @@
             <h1 id="titulo">Chamados</h1>
             <br>
              @if(session('success'))
-                <ol class="alert alert-warning alert-dismissible fade show mt-2" role="alert">              
+                <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
                     <p>{{session('success')}}</p>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -32,7 +32,18 @@
                         <td> {{$chamado -> user_name}} </td>
                         <td> {{$chamado -> cham_grau_urgencia}} </td>  
                         <td> {{$chamado -> sub_nome}}</td>  
-                        <td> {{$chamado -> cham_status}}</td>   
+                        <td>@php($status = ['ABERTO','EM ATENDIMENTO','FECHADO'])
+                            <form method="POST" action="{{route('chamados.status',$chamado->cham_id)}}">
+                                @csrf
+                                <select name="cham_status" id="form" onchange="this.form.submit()">
+                                    @foreach($status as $statu)
+                                        <option value="{{$statu}}" @if($chamado->cham_status == $statu) selected @endif>
+                                            {{$statu}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </form>
+                        </td>   
                         <td>        
                             <a href="{{route('chamados.detalhes',$chamado->cham_id)}}"><i class="ui primary button ">Detalhes</i></a>   
                         </td>   
@@ -74,11 +85,9 @@
         <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
 
          <script type="text/javascript">
-
             $('#vis-menu').click();
             
             $(document).ready(function (){
-                
                 $('#visu-menu').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
@@ -106,46 +115,50 @@
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
                 }); 
-            });                
-        </script>
- 
-        
-
+                document.getElementById('form').addEventListener('change', function() {
+                    this.form.submit();
+                });      
+            }); 
+        </script> 
 @endsection
 @section('ajax-js')
 
-    <script> 
-            $(document).ready(function (){
-                $('#vis-menu').click();
-                $('#visu-menu').parent('li').addClass("active");
-                $('#example').DataTable({ 
-                    oLanguage:{
-                        sProcessing: "Processando...",
-                        sLengthMenu: "Mostar _MENU_ registros pro página",
-                        sZeroRecords: "Nada encontrado com esse critérios",
-                        sEmptyTable: "Não há dados para serem mostrados",
-                        sLoadingRecords: "Carregando...",
-                        sInfo: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                        sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
-                        sInfoFiltered: "(filtro aplicado em _MAX_ registros)",
-                        sInfoPostFix: "",
-                        sInfoThousands: ".",
-                        sSearch: "Pesquisar:",
-                        sUrl: "",
-                            oPaginate:{
-                                sFirst: "Primeira",
-                                sPrevious: "Anterior",
-                                sNext: "Próxima",
-                                sLast: "Última",
-                            },
-                        },
-                    bPaginate: false, //Next and Previous embaixo da tabela
-                    bLengthChange: false,  //Show and entries em cima da tabela
-                    bFilter: true, //Search em cima da tabela
-                    bInfo: false,  //Showing em baixo da tabela);
-                }); 
-            });                
-        </script>
+<script type="text/javascript">
+    $('#vis-menu').click();
+    
+    $(document).ready(function (){
+        $('#visu-menu').parent('li').addClass("active");
+        $('#example').DataTable({ 
+            oLanguage:{
+                sProcessing: "Processando...",
+                sLengthMenu: "Mostar _MENU_ registros pro página",
+                sZeroRecords: "Nada encontrado com esse critérios",
+                sEmptyTable: "Não há dados para serem mostrados",
+                sLoadingRecords: "Carregando...",
+                sInfo: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
+                sInfoFiltered: "(filtro aplicado em _MAX_ registros)",
+                sInfoPostFix: "",
+                sInfoThousands: ".",
+                sSearch: "Pesquisar:",
+                sUrl: "",
+                    oPaginate:{
+                        sFirst: "Primeira",
+                        sPrevious: "Anterior",
+                        sNext: "Próxima",
+                        sLast: "Última",
+                    },
+                },
+            bPaginate: false, //Next and Previous embaixo da tabela
+            bLengthChange: false,  //Show and entries em cima da tabela
+            bFilter: true, //Search em cima da tabela
+            bInfo: false,  //Showing em baixo da tabela);
+        }); 
+        document.getElementById('form').addEventListener('change', function() {
+            this.form.submit();
+        });      
+    }); 
+</script>
 
 @endsection
 <style type="text/css">

@@ -45,9 +45,6 @@
                 </div>
                 @isset($funcao)
                     <button class="btn btn-success" type="submit">Editar Função</button>
-                    <a href="{{  redirect()->back()->getTargetUrl() }}">
-                        <button class="btn btn-primary">Voltar</button>
-                    </a>
                 @else
                     <button class="btn btn-success" type="submit">Adicionar</button>
                 @endisset
