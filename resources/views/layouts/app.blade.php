@@ -130,8 +130,8 @@
                                         <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
                                 </li>
                                 <li>
-                                    <a href="{{route(calendar.show, $Auth::user()->user_id)}}" id="my-reserv-calendar">
-                                        <i class="fas fa-calendar-plus"></i>Minhas Reservas</a>
+                                    <a href="#" url="/calendar/show" id="my-reserv-calendar" class="listAJAX">
+                                        <i class="fas fa-calendar-check"></i>Minhas Reservas</a>
                                 </li>
                             @endcan 
                             @can('admin')
@@ -141,7 +141,7 @@
                                 </li>
                                 <li>
                                     <a href="#" url="/calendar/show" id="my-reserv-calendar" class="listAJAX">
-                                        <i class="fas fa-calendar-plus"></i>Minhas Reservas</a>
+                                        <i class="fas fa-calendar-check"></i>Minhas Reservas</a>
                                 </li>
                             @endcan 
                             </ul>
