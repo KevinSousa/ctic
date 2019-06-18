@@ -160,7 +160,7 @@ class ChamadosController extends Controller
         $model->cham_data_chamado = $req->get('cham_data_chamado');
         $model->cham_grau_urgencia = $req->get('cham_grau_urgencia');
         $model->cham_sala = $req->get('cham_sala');
-        $model->cham_equip = 0;
+        $model->cham_equip = 9543154;
         $model->cham_data_prevista = date('Y-m-d', strtotime('+1 week'));  //colocando a data prevista por padrao de 1 semanadesda data de envio do chamado podendo ser alterado pelo tecnico    
         $model->cham_sublista_problema = $req->get('cham_sublista_problema'); 
          $model->cham_obj = $req->get('cham_equip');
@@ -247,7 +247,9 @@ class ChamadosController extends Controller
             ->join('users', 'users.user_id', '=' , 'cham_user')
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
                     ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
-                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
+                    ->join('equipamentos', 'equipamentos.equip_tombamento', '=' , 'cham_equip')
+                    ->join('tipo_equipamentos', 'tipo_equipamentos.tipo_id', '=' , 'equip_tipo')
+                    ->select('users.user_name','chamados.*','equipamentos.*','tipo_equipamentos.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
                     ->where('cham_id', $id)->get();
 
                                         

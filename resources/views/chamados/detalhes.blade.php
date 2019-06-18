@@ -12,7 +12,7 @@
 	  	@foreach ($chamado as $chamados)
 		  	<thead class="thead-dark">
 			    <tr>
-			     	<th class="border border-dark" scope="">Destalhes do chamado</th>
+			     	<th class="border border-dark" scope="">Detalhes do chamado</th>
 			      	<th class="border border-dark" class="col-md-8" scope="col">Valores</th>
 			    </tr>
 			</thead>
@@ -22,16 +22,16 @@
 			      <td class="border border-dark"> {{$chamados -> user_name}} </td>
 			    </tr>
 			    <tr class="hover">
-			     	<th class="border border-dark" scope="row">Grau de urgencia</th>
+			     	<th class="border border-dark" scope="row">Grau de urgência</th>
 			     	<td class="border border-dark"> {{$chamados -> cham_grau_urgencia}} </td>
 			    </tr>
 			    <tr class="hover">
 			    	<th class="border border-dark" scope="row">Sala</th>
-			    	<td class="border border-dark"> {{$chamados -> sala_identificacao }} </td>
-			    </tr>
+			    	<td class="border border-dark"> {{substr($chamados -> sala_andar, -1)}} - {{$chamados -> sala_identificacao}} </td>
+			    </tr>			    
 			    <tr class="hover">
-			    	<th class="border border-dark" scope="row">Andar</th>
-			     	<td class="border border-dark">{{$chamados ->  sala_andar}}</td>
+			    	<th class="border border-dark" scope="row">Nome e Tombamento do Equipamento</th>
+			    	<td class="border border-dark">{{$chamados->tipo_nome}} / {{$chamados -> equip_tombamento}}</td>
 			    </tr>
 			    <tr class="hover" >
 			     	<th  class="border border-dark" scope="row">Descrição</th>
