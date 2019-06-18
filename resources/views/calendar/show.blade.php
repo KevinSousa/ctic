@@ -57,8 +57,8 @@
 						<td>{{$event->description}}</td>
                         <td style="color:{{$event->event_cor}};height: 1em;width: 2em;">
                             <div style="height: 1em;width: 2em;border: 1px solid black;background:{{$event->event_cor}}"></div>{{$event->event_cor}}</td>
-						<td>{{date("d/m/Y H:i", intval($event->start_date))}}</td>
-						<td>{{date("d/m/Y H:i", intval($event->end_date))}}</td>
+						<td>{{date("d/m/Y H:i", strtotime($event->start_date))}}</td>
+						<td>{{date("d/m/Y H:i", strtotime($event->end_date))}}</td>
                         <td> 
                             <a id="{{$count}}" href="#" class="listAJAX" url="/calendar/edit/{{$event->id}}">
                                 <i class="fas fa-edit" style="color: #E0E861;font-size: 1.5em"></i>
