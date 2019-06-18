@@ -17,17 +17,24 @@ class EventController extends Controller
 {
     public function index(Request $request){
 
-        $events = Event::get();
+        // $events = Event::get();
+        // $users = User::all();
+        $events = DB::table('events')
+                    ->join('users', 'users.user_id', '=', 'events.event_user')
+                    ->join('salas', 'salas.sala_id', '=', 'events.event_sala')
+                    ->get();
+
         $event_list = [];
         foreach ($events as $key => $event) {
             $enddate = $event->end_date." 24:00:00";
             $event_list[] = Calendar::event(
-                $event->event_name,
+                $event->user_name,
                 false,
                 new \Datetime($event->start_date),
                 new \Datetime($event->end_date . ' +1 day'),
                 $event->id,
                 [
+                    'title' => $event->user_name,
                     'color' => $event->event_cor,
                 ]
             );
@@ -66,14 +73,10 @@ class EventController extends Controller
 
         //aqui ele faz a mesma coisa de cima só tem se é a data de fim que está entre.
         $dados = $request->validate([
-            'event_name' => 'required',
-            'description' => 'max:300',
             'event_sala' => 'required',
             'start_date' => 'required|date:Y-m-d H:i',
             'end_date' => 'required|date:Y-m-d H:i|after:start_date',
             ],[
-            'event_name.required' => 'É obrigatório preencher o nome do Agendamento',
-            'description.max' => 'Digite menos de 300 caracteres na Descrição',
             'event_sala.required' => 'É obrigatório selecionar uma Sala',
             'start_date.required' => 'É obrigatório ter uma Data de Início',
             'start_date.date' => 'Adicione uma Data de Início em um formato aceitavel',
@@ -84,13 +87,13 @@ class EventController extends Controller
 
 
         if ($reservas != null || $conflitoStart != false || $conflitoEnd != false ){
-            \Session::flash('warning', 'Erro ao efetuar agendamento');
-            return Redirect::to('/calendar/addEvent')->withInput()->withErrors($reservas);
+            // \Session::flash('warning', 'Erro ao efetuar agendamento');
+            $mensagem = 'O laboratorio já está reservado para uma dessas datas!';
+            // return redirect()->with('warning',$mensagem);
+            return Redirect::to('/calendar/addEvent')->withInput()->withErrors($mensagem);
         }
 
         $event = new Event;
-        $event->event_name = $request['event_name'];
-        $event->description = $request['description'];
         $event->event_sala = $request['event_sala'];
         $event->start_date = $request['start_date'];
         $event->event_cor = $request['event_cor'];
@@ -137,14 +140,10 @@ class EventController extends Controller
 
         //aqui ele faz a mesma coisa de cima só tem se é a data de fim que está entre.
         $dados = $request->validate([
-            'event_name' => 'required',
-            'description' => 'max:300',
             'event_sala' => 'required',
             'start_date' => 'required|date:Y-m-d H:i',
             'end_date' => 'required|date:Y-m-d H:i|after:start_date',
             ],[
-            'event_name.required' => 'É obrigatório preencher o nome do Agendamento',
-            'description.max' => 'Digite menos de 300 caracteres na Descrição',
             'event_sala.required' => 'É obrigatório selecionar uma Sala',
             'start_date.required' => 'É obrigatório ter uma Data de Início',
             'start_date.date' => 'Adicione uma Data de Início em um formato aceitavel',
@@ -161,8 +160,6 @@ class EventController extends Controller
 
         /* Se o Id for igual ao id da Reserva pega tudo*/
         $event  = Event::where('id','=', $id)->first();
-        $event->event_name = $request['event_name'];
-        $event->description = $request['description'];
         $event->event_sala = $request['event_sala'];
         $event->start_date = $request['start_date'];
         $event->event_cor = $request['event_cor'];

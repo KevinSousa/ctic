@@ -7,6 +7,15 @@
             <div style="margin-top: 6em;">
                 <h2 id="titulo" align="left">Editar Reserva de Laboratório</h2>
                 <br>
+                @if(session('warning'))
+                <ol class="alert alert-warning alert-dismissible fade show mt-2" role="alert">              
+                    <p>{{session('success')}}</p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </ol> 
+                <?php Session::pull('fail')?>         
+              @endif
                 <!-- Mensagens de Erro -->
                 @if($errors->all())
                      <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
@@ -22,31 +31,7 @@
                  
                  <form action="{{route('calendar.update',$event->id)}}" method="POST">
                     {{ csrf_field() }}
-                    <div class="form-group">
-                        @if (Session::has('success'))
-                            <div class="alert alert-success">{{ Session::get('success')}}</div>
-                        @elseif (Session::has('warnning'))
-                            <div class="alert alert-danger">{{ Session::get('warnning')}}</div>
-                        @endif
-
-                        <label> Nome do Agendamento* </label>
-                        <input type="text" class="form-control"  value="{{old('event_name',$event->event_name ?? '')}}" name="event_name" id="event_name" required="">
-                        @if ($errors->has('event_name')) 
-                            <script >
-                                $('#event_name').addClass('alert-danger');                                            
-                            </script>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <label>Descrição do Agendamento</label>
-                        <textarea name="description" id="description" class="form-control" value="">{{ old('description',$event->description ?? '') }}</textarea>
-                        @if ($errors->has('description')) 
-                            <script >
-                                $('#description').addClass('alert-danger');                                            
-                            </script>
-                        @endif
-                        <!-- <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}"> -->
-                    </div>
+                    
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Sala*</label>

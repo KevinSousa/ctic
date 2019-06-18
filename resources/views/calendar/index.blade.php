@@ -1,13 +1,13 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
 <div class="container">
-        <div class="row justify-content-md-left" style="width: 910px; height: 500px;" align="center">
+        <div class="row justify-content-md-left" style="width: 73em; " align="center">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="backgroud:#2e6da4; color:white;">
                         <!-- Event Calendar [Full - Calendar] -->
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" id="calendar">
                         {!! $calendar_details -> calendar() !!}
                         {!! $calendar_details->script() !!}
                     </div>
@@ -49,14 +49,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
 
         <script> 
-                $('#vis-calendar').click();
+            $('#vis-calendar').click();
             $(document).ready(function (){
                 $('#visu-calendar').parent('li').addClass("active");
-                var calendar = new Calendar(calendarEl, {
-                  dateClick: function() {
-                    alert('a day has been clicked!');
-                  }
-                }); 
             });                
         </script>
 @endsection

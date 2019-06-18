@@ -5,9 +5,8 @@
 	<div id="index">
 		<div align="left row">	
 			<h1 id="titulo">Minhas Reservas</h1>
-			
             @if(session('success'))
-                <ol class="float-right alert alert-success alert-dismissible fade col-md-4 show mt-2" role="alert">              
+                <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
                     {{session('success')}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -16,7 +15,7 @@
                 <?php Session::pull('fail')?>         
               @endif
               @if(session('fail'))
-                <ol class="float-right alert alert-danger alert-dismissible fade col-md-4 show mt-2" role="alert">              
+                <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">              
                     {{session('fail')}}
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -24,14 +23,13 @@
                 </ol> 
                 <?php Session::pull('fail')?>         
               @endif
+			
 		</div>
         <table class="table table-striped table-bordered" id="example">
 			<thead align="center" class="thead-light">
 				<tr align="center">
 				
-                    <th scope="col"> NOME </th>
                     <th scope="col"> AUTOR </th>
-					<th scope="col"> SALA </th>
 					<th scope="col"> DESCRIÇÃO </th>
                     <th scope="col"> COR </th>
 					<th scope="col"> DATA DE INICIO </th>
@@ -43,7 +41,6 @@
 				@foreach($events as $count => $event)
                     <tr id="{{ $event->id }}" align="center">
                         <input id="idEvento" value="{{ $event->id }}" type="hidden">
-						<td>{{$event->event_name}}</td>
 						@foreach($users as $user)
 							@if($user->user_id == $event->event_user)
 								<td>{{$user->user_name}}</td>
@@ -54,7 +51,6 @@
 								<td>{{substr($sala -> sala_andar, -1)}} - {{$sala -> sala_identificacao}}</td>
 							@endif
 						@endforeach
-						<td>{{$event->description}}</td>
                         <td style="color:{{$event->event_cor}};height: 1em;width: 2em;">
                             <div style="height: 1em;width: 2em;border: 1px solid black;background:{{$event->event_cor}}"></div>{{$event->event_cor}}</td>
 						<td>{{date("d/m/Y H:i", strtotime($event->start_date))}}</td>
