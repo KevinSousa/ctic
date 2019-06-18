@@ -126,8 +126,8 @@
                           <button class='btn btn-success' id='enviarform' type="submit">Adicionar</button>
                           <div style="overflow:auto;">
                               <div id="btns" style="float:right;">
-                                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Voltar</button>
+                                <button type="button" id="nextBtn" onclick="nextPrev(1)">Próximo</button>
                               </div>
                             </div>
                             <!-- Circles which indicates the steps of the form: -->
@@ -198,9 +198,9 @@
         color: #666;
     }
 
-    .form-row, .form-group{
+/*    .form-row, .form-group{
         text-align: left;
-    }
+    }*/
 
 </style>
 

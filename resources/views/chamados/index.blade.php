@@ -83,6 +83,7 @@
         </script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+        <script src="/js/select-sublistas.js"></script>
         <!-- DataTables JS-->
         <script src="https://datatables.yajrabox.com/js/jquery.min.js"></script>
         <script src="https://datatables.yajrabox.com/js/bootstrap.min.js"></script>
@@ -119,10 +120,12 @@
                     bLengthChange: false,  //Show and entries em cima da tabela
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
-                }); 
+                });
+            @can('admin') 
                 document.getElementById('form').addEventListener('change', function() {
                     this.form.submit();
-                });      
+                }); 
+            @endcan     
             }); 
         </script> 
 @endsection
@@ -159,9 +162,11 @@
             bFilter: true, //Search em cima da tabela
             bInfo: false,  //Showing em baixo da tabela);
         }); 
+         @can('admin')
         document.getElementById('form').addEventListener('change', function() {
             this.form.submit();
         });      
+        @endcan
     }); 
 </script>
 
