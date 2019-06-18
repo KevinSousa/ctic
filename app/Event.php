@@ -18,7 +18,7 @@ class Event extends Model
 	protected $guarded	= ['event_sala','event_user'];
 
 	/*nome dos atributos que poderão ser alterados*/
-   protected $fillable = ['event_name','description','start_date','end_date'];
+   protected $fillable = ['event_name','event_cor','description','start_date','end_date'];
    
    /*Função que representa o relacionamento de muitos para um*/
 	  public function event_sala(){

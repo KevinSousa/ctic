@@ -28,7 +28,7 @@ class EventController extends Controller
                 new \Datetime($event->end_date . ' +1 day'),
                 $event->id,
                 [
-                    'color' => 'yellow',
+                    'color' => $event->event_cor,
                 ]
             );
         }
@@ -93,6 +93,7 @@ class EventController extends Controller
         $event->description = $request['description'];
         $event->event_sala = $request['event_sala'];
         $event->start_date = $request['start_date'];
+        $event->event_cor = $request['event_cor'];
         $event->end_date = $request['end_date'];
         $event->event_user = Auth::user()->user_id;
         $event -> save();
@@ -164,6 +165,7 @@ class EventController extends Controller
         $event->description = $request['description'];
         $event->event_sala = $request['event_sala'];
         $event->start_date = $request['start_date'];
+        $event->event_cor = $request['event_cor'];
         $event->end_date = $request['end_date'];
         $event -> save();
 

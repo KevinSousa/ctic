@@ -1,8 +1,7 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
 <div class="container">
-    <div class="jumbotron">
-        <div class="row">
+        <div class="row justify-content-md-left" style="width: 910px; height: 500px;" align="center">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="backgroud:#2e6da4; color:white;">
@@ -15,7 +14,6 @@
                 </div>
             </div>
         </div>
-    </div>
 </div>
 <!--     <div class="row justify-content-md-left" style="width: 810px; height: 500px;" align="center">
         <div id="calendar" class="col col" >

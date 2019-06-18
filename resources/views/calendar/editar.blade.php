@@ -66,6 +66,10 @@
                                 </script>
                             @endif
                         </div>
+                        <div class="form-group col-md-6">
+                            <label>Cor da Reserva*</label>
+                            <input type="color"name="event_cor" id="color" class="form-control" value="{{$event->event_cor}}" style="height: 2em;">
+                        </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
