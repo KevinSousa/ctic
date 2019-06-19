@@ -25,7 +25,7 @@ class ChamadosController extends Controller
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
                     ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
                     ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
-                    ->paginate(5);
+                    ->paginate(10);
         $ajax = false;
 
         if ($request->ajax()){
