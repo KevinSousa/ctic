@@ -1,8 +1,8 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
-<div class="container">
-        <div class="row justify-content-md-left" style="width: 73em; " align="center">
-            <div class="col-md-8 col-md-offset-2">
+<div class="container col-md-12 col-12" style="background-color: white; margin-top: -1.5em;">
+        <div class="row " style=" " align="center">
+            <div class="col-md-12 col-md-offset-2 text-justify">
                 <div class="panel panel-default">
                     <div class="panel-heading" style="backgroud:#2e6da4; color:white;">
                         <!-- Event Calendar [Full - Calendar] -->
@@ -47,20 +47,35 @@
         <script src="/js/main.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-
+               <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.css"/>
+         <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+ <script src="/js/moment.js"></script>
         <script> 
             $('#vis-calendar').click();
             $(document).ready(function (){
                 $('#visu-calendar').parent('li').addClass("active");
-            });                
+                $('.fc-button').addClass('btn btn-primary');
+                $('.fc-button').removeClass("fc-state-default");
+                $('.fc-agendaWeek-button').addClass('btn btn-primary');
+
+                $('.fc-event').removeClass('fc-day-grid-event');
+        
+                $('.fc-content').on('clicjk', function(e){
+                    e.preventDefault();
+                })
+
+
+
+            });           
         </script>
 @endsection
 
 <style type="text/css">
     div#index {
         margin: 0px 25px 0px 25px;
-    }
+    }   
 
+    }
     div#calendar {
         margin: 0px 80px 10px 80px;
         padding: 15px;

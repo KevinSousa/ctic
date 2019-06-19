@@ -2,7 +2,9 @@
 
 @section('content')
     <title>Equipamentos</title>
-	<div id="index">
+
+ 
+	<div id="index" style="background-color: white; "  >
 		<div align="left row">	
 			<h1 id="titulo">Minhas Reservas</h1>
             @if(session('success'))
@@ -31,13 +33,13 @@
 				
                     <th scope="col"> AUTOR </th>
 					<th scope="col"> DESCRIÇÃO </th>
-                    <th scope="col"> COR </th>
+                    <th scope="col"> COR </th>  
 					<th scope="col"> DATA DE INICIO </th>
 					<th scope="col"> DATA DE FIM </th>
 					<th scope="col"> AÇÕES </th>
 				</tr>
 			</thead>
-           <tbody>
+           <tbody ">
 				@foreach($events as $count => $event)
                     <tr id="{{ $event->id }}" align="center">
                         <input id="idEvento" value="{{ $event->id }}" type="hidden">
@@ -111,9 +113,11 @@
         </script>
         <script src="/vendor/circle-progress/circle-progress.min.js"></script>
         <script src="/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-
+           <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.css"/>
+         <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
         <!-- Main JS-->
         <script src="/js/main.js"></script>
+        <script src="/js/moment.js"></script>
 		<!-- DataTables JS-->
         <script src="https://datatables.yajrabox.com/js/jquery.dataTables.min.js"></script>
         <script src="https://datatables.yajrabox.com/js/datatables.bootstrap.js"></script>
@@ -183,73 +187,13 @@
                     });
                 });
             });
+  
         </script>
 @endsection
 @section('ajax-js')
     
     <script> 
-            $(document).ready(function (){
-                $('#vis-calendar').click();
-                $('#my-reserv-calendar').parent('li').addClass("active");
-                $('#example').DataTable({ 
-                    oLanguage:{
-                        sProcessing: "Processando...",
-                        sLengthMenu: "Mostar _MENU_ registros pro página",
-                        sZeroRecords: "Nada encontrado com esse critérios",
-                        sEmptyTable: "Não há dados para serem mostrados",
-                        sLoadingRecords: "Carregando...",
-                        sInfo: "Mostrando _START_ a _END_ de _TOTAL_ registros",
-                        sInfoEmpty: "Mostrando 0 até 0 de 0 registros",
-                        sInfoFiltered: "(filtro aplicado em _MAX_ registros)",
-                        sInfoPostFix: "",
-                        sInfoThousands: ".",
-                        sSearch: "Pesquisar:",
-                        sUrl: "",
-                            oPaginate:{
-                                sFirst: "Primeira",
-                                sPrevious: "Anterior",
-                                sNext: "Próxima",
-                                sLast: "Última",
-                            },
-                        },
-                    bPaginate: false, //Next and Previous embaixo da tabela
-                    bLengthChange: false,  //Show and entries em cima da tabela
-                    bFilter: true, //Search em cima da tabela
-                    bInfo: false,  //Showing em baixo da tabela);
-                });
-                $('.destroy').on('click', function(event)
-                {
-                    //pega a url
-                    var url = window.location.href;
-                    //explode a url
-                    var result = url.split('/');
-                    console.log("destruir");
-                    event.preventDefault();
-          
-                });
-
-                $('.deletar-sucesso').on("click", function(event)
-                {
-                    event.preventDefault();
-                    var url = $(this).attr('url');
-                    var count = $(this).attr('count');
-
-                    console.log(url);
-                    console.log(count);
-                    $.ajax({
-                        url: "/calendar/destroy/"+url,
-                        type: "get",
-                        datatype: "html"
-                    }).done(function(data){
-                        $("#"+url).remove();
-                        // $("#delete"+count).modal('toggle');
-                        var modal = "#delete" + count;
-                        $(modal+" .close").click()
-                    }).fail(function(jqXHR, ajaxOptions, thrownError){
-                        alert('No response from server');
-                    });
-                });
-            });                
+           
         </script>
 @endsection
 
@@ -261,5 +205,6 @@
 	#titulo {
 		color: #666;
 	}
+
 </style>
          
