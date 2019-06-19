@@ -62,30 +62,26 @@
 					<tr class="hover">
 
 					@if($chamados->cham_obj != false)
-						@can('admin')
 							<th class="border border-dark" scope="row">Ações</th>
 					      	<td class="border border-dark">
 					      		<a href="/chamados/add3d/{{$chamados->cham_obj}}+{{$chamados->cham_sala}}"><i class="fas fa-cube"></i>
 					      			Ver no mapa
 					      		</a>
-						    </td>
-					    @endcan
-			      	@endif		
-
-				@if(Auth::user()->user_id == $chamados->cham_user)
-				      	<th class="border border-dark" scope="row">Ações</th>
-				      	<td class="border border-dark">
-							@if($chamados->cham_obj != false)
-					      		<a href="/chamados/add3d/{{$chamados->cham_obj}}+{{$chamados->cham_sala}}"><i class="fas fa-cube"></i>
-					      			Ver no mapa
-					      		</a>
-					      	@endif
-			    	
+						@if(Auth::user()->user_id == $chamados->cham_user)
 						    <a style="font-size: 1.5em; color: #25d881;" href="{{route('chamados.edit' ,$chamados->cham_id)}}"><i class="fas fa-edit"></i></a>
 							<a style="font-size: 1.5em; color:  #E95B45;" href="{{route('chamados.destroy' ,$chamados->cham_id)}}"><i class="fas fa-trash-alt"></i></a>
-						</td>					
-				@else
-			   	@endif
+						<!-- </td>					 -->
+						@endif   
+						    </td>
+			      	@endif		
+
+				      	<!-- <th class="border border-dark" scope="row">Ações</th>
+				      	<td class="border border-dark">
+ 	<a href="/chamados/add3d/{{$chamados->cham_obj}}+{{$chamados->cham_sala}}"><i class="fas fa-cube"></i>
+					      			Ver no mapa
+					      		</a> -->
+					      	
+			    	
 			   			</td>
 			   	</tr>
 	 		</tbody>
