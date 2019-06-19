@@ -40,7 +40,6 @@ class ChartController extends Controller
 		        ->addRow(['Rede', $redes]);
 
 		$lava->DonutChart('IMDB', $reasons, [
-		    'title' => 'Percentual de Chamados por tipo',
 		    'width' => 1000,
         	'height' => 500,
         	'legend' => [
