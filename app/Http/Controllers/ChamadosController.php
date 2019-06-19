@@ -20,11 +20,14 @@ class ChamadosController extends Controller
     
     public function index(Request $request){ 
                  
-        $chamados =  DB::table('chamados')
-                    ->join('users', 'users.user_id', '=' , 'cham_user')
+        $chamados = DB::table('chamados')
+            ->join('users', 'users.user_id', '=' , 'cham_user')
                     ->join('salas', 'salas.sala_id', '=' , 'cham_sala')
                     ->join('sublista_tipo_problemas', 'sublista_tipo_problemas.sub_id', '=' , 'cham_sublista_problema')
-                    ->select('users.user_name','chamados.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
+                    ->join('equipamentos', 'equipamentos.equip_tombamento', '=' , 'cham_equip')
+                    ->join('tipo_equipamentos', 'tipo_equipamentos.tipo_id', '=' , 'equip_tipo')
+                    ->select('users.user_name','chamados.*','equipamentos.*','tipo_equipamentos.*','salas.sala_identificacao','salas.sala_andar','sublista_tipo_problemas.*')
+                    
                     ->paginate(10);
         $ajax = false;
 
