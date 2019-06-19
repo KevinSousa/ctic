@@ -99,7 +99,7 @@
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label>Sala*</label>
+                    <label>Laboratório*</label>
                     <select name="cham_sala" id="cham_sala" class="form-control">
                         <option hidden></option> 
                         @foreach ($salas as $sala)

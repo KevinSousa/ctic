@@ -151,7 +151,9 @@
            </div>
     </form>
 </body>
-  <link rel="stylesheet" type="text/css" href="/css/add3d.css">
+  <!-- Conflito -->
+  <!-- <link rel="stylesheet" type="text/css" href="/css/add3d.css"> -->
+
   <script type="text/javascript" src='/js/add3d.js'>
   </script>
   <script type="text/javascript" src='/js/add3d_script.js'>

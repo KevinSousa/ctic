@@ -26,7 +26,7 @@
 			     	<td class="border border-dark"> {{$chamados -> cham_grau_urgencia}} </td>
 			    </tr>
 			    <tr class="hover">
-			    	<th class="border border-dark" scope="row">Sala</th>
+			    	<th class="border border-dark" scope="row">Laboratório</th>
 			    	<td class="border border-dark"> {{substr($chamados -> sala_andar, -1)}} - {{$chamados -> sala_identificacao}} </td>
 			    </tr>			    
 			    <tr class="hover">
