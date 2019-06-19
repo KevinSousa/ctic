@@ -12,13 +12,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-<div  style="background-image: url('/logohelp2.png'); background-repeat: no-repeat; background-position: 0% 0% ; background-size: 24%;">
+<div  >
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
           <div class="card-body">
-            <img id="ifpe" src="/icon/ifpe.png">
+            <img id="ifpe" src="/logohelp2.png">
               <!-- Mensagens de Erros -->
               @foreach($errors->all() as $error)
                 <li>{{$error}}</li>
