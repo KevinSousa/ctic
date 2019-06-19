@@ -236,7 +236,7 @@
 	#titulo {
 		color: #666;
 	}
-        .pull-left { 
-float: left! Important; 
-}
+    .pull-left { 
+    float: left! Important; 
+    }
 </style>

@@ -150,13 +150,11 @@ class UsersController extends Controller
             }else{
                 $dados['user_imagem'] = "imagem.png";
             }
-            
+            $oi='';
             $mensagem = 'Cadastro efetuado com sucesso';
             User::create($dados);
             // $st = session()->put('sucesso', ['sucesso' => $mensagem]);
-            return redirect() -> route('login')
-                              -> with('success',$mensagem);
-            
+   protected $redirectTo = '/';            
         }
     }
 
