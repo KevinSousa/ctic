@@ -20,7 +20,7 @@ class TiposProblemasController extends Controller
      */
     public function index(Request $request)
     {
-        $tiposProblemas = DB::table('tipo_problemas')->paginate(5);
+        $tiposProblemas = DB::table('tipo_problemas')->paginate(10);
         $ajax = false;
 
         if ($request->ajax()){
