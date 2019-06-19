@@ -1,6 +1,7 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
 <title>Agendar Laboratório</title>
+    
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
@@ -66,6 +67,7 @@
                                     </script>
                                 @endif                                
                         </div>
+
                         <div class="form-group col-md-6">
                                 <label> Data e hora do término* </label>
                                 <input type="datetime-local"  value="{{old('end_date')}}" class="form-control" name="end_date" id="end_date" required="">
@@ -109,13 +111,24 @@
         <script src="/vendor/chartjs/Chart.bundle.min.js"></script>
         <script src="/vendor/select2/select2.min.js">
         </script>
+        
         <!-- Main JS-->
         <script src="/js/main.js"></script>
         <script type="text/javascript"> 
                 $('#vis-calendar').click();
             $(document).ready(function (){
                 $('#reserv-calendar').parent('li').addClass("active");
-            });                
+            });
+             document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems, options);
+             });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });                
         </script>
 @endsection
 

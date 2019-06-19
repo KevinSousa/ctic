@@ -1,13 +1,13 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
-<div class="container col-md-12 col-12" style="background-color: white; margin-top: -1.5em;">
+<div class="container col-md-12 col-12" style="background-color: white; border:1px solid #BDBDBD;margin-top: -2.5em;">
         <div class="row " style=" " align="center">
-            <div class="col-md-12 col-md-offset-2 text-justify">
-                <div class="panel panel-default">
-                    <div class="panel-heading" style="backgroud:#2e6da4; color:white;">
+            <div class="col-md-12 col-md-offset-2 text-justify" >
+                <div class="panel panel-default" >
+                    <div class="panel-heading" style="">
                         <!-- Event Calendar [Full - Calendar] -->
                     </div>
-                    <div class="panel-body" id="calendar">
+                    <div class="panel-body" id="calendar" >
                         {!! $calendar_details -> calendar() !!}
                         {!! $calendar_details->script() !!}
                     </div>
@@ -53,18 +53,6 @@
         <script> 
             $('#vis-calendar').click();
             $(document).ready(function (){
-                $('#visu-calendar').parent('li').addClass("active");
-                $('.fc-button').addClass('btn btn-primary');
-                $('.fc-button').removeClass("fc-state-default");
-                $('.fc-agendaWeek-button').addClass('btn btn-primary');
-
-                $('.fc-event').removeClass('fc-day-grid-event');
-        
-                $('.fc-content').on('clicjk', function(e){
-                    e.preventDefault();
-                })
-
-
 
             });           
         </script>
