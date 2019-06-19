@@ -214,7 +214,7 @@ class EventController extends Controller
         $event->end_date = $request['end_date'];
         $event -> save();
 
-        $mensagem = 'Reserva atualizada com Sucesso!';
+        $mensagem = 'Reserva atualizada com sucesso!';
         return redirect()->route('calendar.show')
                          ->with('success',$mensagem);
 
@@ -225,7 +225,7 @@ class EventController extends Controller
         /*Pega o item pelo id e destroi*/
         $evento = Event::find($id)->delete();
         if ($evento == true) {
-            $mensagem = "Sucesso ao deletar o item";
+            $mensagem = "Reserva excluída";
         }
         
         return redirect()->route('calendar.show')->with('success',$mensagem );

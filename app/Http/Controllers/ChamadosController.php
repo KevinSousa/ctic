@@ -228,7 +228,7 @@ class ChamadosController extends Controller
         $model->cham_sublista_problema = $req->cham_sublista_problema; 
         $model->save();
 
-        $mensagem = 'Chamado editado com Sucesso';
+        $mensagem = 'Chamado editado com sucesso!';
         return redirect()->route('chamados.index')
                          ->with('success',$mensagem);
     }
@@ -260,7 +260,7 @@ class ChamadosController extends Controller
         $model->cham_status = $request->cham_status; 
         $model->save();
 
-        $mensagem = 'Status modificado com Sucesso';
+        $mensagem = 'Situação modificado com sucesso!';
         return redirect()->route('chamados.index')
                          ->with('success',$mensagem); 
     }

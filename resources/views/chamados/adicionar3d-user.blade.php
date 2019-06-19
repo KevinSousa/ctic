@@ -6,36 +6,46 @@
   <script src="/js/jquery-2.2.4.min.js"></script>
   <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
 <body>
-
-      <div class="modal" id="exemplomodal" tabindex="-1" role="dialog"  data-backdrop="static" aria-labelledby="myLargeModalLabel">
+      <div class="modal" id="exemplomodal" tabindex="-1" role="dialog"data-backdrop="static" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="gridSystemModalLabel">Para continuar com o chamado, selecione o laboratório que está o equipamento:</h4>
-                </div>
-                <div class="modal-body">
-                  <center>  
-                    <button id="b10" value="b10" class="btn btn-success"><i class="fas fa-home "></i> LABORATÓRIO B10</button>
-                    <button class="btn btn-success" value="b2" id="b2"><i class="fas fa-home"></i> LABORATÓRIO B2</button>
-                  </center>                    
-                  </br> 
-                 <span id="info2"> 1 - <i class="fas fa-arrows-alt"></i> Navegue na sala utilizando o mouse e as setas do teclado </br></span></br>
-                  <span id="info3"> 2 - <i class="fas fa-mouse-pointer"></i> Clique com o mouse no equipamento que está apresentando o problema, e siga com as instruções, se o equipamento não estiver no mapa clique em algo que possa referenciá-lo </br> </span></br>
-                  <span id="info4"> 3 - <i class="fas fa-mouse-pointer"></i> Recomendamos a navegação pressionando o botão Scroll do mouse</br> </span>
-             
-                </div>
-        
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="gridSystemModalLabel">
+                Para continuar com o chamado, selecione o laboratório que está o equipamento:
+              </h4>
             </div>
+            <div class="modal-body">
+              <center>  
+                <button id="b10" value="b10" class="btn btn-success"><i class="fas fa-home "></i> LABORATÓRIO B10</button>
+                <button class="btn btn-success" value="b2" id="b2"><i class="fas fa-home"></i> LABORATÓRIO B2</button>
+              </center>                    
+              <br> 
+              <span id="info2">
+                1 - <i class="fas fa-arrows-alt"></i> 
+                Navegue na sala utilizando o mouse e as setas do teclado 
+                <br>
+              </span>
+              </br>
+              <span id="info3"> 
+                2 - <i class="fas fa-mouse-pointer"></i> 
+                Clique com o mouse no equipamento que está apresentando o problema, e siga com as instruções, se o equipamento não estiver no mapa clique em algo que possa referenciá-lo 
+                <br> 
+              </span>
+              <br>
+              <span id="info4"> 
+                3 - <i class="fas fa-mouse-pointer"></i> 
+                Recomendamos a navegação pressionando o botão Scroll do mouse
+                <br> 
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
       
                 
     <div id="teste">
-
-        <button id='reverter' class="btn  btn-info ml-10" style="position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
-
-
-        <button id='next'  class="btn  btn-success ml-10" style="display: none;  position: fixed; margin-top: 1em;">Prosseguir com o chamado <i class="fas fa-check"></i></button>
+        <button id='reverter' class="btn btn-info" style="position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
+        <button id='next'  class="btn btn-success" style="display: none;  position: fixed; margin-top: 1em; ">Prosseguir com o chamado <i class="fas fa-check"></i></button>
          <canvas style="width: 150%; margin-left: -10em; margin-right: -10em; height: 100%; margin-top: -4em;" id="renderCanvas"></canvas>
     </div>
     

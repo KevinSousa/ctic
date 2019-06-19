@@ -52,13 +52,13 @@
                             @endif
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Cor da Reserva*</label>
+                            <label>Cor da reserva*</label>
                             <input type="color"name="event_cor" id="color" class="form-control" value="{{$event->event_cor}}" style="height: 2em;">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                                <label> Data de Início* </label>
+                                <label> Data E hora de início* </label>
                                 <input type="datetime-local"  value="{{old('start_date',str_replace(' ','T',$event->start_date) ?? '')}}" class="form-control" name="start_date" id="start_date" required="">
                                 @if ($errors->has('start_date')) 
                                     <script >
@@ -67,7 +67,7 @@
                                 @endif                                
                         </div>
                         <div class="form-group col-md-6">
-                                <label> Data de Término* </label>
+                                <label> Data e hora do término* </label>
                                 <input type="datetime-local"  value="{{old('end_date',str_replace(' ','T',$event->end_date) ?? '')}}" class="form-control" name="end_date" id="end_date" required="">
                                 @if ($errors->has('end_date')) 
                                     <script >

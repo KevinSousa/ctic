@@ -48,17 +48,14 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title text-center" id="myModalLabel">Confirmação de exclusão</h4>
+                                <h4 class="modal-title text-center" id="myModalLabel" style="margin-left: 9em;">Excluir usuário?</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                               </div>
-                                  <div class="modal-body">
-                                        <p class="text-center">
-                                            Tem certeza que deseja deletar esse Usuário?
-                                        </p>
-                                  </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
-                                    <a id="deletar-sucesso" href="#" data-dismiss="modal" count="{{$count}}" url="{{route('user.remover',$user->user_id)}}" class="btn btn-warning deletar-sucesso">Sim, Deletar</a>
+                                        <div style="margin-right: 10em;">
+                                            <a id="deletar-sucesso" href="#" data-dismiss="modal" count="{{$count}}" url="{{route('user.remover',$user->user_id)}}" class="btn btn-success deletar-sucesso">Sim</a>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                                      </div>
                                   </div>
                             </div>
                           </div>

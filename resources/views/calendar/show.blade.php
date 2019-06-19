@@ -33,13 +33,13 @@
 				
                     <th scope="col"> AUTOR </th>
 					<th scope="col"> DESCRIÇÃO </th>
-                    <th scope="col"> COR </th>  
-					<th scope="col"> DATA DE INICIO </th>
-					<th scope="col"> DATA DE FIM </th>
+                    <th scope="col"> COR </th>
+					<th scope="col"> DATA E HORA DE INICIO </th>
+					<th scope="col"> DATA E HORA DO FIM </th>
 					<th scope="col"> AÇÕES </th>
 				</tr>
 			</thead>
-           <tbody ">
+           <tbody>
 				@foreach($events as $count => $event)
                     <tr id="{{ $event->id }}" align="center">
                         <input id="idEvento" value="{{ $event->id }}" type="hidden">
@@ -70,19 +70,15 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h4 class="modal-title text-center" id="myModalLabel">Confirmação de exclusão</h4>
+                                <h4 class="modal-title text-center" id="myModalLabel" style="margin-left: 10em;">Excluir reserva?</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                               </div>
-                                  <div class="modal-body">
-                                        <p class="text-center">
-                                            Tem certeza que deseja deletar esse item ?
-                                        </p>
-                                        <input type="hidden" name="category_id" id="cat_id" value="">       
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">Não, Cancelar</button>
-                                    <a href="#" data-dismiss="modal" count="{{$count}}" url="{{$event->id }}" class="btn btn-warning deletar-sucesso">Sim, Deletar</a>
-                                  </div>
+                              <div class="modal-footer">
+                                    <div style="margin-right: 10em;">
+                                        <a href="#" data-dismiss="modal" count="{{$count}}" url="{{$event->id }}" class="btn btn-success deletar-sucesso">Sim</a>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                                    </div>
+                                </div>
                             </div>
                           </div>
                         </div>
