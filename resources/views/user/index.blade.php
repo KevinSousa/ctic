@@ -3,7 +3,7 @@
 	<title> Usuários </title>
 	<div id="index">
 		<div align="left">	
-			<h1 id="titulo">Usuários</h1>
+			<center><h1 id="titulo">Usuários</h1></center>
 			 @if(session('success'))
                 <ol class="float-right alert alert-warning alert-dismissible fade col-md-4 show mt-2" role="alert">              
                     {{session('success')}}
@@ -13,7 +13,7 @@
                 </ol> 
                 <?php Session::pull('fail')?>         
               @endif
-			<br>
+            <br>
 		</div>
         <table class="table table-striped table-bordered" id="example">
 			<thead class="thead-light">
@@ -134,7 +134,7 @@
                     event.preventDefault();
           
                 });
-
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.deletar-sucesso').on("click", function(event)
                 {
                     event.preventDefault();
@@ -202,7 +202,7 @@
                     event.preventDefault();
           
                 });
-
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.deletar-sucesso').on("click", function(event)
                 {
                     event.preventDefault();
@@ -236,4 +236,7 @@
 	#titulo {
 		color: #666;
 	}
+        .pull-left { 
+float: left! Important; 
+}
 </style>
