@@ -6,7 +6,7 @@
  
 	<div id="index" style=""  >
 		<div align="left row">	
-			<h1 id="titulo">Minhas Reservas</h1>
+			<center><h1 id="titulo">Minhas Reservas</h1></center>
             @if(session('success'))
                 <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
                     {{session('success')}}
@@ -25,7 +25,7 @@
                 </ol> 
                 <?php Session::pull('fail')?>         
               @endif
-			
+			<br>
 		</div>
         <table class="table table-striped table-bordered" id="example">
 			<thead align="center" class="thead-light">
@@ -160,7 +160,7 @@
                     event.preventDefault();
           
                 });
-
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.deletar-sucesso').on("click", function(event)
                 {
                     event.preventDefault();
@@ -220,7 +220,8 @@
             bLengthChange: false,  //Show and entries em cima da tabela
             bFilter: true, //Search em cima da tabela
             bInfo: false,  //Showing em baixo da tabela);
-        }); 
+        });
+        $ ('.dataTables_filter'). addClass ('pull-left'); 
          @can('admin')
         document.getElementById('form').addEventListener('change', function() {
             this.form.submit();
@@ -239,6 +240,8 @@
 	#titulo {
 		color: #666;
 	}
-
+    .pull-left { 
+        float: left! Important; 
+    }
 </style>
          
