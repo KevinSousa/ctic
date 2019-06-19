@@ -50,8 +50,8 @@
             <form class="form-signin" method="post" action="{{route('login.entrar')}}">
               {{ csrf_field() }}
               <div class="form-label-group">
-                <input name="user_email" type="email" id="inputEmail" class="form-control" placeholder="Email address" value="{{old('user_email')}}" required autofocus>
-                <label class="text-center" for="inputEmail">E-Mail</label>
+                <input name="user_email" type="email" id="inputEmail" class="form-control" placeholder="E-mail" value="{{old('user_email')}}" required autofocus>
+                <label class="text-center" for="inputEmail">E-mail</label>
               </div>
 
               <div class="form-label-group">
