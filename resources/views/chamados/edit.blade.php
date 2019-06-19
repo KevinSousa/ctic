@@ -1,5 +1,15 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
+<style>
+    
+input[type=number]::-webkit-inner-spin-button{
+            -webkit-appearance:none;
+        }
+        input[type=number]{
+            -moz-appearance:textfield;
+            appearance:textfield;
+        }
+</style>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
@@ -86,7 +96,7 @@
                   <div class="form-group col-md-6">
                       <label>Tombamento</label>
                       @if(old('cham_equip')==null)
-                          <input class="form-control" type="text" value="{{$chamados -> cham_equip}}" required="" name="cham_equip" id="cham_equip" placeholder="Ex:: 9543154">               
+                          <input class="form-control" type="number" value="{{$chamados -> cham_equip}}" required="" name="cham_equip" id="cham_equip" placeholder="Ex:: 9543154">               
                       @else
                           <input class="form-control" type="text" value="{{ old('cham_equip') }}" name="cham_equip" id="cham_equip" placeholder="Ex:: 9543154" required="">
                       @endif
