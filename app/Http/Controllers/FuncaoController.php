@@ -14,7 +14,7 @@ class FuncaoController extends Controller
     }
 	public function index(Request $request) {
 
-     	$funcao = DB::table('funcaos')->paginate(5);
+     	$funcao = DB::table('funcaos')->paginate(10);
         $ajax = false;
 
         if ($request->ajax()){
