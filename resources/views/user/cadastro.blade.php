@@ -64,7 +64,7 @@
                             </div>
                             <div class="form-label-group">
                                 <input id="email" class="form-control" type="email" name="user_email" placeholder="a" value="{{old('user_email')}}" required>
-                                <label for="email" class="text-center">Email *</label>
+                                <label for="email" class="text-center">E-mail *</label>
                                 @if ($errors->has('user_email')) 
                                     <script >
                                         $('#email').addClass('alert-danger');
@@ -84,24 +84,24 @@
                             <div class="form-label-group">
                                 <div class="file-field">
                                     <div class="btn btn-light border" style="height:4em;">
-                                    <label id="value" style='margin-top: -1em;'><i class="fas fa-image"></i> <spam id='spam'> Procurar uma imagem</spam> 
-                                        <input type="file" style="border-radius: 100px;margin-top: -3em;" name="user_imagem" class="custom-file-input form-control file" id="file">
-                                    </label> 
-                                       
+                                        <label id="value" style='margin-top: -1em;'><i class="fas fa-image"></i> 
+                                            <spam id='spam'> Procurar uma imagem</spam> 
+                                            <input type="file" style="border-radius: 100px;margin-top: -3em;" name="user_imagem" class="custom-file-input form-control file" id="file">
+                                        </label> 
                                     </div>
                                 </div>
                             
-                            <div class="form-label-group">
-                                <select value="Função *"  style="border-radius: 100px;" name="user_funcao" class="form-control mt-3">
-                                    <option placeholder="Função *" disabled="">Escolha a Função *</option>
-                                    <option value="" disabled="">---</option>
-                                    @foreach($funcaos as $func)
-                                        @if($func->funcao_name != 'Administrador')
-                                            <option value="{{$func -> funcao_id}}">{{$func -> funcao_name}}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
-                            </div>
+                                <div class="form-label-group">
+                                    <select value="Função *"  style="border-radius: 100px;" name="user_funcao" class="form-control mt-3">
+                                        <option placeholder="Função *" disabled="">Escolha a Função *</option>
+                                        <option value="" disabled="">---</option>
+                                        @foreach($funcaos as $func)
+                                            @if($func->funcao_name != 'Administrador')
+                                                <option value="{{$func -> funcao_id}}">{{$func -> funcao_name}}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="form-label-group col-md-6 ">
@@ -123,21 +123,15 @@
                                         </script>
                                     @endif
                             </div>
-                            <div class="row">
-                                <div class="form-label-group col-md-7 ">
-                                    <button class="btn btn-success col-md-12  text-uppercase" id="mudar" type="submit">
-                                        Cadastrar
-                                    </button>
-                                 </div>                  
+                            <button class="btn btn-success col-md-12  text-uppercase" id="mudar" type="submit">
+                                Cadastrar
+                            </button>
+                        </form><br>
+                        <form method="get" action="{{route('login')}}" class="form-signin" style="text-decoration: none;">
+                            <button style="float: right;" class="btn btn-primary col-md-12 text-uppercase">
+                                Voltar
+                            </button>  
                         </form>
-                                <div class="form-label-group col-md-5 ">
-                                    <a href="{{route('login')}}" style="text-decoration: none;">
-                                        <button style="float: right;" class="btn btn-primary col-md-12 text-uppercase">
-                                            Voltar
-                                        </button>  
-                                    </a>                 
-                                </div>
-                            </div>
                     <br>
                 </div>
             </div>
