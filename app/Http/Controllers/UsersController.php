@@ -20,7 +20,7 @@ class UsersController extends Controller
         $users = DB::table('users')
                 ->join('funcaos', 'user_funcao', '=' , 'funcaos.funcao_id')
                 ->select('users.*', 'funcaos.funcao_name')
-                ->Paginate(5);
+                ->Paginate(10);
 
         $funcaos = DB::table('funcaos')
                 ->select('funcao_id', 'funcao_name')
