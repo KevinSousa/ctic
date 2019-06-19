@@ -28,7 +28,7 @@
                 
     <div id="teste">
         <button id='reverter' class="btn-info ml-10" style="position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
-        <button id='next'  class=" ml-10" style="display: none;  position: fixed; margin-top: 1em;  ">Prosseguir com o chamado <i class="fas fa-check"></i></button>
+        <button id='next'  class=" ml-10" style="display: none;  position: fixed; margin-top: 1em; ">Prosseguir com o chamado <i class="fas fa-check"></i></button>
          <canvas style="width: 150%; margin-left: -10em; margin-right: -10em; height: 100%; margin-top: -4em;" id="renderCanvas"></canvas>
     </div>
     
@@ -116,7 +116,7 @@
                                   <div class="form-row">
                                       <div class="form-group col-md-12">
                                           <label>Descrição do problema</label>
-                                          <textarea name="cham_descricao" id="cham_descricao" class="form-control" value="">{{ old('cham_descricao') }}</textarea>
+                                          <textarea name="cham_descricao" id="cham_descricao" class="form-control" value="" required>{{ old('cham_descricao') }}</textarea>
                                           <input type="hidden"  name="cham_data_chamado"  value="{{date('Y-m-d H:i:s')}}">
                                           @if ($errors->has('cham_descricao')) 
                                               <script >
