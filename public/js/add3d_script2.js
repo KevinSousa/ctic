@@ -14,6 +14,8 @@
 
         } else {
           document.getElementById("prevBtn").style.display = "inline";
+          document.getElementById("nextBtn").style.display = "inline";
+           document.getElementById("enviarform").style.display = "none";
         }
         if (n == (x.length - 1)) {
             document.getElementById("nextBtn").style.display = "none";
@@ -23,7 +25,7 @@
            document.getElementById("btns").append(enviar);
 
         } else {
-          document.getElementById("nextBtn").innerHTML = "Next";
+          document.getElementById("nextBtn").innerHTML = "Prosseguir com chamado";
         }
         //... and run a function that will display the correct step indicator:
         fixStepIndicator(n);
