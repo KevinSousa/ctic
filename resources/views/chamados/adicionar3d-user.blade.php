@@ -6,13 +6,14 @@
   <script src="/js/jquery-2.2.4.min.js"></script>
   <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
 <body>
-      <div class="modal" id="exemplomodal" tabindex="-1" role="dialog"data-backdrop="static" aria-labelledby="myLargeModalLabel">
+      <div class="modal" id="exemplomodal" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h4 class="modal-title" id="gridSystemModalLabel">
                 Para continuar com o chamado, selecione o laboratório que está o equipamento:
               </h4>
+      
             </div>
             <div class="modal-body">
               <center>  
@@ -37,6 +38,26 @@
                 Recomendamos a navegação pressionando o botão Scroll do mouse
                 <br> 
               </span>
+              <button type="button" class="btn btn-info float-right" data-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="modal1" id="fechar"  tabindex="-1" >
+        <div class="modal-dialog modal-md" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="gridSystemModalLabel">
+                Para continuar com o chamado, selecione o laboratório que está o equipamento no modal:
+              </h4>
+            
+            </div>
+            <div class="modal-body">
+              <center>  
+                <button onclick="$('#exemplomodal').modal('show')" class="btn btn-success"> Reabrir Modal de seleção</button>
+             
+             
+              </span>
             </div>
           </div>
         </div>
@@ -44,7 +65,7 @@
       
                 
     <div id="teste">
-        <button id='reverter' class="btn btn-info" style="position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
+        <button id='reverter' class="btn btn-info" style="display: none; position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
         <button id='next'  class="btn btn-success" style="display: none;  position: fixed; margin-top: 1em; ">Prosseguir com o chamado <i class="fas fa-check"></i></button>
          <canvas style="width: 150%; margin-left: -10em; margin-right: -10em; height: 100%; margin-top: -4em;" id="renderCanvas"></canvas>
     </div>
