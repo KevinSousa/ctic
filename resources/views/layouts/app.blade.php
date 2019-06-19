@@ -130,8 +130,10 @@
                                         <i class="fas fa-calendar-plus"></i>Reservar LAB</a>
                                 </li>
                                 <li>
-                                    <a href="#" url="/calendar/show" id="my-reserv-calendar" class="listAJAX">
-                                        <i class="fas fa-calendar-check"></i>Minhas Reservas</a>
+
+                                    <a href="calendar/show/" id="my-reserv-calendar">
+                                        <i class="fas fa-calendar-plus"></i>Minhas Reservas</a>
+
                                 </li>
                             @endcan 
                             @can('admin')
@@ -223,9 +225,6 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     <script src="/vendor/Inputmask/dist/jquery.inputmask.bundle.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-
-    </script>
 </body>
 
 </html>
