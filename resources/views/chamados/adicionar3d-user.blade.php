@@ -11,13 +11,17 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="gridSystemModalLabel">Para continuar com o chamado selecione o laboratório que está o equipamento</h4>
+                    <h4 class="modal-title" id="gridSystemModalLabel">Para continuar com o chamado, selecione o laboratório que está o equipamento:</h4>
                 </div>
                 <div class="modal-body">
-                  <h4>1 -Selecione o laboratório <button id="b10" value="b10" class="m-2"><i class="fas fa-home "></i> LABORATÓRIO B10</button><button class="m-2" value="b2" id="b2"><i class="fas fa-home"></i> LABORATÓRIO B2</button></br> </h4></br>
-                 <span id="info2"> 2 - <i class="fas fa-arrows-alt"></i> Navegue na sala utilizando o mouse e as setas do teclado </br></span></br>
-                  <span id="info3"> 3 - <i class="fas fa-mouse-pointer"></i> Clique com o mouse no equipamento que está apresentando o problema, e siga com as instruções, se o equipamento não estiver no mapa clique em algo que possa referenciá-lo </br> </span></br>
-                  <span id="info4"> 4 - <i class="fas fa-mouse-pointer"></i> Recomendamos a navegação pressionando o botão Scroll do mouse</br> </span>
+                  <center>  
+                    <button id="b10" value="b10" class="btn btn-success"><i class="fas fa-home "></i> LABORATÓRIO B10</button>
+                    <button class="btn btn-success" value="b2" id="b2"><i class="fas fa-home"></i> LABORATÓRIO B2</button>
+                  </center>                    
+                  </br> 
+                 <span id="info2"> 1 - <i class="fas fa-arrows-alt"></i> Navegue na sala utilizando o mouse e as setas do teclado </br></span></br>
+                  <span id="info3"> 2 - <i class="fas fa-mouse-pointer"></i> Clique com o mouse no equipamento que está apresentando o problema, e siga com as instruções, se o equipamento não estiver no mapa clique em algo que possa referenciá-lo </br> </span></br>
+                  <span id="info4"> 3 - <i class="fas fa-mouse-pointer"></i> Recomendamos a navegação pressionando o botão Scroll do mouse</br> </span>
              
                 </div>
         
@@ -27,8 +31,11 @@
       
                 
     <div id="teste">
-        <button id='reverter' class="btn-info ml-10" style="position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
-        <button id='next'  class=" ml-10" style="display: none;  position: fixed; margin-top: 1em; ">Prosseguir com o chamado <i class="fas fa-check"></i></button>
+
+        <button id='reverter' class="btn  btn-info ml-10" style="position: center; position: fixed; margin-top: -2em;">Escolher outro equipamento</button>
+
+
+        <button id='next'  class="btn  btn-success ml-10" style="display: none;  position: fixed; margin-top: 1em;">Prosseguir com o chamado <i class="fas fa-check"></i></button>
          <canvas style="width: 150%; margin-left: -10em; margin-right: -10em; height: 100%; margin-top: -4em;" id="renderCanvas"></canvas>
     </div>
     
@@ -141,7 +148,7 @@
                                       <div style="text-align:center;margin-top:40px;">
                                         <span class="step"></span>
                                         <span class="step"></span>
-                                        <span class="step"></span>
+                                        <span class="step"></span>  
                                       </div>
                                 </form>
                             </div>
@@ -151,7 +158,9 @@
            </div>
     </form>
 </body>
-  <link rel="stylesheet" type="text/css" href="/css/add3d.css">
+  <!-- Conflito -->
+  <!-- <link rel="stylesheet" type="text/css" href="/css/add3d.css"> -->
+<link rel="stylesheet" type="text/css" href="/css/add3d.css">
   <script type="text/javascript" src='/js/add3d.js'>
   </script>
   <script type="text/javascript" src='/js/add3d_script.js'>

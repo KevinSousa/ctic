@@ -34,7 +34,7 @@
                     
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Sala*</label>
+                            <label>Laboratório*</label>
                             <select name="event_sala" id="event_sala" class="form-control">
                                 <option hidden></option> 
                                 @foreach ($salas as $sala)

@@ -26,7 +26,7 @@
 			     	<td class="border border-dark"> {{$chamados -> cham_grau_urgencia}} </td>
 			    </tr>
 			    <tr class="hover">
-			    	<th class="border border-dark" scope="row">Sala</th>
+			    	<th class="border border-dark" scope="row">Laboratório</th>
 			    	<td class="border border-dark"> {{substr($chamados -> sala_andar, -1)}} - {{$chamados -> sala_identificacao}} </td>
 			    </tr>			    
 			    <tr class="hover">
@@ -56,12 +56,8 @@
 			   		<td class="border border-dark"> {{$chamados -> sub_nome}}</td>
 			    </tr>
 			    <tr class="hover">
-			    	<th class="border border-dark" scope="row">Data do chamado</th>
+			    	<th class="border border-dark" scope="row">Data e Hora do chamado</th>
 			     	<td class="border border-dark"> {{date("d-m-Y H:i", strtotime($chamados -> cham_data_chamado))}}</td> 
-			    </tr>
-			    <tr class="hover">
-			    	<th class="border border-dark " scope="row">Data prevista até a finalização do chamado</th>
-			     	<td class="border border-dark"> {{date("d-m-Y H:i", strtotime($chamados -> cham_data_prevista))}}</td> 
 			    </tr>
 					<tr class="hover">
 				@if(Auth::user()->user_id == $chamados->cham_user)

@@ -8,10 +8,10 @@
     }
 </style>
 @section('content')
-    <title>Salas</title>
+    <title>Laboratórios</title>
     <div id="index">
         <div align="left">  
-            <h1 id="titulo">Salas</h1>
+            <h1 id="titulo">Laboratórios</h1>
                  @if(session('remover_sala'))
                 <ol class="float-right alert alert-warning alert-dismissible fade col-md-4 show mt-2" role="alert">              
                     {{session('remover_sala')}}

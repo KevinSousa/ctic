@@ -34,11 +34,18 @@
         		<form method="post" action="{{route('user.update', $usuario->user_id) }}" class="ui form" enctype="multipart/form-data">
         			{{ csrf_field() }}
         			@include('user._form')
-        			<button class="btn btn-success" id="mudar" type="submit" > Atualizar </button>
 <!--                     <a href="{{ redirect()->back()->getTargetUrl() }}">
                         <button class="btn btn-primary">Voltar</button>
                     </a> -->
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <button class="btn btn-success" id="mudar" type="submit" > Atualizar </button>
+                        </div>
                 </form>
+                            <a href="{{route('home')}}">
+                                <button class="btn btn-primary form-group col-md-12" > Voltar </button>
+                            </a>
+                    </div>
                 <!-- </div> -->
             </div>
         </div>
@@ -86,6 +93,14 @@
         <!-- Main JS-->
         <script src="/js/main.js"></script>
         <script src="/js/cpf.js"></script>
+        <script >
+            $('#file').on('change', function() {
+          var fileName = $(this)[0].files[0].name;
+          var input =  $('#file');
+          $('#value').val(input);
+          $('#spam').html(fileName);
+        });
+        </script>
         <!-- Mask JS-->
 @endsection
 <style type="text/css">

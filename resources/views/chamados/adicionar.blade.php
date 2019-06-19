@@ -1,5 +1,15 @@
 @extends( (!$ajax) ? 'layouts.app' : 'layouts.ajax')
 @section('content')
+<style>
+    
+input[type=number]::-webkit-inner-spin-button{
+            -webkit-appearance:none;
+        }
+        input[type=number]{
+            -moz-appearance:textfield;
+            appearance:textfield;
+        }
+</style>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
@@ -76,7 +86,7 @@
                         </div>               
                         <div class="form-group col-md-5">
                             <label>Tombamento*</label>
-                            <input type="text" name="cham_equip" id="cham_equip" value="{{old('cham_equip')}}" placeholder="Ex: 9543154"  class="form-control" required>
+                            <input type="number" name="cham_equip" id="cham_equip" value="{{old('cham_equip')}}" placeholder="Ex: 9543154"  class="form-control" required>
                             @if ($errors->has('cham_equip')) 
                                  <script >
                                     $('#cham_equip').addClass('alert-danger');                                            
@@ -87,7 +97,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Sala*</label>
+                            <label>Laboratório*</label>
                             <select name="cham_sala" id="cham_sala" class="form-control">
                                 <option hidden></option> 
                                 @foreach ($salas as $sala)
@@ -118,8 +128,10 @@
                         </div>
                           
                     </div>
-                    <button class="btn btn-success" type="submit">Adicionar</button>
-                    <a href="{{route('chamados.index')}}"><button class="btn btn-primary">Voltar</button></a> 
+                    <center>
+                        <button class="btn btn-success" type="submit">Adicionar</button>
+                        <a href="{{route('chamados.index')}}"><button class="btn btn-primary">Voltar</button></a> 
+                    </center>
                 </form>
             </div>
         </div>

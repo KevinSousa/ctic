@@ -76,7 +76,7 @@
                                         <a href="#" url="/equipamento/create" id="adc-equip" class="listAJAX"><i class="fas fa-wrench"></i>Equipamentos</a>
                                     </li>
                                     <li>
-                                        <a href="#" url="/sala/adicionar" id="adc-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
+                                        <a href="#" url="/sala/adicionar" id="adc-sala" class="listAJAX"><i class="fas fa-home"></i>Laboratórios</a>
                                     </li>
                                     <li>
                                         <a href="#" url="/tiposProblemas/create" id="adc-tipo" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>
@@ -104,7 +104,7 @@
                                         <a href="#" url="/user" id="visu-users" class="listAJAX"><i class="fas fa-user"></i>Usuários</a>
                                     </li>
                                     <li>
-                                        <a href="#" url="/sala" id="visu-sala" class="listAJAX"><i class="fas fa-home"></i>Salas</a>
+                                        <a href="#" url="/sala" id="visu-sala" class="listAJAX"><i class="fas fa-home"></i>Laboratórios</a>
                                     </li>                                
                                     <li>
                                         <a href="#" url="/tiposProblemas" id="visu-tipo-problemas" class="listAJAX"><i class="fas fa-cogs"></i>Tipos de Problemas</a>

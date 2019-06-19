@@ -102,13 +102,13 @@ class ChamadosController extends Controller
             'cham_sala' => 'required',
             'cham_descricao' => 'max:300'
         ],[
-            'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
-            'typeProblem.required' => 'É obrigatório selecionar a Categoria do Problema',
+            'cham_grau_urgencia.required' => 'É obrigatório selecionar o grau de urgência',
+            'typeProblem.required' => 'É obrigatório selecionar a categoria do problema',
             'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
-            'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
-            'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
-            'cham_sala.required' => 'É obrigatório selecionar uma Sala',
-            'cham_descricao.max' => 'Digite menos de 300 caracteres na Descrição',
+            'cham_equip.required' => 'É obrigatório preencher o numero de tombamento',
+            'cham_equip.numeric' => 'Digite apenas numeros no tombameto',
+            'cham_sala.required' => 'É obrigatório selecionar uma sala',
+            'cham_descricao.max' => 'Digite menos de 300 caracteres na descrição',
         ]);
 
         $validarEquip = Equipamento::find($req->cham_equip);
@@ -128,9 +128,8 @@ class ChamadosController extends Controller
         $model->cham_user = Auth::id();
         $model->save();
 
-        $mensagem = 'Chamado adicionado com Sucesso';
+        $mensagem = 'Abertura de chamado cadastrado com sucesso!';
         return redirect()->route('chamados.index')
-     
                         ->with('success',$mensagem); 
     }
 
@@ -146,13 +145,13 @@ class ChamadosController extends Controller
             'cham_sala' => 'required',
             'cham_descricao' => 'max:300'
         ],[
-            'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
-            'typeProblem.required' => 'É obrigatório selecionar a Categoria do Problema',
-            'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
-            'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
-            'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
-            'cham_sala.required' => 'É obrigatório selecionar uma Sala',
-            'cham_descricao.max' => 'Digite menos de 300 caracteres na Descrição',
+            'cham_grau_urgencia.required' => 'É obrigatório selecionar o grau de urgência',
+            'typeProblem.required' => 'É obrigatório selecionar a categoria do problema',
+            'cham_sublista_problema.required' => 'É obrigatório selecionar uma subcategoria',
+            'cham_equip.required' => 'É obrigatório preencher o numero de tombamento',
+            'cham_equip.numeric' => 'Digite apenas numeros no tombameto',
+            'cham_sala.required' => 'É obrigatório selecionar uma sala',
+            'cham_descricao.max' => 'Digite menos de 300 caracteres na descrição',
         ]);
 
         $model = new Chamado;
@@ -167,7 +166,7 @@ class ChamadosController extends Controller
         $model->cham_user = Auth::id();
         $model->save();
 
-        $mensagem = 'Chamado adicionado com Sucesso';
+        $mensagem = 'Abertura de chamado cadastrado com sucesso!';
         return redirect()->route('chamados.index')
                          ->with('success',$mensagem); 
      }
@@ -204,13 +203,13 @@ class ChamadosController extends Controller
             'cham_sala' => 'required',
             'cham_descricao' => 'max:300'
         ],[
-            'cham_grau_urgencia.required' => 'É obrigatório selecionar o Grau de Urgência',
-            'typeProblem.required' => 'É obrigatório selecionar a Categoria do Problema',
-            'cham_sublista_problema.required' => 'É obrigatório selecionar uma Subcategoria',
-            'cham_equip.required' => 'É obrigatório preencher o Numero de Tombamento',
-            'cham_equip.numeric' => 'Digite apenas numeros no Tombameto',
-            'cham_sala.required' => 'É obrigatório selecionar uma Sala',
-            'cham_descricao.max' => 'Digite menos de 300 caracteres no numero de Tombamento',
+            'cham_grau_urgencia.required' => 'É obrigatório selecionar o grau de urgência',
+            'typeProblem.required' => 'É obrigatório selecionar a categoria do problema',
+            'cham_sublista_problema.required' => 'É obrigatório selecionar uma subcategoria',
+            'cham_equip.required' => 'É obrigatório preencher o numero de tombamento',
+            'cham_equip.numeric' => 'Digite apenas numeros no tombameto',
+            'cham_sala.required' => 'É obrigatório selecionar uma sala',
+            'cham_descricao.max' => 'Digite menos de 300 caracteres no numero de tombamento',
         ]);
         $dados = $req->except(['_token','_method']);
         $validarEquip = Equipamento::find($req->cham_equip);

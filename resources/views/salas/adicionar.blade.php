@@ -12,12 +12,12 @@ input[type=number]::-webkit-inner-spin-button{
             appearance:textfield;
         }
 </style>
-<title>Salas</title>
+<title>Laboratórios</title>
 <div class="container-fluid">
     <div class="row h-100 p-3" style="margin-top: -11%" >
         <div class="col">
             <div style="margin-top: 6em;">
-                <h2 id="titulo" align="left">Cadastro de Salas</h2>
+                <h2 id="titulo" align="left">Cadastro de Laboratórios</h2>
                 <br>
                 @if($errors->all())
                     <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
