@@ -6,6 +6,9 @@
 	#titulo {
 		color: #666;
 	}
+    .pull-left { 
+        float: left! Important; 
+    }
 </style>
 @section('content')
     <title> Tipos de Problemas </title>
@@ -20,8 +23,7 @@
               @endif
     <div id="index">
         <div align="left">  
-            <h1 id="titulo">Tipos de Problemas</h1>
-            <br>
+            <center><h1 id="titulo">Tipos de Problemas</h1></center>
             @if(session('success'))
                 <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
                     <p>{{session('success')}}</p>
@@ -31,6 +33,7 @@
                 </ol> 
                 <?php Session::pull('fail')?>         
             @endif
+            <br>
         </div>
         <table class="table table-striped table-bordered" id="example">
             <thead class="thead-light">
@@ -131,6 +134,7 @@
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
                 });
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.destroy').on('click', function(event)
                 {
                     //pega a url
@@ -196,6 +200,7 @@
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
                 });
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.destroy').on('click', function(event)
                 {
                     //pega a url

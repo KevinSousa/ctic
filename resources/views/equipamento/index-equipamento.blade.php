@@ -4,7 +4,7 @@
     <title>Equipamentos</title>
 	<div id="index">
 		<div align="left row">	
-			<h1 id="titulo">Equipamentos</h1>
+			<CENTER><h1 id="titulo">Equipamentos</h1></CENTER>
 			
             @if(session('success'))
                 <ol class="float-right alert alert-warning alert-dismissible fade col-md-4 show mt-2" role="alert">              
@@ -24,6 +24,7 @@
                 </ol> 
                 <?php Session::pull('fail')?>         
               @endif
+            <br>
 		</div>
         <table class="table table-striped table-bordered" id="example">
 			<thead align="center" class="thead-light">
@@ -129,12 +130,13 @@
                                 sNext: "Próxima",
                                 sLast: "Última",
                             },
-                        },
+                        }, 
                     bPaginate: false, //Next and Previous embaixo da tabela
                     bLengthChange: false,  //Show and entries em cima da tabela
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
                 }); 
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.destroy').on('click', function(event)
                 {
                     //pega a url
@@ -145,7 +147,7 @@
                     event.preventDefault();
           
                 });
-
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.deletar-sucesso').on("click", function(event)
                 {
                     event.preventDefault();
@@ -176,6 +178,7 @@
     <script> 
             $(document).ready(function (){
                 $('#vis-menu').click();
+                 $ ('.dataTables_filter'). addClass ('pull-left');
                 $('#visu-equips').parent('li').addClass("active");
                 $('#example').DataTable({ 
                     oLanguage:{
@@ -213,7 +216,7 @@
                     event.preventDefault();
           
                 });
-
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.deletar-sucesso').on("click", function(event)
                 {
                     event.preventDefault();
@@ -247,5 +250,8 @@
 	#titulo {
 		color: #666;
 	}
+    .pull-left { 
+        float: left! Important; 
+    }
 </style>
          

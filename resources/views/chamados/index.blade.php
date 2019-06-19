@@ -4,7 +4,7 @@
     <title> Chamados </title>
     <div id="index">
         <div align="left">  
-            <h1 id="titulo">Chamados</h1>
+            <center><h1 id="titulo">Chamados</h1></center>
             <br>
              @if(session('success'))
                 <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
@@ -121,6 +121,7 @@
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
                 });
+                $('.dataTables_filter'). addClass ('pull-left');
             @can('admin') 
                 document.getElementById('form').addEventListener('change', function() {
                     this.form.submit();
@@ -162,6 +163,7 @@
             bFilter: true, //Search em cima da tabela
             bInfo: false,  //Showing em baixo da tabela);
         }); 
+        $('.dataTables_filter'). addClass ('pull-left');
          @can('admin')
         document.getElementById('form').addEventListener('change', function() {
             this.form.submit();
@@ -178,5 +180,8 @@
 
     #titulo {
         color: #666;
+    }
+    .pull-left { 
+        float: left! Important; 
     }
 </style>

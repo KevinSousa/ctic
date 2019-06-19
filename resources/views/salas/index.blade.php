@@ -6,12 +6,15 @@
     #titulo {
         color: #666;
     }
+        .pull-left { 
+float: left! Important; 
+}
 </style>
 @section('content')
     <title>Laboratórios</title>
     <div id="index">
         <div align="left">  
-            <h1 id="titulo">Laboratórios</h1>
+            <center><h1 id="titulo">Laboratórios</h1></center>
                  @if(session('remover_sala'))
                 <ol class="float-right alert alert-warning alert-dismissible fade col-md-4 show mt-2" role="alert">              
                     {{session('remover_sala')}}
@@ -134,6 +137,7 @@
             bFilter: true, //Search em cima da tabela
             bInfo: false,  //Showing em baixo da tabela);
         });
+        $ ('.dataTables_filter'). addClass ('pull-left');
         $('.destroy').on('click', function(event)
         {
             //pega a url
@@ -203,6 +207,7 @@
                     bFilter: true, //Search em cima da tabela
                     bInfo: false,  //Showing em baixo da tabela);
                 });
+                $ ('.dataTables_filter'). addClass ('pull-left');
                 $('.destroy').on('click', function(event)
                 {
                     //pega a url
