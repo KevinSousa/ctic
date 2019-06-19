@@ -15,7 +15,6 @@ $(window).load(function(){
 
        $('#b2').on('click' ,function(){
           start($('#b2').val(),'');   
-         
              fecharmodal();
            
          });
@@ -23,14 +22,17 @@ $(window).load(function(){
   });
             
               
+
     function start(lab){
   
 
          if (lab == 'b10') {
               $('#option').val('1');
+              $('#fechar').hide();
             }
             if (lab == 'b2') {
               $('#option').val('2');
+              $('#fechar').hide()
             }
 
         
@@ -53,26 +55,21 @@ $(window).load(function(){
           camera.attachControl(canvas);
            // Load the model
          if (lab == 'b10' ) {
-               BABYLON.SceneLoader.ImportMesh("", "/scenes/", "object.obj", scene, function (meshes) {          
+               BABYLON.SceneLoader.ImportMesh("", "/scenes/", "lab-b10.obj", scene, function (meshes) {          
                 scene.createDefaultCameraOrLight(5, true, true);
                 scene.createDefaultEnvironment();
-                    
-                 if (id) {
-                  var meshesadmin =  scene.getMeshByID(id);
-                  meshesadmin.material.diffuseColor = BABYLON.Color3.Red();
-                  }
-              });
+                
+
+                     });
+                      
+            
                             
            }else if (lab == 'b2') {
 
-                BABYLON.SceneLoader.ImportMesh("", "/scenes/", "object1.obj", scene, function (meshes) {          
+                BABYLON.SceneLoader.ImportMesh("", "/scenes/", "lab-b2.obj", scene, function (meshes) {          
                 scene.createDefaultCameraOrLight(5, true, true);
                 scene.createDefaultEnvironment();
                     
-                 if (id) {
-                  var meshesadmin =  scene.getMeshByID(id);
-                  meshesadmin.material.diffuseColor = BABYLON.Color3.Red();
-                  }
               });
            }
           
@@ -116,15 +113,22 @@ $(window).load(function(){
     
           if(evt.pickInfo.hit && evt.pickInfo.pickedMesh && evt.event.button === 0 && evt.pickInfo.pickedMesh.id != 'Cube.001' && evt.pickInfo.pickedMesh.id != 'teste_Cube.002' && evt.pickInfo.pickedMesh.id != 'Cube.002_Cube.000' && evt.pickInfo.pickedMesh.id != 'Cube.002_Cube.001' && evt.pickInfo.pickedMesh.id != 'Cube.002_Cube.002'  && evt.pickInfo.pickedMesh.id != 'Cube.000_Cube.000' &&  evt.pickInfo.pickedMesh.id != 'Cube_Cube.003' &&  evt.pickInfo.pickedMesh.id !=  'BackgroundPlane' && evt.pickInfo.pickedMesh.id != 'Cylinder_Cylinder.001' && evt.pickInfo.pickedMesh.id !=  'Text.003_Text.000'  && evt.pickInfo.pickedMesh.id !=  'Text.002_Text.001' && click == true && evt.pickInfo.pickedMesh.id != 'BackgroundSkybox' && evt.pickInfo.pickedMesh.id !=  'Cube.000_Cube.001' && evt.pickInfo.pickedMesh.id != 'Text'  && evt.pickInfo.pickedMesh.id !='Text.003' && evt.pickInfo.pickedMesh.id != 'Text.002_Text.004' && evt.pickInfo.pickedMesh.id != 'Text.001' && confirm('Você confirma que esse objeto apresenta defeito ?')){
             
+            var meshesadmin =  scene.getMeshByID(evt.pickInfo.pickedMesh.id);
+                  meshesadmin.material.diffuseColor = BABYLON.Color3.Yellow();        
+           
             selected = evt.pickInfo.pickedMesh;
             evt.pickInfo.pickedMesh.material.diffuseColor = BABYLON.Color3.Red();
             click = false;
             reverter = false;
                 $('#cham_equip').val(evt.pickInfo.pickedMesh.id);
                // alert($('#cham_equip').val());
+                
                 $('#next').show();
-                 }
+                  $('#reverter').show();
+                 
+
         selected = null;
+      }
     }, BABYLON.PointerEventTypes.POINTERUP);
        
         return scene;
