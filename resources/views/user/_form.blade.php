@@ -32,11 +32,11 @@
 	</div>
 	<div class="form-row">
 		<div class="form-group col-md-5">
-			<label for="">Adicionar Imagem</label>
+			<label for="">Alterar Imagem</label>
 			<div class="btn btn-light border " style="height:100%;width: 100%;">
                 <label id="value" style='margin-top: 0.2em;'><i class="fas fa-image"></i> 
                     <spam id='spam' style="font-size: small"> Procurar uma imagem</spam>
-                    <input type="file" style="border-radius: 100px;margin-top: -3em;" name="user_imagem" class="custom-file-input form-control file" id="file">
+                    <input type="file" style="border-radius: 100px;margin-top: -3em;" name="user_imagem" class="custom-file-input form-control file" value="{{$usuario->user_imagem}}" id="file">
                 </label> 
             </div>
 		</div>
