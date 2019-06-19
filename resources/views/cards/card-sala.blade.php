@@ -1,6 +1,6 @@
 @php($bloco = ['BLOCO A','BLOCO B','BLOCO C'])
 <div class="form-group">
-	<label>Numero da Sala*</label>
+	<label>Numero do Laboratório*</label>
     <!-- @if ($errors->has('sala_identificacao'))
         <p style="margin-left:1em;color:red;font-size:small">{{$errors->first('sala_identificacao')}}</p>
     @endif -->
@@ -15,7 +15,7 @@
         <p style="margin-left:1em;color:red;font-size:small">{{$errors->first('sala_andar')}}</p>
     @endif --> 
     <select name="sala_andar" id="sala_andar" class="form-control">
-        <option disabled>Escolha o bloco onde a sala está localizada</option> 
+        <option disabled>Escolha o bloco onde o laboratório está localizada</option> 
         <option disabled>---</option> 
         <option value="" hidden></option> 
         @isset($sala->sala_andar)
