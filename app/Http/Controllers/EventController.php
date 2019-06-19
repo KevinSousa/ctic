@@ -54,7 +54,22 @@ class EventController extends Controller
             $ajax = true;
         }
         $calendar_details = Calendar::addEvents($event_list)->setOptions([
+        'monthNames' => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            'monthNamesShort'=> ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            'dayNames'=> ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+            'dayNamesShort'=> ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
 
+            'columnFormat'=> [
+                'month'=> 'ddd',
+                'week'=> 'ddd d',
+                'day'=> ''
+            ],
+            'buttonText'=> [
+                'today'=> "Hoje",
+                'month'=> "Mês",
+                'week'=> "Semana",
+                'day'=> "Dia"
+            ],
             'FirstDay' => 1,
             'navLinks'=> false,
             'customRender'=> true,
