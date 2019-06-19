@@ -21,7 +21,7 @@
                 <tr align="center">
                     <th scope="col">AUTOR</th>
                     <th scope="col">GRAU DE URGÊNCIA</th>
-                    <th scope="col">TIPO DO PROBLEMA</th>
+                    <th scope="col">NOME DE TOMBAMENTO DO EQUIPAMENTO</th>
                     <th scope="col">STATUS</th>
                     <th scope="col">AÇÕES</th>
                 </tr>
@@ -30,8 +30,16 @@
                 @foreach ($chamados as $chamado)                
                     <tr align="center">  
                         <td> {{$chamado -> user_name}} </td>
-                        <td> {{$chamado -> cham_grau_urgencia}} </td>  
-                        <td> {{$chamado -> sub_nome}}</td>
+                        <td> {{$chamado -> cham_grau_urgencia}} </td>
+                        @if($chamado->cham_obj != false)  
+                            <td> 
+                                <a href="/chamados/add3d/{{$chamado->cham_obj}}+{{$chamado->cham_sala}}"><i class="fas fa-cube"></i>
+                                    Ver no mapa
+                                </a>
+                            </td>
+                        @else
+                            <td> {{$chamado->tipo_nome}} / {{$chamado -> equip_tombamento}}</td>
+                        @endif
                         @can('user')  
                             <td> {{$chamado -> cham_status}}</td>
                         @endcan
