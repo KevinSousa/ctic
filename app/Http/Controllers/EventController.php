@@ -26,25 +26,72 @@ class EventController extends Controller
 
         $event_list = [];
         foreach ($events as $key => $event) {
-            $enddate = $event->end_date." 24:00:00";
+            $enddate = $event->end_date;
+            
             $event_list[] = Calendar::event(
                 $event->user_name,
                 false,
+             
                 new \Datetime($event->start_date),
-                new \Datetime($event->end_date . ' +1 day'),
+                new \Datetime($event->end_date),
                 $event->id,
                 [
+                    'url' => '#',
                     'title' => $event->user_name,
                     'color' => $event->event_cor,
+                     'themeSystem' => 'bootstrap3',
+                     'locale' => 'pt-BR',
+                     'lang' => 'pt-BR',
+                     
+                     'customRender' => true,
                 ]
             );
+
         }
         $ajax = false;
 
         if ($request->ajax()){
             $ajax = true;
         }
-        $calendar_details = Calendar::addEvents($event_list);
+        $calendar_details = Calendar::addEvents($event_list)->setOptions([
+
+            'FirstDay' => 1,
+            'navLinks'=> false,
+            'customRender'=> true,
+            'contentHeight' => 600,
+            'locale' => 'pt-BR',
+            'allDay' => false,
+            'aspectRatio' => 1,
+            'slotLabelFormat' => 'H:mm:ss',
+            'timeFormat' => 'H:mm',
+              'allDayText'=>'all-day',
+               'selectable' => true, //permite sa selectezi mai multe zile
+                 ' selectHelper'=> true, //coloreaza selctia ta
+            'axisFormat'=>'H:mm',
+            'themeSystem' => 'bootstrap3',
+            'slotDuration'=>'00:30:00',
+
+            'snapDuration'=>'00:30:00',
+
+            'scrollTime'=>'06:00:00',
+
+            'minTime'=>'00:00:00',
+
+            'maxTime'=>'24:00:00',
+            'select' => false,
+            'slotEventOverlap' =>false,
+            ])->setCallbacks([
+            
+            'themeSystem' => '"bootstrap4"',
+             'locale' => "'pt-BR'",
+              'eventRender' => 'function(event, element) {
+                element.popover({
+                  animation: true,
+                  html: true,
+                  content: $(element).html(),
+                  trigger: "hover"
+                  });
+        }']);
 
         return view('calendar.index', compact('calendar_details', 'ajax'));
 
@@ -66,6 +113,7 @@ class EventController extends Controller
         $inicio = $request['start_date']; 
         $fim = $request['end_date'];
         
+
         $reservas = DB::table('events')->where('start_date','=<',$inicio)->where('end_date','>=',$fim)->value('start_date','end_date');// Aqui faz um select  e pega todos os resultados maiores que a data de termino e de fim.
         
         $conflitoStart = DB::table('events')->whereBetween('start_date', [$inicio, $fim])->whereDate('start_date', $inicio)->count('start_date');//aqui ele verifica se tem alguma data de inicio entre a data de inicio e fim 
@@ -82,7 +130,7 @@ class EventController extends Controller
             'start_date.date' => 'Adicione uma Data de Início em um formato aceitavel',
             'end_date.required' => 'É obrigatório ter uma Data de Término',
             'end_date.date' => 'Adicione uma Data de Término em um formato aceitavel',
-            'end_date.after' => 'A Data de Término está maior que a Data de Início',
+            'end_date.after' => 'A Data de  Início deve ser maior que a Data de Término',
         ]);
 
 
