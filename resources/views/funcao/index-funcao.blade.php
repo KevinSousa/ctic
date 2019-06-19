@@ -4,7 +4,7 @@
 	<title> Funções </title>
 	<div id="index">
 		<div align="left">	
-			<h1 id="titulo">Funções</h1>
+			<center><h1 id="titulo">Funções</h1></center>
 			<br>
 			@if(session('success'))
                 <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
@@ -23,7 +23,7 @@
                     </button>
                 </ol> 
                 <?php Session::pull('sucesso-remover')?>         
-              @endif
+            @endif
 		</div>
         <table class="table table-striped table-bordered" id="example">
 			<thead class="thead-light">
@@ -121,7 +121,8 @@
 		            bLengthChange: false,  //Show and entries em cima da tabela
 		            bFilter: true, //Search em cima da tabela
 		            bInfo: false,  //Showing em baixo da tabela);
-		        }); 
+		        });
+                $ ('.dataTables_filter'). addClass ('pull-left'); 
                 $('.destroy').on('click', function(event)
                 {
                     //pega a url
@@ -190,6 +191,7 @@
             bFilter: true, //Search em cima da tabela
             bInfo: false,  //Showing em baixo da tabela);
         });
+        $('.dataTables_filter'). addClass ('pull-left');
         $('.destroy').on('click', function(event)
                 {
                     //pega a url
@@ -234,4 +236,7 @@
 	#titulo {
 		color: #666;
 	}
+    .pull-left { 
+        float: left! Important; 
+    }
 </style>
