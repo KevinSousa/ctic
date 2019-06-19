@@ -58,7 +58,6 @@ class EventController extends Controller
             'monthNamesShort'=> ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
             'dayNames'=> ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
             'dayNamesShort'=> ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
-
             'columnFormat'=> [
                 'month'=> 'ddd',
                 'week'=> 'ddd d',
@@ -155,6 +154,12 @@ class EventController extends Controller
             // return redirect()->with('warning',$mensagem);
             return Redirect::to('/calendar/addEvent')->withInput()->withErrors($mensagem);
         }
+        $date_agora = date('Y-m-d H:i');
+        $data_request = $request['start_date'];
+        if ($date_agora >  $data_request) {
+            $mensagem = 'A data da reserva está anterior ao momento atual!';
+            return Redirect::to('/calendar/addEvent')->withInput()->withErrors($mensagem);
+        }
 
         $event = new Event;
         $event->event_sala = $request['event_sala'];
@@ -164,7 +169,6 @@ class EventController extends Controller
         $event->event_user = Auth::user()->user_id;
         $event -> save();
 
-        
         \Session::flash('success', 'Agendamento efetuado com sucesso.');
         return Redirect::to('/calendar/addEvent');
     }
