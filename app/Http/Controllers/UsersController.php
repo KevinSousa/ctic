@@ -151,7 +151,7 @@ class UsersController extends Controller
                 $dados['user_imagem'] = "imagem.png";
             }
             
-            $mensagem = 'Sucesso ao fazer cadastro, Entre.';
+            $mensagem = 'Cadastro efetuado com sucesso';
             User::create($dados);
             // $st = session()->put('sucesso', ['sucesso' => $mensagem]);
             return redirect() -> route('login')
