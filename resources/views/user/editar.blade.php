@@ -7,7 +7,6 @@
             <div style="margin-top: -1em;">
                 <h2 id="titulo" align="left">Editar Usuário</h2>
                 <br>
-                
                 <!-- Mensagem de Succeso ao Editar Dados -->
                 @if(session('success'))
                     <ol class="alert alert-success alert-dismissible fade show mt-2" role="alert">              
@@ -37,14 +36,18 @@
 <!--                     <a href="{{ redirect()->back()->getTargetUrl() }}">
                         <button class="btn btn-primary">Voltar</button>
                     </a> -->
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <button class="btn btn-success" id="mudar" type="submit" > Atualizar </button>
+                   <div class="row">
+                        <div class="form-group col-md-8">
+                            <button class="btn btn-success" id="mudar" type="submit" style="width: 100%;" > Atualizar </button>
                         </div>
                 </form>
-                            <a href="{{route('home')}}">
-                                <button class="btn btn-primary form-group col-md-12" > Voltar </button>
+                        <div class="form-group col-md-4">
+                            <a href="{{route('home')}}" style="width: 100%;"> 
+                                <button class="btn btn-primary"style="width: 100%;">
+                                    Voltar 
+                                </button>
                             </a>
+                        </div>
                     </div>
                 <!-- </div> -->
             </div>
