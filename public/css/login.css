@@ -4,12 +4,13 @@
 }
 
 #ifpe {
-  max-width: 300px;
-  max-width: 300px;
+  max-width: 100%;
+  /*max-width: 300px;*/
   width: auto;
   height: auto;
-  padding-left: 60px;
-  margin-bottom: 10px;
+  /*padding-left: 60px;*/
+  margin-top: 3.5em;
+  margin-bottom: -3.5em;
 }
 
 body{
