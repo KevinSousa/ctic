@@ -131,7 +131,7 @@
                                 </li>
                                 <li>
 
-                                    <a href="calendar/show/" id="my-reserv-calendar">
+                                    <a href="/calendar/show/" id="my-reserv-calendar">
                                         <i class="fas fa-calendar-plus"></i>Minhas Reservas</a>
 
                                 </li>

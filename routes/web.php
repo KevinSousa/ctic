@@ -126,13 +126,13 @@ Route::group(['middleware'=>'auth'],function() {
 	
 	//ROTAS DO CALENDARIO
 	
-	Route::get('calendar', ['as'=>'calendar', 'uses'=>'EventController@index']);
+	Route::get('/calendar', ['as'=>'calendar', 'uses'=>'EventController@index']);
 	
-	Route::get('calendar/addEvent', ['as'=>'calendar.addEvent', 'uses'=>'EventController@addEvent']);
+	Route::get('/calendar/addEvent', ['as'=>'calendar.addEvent', 'uses'=>'EventController@addEvent']);
 	
-	Route::post('calendar/saveEvent', ['as'=>'calendar.saveEvent', 'uses'=>'EventController@saveEvent']);
+	Route::post('/calendar/saveEvent', ['as'=>'calendar.saveEvent', 'uses'=>'EventController@saveEvent']);
 
-	Route::get('calendar/show/', ['as'=>'calendar.show', 'uses'=>'EventController@show']);
+	Route::get('/calendar/show/', ['as'=>'calendar.show', 'uses'=>'EventController@show']);
 
 	Route::get('/calendar/destroy/{id}', ['as' => 'calendar.destroy', 'uses' => 'EventController@destroy']);
 
