@@ -72,12 +72,7 @@ $(window).load(function(){
                     
               });
            }
-          
-
-
-          BABYLON.SceneLoader.ImportMesh("", "/scenes/", "cadeira-verde.obj", scene, function (meshes) {              
-          
-          });
+        
           var selected = null;
          
 

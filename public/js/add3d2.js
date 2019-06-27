@@ -68,7 +68,7 @@ if (id != false && sala != false) {
           camera.attachControl(canvas);
            // Load the model
          if (sala == '1') {
-               BABYLON.SceneLoader.ImportMesh("", "/scenes/", "object.obj", scene, function (meshes) {          
+               BABYLON.SceneLoader.ImportMesh("", "/scenes/", "lab-b10.obj", scene, function (meshes) {          
                 scene.createDefaultCameraOrLight(5, true, true);
                 scene.createDefaultEnvironment();
                     
@@ -80,7 +80,7 @@ if (id != false && sala != false) {
                             
            }else if (sala == '2') {
 
-                BABYLON.SceneLoader.ImportMesh("", "/scenes/", "object1.obj", scene, function (meshes) {          
+                BABYLON.SceneLoader.ImportMesh("", "/scenes/", "lab-b2.obj", scene, function (meshes) {          
                 scene.createDefaultCameraOrLight(5, true, true);
                 scene.createDefaultEnvironment();
                     
@@ -92,10 +92,6 @@ if (id != false && sala != false) {
            }
           
 
-
-          BABYLON.SceneLoader.ImportMesh("", "/scenes/", "cadeira-verde.obj", scene, function (meshes) {              
-          
-          });
           var selected = null;
          
 
