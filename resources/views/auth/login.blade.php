@@ -16,8 +16,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <img id="ifpe" src="/logohelp2.png">
-        <div class="card card-signin my-5">
+        <img id="ifpelogin" src="/logohelp2.png">
+        <div class="card card-signin my-5" id="radius">
           <div class="card-body">
               <!-- Mensagens de Erros -->
               @foreach($errors->all() as $error)

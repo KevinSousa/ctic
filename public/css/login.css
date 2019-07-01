@@ -3,7 +3,7 @@
   --input-padding-y: .75rem;
 }
 
-#ifpe {
+#ifpelogin {
   max-width: 100%;
   /*max-width: 300px;*/
   width: auto;
@@ -11,6 +11,18 @@
   /*padding-left: 60px;*/
   margin-top: 3.5em;
   margin-bottom: -3.5em;
+}
+#radius {
+  border-radius: 1em;
+}
+
+#ifpe {
+ max-width: 300px;
+ max-width: 300px;
+  width: auto;
+  height: auto;
+ padding-left: 60px;
+ margin-bottom: 10px;
 }
 
 body{

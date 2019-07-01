@@ -15,11 +15,11 @@
 </head>
 <body><div class="container">
     <div class="row">
-        <div class="col-sm-9 col-md-12 col-lg-5 my-5  mx-auto" >            
-            <div class="card card-signin">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <img id="ifpelogin" src="/logohelp2.png">
+        <div class="card card-signin my-5" id="radius">
                 <div class="card-body mt-0" style="margin-top: 8em;">
 
-                    <img id="ifpe" src="/logohelp2.png">
                     @if($errors->all())
                          <ol class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
                             @foreach($errors->all() as $error)
