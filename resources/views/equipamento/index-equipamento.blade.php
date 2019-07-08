@@ -13,7 +13,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </ol> 
-                <?php Session::pull('fail')?>         
+                <?php Session::pull('success')?>         
               @endif
               @if(session('fail'))
                 <ol class="float-right alert alert-danger alert-dismissible fade col-md-4 show mt-2" role="alert">              
