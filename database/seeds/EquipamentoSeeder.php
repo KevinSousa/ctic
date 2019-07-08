@@ -20,10 +20,10 @@ class EquipamentoSeeder extends Seeder
         'equip_marca' => 'Hp',
         'equip_tombamento' => 9543154,
         ]);
-        DB::table('equipamentos')->insert([
-        'equip_tipo' => 1,
-        'equip_marca' => 'Samsung',
-        'equip_tombamento' => 0,
-        ]);
+        // DB::table('equipamentos')->insert([
+        // 'equip_tipo' => 1,
+        // 'equip_marca' => 'Samsung',
+        // 'equip_tombamento' => 0,
+        // ]);
     }
 }
