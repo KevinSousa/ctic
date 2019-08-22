@@ -86,7 +86,11 @@ input[type=number]::-webkit-inner-spin-button{
                         </div>               
                         <div class="form-group col-md-5">
                             <label>Tombamento*</label>
-                            <input type="number" name="cham_equip" id="cham_equip" value="{{old('cham_equip')}}" placeholder="Ex: 9543154"  class="form-control" required>
+                            <input type="number" name="cham_equip" id="cham_equip" maxlength="8" value="{{old('cham_equip')}}" placeholder="Ex: 9543154"  class="form-control" required>
+                            <div class="list_tombamento" id='list_tombamento' style="background-color: #babaca;">
+                               
+                            </div>
+
                             @if ($errors->has('cham_equip')) 
                                  <script >
                                     $('#cham_equip').addClass('alert-danger');                                            
@@ -172,6 +176,35 @@ input[type=number]::-webkit-inner-spin-button{
             $(document).ready( function(){
                 $('#adc-cham').parent('li').addClass("active");
             });
+              $("#cham_equip").on('keypress',function(){
+                    var numero = $("#cham_equip").val();
+                                    $.ajax({
+                    type: "GET", 
+                    url: "/gettombamento/"+numero,
+                    cache: false,
+                    success: function(retorno) {
+                            var retornos = JSON.parse(retorno);
+                            if (retornos != false || retornos != []) {
+                                    $("#list_tombamento").html(" ");
+                                    for (var i= 0; i <retornos.length; i++){
+                                        if (i < 9) {
+                                        $("#list_tombamento").append("<li id='lista'>"+retornos[i].equip_tombamento+"</li>");
+                                        $("#list_tombamento").show("slow",'linear');        
+                                        }
+                                     }        
+                            }   
+                    },
+                     error: function() {
+                        $("#list_tombamento").html("<li>Tombamento não encontrado</li>");
+                      } 
+                });   
+            });
+        $(document).on('click', '#lista', function(){
+            $("#cham_equip").val(this.innerHTML);
+        });
+        $("#cham_equip").on('focusout', function(){
+                 $("#list_tombamento").hide("slow",'linear');    
+        });
         </script>
 
 
@@ -192,5 +225,23 @@ input[type=number]::-webkit-inner-spin-button{
     .form-row, .form-group{
         text-align: left;
     }
+    #lista:hover{
+        background-color: #029242;
+    }
+    #lista{
+         padding: 0.5em;
+    }
+    .list_tombamento{
+       
+        align-items: center;
+        list-style-type: none;
+         z-index: 1000;
+        background-color: #FFF;
+        color: #FFF;
+        background-color: #666;
+        text-align: center; /* Centraliza o texto */
+       position:absolute;
+        width: 80%;
 
+    }
 </style>
