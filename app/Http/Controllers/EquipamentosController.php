@@ -110,6 +110,10 @@ class EquipamentosController extends Controller
 
 
 	}
+	public function gettombamento($id){
+		$equip	= Equipamento::where('equip_tombamento', 'like','%'.$id.'%')->get();
+		return json_encode($equip);
+	}
 
 	public function destroy($id) {
 
