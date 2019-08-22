@@ -68,6 +68,8 @@ Route::group(['middleware'=>'auth'],function() {
 
 	Route::put('/equipamento/update/{id}',['as'=>'equipamento.update','uses'=>'EquipamentosController@update']);
 
+	Route::get('/gettombamento/{id}',['as'=>'tombamento.get','uses'=>'EquipamentosController@gettombamento']);
+	
 	// ROTAS DE SALAS
 
 	Route::get('/sala/', ['as' => 'sala.home', 'uses' => 'SalasController@index']);
